@@ -125,6 +125,9 @@ export default function Home() {
             <Link href="#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Testimonials
             </Link>
+            <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+              Blog
+            </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
@@ -172,6 +175,9 @@ export default function Home() {
                 </Link>
                 <Link href="#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Testimonials
+                </Link>
+                <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Blog
                 </Link>
                 <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/contact">Contact us</Link></Button>
               </nav>

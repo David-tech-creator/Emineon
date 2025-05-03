@@ -114,8 +114,12 @@ export default function FindTalentPage() {
             <Link href="/#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">How we work</Link>
             <Link href="/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Expertise</Link>
             <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Testimonials</Link>
+            <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Blog</Link>
           </nav>
           <div className="flex items-center gap-4">
+            <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue">
+              Blog
+            </Link>
             <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
         </div>
