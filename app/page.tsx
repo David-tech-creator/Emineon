@@ -125,7 +125,7 @@ export default function Home() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
-            <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6">Contact us</Button>
+            <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
           {/* Hamburger for mobile */}
           <button
@@ -171,7 +171,7 @@ export default function Home() {
                 <Link href="#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Testimonials
                 </Link>
-                <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full">Contact us</Button>
+                <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/contact">Contact us</Link></Button>
               </nav>
             </div>
           )}
@@ -422,16 +422,9 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 bg-emineon-blue text-white">
           <div className="container">
-            <div className="max-w-3xl mx-auto">
-              <motion.h2
-                className="text-3xl font-bold tracking-tight mb-6"
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
-              >
-                Let's Build Your Global Team
-              </motion.h2>
+            <div className="max-w-3xl mx-auto flex flex-col items-center">
+              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} className="mb-2 mx-auto" />
+              <h2 className="text-3xl font-bold tracking-tight mb-6 text-center">Let's build your global team</h2>
               <p className="text-xl opacity-80 mb-8">
                 Ready to overcome talent shortages and access exceptional professionals worldwide? Let's start the
                 conversation.
@@ -446,7 +439,7 @@ export default function Home() {
                 </div>
 
                 <div className="md:ml-auto">
-                  <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8">Contact Us</Button>
+                  <Button asChild className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8"><Link href="/contact">Contact us</Link></Button>
                 </div>
               </div>
 
@@ -460,20 +453,22 @@ export default function Home() {
       </main>
 
       <footer className="py-8 bg-emineon-dark text-white/60">
-        <div className="container">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm">© {new Date().getFullYear()} EMINEON. All rights reserved.</p>
-            <div className="flex gap-8 mt-4 md:mt-0">
-              <Link href="#" className="text-sm hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm hover:text-white">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-sm hover:text-white">
-                Contact
-              </Link>
-            </div>
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+          <div className="flex items-center gap-3">
+            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} className="h-10 w-auto" />
+            <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          </div>
+          <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <Link href="#" className="text-sm hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Contact
+            </Link>
           </div>
         </div>
       </footer>

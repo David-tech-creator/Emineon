@@ -32,7 +32,7 @@ export default function CareersPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6">Contact Us</Button>
+            <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
         </div>
       </header>

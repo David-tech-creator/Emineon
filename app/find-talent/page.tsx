@@ -66,8 +66,8 @@ function VettingProcessSection() {
     },
     {
       title: "De-risked Engagement",
-      description: "6-month trial commitment for peace of mind",
-      hoverDetail: "If it's not the right fit, you're covered—no long-term risk.",
+      description: "3-month trial commitment for peace of mind",
+      hoverDetail: "If it's not the right fit within 3 months, you're covered—no long-term risk.",
     },
   ];
   return (
@@ -113,7 +113,7 @@ export default function FindTalentPage() {
             <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Testimonials</Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6">Contact Us</Button>
+            <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
         </div>
       </header>
@@ -223,6 +223,57 @@ export default function FindTalentPage() {
 
       {/* Vetting Process */}
       <VettingProcessSection />
+
+      {/* Final CTA (copied from homepage) */}
+      <section className="py-20 bg-emineon-blue text-white w-full">
+        <div className="container">
+          <div className="max-w-3xl mx-auto flex flex-col items-center">
+            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} className="mb-2 mx-auto" />
+            <h2 className="text-3xl font-bold tracking-tight mb-6 text-center">Let's build your global team</h2>
+            <p className="text-xl opacity-80 mb-8">
+              Ready to overcome talent shortages and access exceptional professionals worldwide? Let's start the
+              conversation.
+            </p>
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="space-y-2">
+                <p className="font-medium">David Vinkenroye</p>
+                <p className="opacity-80">Founder & Partner, EMINEON</p>
+                <p className="opacity-80">david.v@emineon.com</p>
+                <p className="opacity-80">+41 (0) 79 533 28 09</p>
+              </div>
+              <div className="md:ml-auto">
+                <Button asChild className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8"><Link href="/contact">Contact us</Link></Button>
+              </div>
+            </div>
+            <div className="mt-12 pt-8 border-t border-white/20 text-center">
+              <p className="text-sm uppercase tracking-widest opacity-60">forge your edge.</p>
+              <p className="text-sm opacity-60">www.emineon.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer (copied from homepage) */}
+      <footer className="py-8 bg-emineon-dark text-white/60 w-full">
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+          <div className="flex items-center gap-3">
+            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} className="h-10 w-auto" />
+            <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          </div>
+          <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <Link href="#" className="text-sm hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="/contact" className="text-sm hover:text-white">
+              Contact
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 } 
