@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { Linkedin, Instagram } from "lucide-react";
 
 function VettingProcessCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
@@ -133,7 +134,7 @@ export default function FindTalentPage() {
       </section>
 
       {/* Needs Analysis Form */}
-      <section ref={formRef} className="w-full max-w-2xl bg-white rounded-lg shadow p-8 mt-12 mb-16 scroll-mt-20">
+      <section ref={formRef} className="w-full max-w-2xl bg-white rounded-lg shadow p-4 sm:p-8 mt-8 sm:mt-12 mb-12 sm:mb-16 scroll-mt-20">
         <h2 className="text-2xl font-bold text-emineon-blue mb-4">Tell us what you need</h2>
         <form className="space-y-4">
           <div className="flex flex-col gap-2">
@@ -154,11 +155,18 @@ export default function FindTalentPage() {
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Budget range <span className="text-xs text-neutral-400">(optional)</span></label>
-            <div className="flex gap-2">
-              <input className="border rounded p-2 flex-1" type="text" placeholder="e.g. CHF 800–1200 or CHF 50k–100k" />
+            <div className="flex flex-col sm:flex-row gap-2">
+              <div className="flex gap-2 w-full">
+                <select className="border rounded p-2" defaultValue="CHF" style={{ minWidth: 80 }}>
+                  <option value="CHF">CHF</option>
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                </select>
+                <input className="border rounded p-2 flex-1" type="text" placeholder="e.g. 800–1200 or 50k–100k" />
+              </div>
               <select className="border rounded p-2" defaultValue="daily">
-                <option value="daily">Daily rate (CHF per day)</option>
-                <option value="total">Total project budget (CHF)</option>
+                <option value="daily">Daily rate</option>
+                <option value="total">Total project budget</option>
               </select>
             </div>
             <span className="text-xs text-neutral-500">Choose whether your budget is a daily rate or a total project estimate.</span>
@@ -263,8 +271,21 @@ export default function FindTalentPage() {
       <footer className="py-8 bg-emineon-dark text-white/60 w-full">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
           <div className="flex items-center gap-3">
-            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} className="h-10 w-auto" />
+            <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="h-10 w-auto">
+              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} />
+            </motion.div>
             <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+            <div className="flex gap-4 ml-4">
+              <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href="#" aria-label="X (Twitter)" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17.5 6.5L6.5 17.5"/><path d="M6.5 6.5l11 11"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-6 h-6" />
+              </a>
+            </div>
           </div>
           <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
           <div className="flex gap-8 mt-4 md:mt-0">
