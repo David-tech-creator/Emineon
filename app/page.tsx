@@ -105,7 +105,10 @@ export default function Home() {
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
                 <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
               </motion.div>
-              <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+              <span className="flex flex-col leading-tight">
+                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+              </span>
             </Link>
           </div>
           {/* Desktop nav */}
@@ -205,7 +208,7 @@ export default function Home() {
                 delivering tailored services across industries.
               </p>
               <div className="pt-4">
-                <p className="text-sm uppercase tracking-widest text-neutral-500 mb-2">forge your edge.</p>
+                <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-2">forge your edge.</p>
                 <p className="text-sm text-neutral-600 italic">
                   [fɔːdʒ] verb - create (something) strong, enduring, or successful.
                 </p>
@@ -454,7 +457,7 @@ export default function Home() {
               </div>
 
               <div className="mt-12 pt-8 border-t border-white/20 text-center">
-                <p className="text-sm uppercase tracking-widest opacity-60">forge your edge.</p>
+                <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-1">forge your edge.</p>
                 <p className="text-sm opacity-60">www.emineon.com</p>
               </div>
             </div>

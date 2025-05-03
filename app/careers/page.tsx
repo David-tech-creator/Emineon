@@ -11,7 +11,10 @@ export default function CareersPage() {
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
-              <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+              <span className="flex flex-col leading-tight">
+                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+              </span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">

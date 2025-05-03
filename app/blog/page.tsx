@@ -17,7 +17,10 @@ export default function BlogPage() {
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
                 <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
               </motion.div>
-              <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+              <span className="flex flex-col leading-tight">
+                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+              </span>
             </Link>
           </div>
           {/* Desktop nav */}
