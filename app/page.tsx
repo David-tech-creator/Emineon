@@ -9,7 +9,8 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b bg-white">
         <div className="container flex h-20 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold tracking-tight">EMINEON</span>
+            <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+            <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
@@ -676,7 +677,7 @@ export default function Home() {
                 <div className="space-y-2">
                   <p className="font-medium">David Vinkenroye</p>
                   <p className="opacity-80">Founder & Partner, EMINEON</p>
-                  <p className="opacity-80">d.vinkenroye@emineon.com</p>
+                  <p className="opacity-80">david.v@emineon.com</p>
                   <p className="opacity-80">+41 (0) 795 33 28 709</p>
                 </div>
 

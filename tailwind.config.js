@@ -52,9 +52,14 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         emineon: {
-          blue: "#00209F",
-          light: "#1A36AF",
-          dark: "#001A80",
+          blue: "#0A2F5A",
+          gray: "#444B54",
+          orange: "#C75B12",
+          teal: "#008080",
+          offwhite: "#F8F9FA",
+          black: "#232629",
+          light: "#0A2F5A",
+          dark: "#0A2F5A",
         },
       },
       borderRadius: {
