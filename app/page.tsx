@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -87,6 +87,7 @@ function BottomBanner() {
 
 export default function Home() {
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleGetStarted = () => {
     const section = document.getElementById("get-started-section");
@@ -98,13 +99,14 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-[#f8f8f8]">
       <header className="sticky top-0 z-40 border-b bg-white">
-        <div className="container flex h-20 items-center justify-between py-4">
+        <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
               <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
             </Link>
           </div>
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Who we are
@@ -122,9 +124,57 @@ export default function Home() {
               Testimonials
             </Link>
           </nav>
-          <div className="flex items-center gap-4">
-            <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6">Contact Us</Button>
+          <div className="hidden md:flex items-center gap-4">
+            <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6">Contact us</Button>
           </div>
+          {/* Hamburger for mobile */}
+          <button
+            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu className="w-7 h-7 text-emineon-blue" />
+          </button>
+          {/* Mobile menu drawer */}
+          {mobileMenuOpen && (
+            <div
+              className="fixed inset-0 z-50 bg-black/40 flex"
+              tabIndex={-1}
+              aria-modal="true"
+              role="dialog"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <nav
+                className="bg-white w-72 max-w-full h-full shadow-lg p-6 flex flex-col gap-6 relative"
+                onClick={e => e.stopPropagation()}
+                aria-label="Mobile menu"
+              >
+                <button
+                  className="absolute top-4 right-4 text-emineon-blue text-2xl focus:outline-none"
+                  aria-label="Close menu"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  ×
+                </button>
+                <Link href="#who-we-are" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Who we are
+                </Link>
+                <Link href="#services" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Services
+                </Link>
+                <Link href="#how-we-work" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  How we work
+                </Link>
+                <Link href="#expertise" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Expertise
+                </Link>
+                <Link href="#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Testimonials
+                </Link>
+                <Button className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full">Contact us</Button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
