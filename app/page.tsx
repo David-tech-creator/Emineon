@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users, Menu } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -102,7 +102,9 @@ export default function Home() {
         <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
+                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              </motion.div>
               <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
             </Link>
           </div>
@@ -423,7 +425,9 @@ export default function Home() {
         <section className="py-20 bg-emineon-blue text-white">
           <div className="container">
             <div className="max-w-3xl mx-auto flex flex-col items-center">
-              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} className="mb-2 mx-auto" />
+              <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="mb-2 mx-auto">
+                <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} />
+              </motion.div>
               <h2 className="text-3xl font-bold tracking-tight mb-6 text-center">Let's build your global team</h2>
               <p className="text-xl opacity-80 mb-8">
                 Ready to overcome talent shortages and access exceptional professionals worldwide? Let's start the
@@ -455,8 +459,21 @@ export default function Home() {
       <footer className="py-8 bg-emineon-dark text-white/60">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
           <div className="flex items-center gap-3">
-            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} className="h-10 w-auto" />
+            <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="h-10 w-auto">
+              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} />
+            </motion.div>
             <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+            <div className="flex gap-4 ml-4">
+              <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href="#" aria-label="X (Twitter)" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17.5 6.5L6.5 17.5"/><path d="M6.5 6.5l11 11"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-6 h-6" />
+              </a>
+            </div>
           </div>
           <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
           <div className="flex gap-8 mt-4 md:mt-0">
