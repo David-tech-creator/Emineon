@@ -106,19 +106,19 @@ export default function Home() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Who we are
             </Link>
-            <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Services
             </Link>
-            <Link href="#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               How we work
             </Link>
-            <Link href="#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Expertise
             </Link>
-            <Link href="#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Testimonials
             </Link>
           </nav>
