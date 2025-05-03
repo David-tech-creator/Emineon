@@ -1,9 +1,21 @@
+"use client";
+
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
 
 export default function Home() {
+  const [showLeadForm, setShowLeadForm] = useState(false);
+
+  const handleGetStarted = () => {
+    const section = document.getElementById("get-started-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-[#f8f8f8]">
       <header className="sticky top-0 z-40 border-b bg-white">
@@ -14,13 +26,13 @@ export default function Home() {
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
-              Who We Are
+              Who we are
             </Link>
             <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Services
             </Link>
             <Link href="#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
-              How We Work
+              How we work
             </Link>
             <Link href="#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Expertise
@@ -41,7 +53,7 @@ export default function Home() {
           <div className="container flex flex-col lg:flex-row items-center gap-12">
             <div className="space-y-6 lg:w-1/2">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-emineon-blue">
-                Your Partner in Growth and Innovation
+                Your partner in growth and innovation
               </h1>
               <p className="text-xl text-neutral-600 max-w-xl">
                 At Emineon Consulting, we specialize in optimizing operations, driving sustainable growth, and
@@ -54,8 +66,12 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button size="lg" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-8">
-                  Get Started
+                <Button
+                  size="lg"
+                  className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-8"
+                  onClick={handleGetStarted}
+                >
+                  Get started
                 </Button>
               </div>
             </div>
@@ -72,7 +88,7 @@ export default function Home() {
         </section>
 
         {/* Find a Job / Hire Talent Section */}
-        <section className="py-16 bg-emineon-blue text-white">
+        <section id="get-started-section" className="py-16 bg-emineon-blue text-white scroll-mt-20">
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">What are you looking for?</h2>
@@ -84,7 +100,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
-                <h3 className="text-2xl font-bold mb-4">Find a Job</h3>
+                <h3 className="text-2xl font-bold mb-4">Find a job</h3>
                 <p className="mb-6">
                   Join our exclusive network of global professionals. Access opportunities with leading European
                   companies and advance your career.
@@ -109,7 +125,7 @@ export default function Home() {
               </div>
 
               <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
-                <h3 className="text-2xl font-bold mb-4">Hire Talent</h3>
+                <h3 className="text-2xl font-bold mb-4">Hire talent</h3>
                 <p className="mb-6">
                   Access our pool of rigorously vetted professionals across multiple disciplines to solve your talent
                   challenges.
@@ -142,7 +158,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-16">
               <div>
                 <h2 className="text-3xl font-bold tracking-tight text-emineon-blue mb-8">Who we are</h2>
-                <h3 className="text-xl font-medium text-neutral-800 mb-6">About EMINEON Global Talent</h3>
+                <h3 className="text-xl font-medium text-neutral-800 mb-6">About Emineon global talent</h3>
 
                 <div className="space-y-6">
                   <div className="space-y-2">
@@ -713,6 +729,35 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {showLeadForm && (
+        <div className="fixed bottom-4 right-4 z-50 bg-white border border-emineon-blue rounded-lg shadow-lg p-6 w-96">
+          <h3 className="text-lg font-bold mb-2 text-emineon-blue">Let's connect</h3>
+          <form className="space-y-3">
+            <input className="w-full border p-2 rounded" type="text" placeholder="Name" required />
+            <input className="w-full border p-2 rounded" type="email" placeholder="Email" required />
+            <input className="w-full border p-2 rounded" type="text" placeholder="Company" required />
+            <textarea className="w-full border p-2 rounded" placeholder="Challenge or goal" rows={3} required />
+            <button type="submit" className="w-full bg-emineon-blue text-white py-2 rounded">Submit</button>
+          </form>
+          <div className="mt-4 text-center">
+            <a
+              href="https://calendly.com/your-calendly-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-emineon-orange text-white px-4 py-2 rounded mt-2"
+            >
+              Schedule a discovery call
+            </a>
+          </div>
+          <button
+            className="absolute top-2 right-2 text-emineon-blue hover:text-emineon-orange"
+            onClick={() => setShowLeadForm(false)}
+          >
+            ×
+          </button>
+        </div>
+      )}
     </div>
   )
 }
