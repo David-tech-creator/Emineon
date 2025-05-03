@@ -101,7 +101,9 @@ export default function FindTalentPage() {
         <div className="container flex h-20 items-center justify-between py-4">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
+                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              </motion.div>
               <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
             </Link>
           </div>
@@ -120,7 +122,9 @@ export default function FindTalentPage() {
 
       {/* Hero Section */}
       <section className="w-full bg-emineon-blue text-white py-16 flex flex-col items-center text-center px-4">
-        <Image src="/Emineon logo_tree_white.png" alt="Emineon Logo" width={120} height={120} className="mb-2" />
+        <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="mb-2">
+          <Image src="/Emineon logo_tree_white.png" alt="Emineon Logo" width={120} height={120} className="mb-2" />
+        </motion.div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Access elite, vetted consultants fast</h1>
         <p className="text-lg mb-8 max-w-2xl mx-auto">Tailored for your culture and your needs</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -228,7 +232,9 @@ export default function FindTalentPage() {
       <section className="py-20 bg-emineon-blue text-white w-full">
         <div className="container">
           <div className="max-w-3xl mx-auto flex flex-col items-center">
-            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} className="mb-2 mx-auto" />
+            <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="mb-2 mx-auto">
+              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} />
+            </motion.div>
             <h2 className="text-3xl font-bold tracking-tight mb-6 text-center">Let's build your global team</h2>
             <p className="text-xl opacity-80 mb-8">
               Ready to overcome talent shortages and access exceptional professionals worldwide? Let's start the
