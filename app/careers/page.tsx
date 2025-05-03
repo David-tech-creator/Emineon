@@ -2,15 +2,21 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Linkedin, Instagram, Menu } from "lucide-react";
+import { useState } from "react";
 
 export default function CareersPage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-8">
-      <header className="sticky top-0 z-40 border-b bg-white w-full">
-        <div className="container flex h-20 items-center justify-between py-4">
+      <header className="fixed top-0 left-0 z-50 w-[100vw] border-b bg-white" style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)', width: '100vw' }}>
+        <div className="flex h-20 items-center justify-between py-4 px-4 md:px-8">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
+                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+              </motion.div>
               <span className="flex flex-col leading-tight">
                 <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
                 <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
@@ -33,15 +39,71 @@ export default function CareersPage() {
             <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Testimonials
             </Link>
+            <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+              Blog
+            </Link>
           </nav>
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
+          {/* Hamburger for mobile */}
+          <button
+            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu className="w-7 h-7 text-emineon-blue" />
+          </button>
+          {/* Mobile menu drawer */}
+          {mobileMenuOpen && (
+            <div
+              className="fixed inset-0 z-50 bg-black/40 flex"
+              tabIndex={-1}
+              aria-modal="true"
+              role="dialog"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <nav
+                className="bg-white w-72 max-w-full h-full shadow-lg p-6 flex flex-col gap-6 relative"
+                onClick={e => e.stopPropagation()}
+                aria-label="Mobile menu"
+              >
+                <button
+                  className="absolute top-4 right-4 text-emineon-blue text-2xl focus:outline-none"
+                  aria-label="Close menu"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  ×
+                </button>
+                <Link href="/#who-we-are" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Who we are
+                </Link>
+                <Link href="/#services" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Services
+                </Link>
+                <Link href="/#how-we-work" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  How we work
+                </Link>
+                <Link href="/#expertise" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Expertise
+                </Link>
+                <Link href="/#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Testimonials
+                </Link>
+                <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Blog
+                </Link>
+                <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/contact">Contact us</Link></Button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
-      <header className="w-full flex flex-col items-center mb-12 mt-8">
-        <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={80} height={80} className="mb-4" />
+      <header className="w-full flex flex-col items-center mb-12 mt-8 pt-20">
+        <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
+          <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={80} height={80} className="mb-4" />
+        </motion.div>
         <h1 className="text-4xl font-bold text-emineon-blue mb-2">Careers at Emineon</h1>
         <p className="text-lg text-center max-w-2xl text-neutral-700">
           Join our global network of professionals and help shape the future of consulting, technology, and innovation. At Emineon, we value expertise, diversity, and a forward-thinking mindset. Explore our open positions and become part of a team that makes a difference.
@@ -71,6 +133,69 @@ export default function CareersPage() {
           </div>
         </section>
       </main>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-emineon-blue text-white w-full" style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)', width: '100vw' }}>
+        <div className="max-w-3xl mx-auto flex flex-col items-center px-4">
+          <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="mb-2 mx-auto">
+            <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" width={120} height={120} className="mb-2 mx-auto" />
+          </motion.div>
+          <h2 className="text-3xl font-bold tracking-tight mb-6 text-center">Let's build your global team</h2>
+          <p className="text-xl opacity-80 mb-8">
+            Ready to overcome talent shortages and access exceptional professionals worldwide? Let's start the conversation.
+          </p>
+          <div className="flex flex-col md:flex-row gap-8 items-start">
+            <div className="space-y-2">
+              <p className="font-medium">David Vinkenroye</p>
+              <p className="opacity-80">Founder & Partner, EMINEON</p>
+              <p className="opacity-80">david.v@emineon.com</p>
+              <p className="opacity-80">+41 (0) 795 33 28 709</p>
+            </div>
+            <div className="md:ml-auto">
+              <Button asChild className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8"><Link href="/contact">Contact us</Link></Button>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-white/20 text-center">
+            <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-1">forge your edge.</p>
+            <p className="text-sm opacity-60">www.emineon.com</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-emineon-dark text-white/60 w-full" style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)', width: '100vw' }}>
+        <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+          <div className="flex items-center gap-3">
+            <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="h-10 w-auto">
+              <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} />
+            </motion.div>
+            <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+            <div className="flex gap-4 ml-4">
+              <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-6 h-6" />
+              </a>
+              <a href="#" aria-label="X (Twitter)" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M17.5 6.5L6.5 17.5"/><path d="M6.5 6.5l11 11"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
+                <Instagram className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+          <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <Link href="#" className="text-sm hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Contact
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 } 
