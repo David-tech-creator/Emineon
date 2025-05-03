@@ -1191,8 +1191,8 @@ function VettingProcessSection() {
     },
     {
       title: "De-risked Engagement",
-      description: "6-month trial commitment for peace of mind",
-      hoverDetail: "If it's not the right fit, you're covered—no long-term risk.",
+      description: "3-month trial commitment for peace of mind",
+      hoverDetail: "If it's not the right fit within 3 months, you're covered—no long-term risk.",
     },
   ];
   return (
