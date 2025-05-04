@@ -88,6 +88,11 @@ export default function BlogPage() {
           )}
         </div>
       </header>
+      {/* Hero Section (static, no video) */}
+      <section className="w-full py-20 bg-emineon-blue flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold text-white mb-4 text-center">Emineon Blog</h1>
+        <p className="text-lg text-white/80 max-w-2xl text-center mx-auto">Insights, stories, and resources on global talent, innovation, and the future of work.</p>
+      </section>
       <main className="flex-1 w-full flex flex-col items-center px-4 py-16">
         <motion.div
           className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 sm:p-10 flex flex-col items-center"
@@ -95,10 +100,6 @@ export default function BlogPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold text-emineon-blue mb-2 text-center">Blog</h1>
-          <p className="text-neutral-700 mb-8 text-center max-w-xl">
-            Insights, stories, and updates from the Emineon team. Stay tuned for expert perspectives on talent, technology, and the future of work.
-          </p>
           <div className="w-full flex flex-col items-center justify-center min-h-[200px]">
             <p className="text-neutral-400">No posts yet. Check back soon!</p>
           </div>
