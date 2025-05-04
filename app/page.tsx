@@ -996,6 +996,21 @@ function WhoWeAre() {
 
   useEffect(() => {
     if (!videoRef.current || !sectionRef.current) return;
+
+    // Helper to check if section is in view
+    const checkAndPlay = () => {
+      const rect = sectionRef.current!.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView && videoRef.current) {
+        videoRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
+    };
+
+    // Check immediately on mount
+    checkAndPlay();
+
+    // Intersection Observer for scroll
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && videoRef.current) {
@@ -1009,6 +1024,7 @@ function WhoWeAre() {
       { threshold: 0.4 }
     );
     observer.observe(sectionRef.current);
+
     return () => observer.disconnect();
   }, []);
 
