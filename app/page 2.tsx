@@ -25,10 +25,24 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b bg-white">
         <div className="container flex h-20 items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
-              <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-            </Link>
+            <Button
+              asChild
+              variant="ghost"
+              className="group p-0 h-auto min-w-0 shadow-none border-none bg-transparent hover:bg-transparent focus:ring-2 focus:ring-emineon-orange transition-transform"
+              aria-label="View the site in English"
+            >
+              <Link href="/" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange"
+                title="View in English"
+              >
+                <span className="w-5 h-5">
+                  {/* Inline SVG for UK flag or a globe icon */}
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
+                    {/* SVG content for UK flag */}
+                  </svg>
+                </span>
+                <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
+              </Link>
+            </Button>
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
