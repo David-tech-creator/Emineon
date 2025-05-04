@@ -56,118 +56,129 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-100 flex flex-col items-center justify-center px-2 py-6 sm:py-10">
+    <main className="min-h-screen w-full flex flex-col items-center justify-center px-2 py-6 sm:py-10 relative overflow-hidden">
+      {/* Background Video */}
+      <video
+        className="fixed inset-0 w-full h-full object-cover z-0"
+        src="/contact-form-oak-tree-sunset.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       <motion.div
-        className="flex flex-col items-center w-full"
+        className="flex flex-col items-center w-full relative z-10 min-h-screen justify-center"
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.div
-          className="mb-2 sm:mb-4 flex justify-center"
-          initial={{ scale: 0.7, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 300, damping: 18, delay: 0.1 }}
-          whileHover={{ scale: 1.15 }}
-        >
-          <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={80} height={80} priority className="drop-shadow-lg" />
-        </motion.div>
-        <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8 max-w-lg w-full flex flex-col items-center">
-          <h1 className="text-3xl font-bold text-emineon-blue mb-2 text-center">Contact us</h1>
-          <p className="text-neutral-700 mb-6 text-center">Let's start the conversation. Fill out the form and our team will get back to you promptly.</p>
-          {submitted ? (
+        <div className="flex w-full min-h-screen items-center justify-center">
+          <div className="bg-white/30 rounded-xl p-2 sm:p-4 max-w-md w-full flex flex-col items-center backdrop-blur-sm border border-white/30">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12"
+              className="mb-2 sm:mb-4 flex justify-center"
+              initial={{ scale: 0.7, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
+              whileHover={{ scale: 1.15 }}
             >
-              <div className="text-4xl mb-4">🎉</div>
-              <div className="text-xl font-semibold text-emineon-blue mb-2">Thank you!</div>
-              <div className="text-neutral-700">We've received your message and will be in touch soon.</div>
+              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={64} height={64} priority className="drop-shadow" />
             </motion.div>
-          ) : (
-            <form className="space-y-5 w-full" onSubmit={handleSubmit} noValidate>
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-emineon-blue mb-1">Name *</label>
-                <motion.input
-                  whileFocus={{ borderColor: "#C75B12" }}
-                  className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.name ? "border-red-500" : "border-emineon-blue/20"}`}
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  aria-invalid={!!errors.name}
-                  aria-describedby="name-error"
-                  required
-                />
-                {errors.name && <div id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</div>}
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-emineon-blue mb-1">Email *</label>
-                <motion.input
-                  whileFocus={{ borderColor: "#C75B12" }}
-                  className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.email ? "border-red-500" : "border-emineon-blue/20"}`}
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  aria-invalid={!!errors.email}
-                  aria-describedby="email-error"
-                  required
-                />
-                {errors.email && <div id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</div>}
-              </div>
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-emineon-blue mb-1">Company</label>
-                <motion.input
-                  whileFocus={{ borderColor: "#C75B12" }}
-                  className="w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange border-emineon-blue/20 transition"
-                  type="text"
-                  name="company"
-                  id="company"
-                  value={form.company}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-emineon-blue mb-1">Message *</label>
-                <motion.textarea
-                  whileFocus={{ borderColor: "#C75B12" }}
-                  className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.message ? "border-red-500" : "border-emineon-blue/20"}`}
-                  name="message"
-                  id="message"
-                  rows={4}
-                  value={form.message}
-                  onChange={handleChange}
-                  aria-invalid={!!errors.message}
-                  aria-describedby="message-error"
-                  required
-                />
-                {errors.message && <div id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</div>}
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-emineon-blue text-white py-2 rounded mb-4"
-                disabled={loading}
+            <h1 className="text-2xl font-bold text-emineon-blue mb-1 text-center">Contact us</h1>
+            <p className="text-neutral-700 mb-4 text-center text-sm">Let's start the conversation. Fill out the form and our team will get back to you promptly.</p>
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="text-center py-12"
               >
-                {loading ? 'Sending...' : 'Send Message'}
-              </Button>
-              <Button
-                asChild
-                className="w-full bg-emineon-orange text-white hover:bg-emineon-orange/90 py-2 rounded mb-4"
-              >
-                <a href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
-                  Book a Discovery Call
-                </a>
-              </Button>
-              {apiError && <div className="text-red-500 text-xs mt-2 text-center">{apiError}</div>}
-            </form>
-          )}
+                <div className="text-4xl mb-4">🎉</div>
+                <div className="text-xl font-semibold text-emineon-blue mb-2">Thank you!</div>
+                <div className="text-neutral-700">We've received your message and will be in touch soon.</div>
+              </motion.div>
+            ) : (
+              <form className="space-y-5 w-full" onSubmit={handleSubmit} noValidate>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-emineon-blue mb-1">Name *</label>
+                  <motion.input
+                    whileFocus={{ borderColor: "#C75B12" }}
+                    className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.name ? "border-red-500" : "border-emineon-blue/20"}`}
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.name}
+                    aria-describedby="name-error"
+                    required
+                  />
+                  {errors.name && <div id="name-error" className="text-red-500 text-xs mt-1">{errors.name}</div>}
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-emineon-blue mb-1">Email *</label>
+                  <motion.input
+                    whileFocus={{ borderColor: "#C75B12" }}
+                    className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.email ? "border-red-500" : "border-emineon-blue/20"}`}
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.email}
+                    aria-describedby="email-error"
+                    required
+                  />
+                  {errors.email && <div id="email-error" className="text-red-500 text-xs mt-1">{errors.email}</div>}
+                </div>
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-emineon-blue mb-1">Company</label>
+                  <motion.input
+                    whileFocus={{ borderColor: "#C75B12" }}
+                    className="w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange border-emineon-blue/20 transition"
+                    type="text"
+                    name="company"
+                    id="company"
+                    value={form.company}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-emineon-blue mb-1">Message *</label>
+                  <motion.textarea
+                    whileFocus={{ borderColor: "#C75B12" }}
+                    className={`w-full border rounded p-2 focus:outline-none focus:ring-2 focus:ring-emineon-orange transition ${errors.message ? "border-red-500" : "border-emineon-blue/20"}`}
+                    name="message"
+                    id="message"
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    aria-invalid={!!errors.message}
+                    aria-describedby="message-error"
+                    required
+                  />
+                  {errors.message && <div id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</div>}
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-emineon-blue text-white py-2 rounded mb-4"
+                  disabled={loading}
+                >
+                  {loading ? 'Sending...' : 'Send Message'}
+                </Button>
+                <Button
+                  asChild
+                  className="w-full bg-emineon-orange text-white hover:bg-emineon-orange/90 py-2 rounded mb-4"
+                >
+                  <a href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                    Book a Discovery Call
+                  </a>
+                </Button>
+                {apiError && <div className="text-red-500 text-xs mt-2 text-center">{apiError}</div>}
+              </form>
+            )}
+          </div>
         </div>
       </motion.div>
-      <footer className="w-full flex flex-col items-center mt-8 mb-2">
+      <footer className="w-full flex flex-col items-center mt-8 mb-2 relative z-10">
         <div className="flex gap-6 justify-center">
           <a href="#" aria-label="LinkedIn" className="text-emineon-blue hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
             <Linkedin className="w-7 h-7" />
