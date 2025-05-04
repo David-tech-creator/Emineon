@@ -147,7 +147,21 @@ export default function ContactPage() {
                 />
                 {errors.message && <div id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</div>}
               </div>
-              <Button type="submit" className="w-full bg-emineon-blue hover:bg-emineon-orange text-white rounded-none px-8 py-2 text-lg font-semibold transition-all" disabled={loading}>{loading ? 'Sending...' : 'Send message'}</Button>
+              <Button
+                type="submit"
+                className="w-full bg-emineon-blue text-white py-2 rounded mb-4"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Message'}
+              </Button>
+              <Button
+                asChild
+                className="w-full bg-emineon-orange text-white hover:bg-emineon-orange/90 py-2 rounded mb-4"
+              >
+                <a href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                  Book a Discovery Call
+                </a>
+              </Button>
               {apiError && <div className="text-red-500 text-xs mt-2 text-center">{apiError}</div>}
             </form>
           )}
