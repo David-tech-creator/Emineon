@@ -105,7 +105,7 @@ export default function CareersPage() {
           <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={80} height={80} className="mb-4" />
         </motion.div>
         <h1 className="text-4xl font-bold text-emineon-blue mb-2">Careers at Emineon</h1>
-        <p className="text-lg text-center max-w-2xl text-neutral-700">
+        <p className="text-lg text-center max-w-2xl text-foreground">
           Join our global network of professionals and help shape the future of consulting, technology, and innovation. At Emineon, we value expertise, diversity, and a forward-thinking mindset. Explore our open positions and become part of a team that makes a difference.
         </p>
       </header>
@@ -114,22 +114,22 @@ export default function CareersPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-emineon-blue mb-4">Open Positions</h2>
           <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center min-h-[200px]">
-            <p className="text-neutral-500">No open positions at the moment. Please check back soon or send us your CV at <a href="mailto:careers@emineon.com" className="text-emineon-blue underline">careers@emineon.com</a>.</p>
+            <p className="text-foreground">No open positions at the moment. Please check back soon or send us your CV at <a href="mailto:careers@emineon.com" className="text-emineon-blue underline">careers@emineon.com</a>.</p>
           </div>
         </section>
         {/* Emineon Culture Section */}
         <section className="mb-12">
           <div className="bg-emineon-blue/10 border-l-4 border-emineon-blue rounded-lg p-8">
             <h3 className="text-xl font-bold text-emineon-blue mb-2">Our culture at Emineon</h3>
-            <p className="text-neutral-700 mb-2">At Emineon, we believe that people are the heart of innovation. Our culture is built on trust, collaboration, and a passion for making a difference—both for our clients and for each other.</p>
-            <ul className="list-disc pl-6 text-neutral-700 space-y-1 mb-2">
+            <p className="text-foreground mb-2">At Emineon, we believe that people are the heart of innovation. Our culture is built on trust, collaboration, and a passion for making a difference—both for our clients and for each other.</p>
+            <ul className="list-disc pl-6 text-foreground space-y-1 mb-2">
               <li><span className="font-semibold text-emineon-blue">Diversity & Inclusion:</span> We celebrate diverse backgrounds, perspectives, and experiences, knowing they drive creativity and better solutions.</li>
               <li><span className="font-semibold text-emineon-blue">Growth Mindset:</span> We encourage continuous learning, curiosity, and personal development at every level.</li>
               <li><span className="font-semibold text-emineon-blue">Flexibility:</span> We embrace remote work, flexible hours, and a results-driven approach that values work-life balance.</li>
               <li><span className="font-semibold text-emineon-blue">Collaboration:</span> We work as one team, supporting each other and sharing knowledge to achieve our goals together.</li>
               <li><span className="font-semibold text-emineon-blue">Impact:</span> We strive to make a positive impact for our clients, our colleagues, and the communities we serve.</li>
             </ul>
-            <p className="text-neutral-700">If you want to be part of a forward-thinking, supportive, and ambitious team, Emineon is the place for you.</p>
+            <p className="text-foreground">If you want to be part of a forward-thinking, supportive, and ambitious team, Emineon is the place for you.</p>
           </div>
         </section>
       </main>

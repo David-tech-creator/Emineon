@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Menu } from "lucide-react";
 
 function VettingProcessCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
@@ -94,12 +94,13 @@ function VettingProcessSection() {
 export default function FindTalentPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col items-center">
       {/* Header (same as homepage) */}
       <header className="sticky top-0 z-40 border-b bg-white w-full">
-        <div className="container flex h-20 items-center justify-between py-4">
+        <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
@@ -119,12 +120,60 @@ export default function FindTalentPage() {
             <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Testimonials</Link>
             <Link href="/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Blog</Link>
           </nav>
-          <div className="flex items-center gap-4">
-            <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue">
-              Blog
-            </Link>
+          <div className="hidden md:flex items-center gap-4">
             <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
           </div>
+          {/* Hamburger for mobile */}
+          <button
+            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <Menu className="w-7 h-7 text-emineon-blue" />
+          </button>
+          {/* Mobile menu drawer */}
+          {mobileMenuOpen && (
+            <div
+              className="fixed inset-0 z-50 bg-black/40 flex"
+              tabIndex={-1}
+              aria-modal="true"
+              role="dialog"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <nav
+                className="bg-white w-72 max-w-full h-full shadow-lg p-6 flex flex-col gap-6 relative"
+                onClick={e => e.stopPropagation()}
+                aria-label="Mobile menu"
+              >
+                <button
+                  className="absolute top-4 right-4 text-emineon-blue text-2xl focus:outline-none"
+                  aria-label="Close menu"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  ×
+                </button>
+                <Link href="/#who-we-are" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Who we are
+                </Link>
+                <Link href="/#services" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Services
+                </Link>
+                <Link href="/#how-we-work" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  How we work
+                </Link>
+                <Link href="/#expertise" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Expertise
+                </Link>
+                <Link href="/#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Testimonials
+                </Link>
+                <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  Blog
+                </Link>
+                <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/contact">Contact us</Link></Button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 

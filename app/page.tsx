@@ -191,29 +191,37 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-28 bg-white">
-          <div className="container flex flex-col lg:flex-row items-center gap-12">
-            <div className="space-y-6 lg:w-1/2">
+        <section className="relative w-full min-h-[480px] flex items-center justify-center overflow-hidden">
+          <video
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            src="/Hero-oak-tree-video.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="container relative z-20 flex flex-col lg:flex-row items-center gap-12 py-20 md:py-28">
+            <div className="space-y-6 lg:w-1/2 text-center lg:text-left">
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-emineon-blue"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-lg"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
               >
-                Your partner in growth and innovation
+                Your partner in growth<br className="hidden md:block" />and innovation
               </motion.h1>
-              <p className="text-xl text-neutral-600 max-w-xl">
-                At Emineon Consulting, we specialize in optimizing operations, driving sustainable growth, and
-                delivering tailored services across industries.
+              <p className="text-xl text-white/90 max-w-xl mx-auto lg:mx-0 drop-shadow-md">
+                At Emineon Consulting, we specialize in optimizing operations, driving sustainable growth, and delivering tailored services across industries.
               </p>
               <div className="pt-4">
                 <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-2">forge your edge.</p>
-                <p className="text-sm text-neutral-600 italic">
-                  [fɔːdʒ] verb - create (something) strong, enduring, or successful.
+                <p className="text-sm text-white/80 italic">
+                  [fɔːdʒ] verb – create (something) strong, enduring, or successful.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center lg:items-start justify-center lg:justify-start">
                 <Button
                   size="lg"
                   className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-8"
@@ -223,15 +231,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="lg:w-1/2 relative">
-              <Image
-                src="/global-talent-hero.jpg"
-                alt="Global talent network"
-                width={600}
-                height={600}
-                className="object-cover"
-              />
-            </div>
+            <div className="lg:w-1/2 hidden lg:block" />
           </div>
         </section>
 

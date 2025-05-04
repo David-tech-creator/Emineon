@@ -9,6 +9,8 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   function validate() {
     const errs: { [key: string]: string } = {};
@@ -24,15 +26,33 @@ export default function ContactPage() {
     setErrors({ ...errors, [e.target.name]: "" });
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) {
       setErrors(errs);
       return;
     }
-    // Simulate submit
-    setTimeout(() => setSubmitted(true), 800);
+    setLoading(true);
+    setApiError(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setApiError(data.error || 'Failed to send message.');
+        setLoading(false);
+        return;
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setApiError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -127,7 +147,8 @@ export default function ContactPage() {
                 />
                 {errors.message && <div id="message-error" className="text-red-500 text-xs mt-1">{errors.message}</div>}
               </div>
-              <Button type="submit" className="w-full bg-emineon-blue hover:bg-emineon-orange text-white rounded-none px-8 py-2 text-lg font-semibold transition-all">Send message</Button>
+              <Button type="submit" className="w-full bg-emineon-blue hover:bg-emineon-orange text-white rounded-none px-8 py-2 text-lg font-semibold transition-all" disabled={loading}>{loading ? 'Sending...' : 'Send message'}</Button>
+              {apiError && <div className="text-red-500 text-xs mt-2 text-center">{apiError}</div>}
             </form>
           )}
         </div>
