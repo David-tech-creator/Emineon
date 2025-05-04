@@ -62,7 +62,7 @@ export default function ContactPage() {
       {/* Background Video */}
       <video
         className="fixed inset-0 w-full h-full object-cover z-0"
-        src="/contact-form-oak-tree-sunset.mp4"
+        src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/contactform_oaktree_sunset_fuwrqx.mp4"
         autoPlay
         loop
         muted
@@ -95,7 +95,6 @@ export default function ContactPage() {
               <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={64} height={64} priority className="drop-shadow" />
             </motion.div>
             <h1 className="text-2xl font-bold text-emineon-blue mb-1 text-center">Contact us</h1>
-            <p className="text-neutral-700 mb-4 text-center text-sm">Let's start the conversation. Fill out the form and our team will get back to you promptly.</p>
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
