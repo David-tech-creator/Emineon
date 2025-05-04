@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram, Maximize2, Pause, Play } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -992,6 +992,7 @@ function ServiceCard({ title, desc, features, delay }: { title: string; desc: st
 function WhoWeAre() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (!videoRef.current || !sectionRef.current) return;
@@ -999,8 +1000,10 @@ function WhoWeAre() {
       ([entry]) => {
         if (entry.isIntersecting && videoRef.current) {
           videoRef.current.play().catch(() => {});
+          setIsPlaying(true);
         } else if (videoRef.current) {
           videoRef.current.pause();
+          setIsPlaying(false);
         }
       },
       { threshold: 0.4 }
@@ -1008,6 +1011,31 @@ function WhoWeAre() {
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  // Fullscreen handler
+  const handleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if ((videoRef.current as any).webkitRequestFullscreen) {
+        (videoRef.current as any).webkitRequestFullscreen();
+      } else if ((videoRef.current as any).msRequestFullscreen) {
+        (videoRef.current as any).msRequestFullscreen();
+      }
+    }
+  };
+
+  // Play/Pause handler
+  const handlePlayPause = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
     <section id="who-we-are" className="py-20 bg-neutral-100" ref={sectionRef}>
@@ -1041,9 +1069,30 @@ function WhoWeAre() {
               preload="none"
               className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
               style={{ background: '#e5e7eb' }}
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
             />
             {/* Cool gradient overlay for style */}
             <div className="absolute inset-0 pointer-events-none rounded-xl" style={{background: 'linear-gradient(120deg, rgba(10,47,90,0.10) 0%, rgba(199,91,18,0.10) 100%)'}} />
+            {/* Play/Pause and Fullscreen buttons */}
+            <div className="absolute top-3 right-3 z-20 flex gap-2">
+              <button
+                onClick={handlePlayPause}
+                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                aria-label={isPlaying ? "Pause video" : "Play video"}
+                type="button"
+              >
+                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              </button>
+              <button
+                onClick={handleFullscreen}
+                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                aria-label="Fullscreen video"
+                type="button"
+              >
+                <Maximize2 className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
