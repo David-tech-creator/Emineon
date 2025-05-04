@@ -210,7 +210,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
               >
-                Your partner in growth<br className="hidden md:block" />and innovation
+                Your partner in growth<br className="hidden md:block" /> and innovation
               </motion.h1>
               <p className="text-xl text-white/90 max-w-xl mx-auto lg:mx-0 drop-shadow-md">
                 At Emineon Consulting, we specialize in optimizing operations, driving sustainable growth, and delivering tailored services across industries.
