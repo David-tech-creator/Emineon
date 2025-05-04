@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram, Maximize2, Pause, Play } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram, Maximize2, Pause, Play, Volume2, VolumeX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -993,6 +993,11 @@ function WhoWeAre() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [userStarted, setUserStarted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [seeking, setSeeking] = useState(false);
 
   useEffect(() => {
     if (!videoRef.current || !sectionRef.current) return;
@@ -1001,7 +1006,9 @@ function WhoWeAre() {
     const checkAndPlay = () => {
       const rect = sectionRef.current!.getBoundingClientRect();
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView && videoRef.current) {
+      if (inView && videoRef.current && !userStarted) {
+        videoRef.current.muted = true;
+        setIsMuted(true);
         videoRef.current.play().catch(() => {});
         setIsPlaying(true);
       }
@@ -1013,10 +1020,12 @@ function WhoWeAre() {
     // Intersection Observer for scroll
     const observer = new window.IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && videoRef.current) {
+        if (entry.isIntersecting && videoRef.current && !userStarted) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
           videoRef.current.play().catch(() => {});
           setIsPlaying(true);
-        } else if (videoRef.current) {
+        } else if (videoRef.current && !userStarted) {
           videoRef.current.pause();
           setIsPlaying(false);
         }
@@ -1026,6 +1035,22 @@ function WhoWeAre() {
     observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
+  }, [userStarted]);
+
+  // Update progress
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const update = () => {
+      setProgress(video.currentTime);
+      setDuration(video.duration || 0);
+    };
+    video.addEventListener('timeupdate', update);
+    video.addEventListener('durationchange', update);
+    return () => {
+      video.removeEventListener('timeupdate', update);
+      video.removeEventListener('durationchange', update);
+    };
   }, []);
 
   // Fullscreen handler
@@ -1051,6 +1076,39 @@ function WhoWeAre() {
       videoRef.current.pause();
       setIsPlaying(false);
     }
+  };
+
+  // User-initiated play with sound
+  const handleUserPlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = false;
+    setIsMuted(false);
+    videoRef.current.play();
+    setIsPlaying(true);
+    setUserStarted(true);
+  };
+
+  // Mute/Unmute handler
+  const handleMuteToggle = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  // Seek handler
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!videoRef.current) return;
+    const time = parseFloat(e.target.value);
+    videoRef.current.currentTime = time;
+    setProgress(time);
+  };
+
+  // Format time helper
+  const formatTime = (t: number) => {
+    if (isNaN(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
   };
 
   return (
@@ -1090,7 +1148,7 @@ function WhoWeAre() {
             />
             {/* Cool gradient overlay for style */}
             <div className="absolute inset-0 pointer-events-none rounded-xl" style={{background: 'linear-gradient(120deg, rgba(10,47,90,0.10) 0%, rgba(199,91,18,0.10) 100%)'}} />
-            {/* Play/Pause and Fullscreen buttons */}
+            {/* Play/Pause, Mute/Unmute, and Fullscreen buttons */}
             <div className="absolute top-3 right-3 z-20 flex gap-2">
               <button
                 onClick={handlePlayPause}
@@ -1101,6 +1159,14 @@ function WhoWeAre() {
                 {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
               </button>
               <button
+                onClick={handleMuteToggle}
+                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                aria-label={isMuted ? "Unmute video" : "Mute video"}
+                type="button"
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </button>
+              <button
                 onClick={handleFullscreen}
                 className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
                 aria-label="Fullscreen video"
@@ -1108,6 +1174,36 @@ function WhoWeAre() {
               >
                 <Maximize2 className="w-5 h-5" />
               </button>
+            </div>
+            {/* User-initiated play overlay */}
+            {!userStarted && !isPlaying && (
+              <button
+                onClick={handleUserPlay}
+                className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors z-30 focus:outline-none"
+                aria-label="Play video with sound"
+                type="button"
+              >
+                <Play className="w-16 h-16 text-white drop-shadow-lg" />
+              </button>
+            )}
+            {/* Progress bar */}
+            <div className="absolute bottom-0 left-0 w-full px-4 pb-3 z-20 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-white/80 font-mono min-w-[36px]">{formatTime(progress)}</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={duration || 0}
+                  step={0.1}
+                  value={progress}
+                  onChange={handleSeek}
+                  onMouseDown={() => setSeeking(true)}
+                  onMouseUp={() => setSeeking(false)}
+                  className="flex-1 h-1 bg-emineon-blue/30 rounded-lg appearance-none accent-emineon-orange cursor-pointer"
+                  style={{ accentColor: '#C75B12' }}
+                />
+                <span className="text-xs text-white/80 font-mono min-w-[36px]">{formatTime(duration)}</span>
+              </div>
             </div>
           </div>
         </div>
