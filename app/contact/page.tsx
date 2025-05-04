@@ -3,7 +3,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,6 +12,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
+  const router = useRouter();
 
   function validate() {
     const errs: { [key: string]: string } = {};
@@ -73,7 +75,16 @@ export default function ContactPage() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex w-full min-h-screen items-center justify-center">
-          <div className="bg-white/30 rounded-xl p-2 sm:p-4 max-w-md w-full flex flex-col items-center backdrop-blur-sm border border-white/30">
+          <div className="bg-white/30 rounded-xl p-2 sm:p-4 max-w-md w-full flex flex-col items-center backdrop-blur-sm border border-white/30 relative">
+            {/* Go Back Button */}
+            <button
+              onClick={() => router.back()}
+              className="absolute left-2 top-2 flex items-center gap-1 text-emineon-blue hover:text-emineon-orange text-sm font-medium bg-transparent border-none p-1 focus:outline-none"
+              aria-label="Go back"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Go Back
+            </button>
             <motion.div
               className="mb-2 sm:mb-4 flex justify-center"
               initial={{ scale: 0.7, opacity: 0 }}
