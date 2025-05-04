@@ -1137,7 +1137,7 @@ function WhoWeAre() {
           <div className="relative w-full max-w-2xl aspect-video bg-neutral-300 rounded-xl flex items-center justify-center overflow-hidden shadow-xl group">
             <video
               ref={videoRef}
-              src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Forging_Your_Edge_with_Emineon_eqc8ad.mp4"
+              src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Forging_Your_Edge_with_Emineon_cklu2a.mp4"
               loop
               playsInline
               preload="none"
