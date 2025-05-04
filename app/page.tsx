@@ -194,7 +194,7 @@ export default function Home() {
         <section className="relative w-full min-h-[480px] flex items-center justify-center overflow-hidden">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
-            src="/Hero-oak-tree-video.mp4"
+            src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Homepage_hero_video_dsn3zo.mp4"
             autoPlay
             loop
             muted
@@ -224,7 +224,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center lg:items-start justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-8"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-none px-8"
                   onClick={handleGetStarted}
                 >
                   Get started
@@ -343,7 +343,7 @@ export default function Home() {
             </motion.div>
             <div className="max-w-3xl mx-auto">
               <AccordionHowWeWork />
-            </div>
+              </div>
             <div className="mt-16 bg-emineon-blue p-8 rounded-lg">
               <h3 className="text-xl font-medium text-white mb-6">Ensuring excellence in every engagement</h3>
               <ExcellenceAccordion />
@@ -485,16 +485,16 @@ export default function Home() {
             </div>
           </div>
           <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
-          <div className="flex gap-8 mt-4 md:mt-0">
-            <Link href="#" className="text-sm hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-sm hover:text-white">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-sm hover:text-white">
-              Contact
-            </Link>
+            <div className="flex gap-8 mt-4 md:mt-0">
+              <Link href="#" className="text-sm hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-sm hover:text-white">
+                Terms of Service
+              </Link>
+              <Link href="#" className="text-sm hover:text-white">
+                Contact
+              </Link>
           </div>
         </div>
       </footer>
@@ -511,7 +511,7 @@ export default function Home() {
           </form>
           <div className="mt-4 text-center">
             <a
-              href="https://calendly.com/your-calendly-link"
+              href="https://calendly.com/david-v-emineon"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-emineon-orange text-white px-4 py-2 rounded mt-2"
@@ -990,8 +990,27 @@ function ServiceCard({ title, desc, features, delay }: { title: string; desc: st
 }
 
 function WhoWeAre() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!videoRef.current || !sectionRef.current) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && videoRef.current) {
+          videoRef.current.play().catch(() => {});
+        } else if (videoRef.current) {
+          videoRef.current.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="who-we-are" className="py-20 bg-neutral-100">
+    <section id="who-we-are" className="py-20 bg-neutral-100" ref={sectionRef}>
       <div className="container">
         <motion.h2
           className="text-3xl font-bold tracking-tight text-emineon-blue mb-8 text-center"
@@ -1011,6 +1030,22 @@ function WhoWeAre() {
         >
           Emineon blends trusted expertise with innovation in global talent solutions. Our name comes from "Eminent" and "Neo"—standing for distinguished excellence and a new, forward-thinking approach.
         </motion.p>
+        {/* Synthesia Pitch Video Autoplay Placeholder */}
+        <div className="flex justify-center mb-12">
+          <div className="relative w-full max-w-2xl aspect-video bg-neutral-300 rounded-xl flex items-center justify-center overflow-hidden shadow-xl group">
+            <video
+              ref={videoRef}
+              src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Forging_Your_Edge_with_Emineon_eqc8ad.mp4"
+              loop
+              playsInline
+              preload="none"
+              className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+              style={{ background: '#e5e7eb' }}
+            />
+            {/* Cool gradient overlay for style */}
+            <div className="absolute inset-0 pointer-events-none rounded-xl" style={{background: 'linear-gradient(120deg, rgba(10,47,90,0.10) 0%, rgba(199,91,18,0.10) 100%)'}} />
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Link href="#testimonials" passHref legacyBehavior>
             <motion.a
