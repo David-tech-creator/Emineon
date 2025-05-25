@@ -85,17 +85,17 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
           <div
-            className="fixed inset-0 z-50 bg-black/50 flex"
+            className="fixed inset-0 z-50 bg-black/60 flex"
             onClick={() => setMobileMenuOpen(false)}
           >
             <nav
-              className="bg-white w-72 h-full shadow-xl p-6 flex flex-col gap-4"
+              className="bg-white w-80 h-full shadow-2xl border-r-4 border-emineon-blue p-6 flex flex-col gap-4"
               onClick={e => e.stopPropagation()}
             >
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-lg font-bold text-emineon-blue">Menu</h3>
+              <div className="flex justify-between items-center mb-6 pb-4 border-b-2 border-gray-100">
+                <h3 className="text-xl font-bold text-emineon-blue">Menu</h3>
                 <button
-                  className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-xl flex items-center justify-center"
+                  className="w-10 h-10 rounded-full bg-gray-100 hover:bg-emineon-blue hover:text-white text-gray-600 text-2xl flex items-center justify-center transition-all duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   ×
@@ -106,10 +106,10 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-3 px-4 text-base font-medium rounded-lg transition-colors ${
+                  className={`py-4 px-6 text-lg font-medium rounded-lg transition-all duration-200 ${
                     link.href.includes("/blog")
                       ? "text-white bg-emineon-blue"
-                      : "text-emineon-blue hover:bg-emineon-blue/10"
+                      : "text-emineon-blue hover:bg-emineon-blue hover:text-white"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -117,16 +117,16 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                 </Link>
               ))}
               
-              <div className="mt-6 space-y-4">
+              <div className="mt-8 space-y-4 pt-6 border-t-2 border-gray-100">
                 <Link 
                   href={contactLink} 
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-3 font-medium w-full text-center block"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-4 font-semibold w-full text-center block text-lg shadow-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {contactText}
                 </Link>
                 
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-2">
                   <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
                 </div>
               </div>

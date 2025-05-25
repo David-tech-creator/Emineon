@@ -140,7 +140,7 @@ export default function FindTalentPage() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <nav
-                className="bg-white w-72 h-full shadow-xl p-6 flex flex-col gap-4"
+                className="bg-white w-80 h-full shadow-2xl border-r-4 border-emineon-blue p-6 flex flex-col gap-4"
                 onClick={e => e.stopPropagation()}
               >
                 <div className="flex justify-between items-center mb-6">

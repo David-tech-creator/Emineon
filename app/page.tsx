@@ -148,17 +148,17 @@ export default function Home() {
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
             <div
-              className="fixed inset-0 z-50 bg-black/50 flex"
+              className="fixed inset-0 z-50 bg-black/60 flex"
               onClick={() => setMobileMenuOpen(false)}
             >
               <nav
-                className="bg-white w-72 h-full shadow-xl p-6 flex flex-col gap-4"
+                className="bg-white w-80 h-full shadow-2xl border-r-4 border-emineon-blue p-6 flex flex-col gap-4"
                 onClick={e => e.stopPropagation()}
               >
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-lg font-bold text-emineon-blue">Menu</h3>
+                <div className="flex justify-between items-center mb-6 pb-4 border-b-2 border-gray-100">
+                  <h3 className="text-xl font-bold text-emineon-blue">Menu</h3>
                   <button
-                    className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-xl flex items-center justify-center"
+                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-emineon-blue hover:text-white text-gray-600 text-2xl flex items-center justify-center transition-all duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     ×
@@ -176,23 +176,23 @@ export default function Home() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors"
+                    className="py-4 px-6 text-lg font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white rounded-lg transition-all duration-200"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
                 
-                <div className="mt-6 space-y-4">
+                <div className="mt-8 space-y-4 pt-6 border-t-2 border-gray-100">
                   <Link 
                     href="/contact" 
-                    className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-3 font-medium w-full text-center block"
+                    className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-4 font-semibold w-full text-center block text-lg shadow-lg"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Contact us
                   </Link>
                   
-                  <div className="flex justify-center">
+                  <div className="flex justify-center pt-2">
                     <LanguageSwitcher currentLang="en" />
                   </div>
                 </div>
@@ -327,7 +327,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tight text-emineon-blue mb-8 text-center">Key services</h2>
             <p className="text-lg text-center text-neutral-700 mb-12">Flexible models. Pre-vetted talent. Results delivered.</p>
             <ServicesAnimatedCards />
-                  </div>
+          </div>
         </section>
 
         {/* Expertise Section */}
@@ -336,7 +336,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tight text-emineon-blue mb-8 text-center">Expertise</h2>
             <p className="text-lg text-center text-neutral-700 mb-8">Multi-disciplinary talent. Real impact across industries.</p>
             <ExpertiseTabs />
-                  </div>
+          </div>
         </section>
 
         {/* How We Work Section */}
@@ -356,12 +356,12 @@ export default function Home() {
             </motion.div>
             <div className="max-w-3xl mx-auto">
               <AccordionHowWeWork />
-                  </div>
+            </div>
             <div className="mt-16 bg-emineon-blue p-8 rounded-lg">
               <h3 className="text-xl font-medium text-white mb-6">Ensuring excellence in every engagement</h3>
               <ExcellenceAccordion />
-                </div>
-              </div>
+            </div>
+          </div>
         </section>
 
         {/* Vetting Process Section */}
@@ -395,8 +395,8 @@ export default function Home() {
                 description="Personalized onboarding journeys and digital handbooks ensure every new team member is productive from day one."
                 hoverDetail="Automated checklists, welcome sessions, and ongoing support for a smooth start."
               />
-                  </div>
-                  </div>
+            </div>
+          </div>
         </section>
 
         {/* Testimonials Section */}
@@ -431,8 +431,8 @@ export default function Home() {
                   <p className="font-medium text-neutral-900">— {t.author}</p>
                 </motion.div>
               ))}
-                  </div>
-                </div>
+            </div>
+          </div>
         </section>
 
         {/* What Sets Us Apart Section */}
@@ -462,17 +462,17 @@ export default function Home() {
                   <p className="opacity-80">Founder & Partner, EMINEON</p>
                   <p className="opacity-80">david.v@emineon.com</p>
                   <p className="opacity-80">+41 (0) 795 33 28 709</p>
-              </div>
+                </div>
 
                 <div className="md:ml-auto">
                   <Link href="/contact" className="bg-white text-emineon-blue hover:bg-blue-50 rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
+                </div>
               </div>
-            </div>
 
               <div className="mt-12 pt-8 border-t border-white/20 text-center">
                 <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-1">forge your edge.</p>
                 <p className="text-sm opacity-60">www.emineon.com</p>
-                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -495,21 +495,21 @@ export default function Home() {
               <a href="#" aria-label="Instagram" className="text-white/80 hover:text-emineon-orange transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6" />
               </a>
-                  </div>
-                  </div>
+            </div>
+          </div>
           <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
-            <div className="flex gap-8 mt-4 md:mt-0">
-              <Link href="#" className="text-sm hover:text-white">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-sm hover:text-white">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-sm hover:text-white">
-                Contact
-              </Link>
-                  </div>
-                  </div>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <Link href="#" className="text-sm hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="#" className="text-sm hover:text-white">
+              Contact
+            </Link>
+          </div>
+        </div>
       </footer>
 
       {showLeadForm && (
@@ -531,17 +531,17 @@ export default function Home() {
             >
               Schedule a discovery call
             </a>
-                  </div>
+          </div>
           <button
             className="absolute top-2 right-2 text-emineon-blue hover:text-emineon-orange"
             onClick={() => setShowLeadForm(false)}
           >
             ×
           </button>
-                  </div>
+        </div>
       )}
       <BottomBanner />
-                  </div>
+    </div>
   )
 }
 
@@ -621,7 +621,7 @@ function AccordionHowWeWork() {
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-semibold text-emineon-blue">{step.title}</span>
-                  </div>
+                </div>
                 <AnimatePresence initial={false}>
                   {hovered === idx && (
                     <motion.ul
@@ -639,11 +639,11 @@ function AccordionHowWeWork() {
                   )}
                 </AnimatePresence>
               </motion.div>
-                </div>
+            </div>
           </motion.li>
         ))}
       </ul>
-              </div>
+    </div>
   );
 }
 
@@ -654,7 +654,7 @@ function ExcellenceAccordion() {
       title: "Rigorous Vetting",
       summary: "Our 6-step vetting process ensures only the top 1-5% of applicants join our talent network, guaranteeing quality and expertise.",
       details: (
-                  <div className="space-y-2">
+        <div className="space-y-2">
           <p>Our vetting process is designed to identify not just technical skill, but also cultural fit and long-term potential. The 6 steps include:</p>
           <ol className="list-decimal pl-6 space-y-1">
             <li><b>Application Review:</b> Screening for relevant experience and qualifications.</li>
@@ -664,35 +664,35 @@ function ExcellenceAccordion() {
             <li><b>Reference Checks:</b> Validation of past performance and reliability.</li>
             <li><b>Final Review:</b> Approval by a senior Emineon expert before joining our network.</li>
           </ol>
-                  </div>
+        </div>
       ),
     },
     {
       title: "Dedicated Oversight",
       summary: "Every placement is overseen by an experienced success manager to ensure alignment, integration, and ongoing satisfaction.",
       details: (
-                  <div className="space-y-2">
+        <div className="space-y-2">
           <p>Our success managers act as your single point of contact, guiding both client and talent through onboarding, integration, and ongoing collaboration. They proactively address challenges and ensure expectations are met at every stage.</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Personalized onboarding and integration support</li>
             <li>Regular check-ins with both client and talent</li>
             <li>Rapid response to any issues or feedback</li>
           </ul>
-                  </div>
+        </div>
       ),
     },
     {
       title: "Client Satisfaction Focus",
       summary: "Regular feedback loops and performance reviews ensure services evolve with client needs and expectations are consistently met or exceeded.",
       details: (
-                  <div className="space-y-2">
+        <div className="space-y-2">
           <p>We believe in continuous improvement. Our feedback and review process ensures that every engagement adapts to your evolving needs and delivers lasting value.</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Structured feedback collection after key milestones</li>
             <li>Performance reviews for both talent and project outcomes</li>
             <li>Actionable insights to refine and optimize future engagements</li>
           </ul>
-                  </div>
+        </div>
       ),
     },
   ];
@@ -722,9 +722,9 @@ function ExcellenceAccordion() {
               </motion.div>
             )}
           </AnimatePresence>
-                  </div>
+        </div>
       ))}
-                </div>
+    </div>
   );
 }
 
@@ -778,7 +778,7 @@ function WhatSetsUsApartBulletList() {
       {values.map((value, idx) => (
         <WhatSetsUsApartBullet key={value.title} {...value} delay={idx * 0.1} />
       ))}
-                </ul>
+    </ul>
   );
 }
 
@@ -809,7 +809,7 @@ function WhatSetsUsApartBullet({ title, description, proof, color, delay }: { ti
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         />
         <span className="text-lg font-semibold text-emineon-blue">{title}</span>
-              </div>
+      </div>
       <span className="text-neutral-700 ml-8">{description}</span>
       <AnimatePresence>
         {hovered && (
@@ -846,7 +846,7 @@ function ExpertiseTabs() {
         >
           Sectors
         </button>
-              </div>
+      </div>
       <div className="min-h-[220px]">
         <AnimatePresence mode="wait">
           {tab === 'disciplines' ? (
@@ -895,8 +895,8 @@ function ExpertiseTabs() {
             </motion.ul>
           )}
         </AnimatePresence>
-              </div>
-            </div>
+      </div>
+    </div>
   );
 }
 
@@ -1226,11 +1226,11 @@ function WhoWeAre() {
                     style={{ accentColor: '#C75B12' }}
                   />
                   <span className="text-xs text-white/80 font-mono min-w-[36px]">{formatTime(duration)}</span>
+                </div>
               </div>
-            </div>
             )}
           </div>
-                </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Link href="#testimonials" passHref legacyBehavior>
             <motion.a
@@ -1286,9 +1286,9 @@ function WhoWeAre() {
               <span className="text-neutral-700 text-sm">Leveraging rigorous vetting and cutting-edge remote work technologies, we help businesses overcome talent shortages with quality professionals who integrate seamlessly.</span>
             </motion.a>
           </Link>
-                </div>
-              </div>
-        </section>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1314,7 +1314,7 @@ function WhatDrivesUs() {
   ];
   return (
     <section className="py-20 bg-white">
-          <div className="container">
+      <div className="container">
         <motion.h2
           className="text-3xl font-bold tracking-tight text-emineon-blue mb-8 text-center"
           initial={{ opacity: 0, y: 24 }}
@@ -1350,7 +1350,7 @@ function WhatDrivesUs() {
               <li>Scale efficiently — flexible talent solutions for growth</li>
             </ul>
           </motion.div>
-              </div>
+        </div>
         {/* Value blocks: 2 rows of 2 on desktop, stacked on mobile */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {valueBlocks.map((item, i) => (
@@ -1371,9 +1371,9 @@ function WhatDrivesUs() {
               <span className="text-neutral-700 text-sm">{item.desc}</span>
             </motion.div>
           ))}
-            </div>
-          </div>
-        </section>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -1443,7 +1443,7 @@ function VettingProcessSection() {
   ];
   return (
     <section className="py-20 bg-neutral-100">
-        <div className="container">
+      <div className="container">
         <motion.h2
           className="text-3xl font-bold tracking-tight text-emineon-blue mb-12 text-center"
           initial={{ opacity: 0, y: 24 }}
@@ -1457,8 +1457,8 @@ function VettingProcessSection() {
           {cards.map((card, i) => (
             <VettingProcessCard key={card.title} {...card} />
           ))}
-            </div>
-          </div>
+        </div>
+      </div>
     </section>
   );
 }
