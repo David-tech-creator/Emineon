@@ -66,7 +66,7 @@ export default function CareersPage() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <nav
-                className="bg-white w-72 max-w-full h-full shadow-lg p-6 flex flex-col gap-6 relative"
+                className="bg-gray-50 w-72 max-w-full h-full shadow-xl p-6 flex flex-col gap-4 relative"
                 onClick={e => e.stopPropagation()}
                 aria-label="Mobile menu"
               >
@@ -77,22 +77,22 @@ export default function CareersPage() {
                 >
                   ×
                 </button>
-                <Link href="/fr#who-we-are" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#who-we-are" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Qui sommes-nous
                 </Link>
-                <Link href="/fr#services" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#services" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Services
                 </Link>
-                <Link href="/fr#how-we-work" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#how-we-work" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Notre approche
                 </Link>
-                <Link href="/fr#expertise" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#expertise" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Expertise
                 </Link>
-                <Link href="/fr#testimonials" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#testimonials" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Témoignages
                 </Link>
-                <Link href="/fr/blog" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr/blog" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
                   Blog
                 </Link>
                 <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contactez-nous</Link>

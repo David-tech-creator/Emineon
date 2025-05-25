@@ -92,7 +92,7 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
             onClick={() => setMobileMenuOpen(false)}
           >
             <nav
-              className="bg-white w-72 max-w-full h-full shadow-lg p-6 flex flex-col gap-6 relative"
+              className="bg-gray-50 w-72 max-w-full h-full shadow-xl p-6 flex flex-col gap-4 relative"
               onClick={e => e.stopPropagation()}
               aria-label="Mobile menu"
             >
@@ -108,10 +108,10 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-4 px-3 text-xl font-semibold transition-colors rounded-lg ${
+                  className={`py-4 px-4 text-xl font-semibold transition-all duration-200 rounded-lg bg-white border border-gray-100 shadow-sm ${
                     link.href.includes("/blog")
-                      ? "text-emineon-blue bg-emineon-blue/10"
-                      : "text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5"
+                      ? "text-white bg-emineon-blue border-emineon-blue"
+                      : "text-emineon-blue hover:text-white hover:bg-emineon-blue hover:border-emineon-blue"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
