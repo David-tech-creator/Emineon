@@ -84,53 +84,59 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
 
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
-          <div
-            className="fixed inset-0 z-50 bg-black/60 flex"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <nav
-              className="bg-white w-80 h-full shadow-2xl border-r-4 border-emineon-blue p-6 flex flex-col gap-4"
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="flex justify-between items-center mb-6 pb-4 border-b-2 border-gray-100">
-                <h3 className="text-xl font-bold text-emineon-blue">Menu</h3>
+          <div className="fixed inset-0 z-50 md:hidden">
+            {/* Backdrop */}
+            <div 
+              className="absolute inset-0 bg-black bg-opacity-50"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            
+            {/* Menu panel */}
+            <div className="relative bg-white h-full w-64 shadow-xl">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                <span className="text-lg font-semibold text-gray-900">Menu</span>
                 <button
-                  className="w-10 h-10 rounded-full bg-gray-100 hover:bg-emineon-blue hover:text-white text-gray-600 text-2xl flex items-center justify-center transition-all duration-200"
                   onClick={() => setMobileMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
                 >
-                  ×
+                  <span className="text-xl">×</span>
                 </button>
               </div>
               
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`py-4 px-6 text-lg font-medium rounded-lg transition-all duration-200 ${
-                    link.href.includes("/blog")
-                      ? "text-white bg-emineon-blue"
-                      : "text-emineon-blue hover:bg-emineon-blue hover:text-white"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {/* Navigation links */}
+              <div className="py-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`block px-4 py-3 text-base font-medium hover:bg-gray-50 ${
+                      link.href.includes("/blog")
+                        ? "text-emineon-blue bg-blue-50"
+                        : "text-gray-700 hover:text-emineon-blue"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
               
-              <div className="mt-8 space-y-4 pt-6 border-t-2 border-gray-100">
+              {/* Contact button and language switcher */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
                 <Link 
                   href={contactLink} 
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-4 font-semibold w-full text-center block text-lg shadow-lg"
+                  className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {contactText}
                 </Link>
                 
-                <div className="flex justify-center pt-2">
+                <div className="flex justify-center">
                   <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
                 </div>
               </div>
-            </nav>
+            </div>
           </div>
         )}
       </div>

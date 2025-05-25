@@ -135,45 +135,55 @@ export default function FindTalentPage() {
           </button>
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
-            <div
-              className="fixed inset-0 z-50 bg-black/50 flex"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <nav
-                className="bg-white w-80 h-full shadow-2xl border-r-4 border-emineon-blue p-6 flex flex-col gap-4"
-                onClick={e => e.stopPropagation()}
-              >
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-lg font-bold text-emineon-blue">Menu</h3>
+            <div className="fixed inset-0 z-50 md:hidden">
+              {/* Backdrop */}
+              <div 
+                className="absolute inset-0 bg-black bg-opacity-50"
+                onClick={() => setMobileMenuOpen(false)}
+              />
+              
+              {/* Menu panel */}
+              <div className="relative bg-white h-full w-64 shadow-xl">
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                  <span className="text-lg font-semibold text-gray-900">Menu</span>
                   <button
-                    className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-xl flex items-center justify-center"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
                   >
-                    ×
+                    <span className="text-xl">×</span>
                   </button>
                 </div>
                 
-                <Link href="/#who-we-are" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Who we are
-                </Link>
-                <Link href="/#services" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Services
-                </Link>
-                <Link href="/#how-we-work" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  How we work
-                </Link>
-                <Link href="/#expertise" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Expertise
-                </Link>
-                <Link href="/#testimonials" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Testimonials
-                </Link>
-                <Link href="/blog" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Blog
-                </Link>
+                {/* Navigation links */}
+                <div className="py-4">
+                  <Link href="/#who-we-are" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    Who we are
+                  </Link>
+                  <Link href="/#services" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    Services
+                  </Link>
+                  <Link href="/#how-we-work" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    How we work
+                  </Link>
+                  <Link href="/#expertise" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    Expertise
+                  </Link>
+                  <Link href="/#testimonials" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    Testimonials
+                  </Link>
+                  <Link href="/blog" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                    Blog
+                  </Link>
+                </div>
                 
-                <div className="mt-6 space-y-4">
-                  <Link href="/contact" className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-3 font-medium w-full text-center block" onClick={() => setMobileMenuOpen(false)}>
+                {/* Contact button and language switcher */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+                  <Link 
+                    href="/contact" 
+                    className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     Contact us
                   </Link>
                   
@@ -181,7 +191,7 @@ export default function FindTalentPage() {
                     <LanguageSwitcher currentLang="en" targetPath="/find-talent" />
                   </div>
                 </div>
-              </nav>
+              </div>
             </div>
           )}
         </div>
