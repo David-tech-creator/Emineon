@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { fetchAllPosts } from "@/lib/contentful";
 import { Metadata } from "next";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import BlogHeader from "@/components/BlogHeader";
 
 export const revalidate = 600; // ISR: 10 minutes
 
@@ -16,31 +16,7 @@ export default async function BlogPageFR() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
-        <div className="container flex h-20 items-center justify-between py-4 relative">
-          <div className="flex items-center gap-2">
-            <Link href="/fr" className="flex items-center gap-2">
-              <img src="/Emineon logo_tree.png" alt="Logo Emineon" width={48} height={48} />
-              <span className="flex flex-col leading-tight">
-                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forgez votre avantage.</span>
-              </span>
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Qui sommes-nous</Link>
-            <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Services</Link>
-            <Link href="/fr#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Notre approche</Link>
-            <Link href="/fr#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Expertise</Link>
-            <Link href="/fr#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Témoignages</Link>
-            <Link href="/fr/blog" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-orange">Blog</Link>
-          </nav>
-          <div className="hidden md:flex items-center gap-4">
-            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
-            <LanguageSwitcher currentLang="fr" targetPath="/blog" />
-          </div>
-        </div>
-      </header>
+      <BlogHeader currentLang="fr" blogPath="/blog" />
 
       {/* Hero Section */}
       <section className="relative w-full py-24 bg-gradient-to-r from-emineon-blue via-emineon-light to-emineon-blue overflow-hidden">

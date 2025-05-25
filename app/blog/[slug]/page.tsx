@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import BlogHeader from "@/components/BlogHeader";
 
 export const revalidate = 600;
 
@@ -16,31 +16,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex flex-col">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
-        <div className="container flex h-20 items-center justify-between py-4 relative">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
-              <span className="flex flex-col leading-tight">
-                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
-              </span>
-            </Link>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Who we are</Link>
-            <Link href="/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Services</Link>
-            <Link href="/#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">How we work</Link>
-            <Link href="/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Expertise</Link>
-            <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Testimonials</Link>
-            <Link href="/blog" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-orange">Blog</Link>
-          </nav>
-          <div className="hidden md:flex items-center gap-4">
-            <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
-            <LanguageSwitcher currentLang="en" targetPath="/blog" />
-          </div>
-        </div>
-      </header>
+      <BlogHeader currentLang="en" blogPath="/blog" />
 
       <main className="flex-1 w-full flex flex-col items-center px-4 py-16">
         <article className="w-full max-w-4xl">
