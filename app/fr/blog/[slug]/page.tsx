@@ -42,44 +42,31 @@ export default async function BlogPostPageFR({ params }: { params: Promise<{ slu
         </div>
       </header>
 
-      {/* Featured Image Hero */}
-      {post.featuredImage && (
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
-          <Image
-            src={post.featuredImage.url}
-            alt={post.featuredImage.alt}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-          <div className="absolute bottom-8 left-0 right-0">
-            <div className="container mx-auto px-4">
-              <Link href="/fr/blog" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-200 mb-4">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                <span className="text-sm font-medium">Retour au Blog</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
       <main className="flex-1 w-full flex flex-col items-center px-4 py-16">
         <article className="w-full max-w-4xl">
           {/* Article Header */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-8">
-            {!post.featuredImage && (
-              <Link href="/fr/blog" className="inline-flex items-center gap-2 text-neutral-600 hover:text-emineon-blue transition-colors duration-200 mb-6">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                <span className="text-sm font-medium">Retour au Blog</span>
-              </Link>
-            )}
+            <Link href="/fr/blog" className="inline-flex items-center gap-2 text-neutral-600 hover:text-emineon-blue transition-colors duration-200 mb-6">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-sm font-medium">Retour au Blog</span>
+            </Link>
             
             <h1 className="text-4xl md:text-5xl font-bold text-neutral-800 mb-6 leading-tight">{post.title}</h1>
+            
+            {/* Featured Image - Smaller Size */}
+            {post.featuredImage && (
+              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden mb-6">
+                <Image
+                  src={post.featuredImage.url}
+                  alt={post.featuredImage.alt}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
             
             {post.excerpt && (
               <p className="text-xl text-neutral-600 mb-8 leading-relaxed">{post.excerpt}</p>
