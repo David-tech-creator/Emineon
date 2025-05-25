@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Menu } from "lucide-react";
 import { useState } from "react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function CareersPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col items-center p-8">
-      <header className="fixed top-0 left-0 z-50 w-[100vw] border-b bg-white" style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)', width: '100vw' }}>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 text-foreground flex flex-col items-center p-8">
+      <header className="fixed top-0 left-0 z-50 w-[100vw] border-b bg-white/80 backdrop-blur-md" style={{ marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)', width: '100vw' }}>
         <div className="flex h-20 items-center justify-between py-4 px-4 md:px-8">
           <div className="flex items-center gap-2">
             <Link href="/fr" className="flex items-center gap-2">
@@ -44,24 +45,8 @@ export default function CareersPage() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
-            <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/fr/contact">Contactez-nous</Link></Button>
-            <Button asChild variant="ghost" className="p-0 h-auto min-w-0 shadow-none border-none bg-transparent hover:bg-transparent focus:ring-0 focus:outline-none transition-transform hover:scale-110" aria-label="Voir en anglais">
-              <Link href="/careers" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en anglais">
-                <span className="w-5 h-5">
-                  {/* SVG UK flag */}
-                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                    <rect width="24" height="24" fill="#012169" rx="3"/>
-                    <path d="M0 0L24 24M24 0L0 24" stroke="#fff" strokeWidth="2.5"/>
-                    <path d="M0 0L24 24M24 0L0 24" stroke="#C8102E" strokeWidth="1.2"/>
-                    <rect x="10.2" width="3.6" height="24" fill="#fff"/>
-                    <rect y="10.2" width="24" height="3.6" fill="#fff"/>
-                    <rect x="11.1" width="1.8" height="24" fill="#C8102E"/>
-                    <rect y="11.1" width="24" height="1.8" fill="#C8102E"/>
-                  </svg>
-                </span>
-                <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
-              </Link>
-            </Button>
+            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
+            <LanguageSwitcher currentLang="fr" targetPath="/careers" />
           </div>
           {/* Hamburger for mobile */}
           <button
@@ -110,24 +95,10 @@ export default function CareersPage() {
                 <Link href="/fr/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Blog
                 </Link>
-                <Button asChild variant="ghost" className="p-0 h-auto min-w-0 shadow-none border-none bg-transparent hover:bg-transparent focus:ring-0 focus:outline-none transition-transform hover:scale-110 mt-2 w-full justify-center" aria-label="Voir en anglais">
-                  <Link href="/careers" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en anglais">
-                    <span className="w-5 h-5">
-                      {/* SVG UK flag */}
-                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                        <rect width="24" height="24" fill="#012169" rx="3"/>
-                        <path d="M0 0L24 24M24 0L0 24" stroke="#fff" strokeWidth="2.5"/>
-                        <path d="M0 0L24 24M24 0L0 24" stroke="#C8102E" strokeWidth="1.2"/>
-                        <rect x="10.2" width="3.6" height="24" fill="#fff"/>
-                        <rect y="10.2" width="24" height="3.6" fill="#fff"/>
-                        <rect x="11.1" width="1.8" height="24" fill="#C8102E"/>
-                        <rect y="11.1" width="24" height="1.8" fill="#C8102E"/>
-                      </svg>
-                    </span>
-                    <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
-                  </Link>
-                </Button>
-                <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/fr/contact">Contactez-nous</Link></Button>
+                <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contactez-nous</Link>
+                <div className="flex justify-center mt-4">
+                  <LanguageSwitcher currentLang="fr" targetPath="/careers" />
+                </div>
               </nav>
             </div>
           )}
@@ -186,7 +157,7 @@ export default function CareersPage() {
               <p className="opacity-80">+41 (0) 795 33 28 709</p>
             </div>
             <div className="md:ml-auto">
-              <Button asChild className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8"><Link href="/fr/contact">Contactez-nous</Link></Button>
+              <Link href="/fr/contact" className="bg-white text-emineon-blue hover:bg-blue-50 rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/20 text-center">

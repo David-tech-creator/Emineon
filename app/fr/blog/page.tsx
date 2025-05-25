@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { fetchAllPosts } from "@/lib/contentful";
 import { Metadata } from "next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export const revalidate = 600; // ISR: 10 minutes
 
@@ -36,20 +37,7 @@ export default async function BlogPageFR() {
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
-            <Link href="/blog" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en anglais" aria-label="Voir en anglais">
-              <span className="w-5 h-5">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                  <rect width="24" height="24" fill="#012169" rx="3"/>
-                  <path d="M0 0L24 24M24 0L0 24" stroke="#fff" strokeWidth="2.5"/>
-                  <path d="M0 0L24 24M24 0L0 24" stroke="#C8102E" strokeWidth="1.2"/>
-                  <rect x="10.2" width="3.6" height="24" fill="#fff"/>
-                  <rect y="10.2" width="24" height="3.6" fill="#fff"/>
-                  <rect x="11.1" width="1.8" height="24" fill="#C8102E"/>
-                  <rect y="11.1" width="24" height="1.8" fill="#C8102E"/>
-                </svg>
-              </span>
-              <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
-            </Link>
+            <LanguageSwitcher currentLang="fr" targetPath="/blog" />
           </div>
         </div>
       </header>
@@ -240,7 +228,7 @@ export default async function BlogPageFR() {
               )}
             </>
           )}
-        </div>
+          </div>
       </main>
 
       <footer className="py-12 bg-gradient-to-r from-emineon-dark via-neutral-900 to-emineon-dark text-white/60">

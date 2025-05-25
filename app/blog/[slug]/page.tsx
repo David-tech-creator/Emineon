@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export const revalidate = 600;
 
@@ -36,17 +37,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
-            <Link href="/fr/blog" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en français" aria-label="Voir en français">
-              <span className="w-5 h-5">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                  <rect width="8" height="24" x="0" y="0" fill="#0055A4"/>
-                  <rect width="8" height="24" x="8" y="0" fill="#fff"/>
-                  <rect width="8" height="24" x="16" y="0" fill="#EF4135"/>
-                  <rect width="24" height="24" fill="none" rx="3" stroke="#e5e7eb" strokeWidth="0.5"/>
-                </svg>
-              </span>
-              <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">FR</span>
-            </Link>
+            <LanguageSwitcher currentLang="en" targetPath="/blog" />
           </div>
         </div>
       </header>

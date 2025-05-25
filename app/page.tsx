@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
+import LanguageSwitcher from "@/components/LanguageSwitcher"
 
 function RemoteWorkCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
@@ -97,8 +98,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f8f8f8]">
-      <header className="sticky top-0 z-40 border-b bg-white">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
         <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
@@ -133,21 +134,8 @@ export default function Home() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
-            <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6"><Link href="/contact">Contact us</Link></Button>
-            <Button asChild variant="ghost" className="p-0 h-auto min-w-0 shadow-none border-none bg-transparent hover:bg-transparent focus:ring-0 focus:outline-none transition-transform hover:scale-110" aria-label="Voir en français">
-              <Link href="/fr" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en français">
-                <span className="w-5 h-5">
-                  {/* SVG French flag */}
-                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                    <rect width="8" height="24" x="0" y="0" fill="#0055A4"/>
-                    <rect width="8" height="24" x="8" y="0" fill="#fff"/>
-                    <rect width="8" height="24" x="16" y="0" fill="#EF4135"/>
-                    <rect width="24" height="24" fill="none" rx="3" stroke="#e5e7eb" strokeWidth="0.5"/>
-                  </svg>
-                </span>
-                <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">FR</span>
-              </Link>
-            </Button>
+            <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
+            <LanguageSwitcher currentLang="en" />
           </div>
           {/* Hamburger for mobile */}
           <button
@@ -196,21 +184,10 @@ export default function Home() {
                 <Link href="/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Blog
                 </Link>
-                <Button asChild className="bg-emineon-blue hover:bg-emineon-light text-white rounded-none px-6 mt-6 w-full"><Link href="/contact">Contact us</Link></Button>
-                <Button asChild variant="ghost" className="p-0 h-auto min-w-0 shadow-none border-none bg-transparent hover:bg-transparent focus:ring-0 focus:outline-none transition-transform hover:scale-110 mt-2 w-full justify-center" aria-label="Voir en français">
-                  <Link href="/fr" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en français">
-                    <span className="w-5 h-5">
-                      {/* SVG French flag */}
-                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                        <rect width="8" height="24" x="0" y="0" fill="#0055A4"/>
-                        <rect width="8" height="24" x="8" y="0" fill="#fff"/>
-                        <rect width="8" height="24" x="16" y="0" fill="#EF4135"/>
-                        <rect width="24" height="24" fill="none" rx="3" stroke="#e5e7eb" strokeWidth="0.5"/>
-                      </svg>
-                    </span>
-                    <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">FR</span>
-                  </Link>
-                </Button>
+                <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contact us</Link>
+                <div className="flex justify-center mt-4">
+                  <LanguageSwitcher currentLang="en" />
+                </div>
               </nav>
             </div>
           )}
@@ -480,7 +457,7 @@ export default function Home() {
               </div>
 
                 <div className="md:ml-auto">
-                  <Button asChild className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8"><Link href="/contact">Contact us</Link></Button>
+                  <Link href="/contact" className="bg-white text-emineon-blue hover:bg-blue-50 rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
               </div>
             </div>
 
