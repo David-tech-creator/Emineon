@@ -9,6 +9,25 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 
+// Add CSS animations
+if (typeof document !== 'undefined') {
+  const styles = `
+    @keyframes slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  `;
+  const styleSheet = document.createElement("style");
+  styleSheet.innerText = styles;
+  document.head.appendChild(styleSheet);
+}
+
 function RemoteWorkCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -148,46 +167,77 @@ export default function Home() {
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
             <div
-              className="fixed inset-0 z-50 bg-black/40 flex"
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex"
               tabIndex={-1}
               aria-modal="true"
               role="dialog"
               onClick={() => setMobileMenuOpen(false)}
             >
               <nav
-                className="bg-gray-50 w-72 max-w-full h-full shadow-xl p-6 flex flex-col gap-4 relative"
+                className="bg-gradient-to-br from-white via-blue-50/50 to-gray-50 w-80 max-w-full h-full shadow-2xl p-8 flex flex-col gap-3 relative border-r border-emineon-blue/20"
                 onClick={e => e.stopPropagation()}
                 aria-label="Mobile menu"
+                style={{
+                  background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%)',
+                  backdropFilter: 'blur(20px)',
+                }}
               >
                 <button
-                  className="absolute top-4 right-4 text-emineon-blue text-2xl focus:outline-none"
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-emineon-blue/10 hover:bg-emineon-blue/20 text-emineon-blue text-xl focus:outline-none transition-all duration-200 flex items-center justify-center hover:rotate-90"
                   aria-label="Close menu"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   ×
                 </button>
-                <Link href="#who-we-are" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Qui sommes-nous
-                </Link>
-                <Link href="#services" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Services
-                </Link>
-                <Link href="#how-we-work" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Notre approche
-                </Link>
-                <Link href="#expertise" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Expertise
-                </Link>
-                <Link href="#testimonials" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Témoignages
-                </Link>
-                <Link href="/fr/blog" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
-                  Blog
-                </Link>
-                <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contactez-nous</Link>
-                <div className="flex justify-center mt-4">
-                  <LanguageSwitcher currentLang="fr" />
+                
+                <div className="mt-4 mb-6">
+                  <div className="w-12 h-1 bg-gradient-to-r from-emineon-blue to-emineon-orange rounded-full mb-4"></div>
+                  <h3 className="text-lg font-bold text-emineon-blue">Navigation</h3>
                 </div>
+                
+                {[
+                  { href: "#who-we-are", label: "Qui sommes-nous" },
+                  { href: "#services", label: "Services" },
+                  { href: "#how-we-work", label: "Notre approche" },
+                  { href: "#expertise", label: "Expertise" },
+                  { href: "#testimonials", label: "Témoignages" },
+                  { href: "/fr/blog", label: "Blog" }
+                ].map((link, index) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="group py-4 px-5 text-lg font-semibold transition-all duration-300 rounded-xl relative overflow-hidden text-emineon-blue hover:text-white bg-white/80 hover:bg-gradient-to-r hover:from-emineon-blue hover:to-emineon-orange border border-gray-100/50 hover:border-transparent shadow-sm hover:shadow-lg hover:shadow-emineon-blue/20"
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{
+                      animationDelay: `${index * 100}ms`,
+                      animation: 'slideInFromLeft 0.5s ease-out forwards',
+                    }}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-emineon-blue to-emineon-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+                  </Link>
+                ))}
+                
+                <div className="mt-8 space-y-4">
+                  <Link 
+                    href="/fr/contact" 
+                    className="group bg-gradient-to-r from-emineon-orange to-emineon-orange/90 hover:from-emineon-orange/90 hover:to-emineon-blue text-white rounded-xl px-6 py-4 font-semibold transition-all duration-300 shadow-lg shadow-emineon-orange/25 hover:shadow-xl hover:shadow-emineon-orange/30 w-full text-center block relative overflow-hidden"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="relative z-10">Contactez-nous</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-emineon-blue to-emineon-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
+                  
+                  <div className="flex justify-center pt-2">
+                    <div className="p-3 bg-white/60 rounded-xl border border-gray-100/50 shadow-sm">
+                      <LanguageSwitcher currentLang="fr" />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative elements */}
+                <div className="absolute top-20 right-8 w-20 h-20 bg-gradient-to-br from-emineon-blue/10 to-emineon-orange/10 rounded-full blur-xl"></div>
+                <div className="absolute bottom-32 left-6 w-16 h-16 bg-gradient-to-br from-emineon-orange/10 to-emineon-blue/10 rounded-full blur-lg"></div>
               </nav>
             </div>
           )}
