@@ -61,3 +61,48 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Blog-specific styles */
+@layer components {
+  .prose-neutral {
+    --tw-prose-body: theme('colors.neutral.700');
+    --tw-prose-headings: theme('colors.neutral.800');
+    --tw-prose-lead: theme('colors.neutral.600');
+    --tw-prose-links: theme('colors.blue.600');
+    --tw-prose-bold: theme('colors.neutral.800');
+    --tw-prose-counters: theme('colors.neutral.500');
+    --tw-prose-bullets: theme('colors.neutral.300');
+    --tw-prose-hr: theme('colors.neutral.200');
+    --tw-prose-quotes: theme('colors.neutral.800');
+    --tw-prose-quote-borders: theme('colors.orange.500');
+    --tw-prose-captions: theme('colors.neutral.500');
+    --tw-prose-code: theme('colors.blue.600');
+    --tw-prose-pre-code: theme('colors.neutral.200');
+    --tw-prose-pre-bg: theme('colors.neutral.800');
+    --tw-prose-th-borders: theme('colors.neutral.300');
+    --tw-prose-td-borders: theme('colors.neutral.200');
+  }
+}

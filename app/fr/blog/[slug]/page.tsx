@@ -7,7 +7,7 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 
 export const revalidate = 600;
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPostPageFR({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await fetchBySlug(slug);
 
@@ -18,34 +18,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
         <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+            <Link href="/fr" className="flex items-center gap-2">
+              <img src="/Emineon logo_tree.png" alt="Logo Emineon" width={48} height={48} />
               <span className="flex flex-col leading-tight">
                 <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forgez votre avantage.</span>
               </span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Who we are</Link>
-            <Link href="/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Services</Link>
-            <Link href="/#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">How we work</Link>
-            <Link href="/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Expertise</Link>
-            <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Testimonials</Link>
-            <Link href="/blog" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-orange">Blog</Link>
+            <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Qui sommes-nous</Link>
+            <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Services</Link>
+            <Link href="/fr#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Notre approche</Link>
+            <Link href="/fr#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Expertise</Link>
+            <Link href="/fr#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue transition-colors">Témoignages</Link>
+            <Link href="/fr/blog" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-orange">Blog</Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
-            <Link href="/fr/blog" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en français" aria-label="Voir en français">
+            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
+            <Link href="/blog" prefetch={false} className="flex items-center gap-2 px-3 py-1 rounded-full border border-emineon-blue bg-white/90 hover:bg-emineon-blue/10 transition-all duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emineon-orange" title="Voir en anglais" aria-label="Voir en anglais">
               <span className="w-5 h-5">
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" className="inline-block align-middle">
-                  <rect width="8" height="24" x="0" y="0" fill="#0055A4"/>
-                  <rect width="8" height="24" x="8" y="0" fill="#fff"/>
-                  <rect width="8" height="24" x="16" y="0" fill="#EF4135"/>
-                  <rect width="24" height="24" fill="none" rx="3" stroke="#e5e7eb" strokeWidth="0.5"/>
+                  <rect width="24" height="24" fill="#012169" rx="3"/>
+                  <path d="M0 0L24 24M24 0L0 24" stroke="#fff" strokeWidth="2.5"/>
+                  <path d="M0 0L24 24M24 0L0 24" stroke="#C8102E" strokeWidth="1.2"/>
+                  <rect x="10.2" width="3.6" height="24" fill="#fff"/>
+                  <rect y="10.2" width="24" height="3.6" fill="#fff"/>
+                  <rect x="11.1" width="1.8" height="24" fill="#C8102E"/>
+                  <rect y="11.1" width="24" height="1.8" fill="#C8102E"/>
                 </svg>
               </span>
-              <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">FR</span>
+              <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
             </Link>
           </div>
         </div>
@@ -64,11 +67,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
           <div className="absolute bottom-8 left-0 right-0">
             <div className="container mx-auto px-4">
-              <Link href="/blog" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-200 mb-4">
+              <Link href="/fr/blog" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-200 mb-4">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                <span className="text-sm font-medium">Back to Blog</span>
+                <span className="text-sm font-medium">Retour au Blog</span>
               </Link>
             </div>
           </div>
@@ -80,11 +83,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {/* Article Header */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-8">
             {!post.featuredImage && (
-              <Link href="/blog" className="inline-flex items-center gap-2 text-neutral-600 hover:text-emineon-blue transition-colors duration-200 mb-6">
+              <Link href="/fr/blog" className="inline-flex items-center gap-2 text-neutral-600 hover:text-emineon-blue transition-colors duration-200 mb-6">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                <span className="text-sm font-medium">Back to Blog</span>
+                <span className="text-sm font-medium">Retour au Blog</span>
               </Link>
             )}
             
@@ -115,14 +118,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   )}
                   <div>
                     <div className="font-semibold text-neutral-800">{post.author.name}</div>
-                    <div className="text-sm text-neutral-500">Author</div>
+                    <div className="text-sm text-neutral-500">Auteur</div>
                   </div>
                 </div>
               )}
               <div className="text-neutral-500">
-                <div className="text-sm font-medium">Published</div>
+                <div className="text-sm font-medium">Publié le</div>
                 <div className="text-sm">
-                  {new Date(post.date).toLocaleDateString('en-US', { 
+                  {new Date(post.date).toLocaleDateString('fr-FR', { 
                     year: 'numeric', 
                     month: 'long', 
                     day: 'numeric' 
@@ -165,7 +168,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         <div className="my-8">
                           <Image
                             src={`https:${file.url}`}
-                            alt={description || title || 'Article image'}
+                            alt={description || title || 'Image de l\'article'}
                             width={file.details.image?.width || 800}
                             height={file.details.image?.height || 600}
                             className="rounded-lg shadow-lg w-full h-auto"
@@ -198,24 +201,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="mt-12 pt-8 border-t border-neutral-200">
               <div className="flex items-center justify-between">
                 <Link 
-                  href="/blog" 
+                  href="/fr/blog" 
                   className="inline-flex items-center gap-2 text-emineon-blue hover:text-emineon-orange font-semibold transition-colors duration-200"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
-                  <span>Back to Blog</span>
+                  <span>Retour au Blog</span>
                 </Link>
                 
                 <div className="flex items-center gap-4">
-                  <span className="text-sm text-neutral-500">Share this article:</span>
+                  <span className="text-sm text-neutral-500">Partager cet article :</span>
                   <div className="flex gap-3">
                     <a 
                       href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                       className="w-10 h-10 bg-neutral-100 hover:bg-emineon-blue text-neutral-600 hover:text-white rounded-full flex items-center justify-center transition-all duration-200"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Share on Twitter"
+                      aria-label="Partager sur Twitter"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M17.5 6.5L6.5 17.5M6.5 6.5l11 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -226,7 +229,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       className="w-10 h-10 bg-neutral-100 hover:bg-emineon-blue text-neutral-600 hover:text-white rounded-full flex items-center justify-center transition-all duration-200"
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Share on LinkedIn"
+                      aria-label="Partager sur LinkedIn"
                     >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
@@ -244,8 +247,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <footer className="py-12 bg-gradient-to-r from-emineon-dark via-neutral-900 to-emineon-dark text-white/60">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
           <div className="flex items-center gap-3">
-            <img src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} />
-            <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+            <img src="/Emineon logo_tree_white.png" alt="Logo Emineon" height={40} width={40} />
+            <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. Tous droits réservés.</span>
             <div className="flex gap-4 ml-4">
               <a href="#" aria-label="LinkedIn" className="text-white/80 hover:text-emineon-orange transition-colors duration-200" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -258,13 +261,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </a>
             </div>
           </div>
-          <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. All rights reserved.</span>
+          <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. Tous droits réservés.</span>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="#" className="text-sm hover:text-white transition-colors duration-200">
-              Privacy Policy
+              Politique de confidentialité
             </Link>
             <Link href="#" className="text-sm hover:text-white transition-colors duration-200">
-              Terms of Service
+              Conditions d'utilisation
             </Link>
             <Link href="#" className="text-sm hover:text-white transition-colors duration-200">
               Contact
