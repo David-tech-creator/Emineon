@@ -1,19 +1,19 @@
+import { notFound } from "next/navigation";
+import { fetchBySlug } from "@/lib/contentful";
 import Link from "next/link";
-import { fetchAllPosts } from "@/lib/contentful";
-import { Metadata } from "next";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
-export const revalidate = 600; // ISR: 10 minutes
+export const revalidate = 600;
 
-export const metadata: Metadata = {
-  title: "Emineon Blog",
-  description: "Insights, stories, and resources on global talent, innovation, and the future of work.",
-};
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await fetchBySlug(slug);
 
-export default async function BlogPage() {
-  const posts = await fetchAllPosts();
+  if (!post) return notFound();
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f8f8f8]">
+    <div className="min-h-screen bg-[#f8f8f8] flex flex-col">
       <header className="sticky top-0 z-40 border-b bg-white">
         <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
@@ -49,34 +49,37 @@ export default async function BlogPage() {
           </div>
         </div>
       </header>
-      <section className="w-full py-20 bg-emineon-blue flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-white mb-4 text-center">Emineon Blog</h1>
-        <p className="text-lg text-white/80 max-w-2xl text-center mx-auto">Insights, stories, and resources on global talent, innovation, and the future of work.</p>
-      </section>
       <main className="flex-1 w-full flex flex-col items-center px-4 py-16">
-        <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 sm:p-10 flex flex-col items-center">
-          {posts.length === 0 ? (
-            <p className="text-neutral-400">No posts yet. Check back soon!</p>
-          ) : (
-            <ul className="w-full space-y-8">
-              {posts.map(post => (
-                <li key={post.id} className="border-b pb-6">
-                  <Link href={`/blog/${post.slug}`}>
-                    <h2 className="text-2xl font-bold text-emineon-blue hover:text-emineon-orange transition">{post.title}</h2>
-                  </Link>
-                  <div className="text-sm text-neutral-500 mb-2">{post.date && new Date(post.date).toLocaleDateString()}</div>
-                  <div className="flex gap-2 mb-2">
-                    {post.tags.map((tag: string) => (
-                      <span key={tag} className="bg-emineon-blue/10 text-emineon-blue px-2 py-1 rounded text-xs">{tag}</span>
-                    ))}
-                  </div>
-                  <p className="text-neutral-700">{post.excerpt}</p>
-                  <Link href={`/blog/${post.slug}`} className="text-emineon-orange font-medium mt-2 inline-block">Read more →</Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <article className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 sm:p-10 flex flex-col items-start">
+          <h1 className="text-3xl md:text-4xl font-bold text-emineon-blue mb-2">{post.title}</h1>
+          <div className="text-sm text-neutral-500 mb-4">{post.date && new Date(post.date).toLocaleDateString()}</div>
+          <div className="flex gap-2 mb-4">
+            {post.tags.map((tag: string) => (
+              <span key={tag} className="bg-emineon-blue/10 text-emineon-blue px-2 py-1 rounded text-xs">{tag}</span>
+            ))}
+          </div>
+          <p className="text-neutral-700 mb-8">{post.excerpt}</p>
+          
+          {/* Rich text content from Contentful */}
+          <div className="prose prose-lg max-w-none mb-8">
+            {post.content && typeof post.content === 'object' && documentToReactComponents(post.content, {
+              renderMark: {
+                [MARKS.BOLD]: (text) => <strong className="font-bold">{text}</strong>,
+              },
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4 text-neutral-700 leading-relaxed">{children}</p>,
+                [BLOCKS.HEADING_1]: (node, children) => <h1 className="text-3xl font-bold text-emineon-blue mb-6 mt-8">{children}</h1>,
+                [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-2xl font-bold text-emineon-blue mb-4 mt-6">{children}</h2>,
+                [BLOCKS.HEADING_3]: (node, children) => <h3 className="text-xl font-bold text-emineon-blue mb-3 mt-5">{children}</h3>,
+                [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
+                [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
+                [BLOCKS.LIST_ITEM]: (node, children) => <li className="text-neutral-700">{children}</li>,
+              },
+            })}
+          </div>
+          
+          <Link href="/blog" className="text-emineon-orange font-medium mt-4">← Back to Blog</Link>
+        </article>
       </main>
       <footer className="py-8 bg-emineon-dark text-white/60">
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">

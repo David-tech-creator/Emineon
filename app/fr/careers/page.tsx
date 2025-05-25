@@ -24,19 +24,19 @@ export default function CareersPage() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Qui sommes-nous
             </Link>
-            <Link href="/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Services
             </Link>
-            <Link href="/#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Notre approche
             </Link>
-            <Link href="/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Expertise
             </Link>
-            <Link href="/#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Témoignages
             </Link>
             <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
@@ -92,19 +92,19 @@ export default function CareersPage() {
                 >
                   ×
                 </button>
-                <Link href="/#who-we-are" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#who-we-are" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Qui sommes-nous
                 </Link>
-                <Link href="/#services" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#services" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Services
                 </Link>
-                <Link href="/#how-we-work" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#how-we-work" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Notre approche
                 </Link>
-                <Link href="/#expertise" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#expertise" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Expertise
                 </Link>
-                <Link href="/#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/fr#testimonials" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
                   Témoignages
                 </Link>
                 <Link href="/fr/blog" className="py-3 text-lg font-medium text-neutral-700 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>

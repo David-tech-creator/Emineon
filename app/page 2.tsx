@@ -41,7 +41,7 @@ export default function Home() {
                   </svg>
                 </span>
                 <span className="font-semibold text-emineon-blue group-hover:text-emineon-orange">EN</span>
-              </Link>
+            </Link>
             </Button>
           </div>
           <nav className="hidden md:flex items-center gap-8">
