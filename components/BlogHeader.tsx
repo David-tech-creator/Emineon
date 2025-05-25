@@ -108,10 +108,10 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`py-4 px-2 text-xl font-semibold transition-colors rounded-lg ${
+                  className={`py-4 px-3 text-xl font-semibold transition-colors rounded-lg ${
                     link.href.includes("/blog")
                       ? "text-emineon-blue bg-emineon-blue/10"
-                      : "text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5"
+                      : "text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

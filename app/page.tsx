@@ -166,22 +166,22 @@ export default function Home() {
                 >
                   ×
                 </button>
-                <Link href="#who-we-are" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="#who-we-are" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Who we are
                 </Link>
-                <Link href="#services" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="#services" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Services
                 </Link>
-                <Link href="#how-we-work" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="#how-we-work" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   How we work
                 </Link>
-                <Link href="#expertise" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="#expertise" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Expertise
                 </Link>
-                <Link href="#testimonials" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="#testimonials" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Testimonials
                 </Link>
-                <Link href="/blog" className="py-4 px-2 text-xl font-semibold text-gray-900 hover:text-emineon-blue hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/blog" className="py-4 px-3 text-xl font-semibold text-emineon-blue hover:text-emineon-orange hover:bg-emineon-blue/5 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Blog
                 </Link>
                 <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contact us</Link>
