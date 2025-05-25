@@ -59,45 +59,50 @@ export default function CareersPage() {
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
             <div
-              className="fixed inset-0 z-50 bg-black/40 flex"
-              tabIndex={-1}
-              aria-modal="true"
-              role="dialog"
+              className="fixed inset-0 z-50 bg-black/50 flex"
               onClick={() => setMobileMenuOpen(false)}
             >
               <nav
-                className="bg-gray-50 w-72 max-w-full h-full shadow-xl p-6 flex flex-col gap-4 relative"
+                className="bg-white w-72 h-full shadow-xl p-6 flex flex-col gap-4"
                 onClick={e => e.stopPropagation()}
-                aria-label="Mobile menu"
               >
-                <button
-                  className="absolute top-4 right-4 text-emineon-blue text-2xl focus:outline-none"
-                  aria-label="Close menu"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  ×
-                </button>
-                <Link href="/#who-we-are" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-lg font-bold text-emineon-blue">Menu</h3>
+                  <button
+                    className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-xl flex items-center justify-center"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    ×
+                  </button>
+                </div>
+                
+                <Link href="/#who-we-are" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Who we are
                 </Link>
-                <Link href="/#services" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#services" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Services
                 </Link>
-                <Link href="/#how-we-work" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#how-we-work" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   How we work
                 </Link>
-                <Link href="/#expertise" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#expertise" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Expertise
                 </Link>
-                <Link href="/#testimonials" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/#testimonials" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Testimonials
                 </Link>
-                <Link href="/blog" className="py-4 px-4 text-xl font-semibold text-emineon-blue hover:text-white hover:bg-emineon-blue rounded-lg transition-all duration-200 bg-white border border-gray-100 shadow-sm" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/blog" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Blog
                 </Link>
-                <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg mt-6 w-full text-center block">Contact us</Link>
-                <div className="flex justify-center mt-4">
-                  <LanguageSwitcher currentLang="en" targetPath="/careers" />
+                
+                <div className="mt-6 space-y-4">
+                  <Link href="/contact" className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-3 font-medium w-full text-center block" onClick={() => setMobileMenuOpen(false)}>
+                    Contact us
+                  </Link>
+                  
+                  <div className="flex justify-center">
+                    <LanguageSwitcher currentLang="en" targetPath="/careers" />
+                  </div>
                 </div>
               </nav>
             </div>

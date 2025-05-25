@@ -5,26 +5,6 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-// Add CSS animations
-const styles = `
-  @keyframes slideInFromLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-`;
-
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement("style");
-  styleSheet.innerText = styles;
-  document.head.appendChild(styleSheet);
-}
-
 interface BlogHeaderProps {
   currentLang: "en" | "fr";
   blogPath: string;
@@ -105,76 +85,51 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
           <div
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex"
-            tabIndex={-1}
-            aria-modal="true"
-            role="dialog"
+            className="fixed inset-0 z-50 bg-black/50 flex"
             onClick={() => setMobileMenuOpen(false)}
           >
             <nav
-              className="bg-gradient-to-br from-white via-blue-50/50 to-gray-50 w-80 max-w-full h-full shadow-2xl p-8 flex flex-col gap-3 relative border-r border-emineon-blue/20"
+              className="bg-white w-72 h-full shadow-xl p-6 flex flex-col gap-4"
               onClick={e => e.stopPropagation()}
-              aria-label="Mobile menu"
-              style={{
-                background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%)',
-                backdropFilter: 'blur(20px)',
-              }}
             >
-              <button
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-emineon-blue/10 hover:bg-emineon-blue/20 text-emineon-blue text-xl focus:outline-none transition-all duration-200 flex items-center justify-center hover:rotate-90"
-                aria-label="Close menu"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                ×
-              </button>
-              
-              <div className="mt-4 mb-6">
-                <div className="w-12 h-1 bg-gradient-to-r from-emineon-blue to-emineon-orange rounded-full mb-4"></div>
-                <h3 className="text-lg font-bold text-emineon-blue">Navigation</h3>
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-lg font-bold text-emineon-blue">Menu</h3>
+                <button
+                  className="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 text-xl flex items-center justify-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  ×
+                </button>
               </div>
               
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`group py-4 px-5 text-lg font-semibold transition-all duration-300 rounded-xl relative overflow-hidden ${
+                  className={`py-3 px-4 text-base font-medium rounded-lg transition-colors ${
                     link.href.includes("/blog")
-                      ? "text-white bg-gradient-to-r from-emineon-blue to-emineon-blue/90 shadow-lg shadow-emineon-blue/25"
-                      : "text-emineon-blue hover:text-white bg-white/80 hover:bg-gradient-to-r hover:from-emineon-blue hover:to-emineon-orange border border-gray-100/50 hover:border-transparent shadow-sm hover:shadow-lg hover:shadow-emineon-blue/20"
+                      ? "text-white bg-emineon-blue"
+                      : "text-emineon-blue hover:bg-emineon-blue/10"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                    animation: 'slideInFromLeft 0.5s ease-out forwards',
-                  }}
                 >
-                  <span className="relative z-10">{link.label}</span>
-                  {!link.href.includes("/blog") && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-emineon-blue to-emineon-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-                  )}
+                  {link.label}
                 </Link>
               ))}
               
-              <div className="mt-8 space-y-4">
+              <div className="mt-6 space-y-4">
                 <Link 
                   href={contactLink} 
-                  className="group bg-gradient-to-r from-emineon-orange to-emineon-orange/90 hover:from-emineon-orange/90 hover:to-emineon-blue text-white rounded-xl px-6 py-4 font-semibold transition-all duration-300 shadow-lg shadow-emineon-orange/25 hover:shadow-xl hover:shadow-emineon-orange/30 w-full text-center block relative overflow-hidden"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-lg px-6 py-3 font-medium w-full text-center block"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span className="relative z-10">{contactText}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-emineon-blue to-emineon-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {contactText}
                 </Link>
                 
-                <div className="flex justify-center pt-2">
-                  <div className="p-3 bg-white/60 rounded-xl border border-gray-100/50 shadow-sm">
-                    <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
-                  </div>
+                <div className="flex justify-center">
+                  <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
                 </div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute top-20 right-8 w-20 h-20 bg-gradient-to-br from-emineon-blue/10 to-emineon-orange/10 rounded-full blur-xl"></div>
-              <div className="absolute bottom-32 left-6 w-16 h-16 bg-gradient-to-br from-emineon-orange/10 to-emineon-blue/10 rounded-full blur-lg"></div>
             </nav>
           </div>
         )}
