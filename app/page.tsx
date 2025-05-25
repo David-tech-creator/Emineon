@@ -157,8 +157,8 @@ export default function Home() {
               {/* Menu panel */}
               <div className="relative bg-white h-full w-64 shadow-xl">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                  <span className="text-lg font-semibold text-gray-900">Menu</span>
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
@@ -168,7 +168,7 @@ export default function Home() {
                 </div>
                 
                 {/* Navigation links */}
-                <div className="py-4">
+                <div className="py-4 bg-white">
                   {[
                     { href: "#who-we-are", label: "Who we are" },
                     { href: "#services", label: "Services" },
@@ -180,7 +180,7 @@ export default function Home() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue"
+                      className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {link.label}

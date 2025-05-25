@@ -145,8 +145,8 @@ export default function FindTalentPage() {
               {/* Menu panel */}
               <div className="relative bg-white h-full w-64 shadow-xl">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200">
-                  <span className="text-lg font-semibold text-gray-900">Menu</span>
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
                     className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
@@ -156,23 +156,23 @@ export default function FindTalentPage() {
                 </div>
                 
                 {/* Navigation links */}
-                <div className="py-4">
-                  <Link href="/#who-we-are" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                <div className="py-4 bg-white">
+                  <Link href="/#who-we-are" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Who we are
                   </Link>
-                  <Link href="/#services" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/#services" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Services
                   </Link>
-                  <Link href="/#how-we-work" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/#how-we-work" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     How we work
                   </Link>
-                  <Link href="/#expertise" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/#expertise" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Expertise
                   </Link>
-                  <Link href="/#testimonials" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/#testimonials" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Testimonials
                   </Link>
-                  <Link href="/blog" className="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-emineon-blue" onClick={() => setMobileMenuOpen(false)}>
+                  <Link href="/blog" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Blog
                   </Link>
                 </div>
