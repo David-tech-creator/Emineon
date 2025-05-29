@@ -143,6 +143,7 @@ export default function ProductPage() {
   const [activeTab, setActiveTab] = useState<'source' | 'engage' | 'interview' | 'present'>('source');
   const [showDemo, setShowDemo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeFeatureModal, setActiveFeatureModal] = useState<'source' | 'engage' | 'interview' | 'present' | null>(null);
 
   // Video controls state
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -655,7 +656,10 @@ export default function ProductPage() {
                             </motion.li>
                           ))}
                         </ul>
-                        <Button className="mt-4 sm:mt-6 bg-emineon-blue hover:bg-emineon-blue/90 text-white touch-target btn-mobile">
+                        <Button 
+                          onClick={() => setActiveFeatureModal(step.id)}
+                          className="mt-4 sm:mt-6 bg-emineon-blue hover:bg-emineon-blue/90 text-white touch-target btn-mobile"
+                        >
                           En savoir plus <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
@@ -1075,6 +1079,458 @@ export default function ProductPage() {
           </div>
         </div>
       </footer>
+
+      {/* Feature Detail Modals */}
+      {activeFeatureModal && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 safe-top safe-bottom"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-mobile"
+          >
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-emineon-blue flex items-center justify-center">
+                    {activeFeatureModal === 'source' && <Search className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'engage' && <MessageSquare className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'interview' && <Calendar className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'present' && <BarChart3 className="w-6 h-6 text-white" />}
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-emineon-blue capitalize">{activeFeatureModal}</h2>
+                    <p className="text-neutral-600">
+                      {activeFeatureModal === 'source' && 'Sourcing de Candidats IA'}
+                      {activeFeatureModal === 'engage' && 'Engagement Automatisé'}
+                      {activeFeatureModal === 'interview' && 'Gestion Intelligente d\'Entretiens'}
+                      {activeFeatureModal === 'present' && 'Présentations Intelligentes de Candidats'}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setActiveFeatureModal(null)}
+                  className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target"
+                  aria-label="Fermer"
+                >
+                  <span className="text-2xl">×</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8">
+              {activeFeatureModal === 'source' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Moteur de Recherche en Langage Naturel</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Trouvez des talents qualifiés en utilisant le langage naturel. Décrivez simplement qui vous cherchez, sans opérateurs booléens. Notre IA gère la logique de recherche complexe en arrière-plan.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Exemple de Recherche</h4>
+                      <div className="bg-white rounded-lg p-4 border border-gray-200 mb-4">
+                        <p className="text-sm text-gray-600 mb-2">Au lieu de :</p>
+                        <code className="text-sm text-red-600">(React OR Angular) AND (TypeScript OR JavaScript) AND (Senior OR Lead) AND experience</code>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 border border-emineon-blue/20">
+                        <p className="text-sm text-gray-600 mb-2">Tapez simplement :</p>
+                        <p className="text-emineon-blue font-medium">"Développeur frontend senior avec expérience React et TypeScript"</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Notation Intelligente des Candidats</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Notre IA analyse vos exigences et note les candidats selon l'expérience, les compétences et l'adéquation sectorielle pour présenter instantanément les meilleures correspondances.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                        <div className="text-green-600 font-bold text-lg">96%</div>
+                        <div className="text-sm text-green-700">Excellente Correspondance</div>
+                        <div className="text-xs text-green-600 mt-1">Toutes les exigences remplies</div>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                        <div className="text-blue-600 font-bold text-lg">89%</div>
+                        <div className="text-sm text-blue-700">Bonne Correspondance</div>
+                        <div className="text-xs text-blue-600 mt-1">Lacunes mineures</div>
+                      </div>
+                      <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                        <div className="text-orange-600 font-bold text-lg">75%</div>
+                        <div className="text-sm text-orange-700">Correspondance Correcte</div>
+                        <div className="text-xs text-orange-600 mt-1">Formation nécessaire</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Aperçu Complet du Candidat</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Notre IA analyse chaque interaction avec vos candidats - emails, appels, notes et réunions - pour construire une compréhension complète de leurs qualifications et parcours.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Emails', 'Appels', 'Notes', 'Messages', 'Réunions', 'Rapports'].map((item) => (
+                        <span key={item} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Intégration LinkedIn</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Importez des candidats directement depuis LinkedIn avec notre extension Chrome. Synchronisez des profils individuels ou importez des résultats de recherche entiers en masse.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Import de profil en un clic depuis LinkedIn</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Import en masse depuis les listes LinkedIn Recruiter</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Enrichissement automatique avec emails vérifiés</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'engage' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Campagnes d'Approche Multi-Canal</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Créez des séquences d'approche intelligentes qui s'adaptent au comportement de vos prospects sur LinkedIn, email et WhatsApp. Fini les suivis manuels ou les opportunités ratées.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-4">Exemple de Flux de Campagne</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">1</div>
+                          <span>Email Initial</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
+                          <span className="text-gray-600">Attendre 3 jours</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">2</div>
+                          <span>Si ouvert : InMail LinkedIn | Si pas ouvert : Demande de connexion</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
+                          <span className="text-gray-600">Attendre 1 semaine</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">3</div>
+                          <span>Suivi WhatsApp (si disponible)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Personnalisation à Grande Échelle</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Dépassez le simple publipostage. Créez des messages hautement personnalisés en utilisant les conversations passées, le style de communication et le profil du candidat.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm text-gray-600 mb-2">Message Généré par IA :</div>
+                      <div className="space-y-2">
+                        <p>Bonjour <span className="bg-yellow-100 px-1 rounded">Sarah</span>,</p>
+                        <p><span className="bg-blue-100 px-1 rounded">Suite à notre discussion sur l'architecture cloud le mois dernier</span>, je voulais vous contacter pour une opportunité passionnante.</p>
+                        <p>Nous recrutons pour un poste d'<span className="bg-green-100 px-1 rounded">Ingénieur Backend Senior</span> avec plus de responsabilités d'équipe.</p>
+                        <p><span className="bg-purple-100 px-1 rounded">Seriez-vous disponible pour un bref appel pour en discuter ?</span></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Hub de Communication Centralisé</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Toutes vos communications candidats en un seul endroit. Envoyez des messages via WhatsApp, LinkedIn et email sans changer de plateforme.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-blue-50 rounded-lg p-4 text-center">
+                        <div className="text-blue-600 font-semibold">Email</div>
+                        <div className="text-sm text-blue-600 mt-1">Approche professionnelle</div>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-4 text-center">
+                        <div className="text-blue-600 font-semibold">LinkedIn</div>
+                        <div className="text-sm text-blue-600 mt-1">InMails & messages</div>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-4 text-center">
+                        <div className="text-green-600 font-semibold">WhatsApp</div>
+                        <div className="text-sm text-green-600 mt-1">Chats personnels & pro</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Analyses de Réponse IA</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Obtenez des insights instantanés sur l'engagement des candidats et optimisez votre stratégie d'approche avec des analyses en temps réel.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Suivi des taux d'ouverture et de réponse</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Modèles de messages les plus performants</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Horaires et fréquences d'envoi optimaux</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'interview' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Prise de Notes IA</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Concentrez-vous sur la conversation pendant que notre assistant IA capture automatiquement des notes complètes et les points clés de chaque entretien.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Transcription en Direct</h4>
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                          <span className="text-sm text-gray-600">Enregistrement en cours...</span>
+                        </div>
+                        <p className="text-sm text-gray-700">
+                          "J'ai 8+ années d'expérience avec React et TypeScript, et j'ai dirigé trois projets frontend majeurs dans mon entreprise actuelle..."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Résumés d'Entretiens Intelligents</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Obtenez des résumés générés par IA de vos entretiens et posez des questions sur n'importe quelle conversation passée. Ne perdez plus jamais de détails importants.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm font-semibold text-emineon-blue mb-2">Résumé d'Entretien - Sarah Chen</div>
+                      <div className="text-sm text-gray-600 mb-3">15 mars 2024 • 45 minutes</div>
+                      <div className="space-y-2 text-sm">
+                        <div><strong>Points Forts :</strong> Solide formation technique en systèmes distribués, excellentes compétences de communication</div>
+                        <div><strong>Expérience :</strong> 8+ années React/TypeScript, dirigé 3 projets majeurs</div>
+                        <div><strong>Attentes Salariales :</strong> 145 000€ (mis à jour de 120 000€)</div>
+                        <div><strong>Prochaines Étapes :</strong> Planifier entretien technique avec le responsable d'embauche</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Mises à Jour ATS Automatiques</h3>
+                    <p className="text-neutral-700 mb-4">
+                      L'IA suggère des mises à jour des champs candidat basées sur les informations discutées pendant les entretiens. Gardez votre base de données à jour sans effort.
+                    </p>
+                    <div className="space-y-3">
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                        <div className="text-green-700 font-semibold text-sm">✓ Salaire Actuel Mis à Jour</div>
+                        <div className="text-green-600 text-sm">120 000€ → 145 000€</div>
+                      </div>
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <div className="text-blue-700 font-semibold text-sm">+ Formation Ajoutée</div>
+                        <div className="text-blue-600 text-sm">MSc Informatique, Université Stanford 2019</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Planification Intelligente & Gestion de Pipeline</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Coordonnez les entretiens sans effort avec la synchronisation automatique du calendrier et les étapes de pipeline personnalisables.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-emineon-blue mb-3">Créneaux Disponibles</h5>
+                        <div className="space-y-2">
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Mardi 12 mars - 14h00</div>
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Mardi 12 mars - 15h00</div>
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Mercredi 13 mars - 11h00</div>
+                          <div className="text-emineon-blue text-sm">+ 12 créneaux supplémentaires</div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-emineon-blue mb-3">Labels Pipeline Personnalisés</h5>
+                        <div className="space-y-2">
+                          <span className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm">Entretien Téléphonique</span>
+                          <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-sm ml-2">Entretien Technique</span>
+                          <span className="inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-sm ml-2">Tour Final</span>
+                          <span className="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm ml-2">En Attente Retour</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'present' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Rapports Candidats en Un Clic</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Générez des présentations candidats professionnelles en quelques secondes. Ne commencez plus jamais par une page blanche avec notre génération de rapports IA.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Documents d'Entrée</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-red-500 font-semibold text-sm">PDF</div>
+                          <div className="text-xs text-gray-600">CV Candidat</div>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-blue-500 font-semibold text-sm">DOC</div>
+                          <div className="text-xs text-gray-600">Description de Poste</div>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-green-500 font-semibold text-sm">DOCX</div>
+                          <div className="text-xs text-gray-600">Notes d'Entretien</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Modèles Personnalisés & Image de Marque</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Utilisez les modèles de marque de votre entreprise. Générez des rapports directement exportables en Word ou PowerPoint, prêts à partager avec les clients.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <div className="text-blue-600 font-semibold mb-2">Export Word</div>
+                        <div className="text-sm text-blue-600">Documents professionnels avec votre marque</div>
+                      </div>
+                      <div className="bg-orange-50 rounded-lg p-4">
+                        <div className="text-orange-600 font-semibold mb-2">Export PowerPoint</div>
+                        <div className="text-sm text-orange-600">Diapositives prêtes pour réunions client</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Génération de Contenu Intelligente</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Notre IA analyse les données candidat et crée des présentations sur mesure mettant en valeur l'expérience et les compétences les plus pertinentes pour chaque poste spécifique.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm font-semibold text-emineon-blue mb-3">Sections Auto-Générées</div>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Résumé Exécutif</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Points Forts d'Expérience Pertinente</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Analyse de Correspondance des Compétences</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Évaluation d'Adéquation Culturelle</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Résumé d'Entretien & Recommandations</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Formatage & Adaptation de CV</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Reformatez n'importe quel CV dans votre modèle d'entreprise en quelques secondes. Créez des présentations cohérentes et professionnelles qui correspondent à vos standards de marque.
+                    </p>
+                    <div className="bg-gradient-to-r from-gray-100 to-emineon-blue/5 rounded-lg p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="text-center">
+                          <div className="text-sm text-gray-600">CV Original</div>
+                          <div className="text-xs text-gray-500 mt-1">Divers formats</div>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-emineon-blue" />
+                        <div className="text-center">
+                          <div className="text-sm text-emineon-blue font-semibold">CV de Marque</div>
+                          <div className="text-xs text-emineon-blue mt-1">Votre modèle</div>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-emineon-blue" />
+                        <div className="text-center">
+                          <div className="text-sm text-green-600 font-semibold">Prêt Client</div>
+                          <div className="text-xs text-green-600 mt-1">Sortie professionnelle</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Support Multi-Langues</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Générez des présentations dans n'importe quelle langue. Notre IA utilise automatiquement le bon modèle linguistique pour des résultats optimaux.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Français', 'Anglais', 'Allemand', 'Espagnol', 'Néerlandais', 'Italien'].map((lang) => (
+                        <span key={lang} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* CTA */}
+              <div className="bg-emineon-blue/5 rounded-xl p-6 text-center">
+                <h3 className="text-lg font-bold text-emineon-blue mb-3">Prêt à découvrir cette fonctionnalité ?</h3>
+                <p className="text-neutral-600 mb-4">
+                  Découvrez comment Emineon peut transformer votre processus de recrutement avec les capacités {activeFeatureModal} alimentées par l'IA.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button 
+                    asChild
+                    className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-3"
+                  >
+                    <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                      Planifier une Démo
+                    </Link>
+                  </Button>
+                  <Button 
+                    asChild
+                    variant="outline"
+                    className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 py-3"
+                  >
+                    <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                      Essai Gratuit
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
 
       {/* Demo Modal */}
       {showDemo && (
