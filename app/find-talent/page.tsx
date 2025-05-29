@@ -115,6 +115,12 @@ export default function FindTalentPage() {
           </div>
           <nav className="hidden md:flex items-center gap-8">
             <Link href="/#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Who we are</Link>
+            <Link href="/product" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-orange after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+              <span className="flex items-center gap-1">
+                ATS & CRM
+                <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>
+              </span>
+            </Link>
             <Link href="/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Services</Link>
             <Link href="/#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">How we work</Link>
             <Link href="/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">Expertise</Link>
@@ -159,6 +165,12 @@ export default function FindTalentPage() {
                 <div className="py-4 bg-white">
                   <Link href="/#who-we-are" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Who we are
+                  </Link>
+                  <Link href="/product" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
+                    <span className="flex items-center gap-2">
+                      ATS & CRM
+                      <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NEW</span>
+                    </span>
                   </Link>
                   <Link href="/#services" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
                     Services

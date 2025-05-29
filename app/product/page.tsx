@@ -445,9 +445,9 @@ export default function ProductPage() {
                 <Button 
                   size="lg"
                   onClick={() => setShowDemo(true)}
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  className="bg-emineon-blue hover:bg-emineon-blue/90 px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  style={{ color: 'white' }}
                 >
-                  <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
                   Schedule a demo
                 </Button>
                 <Button 
@@ -739,7 +739,8 @@ export default function ProductPage() {
                 <Button 
                   size="lg"
                   onClick={() => setShowDemo(true)}
-                  className="bg-emineon-blue hover:bg-emineon-blue/90 text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  className="bg-emineon-blue hover:bg-emineon-blue/90 px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  style={{ color: 'white' }}
                 >
                   Schedule a demo
                 </Button>

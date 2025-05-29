@@ -182,7 +182,7 @@ export default function ProductPage() {
   const workflowSteps = [
     {
       id: 'source',
-      title: 'Sourcer',
+      title: 'Source',
       icon: Search,
       description: 'Trouvez les meilleurs candidats avec la recherche IA',
       details: [
@@ -194,7 +194,7 @@ export default function ProductPage() {
     },
     {
       id: 'engage',
-      title: 'Engager',
+      title: 'Engage',
       icon: MessageSquare,
       description: 'Automatisez l\'approche personnalisée à grande échelle',
       details: [
@@ -206,7 +206,7 @@ export default function ProductPage() {
     },
     {
       id: 'interview',
-      title: 'Interviewer',
+      title: 'Interview',
       icon: Calendar,
       description: 'Concentrez-vous sur les conversations, pas la prise de notes',
       details: [
@@ -218,7 +218,7 @@ export default function ProductPage() {
     },
     {
       id: 'present',
-      title: 'Présenter',
+      title: 'Present',
       icon: BarChart3,
       description: 'Créez des présentations candidats gagnantes',
       details: [
@@ -739,7 +739,8 @@ export default function ProductPage() {
                 <Button 
                   size="lg"
                   onClick={() => setShowDemo(true)}
-                  className="bg-emineon-blue hover:bg-emineon-blue/90 text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  className="bg-emineon-blue hover:bg-emineon-blue/90 px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  style={{ color: 'white' }}
                 >
                   Planifier une démo
                 </Button>
