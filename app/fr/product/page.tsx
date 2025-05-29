@@ -80,7 +80,7 @@ function StatsCard({ number, label, description }: { number: string; label: stri
   );
 }
 
-function PricingCard({ plan, price, period, description, features, isPopular, ctaText }: {
+function PricingCard({ plan, price, period, description, features, isPopular, ctaText, ctaLink }: {
   plan: string;
   price: string;
   period: string;
@@ -88,6 +88,7 @@ function PricingCard({ plan, price, period, description, features, isPopular, ct
   features: string[];
   isPopular?: boolean;
   ctaText: string;
+  ctaLink?: string;
 }) {
   return (
     <motion.div
@@ -109,11 +110,22 @@ function PricingCard({ plan, price, period, description, features, isPopular, ct
           <span className="text-neutral-600 ml-1">{period}</span>
         </div>
         <p className="text-neutral-600 mb-6">{description}</p>
-        <Button 
-          className={`w-full mb-6 ${isPopular ? 'bg-emineon-orange hover:bg-emineon-orange/90' : 'bg-emineon-blue hover:bg-emineon-blue/90'} text-white`}
-        >
-          {ctaText}
-        </Button>
+        {ctaLink ? (
+          <Button 
+            asChild
+            className={`w-full mb-6 ${isPopular ? 'bg-emineon-orange hover:bg-emineon-orange/90' : 'bg-emineon-blue hover:bg-emineon-blue/90'} text-white`}
+          >
+            <Link href={ctaLink} target="_blank" rel="noopener noreferrer">
+              {ctaText}
+            </Link>
+          </Button>
+        ) : (
+          <Button 
+            className={`w-full mb-6 ${isPopular ? 'bg-emineon-orange hover:bg-emineon-orange/90' : 'bg-emineon-blue hover:bg-emineon-blue/90'} text-white`}
+          >
+            {ctaText}
+          </Button>
+        )}
       </div>
       <ul className="space-y-3">
         {features.map((feature, i) => (
@@ -351,10 +363,12 @@ export default function ProductPage() {
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <Button 
-              onClick={() => setShowDemo(true)}
+              asChild
               className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-2 font-medium touch-target"
             >
-              Réserver une démo
+              <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                Réserver une démo
+              </Link>
             </Button>
             <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg touch-target">Nous contacter</Link>
             <LanguageSwitcher currentLang="fr" />
@@ -466,10 +480,12 @@ export default function ProductPage() {
                 {/* Contact button and language switcher */}
                 <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
                   <Button 
-                    onClick={() => setShowDemo(true)}
+                    asChild
                     className="w-full bg-emineon-orange text-white py-4 px-4 rounded-lg font-medium mb-3 hover:bg-emineon-orange/90 transition-colors touch-target"
                   >
-                    Réserver une démo
+                    <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                      Réserver une démo
+                    </Link>
                   </Button>
                   <Link 
                     href="/fr/contact" 
@@ -525,18 +541,23 @@ export default function ProductPage() {
               >
                 <Button 
                   size="lg"
-                  onClick={() => setShowDemo(true)}
+                  asChild
                   className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
-                  <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
-                  Planifier une démo
+                  <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                    <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
+                    Planifier une démo
+                  </Link>
                 </Button>
                 <Button 
                   size="lg"
                   variant="outline"
+                  asChild
                   className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold backdrop-blur-sm touch-target btn-mobile w-full sm:w-auto"
                 >
-                  Essai gratuit
+                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Essai gratuit
+                  </Link>
                 </Button>
               </motion.div>
             </div>
@@ -872,6 +893,7 @@ export default function ProductPage() {
                   "Support technique"
                 ]}
                 ctaText="Essayer aujourd'hui"
+                ctaLink="https://app-emineon.vercel.app/"
               />
               
               <PricingCard
@@ -896,18 +918,23 @@ export default function ProductPage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button 
                   size="lg"
-                  onClick={() => setShowDemo(true)}
+                  asChild
                   className="bg-emineon-blue hover:bg-emineon-blue/90 px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
                   style={{ color: 'white' }}
                 >
-                  Planifier une démo
+                  <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                    Planifier une démo
+                  </Link>
                 </Button>
                 <Button 
                   size="lg"
                   variant="outline"
+                  asChild
                   className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
-                  Commencer gratuitement
+                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Commencer gratuitement
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -927,18 +954,23 @@ export default function ProductPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg"
-                  onClick={() => setShowDemo(true)}
+                  asChild
                   className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-8 py-4 text-lg font-semibold"
                 >
-                  <Play className="mr-2 h-5 w-5" />
-                  Planifier une démo
+                  <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                    <Play className="mr-2 h-5 w-5" />
+                    Planifier une démo
+                  </Link>
                 </Button>
                 <Button 
                   size="lg"
                   variant="outline"
+                  asChild
                   className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
                 >
-                  Essai gratuit
+                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Essai gratuit
+                  </Link>
                 </Button>
               </div>
             </div>
