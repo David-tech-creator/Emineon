@@ -867,6 +867,81 @@ export default function ProductPage() {
           </div>
         </section>
 
+        {/* Philosophy Section */}
+        <section className="py-12 sm:py-20 bg-white">
+          <div className="container-mobile">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12 sm:mb-16">
+                <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-4 sm:mb-6">
+                  Chez Emineon, nous croyons que les logiciels RH doivent travailler pour vous, pas contre vous.
+                </h2>
+                <p className="text-mobile-lg sm:text-xl text-neutral-600">
+                  Voici ce que cela signifie pour nous :
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="space-y-4 sm:space-y-6"
+                >
+                  <div>
+                    <h3 className="text-mobile-lg sm:text-xl font-bold text-emineon-blue mb-2 sm:mb-3">Pas de fumée ni de miroirs</h3>
+                    <p className="text-mobile-sm sm:text-base text-neutral-700 leading-relaxed">
+                      La plupart des fournisseurs de logiciels RH cachent leurs tarifs. Pas nous. Ils sont directement sur notre site web. Notre essai n'est pas une démo édulcorée – c'est notre produit complet. Nous pensons que si nous ne sommes pas transparents avant que vous achetiez, pourquoi nous feriez-vous confiance après ?
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-mobile-lg sm:text-xl font-bold text-emineon-blue mb-2 sm:mb-3">La simplicité n'est pas simple</h3>
+                    <p className="text-mobile-sm sm:text-base text-neutral-700 leading-relaxed">
+                      Notre logiciel semble facile parce que nous avons fait le travail difficile. Sous le capot, il est complexe et puissant. Mais vous n'avez pas besoin de le savoir. Vous devez juste savoir qu'il fonctionne. Nous utilisons un excellent design et l'IA pour cacher la complexité, pas pour simplifier à outrance.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-mobile-lg sm:text-xl font-bold text-emineon-blue mb-2 sm:mb-3">Un logiciel ne devrait pas être un second métier</h3>
+                    <p className="text-mobile-sm sm:text-base text-neutral-700 leading-relaxed">
+                      Vous en avez déjà assez dans votre assiette. Votre logiciel RH ne devrait pas en rajouter. Nous nous sommes assurés qu'Emineon s'intègre à vos outils existants, vient avec un support expert, et ne nécessite pas un doctorat pour être implémenté. Parce que votre travail est de gérer votre entreprise, pas de devenir expert de notre logiciel.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="space-y-4 sm:space-y-6"
+                >
+                  <div>
+                    <h3 className="text-mobile-lg sm:text-xl font-bold text-emineon-blue mb-2 sm:mb-3">L'IA n'est pas le futur, c'est maintenant</h3>
+                    <p className="text-mobile-sm sm:text-base text-neutral-700 leading-relaxed">
+                      Nous ne nous contentons pas de plaquer un chatbot IA sur un vieux logiciel en prétendant que c'est révolutionnaire. Nous intégrons l'IA dans chaque partie d'Emineon. Elle est là quand vous en avez besoin, faisant le gros du travail en arrière-plan. Au fur et à mesure que l'IA évolue, Emineon évoluera aussi. Nous nous engageons à vous maintenir à la pointe de ce qui est possible.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-mobile-lg sm:text-xl font-bold text-emineon-blue mb-2 sm:mb-3">Nous résolvons de vrais problèmes</h3>
+                    <p className="text-mobile-sm sm:text-base text-neutral-700 leading-relaxed">
+                      La plupart des logiciels RH sont pleins de fonctionnalités que vous n'utiliserez jamais. Nous nous concentrons sur ce qui fait vraiment la différence. Plus de candidats. Moins de tâches administratives. De vrais gains de productivité. Nous ne sommes pas là pour vous donner mille boutons à presser. Nous sommes là pour résoudre vos plus gros maux de tête RH. Le reste n'est que du bruit.
+                    </p>
+                  </div>
+
+                  <div className="bg-emineon-blue/5 rounded-xl p-4 sm:p-6 border-l-4 border-emineon-orange">
+                    <p className="text-mobile-sm sm:text-base text-emineon-blue font-medium italic">
+                      "Chaque fonctionnalité d'Emineon existe parce qu'elle résout un vrai problème que nos utilisateurs rencontrent. Ni plus, ni moins."
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Pricing Section */}
         <section className="py-12 sm:py-20 bg-neutral-100">
           <div className="container-mobile">
