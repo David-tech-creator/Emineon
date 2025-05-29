@@ -222,7 +222,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[300px] sm:min-h-[480px] flex items-center justify-center overflow-hidden hero-mobile">
+        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-mobile">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
             src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Homepage_hero_video_dsn3zo.mp4"
@@ -277,12 +277,12 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
+              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all flex flex-col">
                 <h3 className="text-2xl font-bold mb-4">Trouver un emploi</h3>
                 <p className="mb-6">
                   Rejoignez notre réseau exclusif de professionnels internationaux. Accédez à des opportunités auprès des plus grandes entreprises européennes et faites progresser votre carrière.
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
                     <span>Accédez à des opportunités exclusives auprès d'entreprises de premier plan</span>
@@ -296,19 +296,19 @@ export default function Home() {
                     <span>Développez votre carrière grâce à des partenariats durables</span>
                   </li>
                 </ul>
-                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8" asChild>
+                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8 mt-auto" asChild>
                   <Link href="/fr/careers">
                     Rejoindre en tant que talent <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
 
-              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
+              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all flex flex-col">
                 <h3 className="text-2xl font-bold mb-4">Recruter des talents</h3>
                 <p className="mb-6">
                   Accédez à notre vivier de professionnels rigoureusement sélectionnés dans de multiples disciplines pour répondre à vos enjeux de recrutement.
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
                     <span>Connectez-vous à des professionnels pré-qualifiés en quelques jours</span>
@@ -322,7 +322,7 @@ export default function Home() {
                     <span>Un accompagnement complet tout au long du processus</span>
                   </li>
                 </ul>
-                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8" asChild>
+                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8 mt-auto" asChild>
                   <Link href="/fr/find-talent">
                     Trouver des talents <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>

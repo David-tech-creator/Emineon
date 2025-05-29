@@ -240,7 +240,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[300px] sm:min-h-[480px] flex items-center justify-center overflow-hidden hero-mobile">
+        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-mobile">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
             src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Homepage_hero_video_dsn3zo.mp4"
@@ -250,7 +250,7 @@ export default function Home() {
             playsInline
           />
           <div className="absolute inset-0 bg-black/40 z-10" />
-          <div className="container-mobile relative z-20 flex flex-col lg:flex-row items-center gap-6 sm:gap-12 py-12 sm:py-20 md:py-28">
+          <div className="container relative z-20 flex flex-col lg:flex-row items-center gap-6 sm:gap-12 py-12 sm:py-20 md:py-28">
             <div className="space-y-4 sm:space-y-6 lg:w-1/2 text-center lg:text-left">
               <motion.h1
                 className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-lg"
@@ -296,13 +296,13 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile">
+              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile flex flex-col">
                 <h3 className="text-mobile-xl sm:text-2xl font-bold mb-4">Find a job</h3>
                 <p className="text-mobile-base sm:text-base mb-6">
                   Join our exclusive network of global professionals. Access opportunities with leading European
                   companies and advance your career.
                 </p>
-                <ul className="space-y-3 mb-6 sm:mb-8">
+                <ul className="space-y-3 mb-6 sm:mb-8 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
                     <span className="text-mobile-sm sm:text-base">Access exclusive opportunities with top companies</span>
@@ -316,20 +316,20 @@ export default function Home() {
                     <span className="text-mobile-sm sm:text-base">Grow your career with long-term partnerships</span>
                   </li>
                 </ul>
-                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto" asChild>
+                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8 mt-auto" asChild>
                   <Link href="/careers">
                     Join as talent <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
 
-              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile">
+              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile flex flex-col">
                 <h3 className="text-mobile-xl sm:text-2xl font-bold mb-4">Hire talent</h3>
                 <p className="text-mobile-base sm:text-base mb-6">
                   Access our pool of rigorously vetted professionals across multiple disciplines to solve your talent
                   challenges.
                 </p>
-                <ul className="space-y-3 mb-6 sm:mb-8">
+                <ul className="space-y-3 mb-6 sm:mb-8 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
                     <span className="text-mobile-sm sm:text-base">Connect with pre-vetted professionals within days</span>
@@ -343,7 +343,7 @@ export default function Home() {
                     <span className="text-mobile-sm sm:text-base">Comprehensive support throughout the process</span>
                   </li>
                 </ul>
-                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8" asChild>
+                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8 mt-auto" asChild>
                   <Link href="/find-talent">
                     Find talent <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
