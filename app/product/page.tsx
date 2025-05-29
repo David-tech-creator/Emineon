@@ -2,9 +2,9 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users, Search, MessageSquare, Calendar, BarChart3, Zap, Shield, Globe, ChevronRight, Play, Star, Menu } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Search, MessageSquare, Calendar, BarChart3, Zap, Shield, Globe, ChevronRight, Play, Star, Menu, Pause, Volume2, VolumeX, Maximize2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 
@@ -131,6 +131,87 @@ export default function ProductPage() {
   const [activeTab, setActiveTab] = useState<'source' | 'engage' | 'interview' | 'present'>('source');
   const [showDemo, setShowDemo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Video controls state
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [userStarted, setUserStarted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [seeking, setSeeking] = useState(false);
+
+  // Detect mobile device
+  const isMobile = typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  // Video control handlers
+  const handleFullscreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if ((videoRef.current as any).webkitRequestFullscreen) {
+        (videoRef.current as any).webkitRequestFullscreen();
+      } else if ((videoRef.current as any).msRequestFullscreen) {
+        (videoRef.current as any).msRequestFullscreen();
+      }
+    }
+  };
+
+  const handlePlayPause = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleUserPlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = false;
+    setIsMuted(false);
+    videoRef.current.play();
+    setIsPlaying(true);
+    setUserStarted(true);
+  };
+
+  const handleMuteToggle = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!videoRef.current) return;
+    const time = parseFloat(e.target.value);
+    videoRef.current.currentTime = time;
+    setProgress(time);
+  };
+
+  const formatTime = (t: number) => {
+    if (isNaN(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  // Update progress
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const update = () => {
+      setProgress(video.currentTime);
+      setDuration(video.duration || 0);
+    };
+    video.addEventListener('timeupdate', update);
+    video.addEventListener('durationchange', update);
+    return () => {
+      video.removeEventListener('timeupdate', update);
+      video.removeEventListener('durationchange', update);
+    };
+  }, []);
 
   const features = [
     {
@@ -558,8 +639,85 @@ export default function ProductPage() {
                         </Button>
                       </div>
                       <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-emineon-blue/10 card-mobile">
-                        <div className="aspect-video bg-gradient-to-br from-emineon-blue/10 to-emineon-orange/10 rounded-xl flex items-center justify-center">
-                          <span className="text-neutral-500 font-medium text-mobile-sm sm:text-base text-center">Interactive Demo - {step.title}</span>
+                        <div className="relative w-full aspect-video bg-neutral-300 rounded-xl flex items-center justify-center overflow-hidden shadow-xl group">
+                          <video
+                            ref={videoRef}
+                            src="/Revolutionize Your Recruitment with Emineon.mp4"
+                            loop
+                            playsInline
+                            muted={!userStarted}
+                            preload="none"
+                            className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                            style={{ background: '#e5e7eb' }}
+                            onPlay={() => setIsPlaying(true)}
+                            onPause={() => setIsPlaying(false)}
+                            {...(isMobile ? { controls: true } : {})}
+                          >
+                            Sorry, your browser does not support embedded videos. Please visit on a modern browser.
+                          </video>
+                          {/* Cool gradient overlay for style */}
+                          <div className="absolute inset-0 pointer-events-none rounded-xl" style={{background: 'linear-gradient(120deg, rgba(10,47,90,0.10) 0%, rgba(199,91,18,0.10) 100%)'}} />
+                          {/* Play/Pause, Mute/Unmute, and Fullscreen buttons (desktop only) */}
+                          {!isMobile && (
+                            <div className="absolute top-3 right-3 z-20 flex gap-2">
+                              <button
+                                onClick={handlePlayPause}
+                                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                                aria-label={isPlaying ? "Pause video" : "Play video"}
+                                type="button"
+                              >
+                                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                              </button>
+                              <button
+                                onClick={handleMuteToggle}
+                                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                                aria-label={isMuted ? "Unmute video" : "Mute video"}
+                                type="button"
+                              >
+                                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                              </button>
+                              <button
+                                onClick={handleFullscreen}
+                                className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
+                                aria-label="Fullscreen video"
+                                type="button"
+                              >
+                                <Maximize2 className="w-5 h-5" />
+                              </button>
+                            </div>
+                          )}
+                          {/* User-initiated play overlay */}
+                          {!userStarted && !isPlaying && (
+                            <button
+                              onClick={handleUserPlay}
+                              className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors z-30 focus:outline-none"
+                              aria-label="Play video with sound"
+                              type="button"
+                            >
+                              <Play className="w-16 h-16 text-white drop-shadow-lg" />
+                            </button>
+                          )}
+                          {/* Progress bar (desktop only) */}
+                          {!isMobile && (
+                            <div className="absolute bottom-0 left-0 w-full px-4 pb-3 z-20 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity">
+                              <div className="flex items-center gap-2">
+                                <span className="text-xs text-white/80 font-mono min-w-[36px]">{formatTime(progress)}</span>
+                                <input
+                                  type="range"
+                                  min={0}
+                                  max={duration || 0}
+                                  step={0.1}
+                                  value={progress}
+                                  onChange={handleSeek}
+                                  onMouseDown={() => setSeeking(true)}
+                                  onMouseUp={() => setSeeking(false)}
+                                  className="flex-1 h-1 bg-emineon-blue/30 rounded-lg appearance-none accent-emineon-orange cursor-pointer"
+                                  style={{ accentColor: '#C75B12' }}
+                                />
+                                <span className="text-xs text-white/80 font-mono min-w-[36px]">{formatTime(duration)}</span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </motion.div>
