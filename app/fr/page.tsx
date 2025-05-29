@@ -145,36 +145,54 @@ export default function Home() {
           </div>
           {/* Hamburger for mobile */}
           <button
-            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
             aria-label="Open menu"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <Menu className="w-7 h-7 text-emineon-blue" />
+            <Menu className="w-6 h-6 text-emineon-blue" />
           </button>
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
-            <div className="fixed inset-0 z-50 md:hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 md:hidden"
+            >
               {/* Backdrop */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="absolute inset-0 bg-black bg-opacity-50"
                 onClick={() => setMobileMenuOpen(false)}
               />
               
               {/* Menu panel */}
-              <div className="relative bg-white h-full w-64 shadow-xl">
+              <motion.div 
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "tween", duration: 0.3 }}
+                className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
+              >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  <div className="flex items-center gap-2">
+                    <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={32} height={32} />
+                    <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
+                    aria-label="Close menu"
                   >
-                    <span className="text-xl">×</span>
+                    <span className="text-2xl">×</span>
                   </button>
                 </div>
                 
                 {/* Navigation links */}
-                <div className="py-4 bg-white">
+                <div className="py-2 bg-white overflow-y-auto flex-1">
                   {[
                     { href: "#who-we-are", label: "Qui nous sommes" },
                     { href: "/fr/product", label: "ATS & CRM", isNew: true },
@@ -187,13 +205,13 @@ export default function Home() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200"
+                      className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-3">
                         {link.label}
                         {link.isNew && (
-                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
+                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
                         )}
                       </span>
                     </Link>
@@ -201,10 +219,10 @@ export default function Home() {
                 </div>
                 
                 {/* Contact button and language switcher */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+                <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
                   <Link 
                     href="/fr/contact" 
-                    className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
+                    className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Contactez-nous
@@ -214,8 +232,8 @@ export default function Home() {
                     <LanguageSwitcher currentLang="fr" />
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           )}
         </div>
       </header>
