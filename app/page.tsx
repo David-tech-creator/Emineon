@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram, Maximize2, Pause, Play, Volume2, VolumeX } from "lucide-react"
+import { ArrowRight, CheckCircle, Users, Menu, Linkedin, Instagram, Maximize2, Pause, Play, Volume2, VolumeX, Search, MessageSquare, Calendar, BarChart3 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -117,6 +117,12 @@ export default function Home() {
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Who we are
             </Link>
+            <Link href="/product" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-orange after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+              <span className="flex items-center gap-1">
+                ATS & CRM
+                <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>
+              </span>
+            </Link>
             <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Services
             </Link>
@@ -171,6 +177,7 @@ export default function Home() {
                 <div className="py-4 bg-white">
                   {[
                     { href: "#who-we-are", label: "Who we are" },
+                    { href: "/product", label: "ATS & CRM", isNew: true },
                     { href: "#services", label: "Services" },
                     { href: "#how-we-work", label: "How we work" },
                     { href: "#expertise", label: "Expertise" },
@@ -183,7 +190,12 @@ export default function Home() {
                       className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {link.label}
+                      <span className="flex items-center gap-2">
+                        {link.label}
+                        {link.isNew && (
+                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>
+                        )}
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -446,6 +458,124 @@ export default function Home() {
           <div className="container">
             <h2 className="text-3xl font-bold tracking-tight text-emineon-blue mb-16">What sets us apart</h2>
             <WhatSetsUsApartBulletList />
+          </div>
+        </section>
+
+        {/* Product Upsell Section - ATS & CRM */}
+        <section className="py-20 bg-gradient-to-br from-emineon-blue via-emineon-blue to-emineon-light text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-10" />
+          <div className="container relative z-10">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -32 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <span className="inline-block bg-emineon-orange text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    🚀 New Product Launch
+                  </span>
+                  <h2 className="text-4xl font-bold mb-6">
+                    Are you a recruitment firm?<br />
+                    <span className="text-emineon-orange">Meet our ATS & CRM</span>
+                  </h2>
+                  <p className="text-xl opacity-90 mb-8">
+                    The AI-first platform designed specifically for recruiters and staffers. Work faster, smarter, and close more placements with revolutionary technology.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                      <div className="text-3xl font-bold text-emineon-orange mb-1">2x</div>
+                      <div className="text-sm opacity-80">More time on the phone</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-emineon-orange mb-1">70%</div>
+                      <div className="text-sm opacity-80">Reduction in admin time</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-emineon-orange mb-1">1.5x</div>
+                      <div className="text-sm opacity-80">Placements per month</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-emineon-orange mb-1">AI</div>
+                      <div className="text-sm opacity-80">Powered automation</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      asChild
+                      size="lg"
+                      className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-8 py-4 text-lg font-semibold"
+                    >
+                      <Link href="/product">
+                        Explore ATS & CRM <ArrowRight className="ml-2 h-5 w-5" />
+                      </Link>
+                    </Button>
+                    <Button 
+                      size="lg"
+                      variant="outline"
+                      className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                    >
+                      Watch Demo
+                    </Button>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 32 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="relative"
+                >
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                        <div className="w-12 h-12 rounded-lg bg-emineon-orange flex items-center justify-center">
+                          <Search className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-white">AI-Powered Sourcing</div>
+                          <div className="text-sm text-white/80">Natural language candidate search</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                        <div className="w-12 h-12 rounded-lg bg-emineon-orange flex items-center justify-center">
+                          <MessageSquare className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-white">Automated Engagement</div>
+                          <div className="text-sm text-white/80">Personalized outreach at scale</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                        <div className="w-12 h-12 rounded-lg bg-emineon-orange flex items-center justify-center">
+                          <Calendar className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-white">Smart Interviews</div>
+                          <div className="text-sm text-white/80">AI-powered summaries & updates</div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-4 p-4 bg-white/10 rounded-xl">
+                        <div className="w-12 h-12 rounded-lg bg-emineon-orange flex items-center justify-center">
+                          <BarChart3 className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <div className="font-semibold text-white">Intelligent Presentations</div>
+                          <div className="text-sm text-white/80">One-click candidate reports</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1351,7 +1481,7 @@ function WhatDrivesUs() {
           >
             <span className="text-lg font-semibold text-emineon-blue block mb-2">Vision</span>
             <ul className="pl-4 pt-2 text-neutral-700 space-y-2">
-              <li>Overcome skills gaps — access talent unavailable locally</li>
+              <li>Overcome skills gaps — access the top talent</li>
               <li>Build global teams — diverse perspectives driving innovation</li>
               <li>Scale efficiently — flexible talent solutions for growth</li>
             </ul>

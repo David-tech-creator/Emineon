@@ -28,6 +28,12 @@ export default function CareersPage() {
             <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Qui sommes-nous
             </Link>
+            <Link href="/fr/product" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+              <span className="flex items-center gap-1">
+                ATS & CRM
+                <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
+              </span>
+            </Link>
             <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
               Services
             </Link>
@@ -78,6 +84,12 @@ export default function CareersPage() {
                 
                 <Link href="/fr#who-we-are" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Qui sommes-nous
+                </Link>
+                <Link href="/fr/product" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  <span className="flex items-center gap-2">
+                    ATS & CRM
+                    <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
+                  </span>
                 </Link>
                 <Link href="/fr#services" className="py-3 px-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                   Services

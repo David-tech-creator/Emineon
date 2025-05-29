@@ -19,6 +19,7 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
 
   const navLinks = isEnglish ? [
     { href: "/#who-we-are", label: "Who we are" },
+    { href: "/product", label: "ATS & CRM", isNew: true },
     { href: "/#services", label: "Services" },
     { href: "/#how-we-work", label: "How we work" },
     { href: "/#expertise", label: "Expertise" },
@@ -26,6 +27,7 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
     { href: "/blog", label: "Blog" },
   ] : [
     { href: "/fr#who-we-are", label: "Qui sommes-nous" },
+    { href: "/fr/product", label: "ATS & CRM", isNew: true },
     { href: "/fr#services", label: "Services" },
     { href: "/fr#how-we-work", label: "Notre approche" },
     { href: "/fr#expertise", label: "Expertise" },
@@ -61,7 +63,14 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                   : "text-neutral-700 hover:text-emineon-blue"
               }`}
             >
-              {link.label}
+              <span className="flex items-center gap-1">
+                {link.label}
+                {link.isNew && (
+                  <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+                    {isEnglish ? "NEW" : "NOUVEAU"}
+                  </span>
+                )}
+              </span>
             </Link>
           ))}
         </nav>
@@ -117,7 +126,14 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {link.label}
+                    <span className="flex items-center gap-2">
+                      {link.label}
+                      {link.isNew && (
+                        <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+                          {isEnglish ? "NEW" : "NOUVEAU"}
+                        </span>
+                      )}
+                    </span>
                   </Link>
                 ))}
               </div>

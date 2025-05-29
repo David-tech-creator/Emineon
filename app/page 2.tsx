@@ -251,7 +251,7 @@ export default function Home() {
                     <ul className="space-y-2 mt-2">
                       <li className="flex items-start gap-2">
                         <span className="text-neutral-900 font-medium">Overcome Skills Gaps</span>
-                        <span className="text-neutral-600">— Access talent unavailable locally</span>
+                        <span className="text-neutral-600">— Access the top talent</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-neutral-900 font-medium">Build Global Teams</span>
