@@ -448,7 +448,7 @@ export default function ProductPage() {
                   className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
                   <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
-                  Voir la démo
+                  Planifier une démo
                 </Button>
                 <Button 
                   size="lg"
@@ -571,17 +571,17 @@ export default function ProductPage() {
         </section>
 
         {/* Features Section */}
-        <section className="py-20 bg-white">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-emineon-blue mb-4">
+        <section className="py-12 sm:py-20 bg-white">
+          <div className="container-mobile">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
                 Fonctionnalités révolutionnaires
               </h2>
-              <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
+              <p className="text-mobile-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
                 Chaque fonctionnalité est conçue pour réduire le travail manuel et amplifier votre expertise
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {features.map((feature, i) => (
                 <FeatureCard key={feature.title} {...feature} />
               ))}
@@ -590,33 +590,33 @@ export default function ProductPage() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-emineon-blue text-white">
-          <div className="container">
-            <div className="grid md:grid-cols-3 gap-12">
+        <section className="py-12 sm:py-20 bg-emineon-blue text-white">
+          <div className="container-mobile">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
               <div>
-                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center mb-6">
-                  <Zap className="w-8 h-8 text-emineon-orange" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white/10 flex items-center justify-center mb-4 sm:mb-6">
+                  <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-emineon-orange" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Source Unique de Vérité</h3>
-                <p className="text-white/90">
+                <h3 className="text-mobile-xl sm:text-2xl font-bold mb-3 sm:mb-4">Source Unique de Vérité</h3>
+                <p className="text-white/90 text-mobile-sm sm:text-base">
                   Comprend et stocke tout ce que vous avez entendu, dit ou écrit. Toutes vos données de recrutement dans un système intelligent.
                 </p>
               </div>
               <div>
-                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center mb-6">
-                  <Users className="w-8 h-8 text-emineon-orange" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white/10 flex items-center justify-center mb-4 sm:mb-6">
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-emineon-orange" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Copilote IA</h3>
-                <p className="text-white/90">
+                <h3 className="text-mobile-xl sm:text-2xl font-bold mb-3 sm:mb-4">Copilote IA</h3>
+                <p className="text-white/90 text-mobile-sm sm:text-base">
                   Répond aux questions basées sur les connaissances en temps réel de votre entreprise. Votre assistant personnel de recrutement.
                 </p>
               </div>
               <div>
-                <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center mb-6">
-                  <BarChart3 className="w-8 h-8 text-emineon-orange" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white/10 flex items-center justify-center mb-4 sm:mb-6">
+                  <BarChart3 className="w-6 h-6 sm:w-8 sm:h-8 text-emineon-orange" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Analytiques Partout</h3>
-                <p className="text-white/90">
+                <h3 className="text-mobile-xl sm:text-2xl font-bold mb-3 sm:mb-4">Analytiques Partout</h3>
+                <p className="text-white/90 text-mobile-sm sm:text-base">
                   Personnalisation totale de toutes les métriques dont vous avez besoin. Insights pilotés par les données pour de meilleures décisions.
                 </p>
               </div>
@@ -625,37 +625,37 @@ export default function ProductPage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-20 bg-neutral-100">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-emineon-blue mb-4">
+        <section className="py-12 sm:py-20 bg-neutral-100">
+          <div className="container-mobile">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
                 Approuvé par des équipes avant-gardistes
               </h2>
-              <div className="text-xl md:text-2xl font-bold text-emineon-orange mb-8">1 000+ candidats présentés</div>
+              <div className="text-mobile-lg sm:text-xl md:text-2xl font-bold text-emineon-orange mb-6 sm:mb-8">1 000+ candidats présentés</div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, x: -24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-xl"
+                className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl card-mobile"
               >
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-emineon-orange text-emineon-orange" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-emineon-orange text-emineon-orange" />
                   ))}
                 </div>
-                <p className="text-lg text-neutral-700 mb-6 italic">
+                <p className="text-mobile-base sm:text-lg text-neutral-700 mb-4 sm:mb-6 italic">
                   "Nous sommes passés de heures de recherches booléennes à trouver des correspondances en minutes. C'est comme avoir un chercheur qui travaille 24h/24"
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
-                    <span className="font-bold text-emineon-blue">PC</span>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
+                    <span className="font-bold text-emineon-blue text-mobile-sm sm:text-base">PC</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-neutral-900">Pauwels Consulting</div>
-                    <div className="text-sm text-neutral-600">Cabinet de recherche de cadres</div>
+                    <div className="font-semibold text-neutral-900 text-mobile-sm sm:text-base">Pauwels Consulting</div>
+                    <div className="text-mobile-xs sm:text-sm text-neutral-600">Cabinet de recherche de cadres</div>
                   </div>
                 </div>
               </motion.div>
@@ -664,23 +664,23 @@ export default function ProductPage() {
                 initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-xl"
+                className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl card-mobile"
               >
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-emineon-orange text-emineon-orange" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-emineon-orange text-emineon-orange" />
                   ))}
                 </div>
-                <p className="text-lg text-neutral-700 mb-6 italic">
+                <p className="text-mobile-base sm:text-lg text-neutral-700 mb-4 sm:mb-6 italic">
                   "Les résumés d'entretiens automatisés changent notre façon de travailler. Je peux me concentrer sur des conversations significatives avec les candidats au lieu des notes à envoyer au client"
                 </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
-                    <span className="font-bold text-emineon-blue">SA</span>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
+                    <span className="font-bold text-emineon-blue text-mobile-sm sm:text-base">SA</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-neutral-900">Serena Advisory</div>
-                    <div className="text-sm text-neutral-600">Acquisition de Talents</div>
+                    <div className="font-semibold text-neutral-900 text-mobile-sm sm:text-base">Serena Advisory</div>
+                    <div className="text-mobile-xs sm:text-sm text-neutral-600">Acquisition de Talents</div>
                   </div>
                 </div>
               </motion.div>
@@ -689,18 +689,18 @@ export default function ProductPage() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-20 bg-neutral-100">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-emineon-blue mb-4">
+        <section className="py-12 sm:py-20 bg-neutral-100">
+          <div className="container-mobile">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
                 Choisissez votre plan
               </h2>
-              <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
+              <p className="text-mobile-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
                 Économisez 30-50% sur les coûts technologiques en éliminant les outils redondants
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               <PricingCard
                 plan="Croissance"
                 price="€89"
@@ -733,20 +733,20 @@ export default function ProductPage() {
               />
             </div>
             
-            <div className="text-center mt-12">
-              <p className="text-neutral-600 mb-4">Prêt à doubler vos placements ?</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="text-center mt-8 sm:mt-12">
+              <p className="text-neutral-600 mb-3 sm:mb-4 text-mobile-sm sm:text-base">Prêt à doubler vos placements ?</p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button 
                   size="lg"
                   onClick={() => setShowDemo(true)}
-                  className="bg-emineon-blue hover:bg-emineon-blue/90 text-white px-8"
+                  className="bg-emineon-blue hover:bg-emineon-blue/90 text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
                   Planifier une démo
                 </Button>
                 <Button 
                   size="lg"
                   variant="outline"
-                  className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-8"
+                  className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
                   Commencer gratuitement
                 </Button>
@@ -772,7 +772,7 @@ export default function ProductPage() {
                   className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-8 py-4 text-lg font-semibold"
                 >
                   <Play className="mr-2 h-5 w-5" />
-                  Voir la démo
+                  Planifier une démo
                 </Button>
                 <Button 
                   size="lg"
@@ -860,15 +860,14 @@ export default function ProductPage() {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button 
                   type="submit"
-                  className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 text-white py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile"
+                  className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile text-white hover:text-white"
                 >
                   Planifier la démo
                 </Button>
                 <Button 
                   type="button"
-                  variant="outline"
                   onClick={() => setShowDemo(false)}
-                  className="px-6 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile"
+                  className="px-6 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile bg-gray-200 text-gray-800 hover:bg-gray-300"
                 >
                   Annuler
                 </Button>
