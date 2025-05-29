@@ -59,6 +59,36 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Prevent bounce scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Better font rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent zoom on input focus on iOS */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Improve touch targets */
+  button, a, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Safe area handling for devices with notches */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
   }
 }
 
@@ -83,6 +113,102 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  /* Mobile-specific utilities */
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+  
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+  
+  .touch-none {
+    touch-action: none;
+  }
+  
+  /* Better mobile scrolling */
+  .scroll-smooth-mobile {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Mobile-friendly minimum touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text selection on mobile interface elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Better mobile input experience */
+  .mobile-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  
+  /* Mobile-specific responsive text sizes */
+  .text-mobile-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  
+  .text-mobile-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .text-mobile-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  
+  .text-mobile-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  
+  .text-mobile-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  
+  .text-mobile-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .text-mobile-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  
+  .text-mobile-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+  
+  /* Mobile container with proper padding */
+  .container-mobile {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Hide scrollbars on mobile for cleaner look */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Blog-specific styles */
@@ -104,5 +230,68 @@
     --tw-prose-pre-bg: theme('colors.neutral.800');
     --tw-prose-th-borders: theme('colors.neutral.300');
     --tw-prose-td-borders: theme('colors.neutral.200');
+  }
+  
+  /* Mobile-optimized prose */
+  .prose-mobile {
+    @apply prose-sm sm:prose-base;
+  }
+  
+  .prose-mobile h1 {
+    @apply text-mobile-3xl sm:text-4xl;
+  }
+  
+  .prose-mobile h2 {
+    @apply text-mobile-2xl sm:text-3xl;
+  }
+  
+  .prose-mobile h3 {
+    @apply text-mobile-xl sm:text-2xl;
+  }
+  
+  .prose-mobile p {
+    @apply text-mobile-base sm:text-lg;
+  }
+}
+
+/* Mobile-specific media queries */
+@media (max-width: 640px) {
+  /* Ensure better readability on small screens */
+  .container {
+    @apply px-4;
+  }
+  
+  /* Optimize hero sections for mobile */
+  .hero-mobile {
+    @apply py-12 sm:py-20;
+  }
+  
+  /* Better spacing for mobile cards */
+  .card-mobile {
+    @apply p-4 sm:p-6;
+  }
+  
+  /* Mobile-friendly buttons */
+  .btn-mobile {
+    @apply py-3 px-6 text-base;
+    min-height: 48px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+}
+
+/* Landscape mobile optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-mobile {
+    @apply py-8;
+  }
+  
+  .modal-mobile {
+    @apply max-h-screen overflow-y-auto;
   }
 }

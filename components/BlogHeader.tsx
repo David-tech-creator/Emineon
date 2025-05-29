@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { motion } from "framer-motion";
 
 interface BlogHeaderProps {
   currentLang: "en" | "fr";
@@ -38,14 +39,14 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
   const contactText = isEnglish ? "Contact us" : "Contactez-nous";
 
   return (
-    <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
-      <div className="container flex h-20 items-center justify-between py-4 relative">
+    <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md safe-top">
+      <div className="container-mobile flex h-16 sm:h-20 items-center justify-between py-2 sm:py-4 relative">
         <div className="flex items-center gap-2">
-          <Link href={homeLink} className="flex items-center gap-2">
-            <img src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+          <Link href={homeLink} className="flex items-center gap-2 touch-target">
+            <img src="/Emineon logo_tree.png" alt="Emineon Logo" width={40} height={40} className="sm:w-12 sm:h-12" />
             <span className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-              <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+              <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase hidden sm:block">
                 {isEnglish ? "forge your edge." : "forgez votre avantage."}
               </span>
             </span>
@@ -57,10 +58,10 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors relative ${
                 link.href.includes("/blog")
                   ? "text-emineon-blue border-b-2 border-emineon-orange"
-                  : "text-neutral-700 hover:text-emineon-blue"
+                  : "text-neutral-700 hover:text-emineon-blue after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200"
               }`}
             >
               <span className="flex items-center gap-1">
@@ -76,7 +77,7 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
-          <Link href={contactLink} className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">
+          <Link href={contactLink} className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg touch-target">
             {contactText}
           </Link>
           <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
@@ -84,52 +85,70 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+          className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
           aria-label="Open menu"
           onClick={() => setMobileMenuOpen(true)}
         >
-          <Menu className="w-7 h-7 text-emineon-blue" />
+          <Menu className="w-6 h-6 text-emineon-blue" />
         </button>
 
         {/* Mobile menu drawer */}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 md:hidden">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 md:hidden"
+          >
             {/* Backdrop */}
-            <div 
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               className="absolute inset-0 bg-black bg-opacity-50"
               onClick={() => setMobileMenuOpen(false)}
             />
             
             {/* Menu panel */}
-            <div className="relative bg-white h-full w-64 shadow-xl">
+            <motion.div 
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
+            >
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                <div className="flex items-center gap-2">
+                  <img src="/Emineon logo_tree.png" alt="Emineon Logo" width={32} height={32} />
+                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                  className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
+                  aria-label="Close menu"
                 >
-                  <span className="text-xl">×</span>
+                  <span className="text-2xl">×</span>
                 </button>
               </div>
               
               {/* Navigation links */}
-              <div className="py-4 bg-white">
+              <div className="py-2 bg-white overflow-y-auto flex-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block px-4 py-3 text-base font-medium transition-colors duration-200 ${
+                    className={`block px-6 py-4 text-base font-medium transition-colors duration-200 touch-target ${
                       link.href.includes("/blog")
                         ? "text-white bg-emineon-blue"
                         : "text-emineon-blue hover:bg-emineon-blue hover:text-white"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className="flex items-center gap-2">
+                    <span className="flex items-center gap-3">
                       {link.label}
                       {link.isNew && (
-                        <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+                        <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">
                           {isEnglish ? "NEW" : "NOUVEAU"}
                         </span>
                       )}
@@ -139,10 +158,10 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
               </div>
               
               {/* Contact button and language switcher */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+              <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
                 <Link 
                   href={contactLink} 
-                  className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
+                  className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {contactText}
@@ -152,8 +171,8 @@ export default function BlogHeader({ currentLang, blogPath }: BlogHeaderProps) {
                   <LanguageSwitcher currentLang={currentLang} targetPath={blogPath} />
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
       </div>
     </header>

@@ -232,114 +232,167 @@ export default function ProductPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
-        <div className="container flex h-20 items-center justify-between py-4">
+      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md safe-top">
+        <div className="container-mobile flex h-16 sm:h-20 items-center justify-between py-2 sm:py-4">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 touch-target">
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
-                <Image src="/Emineon logo_tree.png" alt="Logo Emineon" width={48} height={48} />
+                <Image src="/Emineon logo_tree.png" alt="Logo Emineon" width={40} height={40} className="sm:w-12 sm:h-12" />
               </motion.div>
               <span className="flex flex-col leading-tight">
-                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+                <span className="text-xl sm:text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase hidden sm:block">forge your edge.</span>
               </span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Qui nous sommes
             </Link>
             <Link href="/fr/product" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-blue">
               ATS & CRM
             </Link>
-            <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Services
             </Link>
-            <Link href="/fr#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Notre approche
             </Link>
-            <Link href="/fr#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Expertise
             </Link>
-            <Link href="/fr#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Témoignages
             </Link>
-            <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue">
+            <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Blog
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
             <Button 
               onClick={() => setShowDemo(true)}
-              className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-2 font-medium"
+              className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-2 font-medium touch-target"
             >
               Réserver une démo
             </Button>
-            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Nous contacter</Link>
+            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg touch-target">Nous contacter</Link>
             <LanguageSwitcher currentLang="fr" />
           </div>
           {/* Hamburger for mobile */}
           <button
-            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
             aria-label="Open menu"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <Menu className="w-7 h-7 text-emineon-blue" />
+            <Menu className="w-6 h-6 text-emineon-blue" />
           </button>
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
-            <div className="fixed inset-0 z-50 md:hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 md:hidden"
+            >
               {/* Backdrop */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="absolute inset-0 bg-black bg-opacity-50"
                 onClick={() => setMobileMenuOpen(false)}
               />
               
               {/* Menu panel */}
-              <div className="relative bg-white h-full w-64 shadow-xl">
+              <motion.div 
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "tween", duration: 0.3 }}
+                className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
+              >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  <div className="flex items-center gap-2">
+                    <Image src="/Emineon logo_tree.png" alt="Logo Emineon" width={32} height={32} />
+                    <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
+                    aria-label="Close menu"
                   >
-                    <span className="text-xl">×</span>
+                    <span className="text-2xl">×</span>
                   </button>
                 </div>
                 
                 {/* Navigation links */}
-                <div className="py-4 bg-white">
-                  {[
-                    { href: "/fr#who-we-are", label: "Qui nous sommes" },
-                    { href: "/fr/product", label: "ATS & CRM", isNew: true },
-                    { href: "/fr#services", label: "Services" },
-                    { href: "/fr#how-we-work", label: "Notre approche" },
-                    { href: "/fr#expertise", label: "Expertise" },
-                    { href: "/fr#testimonials", label: "Témoignages" },
-                    { href: "/fr/blog", label: "Blog" }
-                  ].map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <span className="flex items-center gap-2">
-                        {link.label}
-                        {link.isNew && (
-                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
-                        )}
-                      </span>
-                    </Link>
-                  ))}
+                <div className="py-2 bg-white overflow-y-auto flex-1">
+                  <Link
+                    href="/fr#who-we-are"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Qui nous sommes
+                  </Link>
+                  <Link
+                    href="/fr/product"
+                    className="block px-6 py-4 text-base font-medium text-white bg-emineon-blue touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="flex items-center gap-3">
+                      ATS & CRM
+                      <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
+                    </span>
+                  </Link>
+                  <Link
+                    href="/fr#services"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    href="/fr#how-we-work"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Notre approche
+                  </Link>
+                  <Link
+                    href="/fr#expertise"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Expertise
+                  </Link>
+                  <Link
+                    href="/fr#testimonials"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Témoignages
+                  </Link>
+                  <Link
+                    href="/fr/blog"
+                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Blog
+                  </Link>
                 </div>
                 
                 {/* Contact button and language switcher */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+                <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
+                  <Button 
+                    onClick={() => setShowDemo(true)}
+                    className="w-full bg-emineon-orange text-white py-4 px-4 rounded-lg font-medium mb-3 hover:bg-emineon-orange/90 transition-colors touch-target"
+                  >
+                    Réserver une démo
+                  </Button>
                   <Link 
                     href="/fr/contact" 
-                    className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
+                    className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Nous contacter
@@ -349,28 +402,28 @@ export default function ProductPage() {
                     <LanguageSwitcher currentLang="fr" />
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           )}
         </div>
       </header>
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 md:py-28 bg-gradient-to-br from-emineon-blue via-emineon-blue to-emineon-light text-white relative overflow-hidden">
+        <section className="py-12 sm:py-20 md:py-28 bg-gradient-to-br from-emineon-blue via-emineon-blue to-emineon-light text-white relative overflow-hidden hero-mobile">
           <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-10" />
-          <div className="container relative z-10">
+          <div className="container-mobile relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="mb-6"
+                className="mb-4 sm:mb-6"
               >
-                <span className="inline-block bg-emineon-orange text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <span className="inline-block bg-emineon-orange text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-mobile-sm sm:text-sm font-semibold mb-3 sm:mb-4">
                   Plateforme de recrutement IA-First
                 </span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6">
                   Placez des candidats<br />
                   <span className="text-emineon-orange">plus vite avec l'IA</span>
                 </h1>
@@ -379,7 +432,7 @@ export default function ProductPage() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-xl opacity-90 max-w-3xl mx-auto mb-8"
+                className="text-mobile-base sm:text-xl opacity-90 max-w-3xl mx-auto mb-6 sm:mb-8"
               >
                 Emineon ATS & CRM est la plateforme IA-first conçue pour aider les professionnels RH, consultants, recruteurs et staffers à travailler plus vite, plus intelligemment, et conclure plus de placements. Technologie révolutionnaire et expertise humaine combinées.
               </motion.p>
@@ -387,20 +440,20 @@ export default function ProductPage() {
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
               >
                 <Button 
                   size="lg"
                   onClick={() => setShowDemo(true)}
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-8 py-4 text-lg font-semibold"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto"
                 >
-                  <Play className="mr-2 h-5 w-5" />
+                  <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
                   Voir la démo
                 </Button>
                 <Button 
                   size="lg"
                   variant="outline"
-                  className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                  className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold backdrop-blur-sm touch-target btn-mobile w-full sm:w-auto"
                 >
                   Essai gratuit
                 </Button>
@@ -410,9 +463,9 @@ export default function ProductPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-16 bg-white">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <section className="py-12 sm:py-16 bg-white">
+          <div className="container-mobile">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
               <StatsCard 
                 number="2x" 
                 label="Plus de temps au téléphone" 
@@ -433,25 +486,25 @@ export default function ProductPage() {
         </section>
 
         {/* Workflow Section */}
-        <section className="py-20 bg-neutral-100">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-emineon-blue mb-4">
+        <section className="py-12 sm:py-20 bg-neutral-100">
+          <div className="container-mobile">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
                 La plateforme tout-en-un, IA-first pour les cabinets de conseil, RH et recrutement
               </h2>
-              <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
+              <p className="text-mobile-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
                 Optimisez l'ensemble de votre processus de recrutement avec une automatisation intelligente et une conception centrée sur l'humain
               </p>
             </div>
 
             {/* Workflow Navigation */}
-            <div className="flex justify-center mb-12">
-              <div className="bg-white rounded-full p-2 shadow-lg">
+            <div className="flex justify-center mb-8 sm:mb-12 overflow-x-auto hide-scrollbar">
+              <div className="bg-white rounded-full p-2 shadow-lg min-w-fit">
                 {workflowSteps.map((step) => (
                   <button
                     key={step.id}
                     onClick={() => setActiveTab(step.id)}
-                    className={`px-6 py-3 rounded-full font-semibold transition-all duration-200 ${
+                    className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-200 text-mobile-sm sm:text-base touch-target ${
                       activeTab === step.id 
                         ? 'bg-emineon-blue text-white shadow-md' 
                         : 'text-neutral-600 hover:text-emineon-blue'
@@ -474,19 +527,19 @@ export default function ProductPage() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -24 }}
                       transition={{ duration: 0.4 }}
-                      className="grid md:grid-cols-2 gap-12 items-center"
+                      className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center"
                     >
                       <div>
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="w-16 h-16 rounded-xl bg-emineon-blue flex items-center justify-center">
-                            <step.icon className="w-8 h-8 text-white" />
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-emineon-blue flex items-center justify-center shrink-0">
+                            <step.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                           </div>
                           <div>
-                            <h3 className="text-3xl font-bold text-emineon-blue">{step.title}</h3>
-                            <p className="text-lg text-neutral-600">{step.description}</p>
+                            <h3 className="text-mobile-xl sm:text-3xl font-bold text-emineon-blue">{step.title}</h3>
+                            <p className="text-mobile-base sm:text-lg text-neutral-600">{step.description}</p>
                           </div>
                         </div>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2 sm:space-y-3">
                           {step.details.map((detail, i) => (
                             <motion.li
                               key={detail}
@@ -495,18 +548,18 @@ export default function ProductPage() {
                               transition={{ delay: i * 0.1 }}
                               className="flex items-center gap-3"
                             >
-                              <CheckCircle className="w-5 h-5 text-emineon-blue shrink-0" />
-                              <span className="text-neutral-700">{detail}</span>
+                              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-emineon-blue shrink-0" />
+                              <span className="text-mobile-sm sm:text-base text-neutral-700">{detail}</span>
                             </motion.li>
                           ))}
                         </ul>
-                        <Button className="mt-6 bg-emineon-blue hover:bg-emineon-blue/90 text-white">
+                        <Button className="mt-4 sm:mt-6 bg-emineon-blue hover:bg-emineon-blue/90 text-white touch-target btn-mobile">
                           En savoir plus <ChevronRight className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
-                      <div className="bg-white rounded-2xl shadow-xl p-8 border border-emineon-blue/10">
+                      <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-emineon-blue/10 card-mobile">
                         <div className="aspect-video bg-gradient-to-br from-emineon-blue/10 to-emineon-orange/10 rounded-xl flex items-center justify-center">
-                          <span className="text-neutral-500 font-medium">Démo Interactive - {step.title}</span>
+                          <span className="text-neutral-500 font-medium text-mobile-sm sm:text-base text-center">Démo Interactive - {step.title}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -759,38 +812,43 @@ export default function ProductPage() {
 
       {/* Demo Modal */}
       {showDemo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 safe-top safe-bottom"
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-white rounded-2xl p-8 max-w-md w-full mx-4"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto modal-mobile"
           >
-            <h3 className="text-2xl font-bold text-emineon-blue mb-4">Réserver une démo</h3>
-            <p className="text-neutral-600 mb-6">
+            <h3 className="text-mobile-xl sm:text-2xl font-bold text-emineon-blue mb-3 sm:mb-4">Réserver une démo</h3>
+            <p className="text-mobile-sm sm:text-base text-neutral-600 mb-4 sm:mb-6">
               Découvrez comment Emineon ATS & CRM peut transformer votre processus de recrutement. Planifiez une démo personnalisée avec notre équipe.
             </p>
-            <form className="space-y-4">
+            <form className="space-y-3 sm:space-y-4">
               <input 
                 type="text" 
                 placeholder="Nom complet" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emineon-blue"
+                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
                 required 
               />
               <input 
                 type="email" 
                 placeholder="Email professionnel" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emineon-blue"
+                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
                 required 
               />
               <input 
                 type="text" 
                 placeholder="Nom de l'entreprise" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emineon-blue"
+                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
                 required 
               />
               <select 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emineon-blue"
+                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
                 required
               >
                 <option value="">Taille de l'entreprise</option>
@@ -799,10 +857,10 @@ export default function ProductPage() {
                 <option value="51-200">51-200 employés</option>
                 <option value="200+">200+ employés</option>
               </select>
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Button 
                   type="submit"
-                  className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 text-white"
+                  className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 text-white py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile"
                 >
                   Planifier la démo
                 </Button>
@@ -810,14 +868,14 @@ export default function ProductPage() {
                   type="button"
                   variant="outline"
                   onClick={() => setShowDemo(false)}
-                  className="px-6"
+                  className="px-6 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile"
                 >
                   Annuler
                 </Button>
               </div>
             </form>
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </div>
   )

@@ -222,7 +222,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[480px] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full min-h-[300px] sm:min-h-[480px] flex items-center justify-center overflow-hidden hero-mobile">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
             src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Homepage_hero_video_dsn3zo.mp4"

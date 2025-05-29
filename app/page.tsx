@@ -99,16 +99,16 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
-        <div className="container flex h-20 items-center justify-between py-4 relative">
+      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md safe-top">
+        <div className="container-mobile flex h-16 sm:h-20 items-center justify-between py-2 sm:py-4 relative">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 touch-target">
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
-                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
+                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={40} height={40} className="sm:w-12 sm:h-12" />
               </motion.div>
               <span className="flex flex-col leading-tight">
-                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forge your edge.</span>
+                <span className="text-xl sm:text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase hidden sm:block">forge your edge.</span>
               </span>
             </Link>
           </div>
@@ -140,41 +140,59 @@ export default function Home() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contact us</Link>
+            <Link href="/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg touch-target">Contact us</Link>
             <LanguageSwitcher currentLang="en" />
           </div>
           {/* Hamburger for mobile */}
           <button
-            className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto"
+            className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
             aria-label="Open menu"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <Menu className="w-7 h-7 text-emineon-blue" />
+            <Menu className="w-6 h-6 text-emineon-blue" />
           </button>
           {/* Mobile menu drawer */}
           {mobileMenuOpen && (
-            <div className="fixed inset-0 z-50 md:hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 md:hidden"
+            >
               {/* Backdrop */}
-              <div 
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="absolute inset-0 bg-black bg-opacity-50"
                 onClick={() => setMobileMenuOpen(false)}
               />
               
               {/* Menu panel */}
-              <div className="relative bg-white h-full w-64 shadow-xl">
+              <motion.div 
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "tween", duration: 0.3 }}
+                className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
+              >
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                  <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  <div className="flex items-center gap-2">
+                    <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={32} height={32} />
+                    <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+                  </div>
                   <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100"
+                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
+                    aria-label="Close menu"
                   >
-                    <span className="text-xl">×</span>
+                    <span className="text-2xl">×</span>
                   </button>
                 </div>
                 
                 {/* Navigation links */}
-                <div className="py-4 bg-white">
+                <div className="py-2 bg-white overflow-y-auto flex-1">
                   {[
                     { href: "#who-we-are", label: "Who we are" },
                     { href: "/product", label: "ATS & CRM", isNew: true },
@@ -187,13 +205,13 @@ export default function Home() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200"
+                      className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-3">
                         {link.label}
                         {link.isNew && (
-                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NEW</span>
+                          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NEW</span>
                         )}
                       </span>
                     </Link>
@@ -201,10 +219,10 @@ export default function Home() {
                 </div>
                 
                 {/* Contact button and language switcher */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+                <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
                   <Link 
                     href="/contact" 
-                    className="block w-full bg-emineon-blue text-white text-center py-3 px-4 rounded-md font-medium mb-3 hover:bg-emineon-blue/90"
+                    className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Contact us
@@ -214,15 +232,15 @@ export default function Home() {
                     <LanguageSwitcher currentLang="en" />
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           )}
         </div>
       </header>
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[480px] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full min-h-[300px] sm:min-h-[480px] flex items-center justify-center overflow-hidden hero-mobile">
           <video
             className="absolute inset-0 w-full h-full object-cover z-0"
             src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Homepage_hero_video_dsn3zo.mp4"
@@ -232,30 +250,30 @@ export default function Home() {
             playsInline
           />
           <div className="absolute inset-0 bg-black/40 z-10" />
-          <div className="container relative z-20 flex flex-col lg:flex-row items-center gap-12 py-20 md:py-28">
-            <div className="space-y-6 lg:w-1/2 text-center lg:text-left">
+          <div className="container-mobile relative z-20 flex flex-col lg:flex-row items-center gap-6 sm:gap-12 py-12 sm:py-20 md:py-28">
+            <div className="space-y-4 sm:space-y-6 lg:w-1/2 text-center lg:text-left">
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-lg"
+                className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white drop-shadow-lg"
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
               >
-                Your partner in growth<br className="hidden md:block" /> and innovation
+                Your partner in growth<br className="hidden sm:block" /> and innovation
               </motion.h1>
-              <p className="text-xl text-white/90 max-w-xl mx-auto lg:mx-0 drop-shadow-md">
+              <p className="text-mobile-lg sm:text-xl text-white/90 max-w-xl mx-auto lg:mx-0 drop-shadow-md">
                 At Emineon Consulting, we specialize in optimizing operations, driving sustainable growth, and delivering tailored services across industries.
               </p>
-              <div className="pt-4">
-                <p className="text-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-2">forge your edge.</p>
-                <p className="text-sm text-white/80 italic">
+              <div className="pt-2 sm:pt-4">
+                <p className="text-mobile-base sm:text-lg font-medium text-emineon-orange tracking-widest lowercase mb-2">forge your edge.</p>
+                <p className="text-mobile-sm sm:text-sm text-white/80 italic">
                   [fɔːdʒ] verb – create (something) strong, enduring, or successful.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center lg:items-start justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 sm:pt-4 items-center lg:items-start justify-center lg:justify-start">
                 <Button
                   size="lg"
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-none px-8"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white rounded-none px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile"
                   onClick={handleGetStarted}
                 >
                   Get started
@@ -267,62 +285,62 @@ export default function Home() {
         </section>
 
         {/* Find a Job / Hire Talent Section */}
-        <section id="get-started-section" className="py-16 bg-emineon-blue text-white scroll-mt-20">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">What are you looking for?</h2>
-              <p className="text-xl opacity-90 max-w-2xl mx-auto">
+        <section id="get-started-section" className="py-12 sm:py-16 bg-emineon-blue text-white scroll-mt-20">
+          <div className="container-mobile">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-mobile-2xl sm:text-3xl font-bold mb-4">What are you looking for?</h2>
+              <p className="text-mobile-lg sm:text-xl opacity-90 max-w-2xl mx-auto">
                 Whether you're seeking new opportunities or looking to build your team, EMINEON connects exceptional
                 talent with forward-thinking organizations.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
-                <h3 className="text-2xl font-bold mb-4">Find a job</h3>
-                <p className="mb-6">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile">
+                <h3 className="text-mobile-xl sm:text-2xl font-bold mb-4">Find a job</h3>
+                <p className="text-mobile-base sm:text-base mb-6">
                   Join our exclusive network of global professionals. Access opportunities with leading European
                   companies and advance your career.
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Access exclusive opportunities with top companies</span>
+                    <span className="text-mobile-sm sm:text-base">Access exclusive opportunities with top companies</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Benefit from our placement expertise and support</span>
+                    <span className="text-mobile-sm sm:text-base">Benefit from our placement expertise and support</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Grow your career with long-term partnerships</span>
+                    <span className="text-mobile-sm sm:text-base">Grow your career with long-term partnerships</span>
                   </li>
                 </ul>
-                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8" asChild>
+                <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto" asChild>
                   <Link href="/careers">
                     Join as talent <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
 
-              <div className="bg-white/10 p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all">
-                <h3 className="text-2xl font-bold mb-4">Hire talent</h3>
-                <p className="mb-6">
+              <div className="bg-white/10 p-6 sm:p-8 backdrop-blur-sm rounded-sm hover:bg-white/20 transition-all card-mobile">
+                <h3 className="text-mobile-xl sm:text-2xl font-bold mb-4">Hire talent</h3>
+                <p className="text-mobile-base sm:text-base mb-6">
                   Access our pool of rigorously vetted professionals across multiple disciplines to solve your talent
                   challenges.
                 </p>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6 sm:mb-8">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Connect with pre-vetted professionals within days</span>
+                    <span className="text-mobile-sm sm:text-base">Connect with pre-vetted professionals within days</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Flexible engagement models to suit your needs</span>
+                    <span className="text-mobile-sm sm:text-base">Flexible engagement models to suit your needs</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                    <span>Comprehensive support throughout the process</span>
+                    <span className="text-mobile-sm sm:text-base">Comprehensive support throughout the process</span>
                   </li>
                 </ul>
                 <Button className="bg-white text-emineon-blue hover:bg-blue-50 rounded-none px-8" asChild>
