@@ -80,70 +80,18 @@ function StatsCard({ number, label, description }: { number: string; label: stri
   );
 }
 
-function PricingCard({ plan, price, period, description, features, isPopular, ctaText, ctaLink }: {
-  plan: string;
-  price: string;
-  period: string;
-  description: string;
-  features: string[];
-  isPopular?: boolean;
-  ctaText: string;
-  ctaLink?: string;
-}) {
-  return (
-    <motion.div
-      className={`relative bg-white rounded-2xl border ${isPopular ? 'border-emineon-orange shadow-xl' : 'border-emineon-blue/10 shadow'} p-8 transition-all duration-300 hover:shadow-xl ${isPopular ? 'transform scale-105' : 'hover:scale-105'}`}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
-      {isPopular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="bg-emineon-orange text-white px-4 py-2 rounded-full text-sm font-semibold">Most Popular</span>
-        </div>
-      )}
-      <div className="text-center">
-        <h3 className="text-2xl font-bold text-emineon-blue mb-2">{plan}</h3>
-        <div className="mb-4">
-          <span className="text-4xl font-bold text-neutral-900">{price}</span>
-          <span className="text-neutral-600 ml-1">{period}</span>
-        </div>
-        <p className="text-neutral-600 mb-6">{description}</p>
-        {ctaLink ? (
-          <Button 
-            asChild
-            className={`w-full mb-6 ${isPopular ? 'bg-emineon-orange hover:bg-emineon-orange/90' : 'bg-emineon-blue hover:bg-emineon-blue/90'} text-white`}
-          >
-            <Link href={ctaLink} target="_blank" rel="noopener noreferrer">
-              {ctaText}
-            </Link>
-          </Button>
-        ) : (
-          <Button 
-            className={`w-full mb-6 ${isPopular ? 'bg-emineon-orange hover:bg-emineon-orange/90' : 'bg-emineon-blue hover:bg-emineon-blue/90'} text-white`}
-          >
-            {ctaText}
-          </Button>
-        )}
-      </div>
-      <ul className="space-y-3">
-        {features.map((feature, i) => (
-          <li key={feature} className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-emineon-blue shrink-0 mt-0.5" />
-            <span className="text-neutral-700">{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </motion.div>
-  );
-}
+
 
 export default function ProductPage() {
   const [activeTab, setActiveTab] = useState<'source' | 'engage' | 'interview' | 'present'>('source');
   const [showDemo, setShowDemo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFeatureModal, setActiveFeatureModal] = useState<'source' | 'engage' | 'interview' | 'present' | null>(null);
+  const [demoForm, setDemoForm] = useState({ name: "", email: "", company: "", companySize: "" });
+  const [demoFormErrors, setDemoFormErrors] = useState<{ [key: string]: string }>({});
+  const [demoFormLoading, setDemoFormLoading] = useState(false);
+  const [demoFormSubmitted, setDemoFormSubmitted] = useState(false);
+  const [demoFormApiError, setDemoFormApiError] = useState<string | null>(null);
 
   // Video controls state
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -156,6 +104,50 @@ export default function ProductPage() {
 
   // Detect mobile device
   const isMobile = typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  function validateDemoForm() {
+    const errs: { [key: string]: string } = {};
+    if (!demoForm.name.trim()) errs.name = "Name is required.";
+    if (!demoForm.email.trim()) errs.email = "Email is required.";
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(demoForm.email)) errs.email = "Enter a valid email.";
+    if (!demoForm.company.trim()) errs.company = "Company is required.";
+    if (!demoForm.companySize) errs.companySize = "Company size is required.";
+    return errs;
+  }
+
+  function handleDemoFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    setDemoForm({ ...demoForm, [e.target.name]: e.target.value });
+    setDemoFormErrors({ ...demoFormErrors, [e.target.name]: "" });
+  }
+
+  async function handleDemoFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const errs = validateDemoForm();
+    if (Object.keys(errs).length) {
+      setDemoFormErrors(errs);
+      return;
+    }
+    setDemoFormLoading(true);
+    setDemoFormApiError(null);
+    try {
+      const res = await fetch('/api/demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(demoForm),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setDemoFormApiError(data.error || 'Failed to send demo request.');
+        setDemoFormLoading(false);
+        return;
+      }
+      setDemoFormSubmitted(true);
+    } catch (err) {
+      setDemoFormApiError('Something went wrong. Please try again.');
+    } finally {
+      setDemoFormLoading(false);
+    }
+  }
 
   // Video control handlers
   const handleFullscreen = () => {
@@ -946,75 +938,111 @@ export default function ProductPage() {
           </div>
         </section>
 
-        {/* Pricing Section */}
-        <section className="py-12 sm:py-20 bg-white">
+        {/* Contact for Pricing Section */}
+        <section className="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
           <div className="container-mobile">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
-                Choose your plan
+                Get a Solution Built for Your Business
               </h2>
               <p className="text-mobile-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
-                Save 30-50% on technology costs by eliminating redundant tools
+                Every recruitment business is unique. Let us create a custom solution and pricing plan that fits your specific needs and budget.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              <PricingCard
-                plan="Growth"
-                price="€89"
-                period="per user/month, billed annually"
-                description="For scaling businesses"
-                features={[
-                  "Access to full platform",
-                  "LinkedIn, WhatsApp, Email integration",
-                  "LinkedIn Chrome Extension",
-                  "Automatic data enrichment",
-                  "Technical Support"
-                ]}
-                ctaText="Try it out today"
-                ctaLink="https://app-emineon.vercel.app/"
-              />
-              
-              <PricingCard
-                plan="Enterprise"
-                price="€119"
-                period="per user/month, billed annually"
-                description="For large organizations"
-                features={[
-                  "Personalized AI note taker",
-                  "Migration of current ATS",
-                  "Unlimited AI automation",
-                  "Custom Candidate Reports",
-                  "Priority support"
-                ]}
-                isPopular={true}
-                ctaText="Contact us"
-              />
-            </div>
-            
-            <div className="text-center mt-8 sm:mt-12">
-              <p className="text-neutral-600 mb-3 sm:mb-4 text-mobile-sm sm:text-base">Ready to double your placements?</p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <Button 
-                  size="lg"
-                  asChild
-                  className="bg-emineon-blue hover:bg-emineon-blue/90 px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
-                  style={{ color: 'white' }}
-                >
-                  <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
-                    Schedule a demo
-                  </Link>
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 sm:px-8 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile w-full sm:w-auto"
-                >
-                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Start Free Trial
-                  </Link>
-                </Button>
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+                {/* Left side - Benefits */}
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-emineon-blue/10 flex items-center justify-center shrink-0">
+                      <CheckCircle className="w-6 h-6 text-emineon-blue" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-emineon-blue mb-2">Custom Implementation</h3>
+                      <p className="text-neutral-600">Tailored setup and configuration to match your existing workflow and processes</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-emineon-blue/10 flex items-center justify-center shrink-0">
+                      <Users className="w-6 h-6 text-emineon-blue" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-emineon-blue mb-2">Flexible Team Pricing</h3>
+                      <p className="text-neutral-600">Scalable pricing that grows with your team, from solo recruiters to enterprise organizations</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-emineon-blue/10 flex items-center justify-center shrink-0">
+                      <Shield className="w-6 h-6 text-emineon-blue" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-emineon-blue mb-2">Migration & Integration</h3>
+                      <p className="text-neutral-600">Seamless data migration from your current ATS and integration with your existing tools</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-emineon-blue/10 flex items-center justify-center shrink-0">
+                      <Zap className="w-6 h-6 text-emineon-blue" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-emineon-blue mb-2">Dedicated Support</h3>
+                      <p className="text-neutral-600">Personal onboarding specialist and ongoing priority support for your success</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Right side - CTA */}
+                <div className="bg-white rounded-2xl border border-emineon-blue/10 shadow-lg p-8">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-emineon-blue mb-3">Ready to Get Started?</h3>
+                    <p className="text-neutral-600">
+                      Contact us for a personalized demo and custom pricing quote based on your specific requirements.
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <Button 
+                      size="lg"
+                      asChild
+                      className="w-full bg-emineon-blue hover:bg-emineon-blue/90 px-6 py-4 text-lg font-semibold"
+                      style={{ color: 'white' }}
+                    >
+                      <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                        <Calendar className="mr-2 h-5 w-5" />
+                        Schedule a Personalized Demo
+                      </Link>
+                    </Button>
+                    
+                    <Button 
+                      size="lg"
+                      variant="outline"
+                      asChild
+                      className="w-full border-emineon-orange text-emineon-orange hover:bg-emineon-orange hover:text-white px-6 py-4 text-lg font-semibold"
+                    >
+                      <Link href="/contact" className="flex items-center justify-center">
+                        <MessageSquare className="mr-2 h-5 w-5" />
+                        Contact for Custom Quote
+                      </Link>
+                    </Button>
+                    
+                    <div className="text-center pt-4 border-t border-gray-100">
+                      <p className="text-sm text-neutral-500 mb-3">Or try our platform risk-free</p>
+                      <Button 
+                        variant="outline"
+                        asChild
+                        className="border-gray-300 text-gray-600 hover:bg-gray-50 px-6 py-2"
+                      >
+                        <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                          Start Free Trial
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1547,51 +1575,92 @@ export default function ProductPage() {
             <p className="text-mobile-sm sm:text-base text-neutral-600 mb-4 sm:mb-6">
               See how Emineon ATS & CRM can transform your recruitment process. Schedule a personalized demo with our team.
             </p>
-            <form className="space-y-3 sm:space-y-4">
-              <input 
-                type="text" 
-                placeholder="Full Name" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
-                required 
-              />
-              <input 
-                type="email" 
-                placeholder="Work Email" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
-                required 
-              />
-              <input 
-                type="text" 
-                placeholder="Company Name" 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
-                required 
-              />
-              <select 
-                className="w-full border border-neutral-300 rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target"
-                required
-              >
-                <option value="">Company Size</option>
-                <option value="1-10">1-10 employees</option>
-                <option value="11-50">11-50 employees</option>
-                <option value="51-200">51-200 employees</option>
-                <option value="200+">200+ employees</option>
-              </select>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Button 
-                  type="submit"
-                  className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile text-white hover:text-white"
-                >
-                  Schedule Demo
-                </Button>
+            {demoFormSubmitted ? (
+              <div className="text-center py-8">
+                <div className="text-4xl mb-4">🎉</div>
+                <div className="text-xl font-semibold text-emineon-blue mb-2">Thank you!</div>
+                <div className="text-neutral-700">We've received your demo request and will be in touch soon to schedule your personalized demo.</div>
                 <Button 
                   type="button"
                   onClick={() => setShowDemo(false)}
-                  className="px-6 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  className="mt-6 px-6 py-3 text-mobile-base font-semibold touch-target btn-mobile bg-emineon-blue text-white hover:bg-emineon-blue/90"
                 >
-                  Cancel
+                  Close
                 </Button>
               </div>
-            </form>
+            ) : (
+              <form className="space-y-3 sm:space-y-4" onSubmit={handleDemoFormSubmit} noValidate>
+                <div>
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Full Name" 
+                    value={demoForm.name}
+                    onChange={handleDemoFormChange}
+                    className={`w-full border rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target ${demoFormErrors.name ? "border-red-500" : "border-neutral-300"}`}
+                    required 
+                  />
+                  {demoFormErrors.name && <div className="text-red-500 text-xs mt-1">{demoFormErrors.name}</div>}
+                </div>
+                <div>
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Work Email" 
+                    value={demoForm.email}
+                    onChange={handleDemoFormChange}
+                    className={`w-full border rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target ${demoFormErrors.email ? "border-red-500" : "border-neutral-300"}`}
+                    required 
+                  />
+                  {demoFormErrors.email && <div className="text-red-500 text-xs mt-1">{demoFormErrors.email}</div>}
+                </div>
+                <div>
+                  <input 
+                    type="text" 
+                    name="company"
+                    placeholder="Company Name" 
+                    value={demoForm.company}
+                    onChange={handleDemoFormChange}
+                    className={`w-full border rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target ${demoFormErrors.company ? "border-red-500" : "border-neutral-300"}`}
+                    required 
+                  />
+                  {demoFormErrors.company && <div className="text-red-500 text-xs mt-1">{demoFormErrors.company}</div>}
+                </div>
+                <div>
+                  <select 
+                    name="companySize"
+                    value={demoForm.companySize}
+                    onChange={handleDemoFormChange}
+                    className={`w-full border rounded-lg px-4 py-3 sm:py-3 text-mobile-base mobile-input focus:outline-none focus:ring-2 focus:ring-emineon-blue touch-target ${demoFormErrors.companySize ? "border-red-500" : "border-neutral-300"}`}
+                    required
+                  >
+                    <option value="">Company Size</option>
+                    <option value="1-10">1-10 employees</option>
+                    <option value="11-50">11-50 employees</option>
+                    <option value="51-200">51-200 employees</option>
+                    <option value="200+">200+ employees</option>
+                  </select>
+                  {demoFormErrors.companySize && <div className="text-red-500 text-xs mt-1">{demoFormErrors.companySize}</div>}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <Button 
+                    type="submit"
+                    disabled={demoFormLoading}
+                    className="flex-1 bg-emineon-blue hover:bg-emineon-blue/90 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile text-white hover:text-white disabled:opacity-50"
+                  >
+                    {demoFormLoading ? 'Sending...' : 'Schedule Demo'}
+                  </Button>
+                  <Button 
+                    type="button"
+                    onClick={() => setShowDemo(false)}
+                    className="px-6 py-3 sm:py-2 text-mobile-base font-semibold touch-target btn-mobile bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  >
+                    Cancel
+                  </Button>
+                </div>
+                {demoFormApiError && <div className="text-red-500 text-xs mt-2 text-center">{demoFormApiError}</div>}
+              </form>
+            )}
           </motion.div>
         </motion.div>
       )}

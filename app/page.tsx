@@ -89,6 +89,11 @@ function BottomBanner() {
 export default function Home() {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [leadForm, setLeadForm] = useState({ name: "", email: "", company: "", challenge: "" });
+  const [leadFormErrors, setLeadFormErrors] = useState<{ [key: string]: string }>({});
+  const [leadFormLoading, setLeadFormLoading] = useState(false);
+  const [leadFormSubmitted, setLeadFormSubmitted] = useState(false);
+  const [leadFormApiError, setLeadFormApiError] = useState<string | null>(null);
 
   const handleGetStarted = () => {
     const section = document.getElementById("get-started-section");
@@ -96,6 +101,49 @@ export default function Home() {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  function validateLeadForm() {
+    const errs: { [key: string]: string } = {};
+    if (!leadForm.name.trim()) errs.name = "Name is required.";
+    if (!leadForm.email.trim()) errs.email = "Email is required.";
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(leadForm.email)) errs.email = "Enter a valid email.";
+    if (!leadForm.challenge.trim()) errs.challenge = "Challenge or goal is required.";
+    return errs;
+  }
+
+  function handleLeadFormChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setLeadForm({ ...leadForm, [e.target.name]: e.target.value });
+    setLeadFormErrors({ ...leadFormErrors, [e.target.name]: "" });
+  }
+
+  async function handleLeadFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const errs = validateLeadForm();
+    if (Object.keys(errs).length) {
+      setLeadFormErrors(errs);
+      return;
+    }
+    setLeadFormLoading(true);
+    setLeadFormApiError(null);
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadForm),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setLeadFormApiError(data.error || 'Failed to send message.');
+        setLeadFormLoading(false);
+        return;
+      }
+      setLeadFormSubmitted(true);
+    } catch (err) {
+      setLeadFormApiError('Something went wrong. Please try again.');
+    } finally {
+      setLeadFormLoading(false);
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -669,13 +717,70 @@ export default function Home() {
       {showLeadForm && (
         <div className="fixed bottom-4 right-4 z-50 bg-white border border-emineon-blue rounded-lg shadow-lg p-6 w-96">
           <h3 className="text-lg font-bold mb-2 text-emineon-blue">Let's connect</h3>
-          <form className="space-y-3">
-            <input className="w-full border p-2 rounded" type="text" placeholder="Name" required />
-            <input className="w-full border p-2 rounded" type="email" placeholder="Email" required />
-            <input className="w-full border p-2 rounded" type="text" placeholder="Company" required />
-            <textarea className="w-full border p-2 rounded" placeholder="Challenge or goal" rows={3} required />
-            <button type="submit" className="w-full bg-emineon-blue text-white py-2 rounded">Submit</button>
-          </form>
+          {leadFormSubmitted ? (
+            <div className="text-center py-4">
+              <div className="text-2xl mb-2">🎉</div>
+              <div className="text-lg font-semibold text-emineon-blue mb-1">Thank you!</div>
+              <div className="text-neutral-700 text-sm">We've received your message and will be in touch soon.</div>
+            </div>
+          ) : (
+            <form className="space-y-3" onSubmit={handleLeadFormSubmit} noValidate>
+              <div>
+                <input 
+                  className={`w-full border p-2 rounded ${leadFormErrors.name ? "border-red-500" : "border-gray-300"}`} 
+                  type="text" 
+                  name="name"
+                  placeholder="Name" 
+                  value={leadForm.name}
+                  onChange={handleLeadFormChange}
+                  required 
+                />
+                {leadFormErrors.name && <div className="text-red-500 text-xs mt-1">{leadFormErrors.name}</div>}
+              </div>
+              <div>
+                <input 
+                  className={`w-full border p-2 rounded ${leadFormErrors.email ? "border-red-500" : "border-gray-300"}`} 
+                  type="email" 
+                  name="email"
+                  placeholder="Email" 
+                  value={leadForm.email}
+                  onChange={handleLeadFormChange}
+                  required 
+                />
+                {leadFormErrors.email && <div className="text-red-500 text-xs mt-1">{leadFormErrors.email}</div>}
+              </div>
+              <div>
+                <input 
+                  className="w-full border border-gray-300 p-2 rounded" 
+                  type="text" 
+                  name="company"
+                  placeholder="Company" 
+                  value={leadForm.company}
+                  onChange={handleLeadFormChange}
+                />
+              </div>
+              <div>
+                <textarea 
+                  className={`w-full border p-2 rounded ${leadFormErrors.challenge ? "border-red-500" : "border-gray-300"}`} 
+                  name="challenge"
+                  placeholder="Challenge or goal" 
+                  rows={3} 
+                  value={leadForm.challenge}
+                  onChange={handleLeadFormChange}
+                  required 
+                />
+                {leadFormErrors.challenge && <div className="text-red-500 text-xs mt-1">{leadFormErrors.challenge}</div>}
+              </div>
+              <button 
+                type="submit" 
+                className="w-full bg-emineon-blue text-white py-2 rounded disabled:opacity-50"
+                disabled={leadFormLoading}
+              >
+                {leadFormLoading ? 'Sending...' : 'Submit'}
+              </button>
+              {leadFormApiError && <div className="text-red-500 text-xs mt-2 text-center">{leadFormApiError}</div>}
+            </form>
+          )}
           <div className="mt-4 text-center">
             <a
               href="https://calendly.com/david-v-emineon"

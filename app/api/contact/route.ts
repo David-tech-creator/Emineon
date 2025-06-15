@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Emineon Contact Form <noreply@emineon.com>',
+      from: 'Emineon Contact Form <contact@emineon.com>',
       to: ['david.v@emineon.com'],
       subject: `New Contact Form Submission from ${name}`,
       replyTo: email,
