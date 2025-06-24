@@ -799,69 +799,7 @@ export default function ProductPage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-12 sm:py-20 bg-neutral-100">
-          <div className="container-mobile">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
-                Trusted by forward-thinking teams
-              </h2>
-              <div className="text-mobile-lg sm:text-xl md:text-2xl font-bold text-emineon-orange mb-6 sm:mb-8">1,000+ candidates presented</div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl card-mobile"
-              >
-                <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-emineon-orange text-emineon-orange" />
-                  ))}
-                </div>
-                <p className="text-mobile-base sm:text-lg text-neutral-700 mb-4 sm:mb-6 italic">
-                  "We went from spending hours on boolean searches to finding matches in minutes. It's like having a researcher working 24/7"
-                </p>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
-                    <span className="font-bold text-emineon-blue text-mobile-sm sm:text-base">PC</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-neutral-900 text-mobile-sm sm:text-base">Pauwels Consulting</div>
-                    <div className="text-mobile-xs sm:text-sm text-neutral-600">Executive Search Firm</div>
-                  </div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl card-mobile"
-              >
-                <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-emineon-orange text-emineon-orange" />
-                  ))}
-                </div>
-                <p className="text-mobile-base sm:text-lg text-neutral-700 mb-4 sm:mb-6 italic">
-                  "Automated interview summaries are changing how we work. I can focus on having meaningful conversations with candidates instead of on the notes I need to send to my client"
-                </p>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-emineon-blue/10 flex items-center justify-center">
-                    <span className="font-bold text-emineon-blue text-mobile-sm sm:text-base">SA</span>
-                  </div>
-                  <div>
-                    <div className="font-semibold text-neutral-900 text-mobile-sm sm:text-base">Serena Advisory</div>
-                    <div className="text-mobile-xs sm:text-sm text-neutral-600">Talent Acquisition</div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* Philosophy Section */}
         <section className="py-12 sm:py-20 bg-white">
