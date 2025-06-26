@@ -337,8 +337,8 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 ### 🎯 Success Metrics (More Modest Targets)
 - **User Retention**: 85% monthly retention rate
 - **Feature Adoption**: 70% adoption of core AI features
-- **Customer Growth**: 4 paying clients (as per pricing strategy)
-- **Revenue Target**: CHF 30,000 quarterly revenue
+- **User Growth**: 50 active users across client organizations
+- **Revenue Target**: CHF 24,000 quarterly revenue
 
 ### 🔧 Core Features (Focused & Realistic)
 
@@ -440,7 +440,7 @@ Rather than building complex enterprise features, MVP3 focuses on:
 4. **Ensuring excellent user experience** with existing customer base
 5. **Preparing for scale** without premature optimization
 
-This approach aligns with the modest growth targets (4 clients, CHF 30K revenue) and ensures we build what customers actually use rather than what sounds impressive.
+This approach aligns with the modest growth targets (4 clients, 50 users, CHF 24K revenue) and ensures we build what customers actually use rather than what sounds impressive.
 
 ---
 
@@ -495,30 +495,30 @@ This approach aligns with the modest growth targets (4 clients, CHF 30K revenue)
 - **Customers**: 1-2 early adopters
 - **Pricing**: CHF 4,500 for 3-month pilot
 - **Revenue Forecast**: CHF 9,000
-- **Rationale**: Validate core modules with real users
+- **Rationale**: Validate core modules
 
 #### **Launch - Q1 2026**
-- **Customers**: 2 POC transition + 1 new client  
+- **Customers**: 2 POC transition + 1 client  
 - **Pricing**: CHF 4,500/quarter
 - **Revenue Forecast**: CHF 13,500
 - **Rationale**: Test monetization with ambassador clients
 
 #### **Growth - Q2 2026**
 - **Customers**: 4 clients
-- **Pricing**: CHF 7,500/quarter
-- **Revenue Forecast**: CHF 30,000
+- **Pricing**: CHF 6,000/quarter
+- **Revenue Forecast**: CHF 24,000
 - **Rationale**: Roll out SaaS pricing including premium features
 
 #### **Acceleration - Q3 2026** 
 - **Customers**: 6 clients
-- **Pricing**: CHF 10,000/quarter (average)
-- **Revenue Forecast**: CHF 60,000  
+- **Pricing**: CHF 6,000/quarter (average)
+- **Revenue Forecast**: CHF 36,000  
 - **Rationale**: Monetize add-ons: AI, LinkedIn, client portal
 
 #### **Scale - Q4 2026**
 - **Customers**: 10-12 clients
-- **Pricing**: CHF 12,000/quarter (average)
-- **Revenue Forecast**: CHF 120,000
+- **Pricing**: CHF 9,000/quarter (average)
+- **Revenue Forecast**: CHF 108,000
 - **Rationale**: Full suite delivery with key integrations
 
 ### **📊 Pricing Strategy Framework**
