@@ -51,14 +51,14 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 
 ---
 
-## 📋 MVP 1 - Foundation (Q4 2025)
-**Theme**: Replace spreadsheets & emails. Build recruiter trust.
+## 📋 MVP 1 - Foundation (POC) (Q4 2025)
+**Theme**: Replace old tools. Build recruiter trust.
 
 ### 🎯 Success Metrics
-- **User Adoption**: 100+ active users
+- **User Adoption**: 10+ active users
 - **Time Savings**: 5+ hours/week per recruiter
-- **Data Migration**: 80% of users successfully migrate from spreadsheets
-- **User Retention**: 70% monthly retention rate
+- **Data Migration**: 80% of users successfully migrate from old tools
+- **User Retention**: 80% monthly retention rate
 
 ### 🔧 Core Features
 
@@ -82,7 +82,7 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 - Version control for job specs
 **Business Impact**: Standardizes processes, reduces errors, speeds job creation by 60%
 
-#### 3. Candidate Import (CV, LinkedIn, CSV)
+#### 3. Candidate Import (Email, CV, LinkedIn, CSV,)
 **Priority**: P0 (Critical)
 **Effort**: 4 weeks  
 **Description**: Multi-source candidate ingestion with AI enhancement
@@ -115,7 +115,7 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 - Quick search across all candidate data
 **Business Impact**: Single source of truth, improves candidate relationship management
 
-#### 6. Presentation Builder (PDF/Word)
+#### 6. Presentation / CV Builder (PDF/Word)
 **Priority**: P1 (Important)
 **Effort**: 4 weeks
 **Description**: One-click professional candidate presentations
@@ -203,7 +203,7 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 - **Client Satisfaction**: 85% client satisfaction score
 - **Collaboration Efficiency**: 40% faster client feedback cycles
 - **Team Productivity**: 25% increase in placements per recruiter
-- **User Growth**: 500+ active users
+- **User Growth**: 20+ active users
 
 ### 🔧 Core Features
 
