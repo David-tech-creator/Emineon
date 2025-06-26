@@ -331,138 +331,116 @@ Emineon's AI co-pilot acts as a personalized assistant that can answer questions
 
 ---
 
-## 🚀 MVP 3 - Scale (Q2 2026)
-**Theme**: Differentiate through automation & intelligence.
+## 🚀 MVP 3 - Growth & Retention (Q2 2026)
+**Theme**: Solidify core value and prepare for sustainable growth.
 
-### 🎯 Success Metrics
-- **AI Adoption**: 90% of users actively using AI features
-- **Automation Impact**: 50% reduction in manual tasks
-- **Enterprise Growth**: 50+ enterprise clients
-- **Market Position**: Top 3 in recruitment software category
+### 🎯 Success Metrics (More Modest Targets)
+- **User Retention**: 85% monthly retention rate
+- **Feature Adoption**: 70% adoption of core AI features
+- **Customer Growth**: 4 paying clients (as per pricing strategy)
+- **Revenue Target**: CHF 30,000 quarterly revenue
 
-### 🔧 Core Features
+### 🔧 Core Features (Focused & Realistic)
 
-#### 1. AI Copilot (Notes, Summaries, JD Parsing)
+#### 1. Basic AI Assistant (Smart Notes & Summaries)
 **Priority**: P0 (Critical)
-**Effort**: 8 weeks
-**Description**: Intelligent assistant for all recruitment tasks
+**Effort**: 4 weeks
+**Description**: Essential AI support for daily tasks
 - Auto-generated interview summaries
-- Job description parsing and analysis
-- Smart note suggestions
-- Content generation assistance
-- Intelligent data extraction
-**Business Impact**: Removes busywork, increases focus on relationship building
+- Smart note suggestions during calls
+- Basic job description parsing
+- Simple content enhancement
+**Business Impact**: Reduces note-taking time, improves documentation quality
 
-#### 2. Candidate Ranking & AI Matching
+#### 2. Simple Candidate Scoring
 **Priority**: P0 (Critical)
-**Effort**: 6 weeks
-**Description**: Intelligent candidate prioritization
-- ML-based candidate scoring
-- Skills matching algorithms
-- Experience relevance analysis
-- Cultural fit predictions
-- Continuous learning from placements
-**Business Impact**: Improves match quality, reduces time-to-fill
-
-#### 3. Talent Rediscovery Engine
-**Priority**: P1 (Important)
-**Effort**: 5 weeks
-**Description**: AI-powered candidate database mining
-- Historical candidate analysis
-- Re-engagement recommendations
-- Silver medalist identification
-- Market change adaptation
-- Dormant talent activation
-**Business Impact**: Maximizes existing database value, increases placement rates
-
-#### 4. Automated Recruitment Workflows
-**Priority**: P0 (Critical)
-**Effort**: 7 weeks
-**Description**: Intelligent process automation
-- Trigger-based actions
-- Conditional workflow paths
-- Auto-notifications and updates
-- SLA monitoring
-- Custom automation rules
-**Business Impact**: Ensures consistent processes, reduces manual overhead
-
-#### 5. Analytics Dashboard (Time-to-fill, Conversion)
-**Priority**: P1 (Important)
-**Effort**: 4 weeks
-**Description**: Performance insights and optimization
-- Key metrics tracking
-- Conversion funnel analysis
-- Time-based reporting
-- Team performance comparison
-- Predictive analytics
-**Business Impact**: Data-driven decisions, process optimization
-
-#### 6. Benchmarking Engine
-**Priority**: P1 (Important)
-**Effort**: 4 weeks
-**Description**: Market intelligence and comparison
-- Salary benchmarking
-- Market rate analysis
-- Competition tracking
-- Industry insights
-- Performance benchmarks
-**Business Impact**: Competitive advantage, better client advisory
-
-#### 7. Multi-org Support (Multi-brand, Multi-client)
-**Priority**: P0 (Critical)
-**Effort**: 6 weeks
-**Description**: Enterprise-grade organizational management
-- Multiple company management
-- Brand separation
-- Cross-organization reporting
-- Consolidated billing
-- White-label options
-**Business Impact**: Enables agency growth, enterprise sales
-
-#### 8. Mobile-first / PWA Version
-**Priority**: P1 (Important)
-**Effort**: 8 weeks
-**Description**: Native mobile recruitment experience
-- Progressive Web App
-- Offline functionality
-- Mobile-optimized workflows
-- Push notifications
-- Native app experience
-**Business Impact**: Enables on-the-go recruiting, increases user engagement
-
-#### 9. Diversity Tagging & Reports (Optional)
-**Priority**: P2 (Nice to have)
 **Effort**: 3 weeks
-**Description**: Inclusive hiring analytics and reporting
-- Diversity metrics tracking
-- Bias detection algorithms
-- Inclusive language suggestions
-- Diversity reporting
-- Goal tracking
-**Business Impact**: Supports inclusive hiring, meets corporate requirements
+**Description**: Basic intelligent candidate prioritization
+- Skills-based matching score
+- Experience relevance ranking
+- Simple pass/fail criteria
+- Manual score adjustments
+**Business Impact**: Helps prioritize candidate outreach, improves hit rates
 
-#### 10. Custom Report Builder
+#### 3. Basic Analytics Dashboard
 **Priority**: P1 (Important)
-**Effort**: 5 weeks
-**Description**: Flexible reporting and analytics
-- Drag-and-drop report creation
-- Custom metrics definition
-- Automated report scheduling
-- Export capabilities
-- Dashboard customization
-**Business Impact**: Tailored insights, client reporting automation
+**Effort**: 3 weeks
+**Description**: Essential performance tracking
+- Time-to-fill metrics
+- Conversion rate tracking
+- Simple pipeline analytics
+- Basic reporting exports
+**Business Impact**: Data visibility for process improvement
 
-### 🎯 Target User Benefits
-- **Auto-generate insights**: Remove busywork with AI
-- **Shortlist best-fit profiles**: Instant candidate ranking
-- **Reuse silver medalists**: Maximize database value
-- **Define triggers**: Automated workflow management
-- **Optimize performance**: Data-driven improvements
-- **Compare and track**: Market intelligence
-- **Manage multiple accounts**: Agency scaling
-- **Recruit on the go**: Mobile accessibility
-- **Enable inclusive hiring**: Diversity insights
-- **Tailor insights**: Custom reporting
+#### 4. Enhanced Mobile Experience
+**Priority**: P1 (Important)
+**Effort**: 4 weeks
+**Description**: Mobile-optimized core workflows
+- Responsive design improvements
+- Mobile candidate viewing
+- Quick actions on mobile
+- Basic offline support
+**Business Impact**: Enables recruiting on-the-go
+
+#### 5. Advanced Email Templates & Sequences
+**Priority**: P1 (Important)
+**Effort**: 2 weeks
+**Description**: Improved communication efficiency
+- Advanced template variables
+- Basic email sequences
+- Performance tracking
+- A/B testing capability
+**Business Impact**: Higher response rates, consistent messaging
+
+#### 6. Client Satisfaction Tracking
+**Priority**: P1 (Important)
+**Effort**: 2 weeks
+**Description**: Basic client feedback collection
+- Post-placement surveys
+- Simple satisfaction scoring
+- Feedback analytics
+- Improvement tracking
+**Business Impact**: Improves client retention and referrals
+
+#### 7. Data Export & Backup
+**Priority**: P0 (Critical)
+**Effort**: 2 weeks
+**Description**: Data portability and security
+- CSV/Excel export functionality
+- Automated backup systems
+- Data migration tools
+- Basic compliance reporting
+**Business Impact**: Customer confidence, compliance requirements
+
+#### 8. Integration Foundation
+**Priority**: P1 (Important)
+**Effort**: 3 weeks
+**Description**: Prepare for future integrations
+- API framework development
+- Webhook support
+- Basic calendar sync
+- Email integration improvements
+**Business Impact**: Sets foundation for future growth features
+
+### 🎯 Target User Benefits (Realistic Scope)
+- **Smarter documentation**: AI-assisted notes and summaries
+- **Better candidate selection**: Simple but effective scoring
+- **Performance visibility**: Essential analytics for optimization
+- **Mobile flexibility**: Core functions accessible anywhere
+- **Communication efficiency**: Enhanced templates and tracking
+- **Client relationship management**: Feedback collection and analysis
+- **Data control**: Export and backup capabilities
+- **Future-ready**: Foundation for advanced integrations
+
+### 🎯 **MVP3 Philosophy: "Perfect the Basics"**
+Rather than building complex enterprise features, MVP3 focuses on:
+1. **Perfecting core workflows** that MVP1/MVP2 users need daily
+2. **Adding AI where it provides clear value** without over-engineering
+3. **Building solid foundations** for future growth features
+4. **Ensuring excellent user experience** with existing customer base
+5. **Preparing for scale** without premature optimization
+
+This approach aligns with the modest growth targets (4 clients, CHF 30K revenue) and ensures we build what customers actually use rather than what sounds impressive.
 
 ---
 
