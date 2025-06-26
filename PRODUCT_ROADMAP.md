@@ -3,9 +3,13 @@
 ## Overview
 Emineon is building the first AI-native recruitment platform designed to replace spreadsheets and fragmented email workflows. Our mission is to solve core recruiter pain points while building trust through transparency and intelligent automation.
 
+**Market Opportunity**: CHF 135M - 240M annually across Central & Western Europe
+**Target**: 1-3% market penetration in 3 years  
+**SAM Focus**: Staffing firms and agencies underserved by legacy HR-centric solutions
+
 ---
 
-## 🎯 Strategic Vision
+## 🎯 Strategic Vision & Unique Value Proposition
 
 ### Core Value Propositions
 1. **Replace spreadsheets & emails** - Centralized, intelligent data management
@@ -13,10 +17,37 @@ Emineon is building the first AI-native recruitment platform designed to replace
 3. **AI-first approach** - Intelligence baked into every workflow, not bolted on
 4. **Human-centered design** - Technology amplifies expertise, doesn't replace it
 
-### Target Market Evolution
-- **Q4 2025**: Solo recruiters and small agencies (1-10 users)
-- **Q1 2026**: Mid-market recruitment firms (10-50 users)  
-- **Q2 2026**: Enterprise agencies and corporate talent teams (50+ users)
+### 🔥 **Why Emineon is a Must-Have**
+
+#### **Without Emineon** (Current Pain Points):
+- **15-20 hrs/week lost** to manual admin (emails, formatting CVs, status tracking)
+- **Tool chaos**: Recruiters juggle ATS, CRM, Excel, Word, Mail, LinkedIn, etc.
+- **Poor candidate experience** → top talent drops out
+- **Broken feedback loops** → deals lost due to delays
+- **No memory**: Data lives in inboxes, Excel files, lost forever
+
+#### **With Emineon** (The Solution):
+- **70% admin time reduction** → 2-3 extra placements/month
+- **Single integrated system** → full visibility across all activities
+- **Fast, responsive workflows** → better candidate experience
+- **Instant feedback & synced timelines** → structured insights
+- **Shared intelligence hub** → every interaction searchable forever
+
+### 🏆 **Unique Differentiators**
+
+#### **1. Unified Platform**
+Emineon's ATS & CRM offers a unified platform covering both candidate side (ATS) and client/business side (CRM) in one system – eliminating the need to juggle multiple tools.
+
+#### **2. AI-First Capabilities**  
+Natural language search and AI matching to find candidates faster, automates routine tasks, and generates polished candidate presentations and reports with one click.
+
+#### **3. Single Source of Truth**
+All recruitment data (communications, notes, transcripts, feedback) stored in one secure system, improving knowledge sharing and consistency across teams.
+
+#### **4. AI Co-Pilot**
+Emineon's AI co-pilot acts as a personalized assistant that can answer questions based on the company's entire real-time knowledge base – a capability few competitors offer.
+
+**Bottom Line**: *Emineon is the recruiter's Operating System* – not just an ATS or CRM, but their daily cockpit: project launcher, talent pipeline, client radar, deal tracker, data hub, and more.
 
 ---
 
@@ -435,6 +466,136 @@ Emineon is building the first AI-native recruitment platform designed to replace
 
 ---
 
+## 👥 Team Roadmap & Hiring Strategy (2025-2026)
+
+### **Phase-by-Phase Team Growth**
+
+#### **Pilot (POC) - Q4 2025**
+- **Team Size**: 3 FTE
+- **Composition**: Founder + 2 Full Stack Engineers (FSE)
+- **Rationale**: Build core MVP modules (sourcing, dossier generation, job creation). No support needed yet.
+- **Focus**: Core product development, technical foundation
+
+#### **Launch - Q1 2026** 
+- **Team Size**: 3 FTE  
+- **Composition**: Founder + 2 FSE
+- **Rationale**: Improve UX for early users. Start refactoring core services. Validate usage patterns.
+- **Focus**: Product refinement, user experience optimization
+
+#### **Growth - Q2 2026**
+- **Team Size**: 4 FTE
+- **Composition**: Founder + 2 FSE + 1 Customer Success Manager (CSM)
+- **Rationale**: Handle first external customers. Begin proactive sales outreach. Retain pilot users.
+- **Focus**: Customer success, sales acceleration, user retention
+
+#### **Acceleration - Q3 2026**
+- **Team Size**: 4 FTE
+- **Composition**: Founder + 2 FSE + 1 CSM  
+- **Rationale**: Scale cloud ops, integrate AI copilots. Provide onboarding support.
+- **Focus**: Infrastructure scaling, AI integration, customer onboarding
+
+#### **Scale - Q4 2026**
+- **Team Size**: 5 FTE
+- **Composition**: Founder + 2 FSE + 2 CSM
+- **Rationale**: Drive large account conversion. Sustain feature delivery. Manage enterprise relationships.
+- **Focus**: Enterprise sales, sustained development, relationship management
+
+### **Key Hiring Priorities by Phase**
+1. **Full Stack Engineers**: Core product development and feature delivery
+2. **Customer Success Managers**: Commission-only initially, focusing on user adoption and retention
+3. **AI/ML Specialists**: Advanced AI features in later phases
+4. **Sales Engineers**: Enterprise customer acquisition
+5. **DevOps/Infrastructure**: Scaling technical operations
+
+---
+
+## 💰 Go-to-Market & Pricing Strategy (2025-2026)
+
+### **Phase-by-Phase Market Approach**
+
+#### **Pilot (POC) - Q4 2025**
+- **Customers**: 1-2 early adopters
+- **Pricing**: CHF 4,500 for 3-month pilot
+- **Revenue Forecast**: CHF 9,000
+- **Rationale**: Validate core modules with real users
+
+#### **Launch - Q1 2026**
+- **Customers**: 2 POC transition + 1 new client  
+- **Pricing**: CHF 4,500/quarter
+- **Revenue Forecast**: CHF 13,500
+- **Rationale**: Test monetization with ambassador clients
+
+#### **Growth - Q2 2026**
+- **Customers**: 4 clients
+- **Pricing**: CHF 7,500/quarter
+- **Revenue Forecast**: CHF 30,000
+- **Rationale**: Roll out SaaS pricing including premium features
+
+#### **Acceleration - Q3 2026** 
+- **Customers**: 6 clients
+- **Pricing**: CHF 10,000/quarter (average)
+- **Revenue Forecast**: CHF 60,000  
+- **Rationale**: Monetize add-ons: AI, LinkedIn, client portal
+
+#### **Scale - Q4 2026**
+- **Customers**: 10-12 clients
+- **Pricing**: CHF 12,000/quarter (average)
+- **Revenue Forecast**: CHF 120,000
+- **Rationale**: Full suite delivery with key integrations
+
+### **📊 Pricing Strategy Framework**
+
+Our pricing model will be defined after pilot validation to ensure it reflects both:
+- **Tangible value created**: Time saved, placements accelerated, conversion improved
+- **Actual delivery costs**: Product development, infrastructure, AI usage, maintenance, support
+
+#### **Pilot Learning Objectives**:
+- Establish ROI benchmarks per recruiter
+- Measure improvements in placement speed and quality  
+- Determine AI feature usage intensity and hosting costs
+- Adjust pricing tiers to optimize CAC payback and LTV
+
+#### **Pricing Strategy Balance**:
+1. **Affordability for small firms**: Accessible entry points
+2. **Scalability for growing teams**: Volume-based pricing
+3. **Profitability for Emineon**: Sustainable unit economics
+
+**Current Approach**: Freemium + tiered model anticipated, but final pricing will be data-informed and refined post-pilot.
+
+---
+
+## 🎯 Market Opportunity & Competitive Positioning
+
+### **Market Size & Opportunity**
+- **SAM**: CHF 135M - 240M annually (Central & Western Europe)
+- **Target Penetration**: 1-3% in 3 years
+- **Focus**: Staffing firms and agencies across Europe
+- **Research Source**: Grand View Research
+
+### **Key Market Gaps We Target**
+
+#### **1. Recruiter-Specific Tools**
+- **Gap**: Tools designed specifically for recruiters and project-based consulting models (unlike HR-centric ATSs)
+- **Opportunity**: Underserved by big players like Bullhorn, SmartRecruiters, Greenhouse
+
+#### **2. AI-First Automation Platform** 
+- **Gap**: AI-first platform that automates recruiters' most time-consuming workflows
+- **Focus**: Note-taking, candidate matching, outreach emails, branded presentation creation
+- **Advantage**: Built for automation from day one, not retrofitted
+
+### **Why These Segments Are Attractive**:
+- **Suboptimal workflows**: Often operate with email, Excel, or legacy systems
+- **Underserved market**: Big players focus on enterprise HR departments  
+- **High automation benefit**: Greatly benefit from automation, ease of use, and integrated CRM/ATS
+
+### **Competitive Advantages**:
+1. **AI-native architecture**: Intelligence baked into every workflow
+2. **Unified ATS + CRM**: Single platform approach
+3. **Recruiter-centric design**: Built for recruitment workflows, not HR processes
+4. **European focus**: Localized for European compliance and market needs
+
+---
+
 ## 📊 Technical Architecture Considerations
 
 ### Infrastructure Requirements
@@ -455,25 +616,6 @@ Emineon is building the first AI-native recruitment platform designed to replace
 - **Uptime**: 99.9% availability SLA
 - **Mobile**: Progressive Web App with offline capability
 - **Search**: <500ms search response time
-
----
-
-## 🎯 Go-to-Market Alignment
-
-### MVP 1 (Q4 2025): Product-Market Fit
-- **Target**: Solo recruiters and boutique agencies
-- **Pricing**: Freemium model with paid tiers
-- **Sales**: Self-serve with product-led growth
-
-### MVP 2 (Q1 2026): Market Expansion
-- **Target**: Mid-market recruitment firms
-- **Pricing**: Team-based pricing with client portal premium
-- **Sales**: Inside sales team, demo-driven
-
-### MVP 3 (Q2 2026): Enterprise Ready
-- **Target**: Large agencies and corporate talent teams
-- **Pricing**: Enterprise custom pricing
-- **Sales**: Field sales team, multi-stakeholder deals
 
 ---
 
@@ -510,23 +652,14 @@ Emineon is building the first AI-native recruitment platform designed to replace
 - **Market Share**: Position in recruitment software category
 - **Customer Acquisition**: Cost and conversion rates
 
----
-
-## 🤝 Team & Resource Requirements
-
-### Development Team Scale
-- **MVP 1**: 8-10 developers (full-stack, AI/ML, mobile)
-- **MVP 2**: 12-15 developers (scaling team)
-- **MVP 3**: 18-25 developers (enterprise focus)
-
-### Key Hiring Priorities
-1. **AI/ML Engineers**: Candidate matching and automation
-2. **Frontend Specialists**: User experience optimization
-3. **DevOps Engineers**: Scaling infrastructure
-4. **Mobile Developers**: PWA and mobile experience
+### Value Creation Metrics
+- **Time Savings**: Hours saved per recruiter per week
+- **Placement Acceleration**: Reduction in time-to-fill
+- **Admin Reduction**: % decrease in manual administrative work
+- **ROI per User**: Revenue impact per recruiter using platform
 
 ---
 
 *Last Updated: January 2025*
-*Version: 1.0*
+*Version: 2.0*
 *Next Review: March 2025* 
