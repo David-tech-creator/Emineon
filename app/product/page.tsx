@@ -500,8 +500,26 @@ export default function ProductPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-12 sm:py-20 md:py-28 bg-gradient-to-br from-emineon-blue via-emineon-blue to-emineon-light text-white relative overflow-hidden hero-mobile">
-          <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-10" />
+        <section className="py-12 sm:py-20 md:py-28 text-white relative overflow-hidden hero-mobile min-h-[70vh] sm:min-h-[80vh]">
+          {/* Video Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              style={{ minHeight: '100%', minWidth: '100%' }}
+            >
+              <source src="https://res.cloudinary.com/dcgabriel/video/upload/v1/Hero_-_ATS_anpt4p.mp4" type="video/mp4" />
+            </video>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/50" />
+            {/* Additional gradient overlay for better text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emineon-blue/70 via-emineon-blue/60 to-emineon-blue/50" />
+          </div>
+          
           <div className="container-mobile relative z-10">
             <div className="max-w-4xl mx-auto text-center">
               <motion.div
@@ -510,19 +528,19 @@ export default function ProductPage() {
                 transition={{ duration: 0.7 }}
                 className="mb-4 sm:mb-6"
               >
-                <span className="inline-block bg-emineon-orange text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-mobile-sm sm:text-sm font-semibold mb-3 sm:mb-4">
+                <span className="inline-block bg-emineon-orange text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-mobile-sm sm:text-sm font-semibold mb-3 sm:mb-4 shadow-lg">
                   AI-First Recruitment Platform
                 </span>
-                <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6">
+                <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6 drop-shadow-lg">
                   Place Candidates<br />
-                  <span className="text-emineon-orange">Faster with AI</span>
+                  <span className="text-emineon-orange drop-shadow-lg">Faster with AI</span>
                 </h1>
               </motion.div>
               <motion.p
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-mobile-base sm:text-xl opacity-90 max-w-3xl mx-auto mb-6 sm:mb-8"
+                className="text-mobile-base sm:text-xl opacity-95 max-w-3xl mx-auto mb-6 sm:mb-8 drop-shadow-md"
               >
                 Emineon ATS & CRM is the AI-first platform designed to help HR professionals, consultants, recruiters and staffers work faster, smarter, and close more placements. Revolutionary technology meets human expertise.
               </motion.p>
@@ -535,7 +553,7 @@ export default function ProductPage() {
                 <Button 
                   size="lg"
                   asChild
-                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto"
+                  className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto shadow-lg"
                 >
                   <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
                     <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
@@ -546,36 +564,13 @@ export default function ProductPage() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold backdrop-blur-sm touch-target btn-mobile w-full sm:w-auto"
+                  className="bg-white/20 border-white text-white hover:bg-white hover:text-emineon-blue px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold backdrop-blur-sm touch-target btn-mobile w-full sm:w-auto shadow-lg"
                 >
                   <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
                     Free trial
                   </Link>
                 </Button>
               </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-12 sm:py-16 bg-white">
-          <div className="container-mobile">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              <StatsCard 
-                number="2x" 
-                label="More time on the phone" 
-                description="Spend more time with candidates, less on admin" 
-              />
-              <StatsCard 
-                number="70%" 
-                label="Reduction in admin time" 
-                description="AI handles the paperwork, you handle relationships" 
-              />
-              <StatsCard 
-                number="1.5x" 
-                label="Placements per month" 
-                description="Close more deals with streamlined workflows" 
-              />
             </div>
           </div>
         </section>
