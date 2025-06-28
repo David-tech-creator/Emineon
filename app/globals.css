@@ -66,6 +66,9 @@
     -moz-osx-font-smoothing: grayscale;
     /* Prevent zoom on input focus on iOS */
     -webkit-text-size-adjust: 100%;
+    /* Optimize for smooth animations */
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
   
   /* Improve touch targets */
@@ -198,6 +201,8 @@
   /* Mobile container with proper padding */
   .container-mobile {
     @apply px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+    margin: 0 auto;
   }
   
   /* Hide scrollbars on mobile for cleaner look */
@@ -208,6 +213,13 @@
   
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Optimize video performance */
+  .video-optimized {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
   }
 }
 

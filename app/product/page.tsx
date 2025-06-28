@@ -510,13 +510,14 @@ export default function ProductPage() {
               loop
               playsInline
               preload="metadata"
-              style={{ minHeight: '100%', minWidth: '100%' }}
-              poster="/hero-abstract-tree.png"
+              style={{ 
+                minHeight: '100%', 
+                minWidth: '100%',
+                willChange: 'transform',
+                transform: 'translate3d(0, 0, 0)'
+              }}
             >
-              <source src="/hero-ats.mp4" type="video/mp4" />
               <source src="/Hero - ATS .mp4" type="video/mp4" />
-              <source src="/Hero%20-%20ATS%20.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-black/50" />
