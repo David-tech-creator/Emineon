@@ -500,18 +500,28 @@ export default function ProductPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden hero-mobile">
-          <video
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            src="https://res.cloudinary.com/emineon/video/upload/f_auto,q_auto/Hero_-_ATS_anpt4p.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <div className="container relative z-20 flex flex-col lg:flex-row items-center gap-6 sm:gap-12 py-12 sm:py-20 md:py-28">
-            <div className="space-y-4 sm:space-y-6 lg:w-1/2 text-center lg:text-left">
+        <section className="py-12 sm:py-20 md:py-28 text-white relative overflow-hidden hero-mobile min-h-[70vh] sm:min-h-[80vh]">
+          {/* Video Background */}
+          <div className="absolute inset-0 w-full h-full">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              style={{ minHeight: '100%', minWidth: '100%' }}
+            >
+              <source src="/Hero - ATS .mp4" type="video/mp4" />
+            </video>
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/50" />
+            {/* Additional gradient overlay for better text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-br from-emineon-blue/70 via-emineon-blue/60 to-emineon-blue/50" />
+          </div>
+          
+          <div className="container-mobile relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -562,7 +572,6 @@ export default function ProductPage() {
                 </Button>
               </motion.div>
             </div>
-            <div className="lg:w-1/2 hidden lg:block" />
           </div>
         </section>
 
