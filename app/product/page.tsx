@@ -512,7 +512,7 @@ export default function ProductPage() {
               preload="metadata"
               style={{ minHeight: '100%', minWidth: '100%' }}
             >
-              <source src="https://res.cloudinary.com/dcgabriel/video/upload/v1/Hero_-_ATS_anpt4p.mp4" type="video/mp4" />
+              <source src="https://res.cloudinary.com/dcgabriel/video/upload/Hero_-_ATS_anpt4p.mp4" type="video/mp4" />
             </video>
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-black/50" />
