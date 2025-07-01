@@ -660,10 +660,7 @@ export default function Home() {
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 <div className="space-y-2">
-                  <p className="font-medium">David Vinkenroye</p>
-                  <p className="opacity-80">Founder & Partner, EMINEON</p>
-                  <p className="opacity-80">david.v@emineon.com</p>
-                  <p className="opacity-80">+41 (0) 795 33 28 709</p>
+                  <p className="font-medium">Contact: info@emineon.com</p>
                 </div>
 
                 <div className="md:ml-auto">

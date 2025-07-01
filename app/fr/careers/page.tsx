@@ -167,12 +167,9 @@ export default function CareersPage() {
             Prêt à surmonter la pénurie de talents et à accéder à des professionnels d'exception dans le monde entier ? Démarrons la conversation.
           </p>
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="space-y-2">
-              <p className="font-medium">David Vinkenroye</p>
-              <p className="opacity-80">Fondateur & Associé, EMINEON</p>
-              <p className="opacity-80">david.v@emineon.com</p>
-              <p className="opacity-80">+41 (0) 795 33 28 709</p>
-            </div>
+                          <div className="space-y-2">
+                <p className="font-medium">Contact: info@emineon.com</p>
+              </div>
             <div className="md:ml-auto">
               <Link href="/fr/contact" className="bg-white text-emineon-blue hover:bg-blue-50 rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
             </div>
