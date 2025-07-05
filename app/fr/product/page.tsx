@@ -336,7 +336,7 @@ export default function ProductPage() {
               Qui nous sommes
             </Link>
             <Link href="/fr/product" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-blue">
-              ATS & CRM
+                ATS & CRM
             </Link>
             <Link href="/fr/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
               Services
@@ -499,17 +499,17 @@ export default function ProductPage() {
       </header>
 
       <main className="flex-1">
-        {/* Hero Section */}
+      {/* Hero Section */}
         <section className="py-12 sm:py-20 md:py-28 text-white relative overflow-hidden hero-mobile min-h-[70vh] sm:min-h-[80vh]">
           {/* Video Background */}
           <div className="absolute inset-0 w-full h-full">
-            <video
+        <video 
               className="absolute inset-0 w-full h-full object-cover"
               autoPlay
-              muted
+          muted
               loop
-              playsInline
-              preload="metadata"
+          playsInline
+          preload="metadata"
               style={{ 
                 minHeight: '100%', 
                 minWidth: '100%',
@@ -527,9 +527,9 @@ export default function ProductPage() {
           
           <div className="container-mobile relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <motion.div
+          <motion.div
                 initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
                 className="mb-4 sm:mb-6"
               >
@@ -539,7 +539,7 @@ export default function ProductPage() {
                 <h1 className="text-mobile-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-6 drop-shadow-lg">
                   Placez des Candidats<br />
                   <span className="text-emineon-orange drop-shadow-lg">Plus Rapidement avec l'IA</span>
-                </h1>
+            </h1>
               </motion.div>
               <motion.p
                 initial={{ opacity: 0, y: 32 }}
@@ -555,28 +555,28 @@ export default function ProductPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
               >
-                <Button 
-                  size="lg"
+              <Button
+                size="lg"
                   asChild
                   className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold touch-target btn-mobile w-full sm:w-auto shadow-lg"
-                >
+              >
                   <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
                     <Play className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
                     Planifier une démo
                   </Link>
-                </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
                   asChild
                   className="bg-white/20 border-white text-white hover:bg-white hover:text-emineon-blue px-6 sm:px-8 py-4 text-mobile-base sm:text-lg font-semibold backdrop-blur-sm touch-target btn-mobile w-full sm:w-auto shadow-lg"
-                >
-                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    Essai gratuit
-                  </Link>
-                </Button>
-              </motion.div>
-            </div>
+              >
+                <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  Essai gratuit
+                </Link>
+              </Button>
+          </motion.div>
+        </div>
           </div>
         </section>
 
@@ -683,24 +683,24 @@ export default function ProductPage() {
                                 aria-label={isPlaying ? "Pause video" : "Play video"}
                                 type="button"
                               >
-                                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                              </button>
+            {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+          </button>
                               <button
                                 onClick={handleMuteToggle}
                                 className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
                                 aria-label={isMuted ? "Unmute video" : "Mute video"}
                                 type="button"
                               >
-                                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                              </button>
+            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+          </button>
                               <button
                                 onClick={handleFullscreen}
                                 className="bg-white/80 hover:bg-white text-emineon-blue hover:text-emineon-orange rounded-full p-2 shadow transition-opacity opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none"
                                 aria-label="Fullscreen video"
                                 type="button"
                               >
-                                <Maximize2 className="w-5 h-5" />
-                              </button>
+            <Maximize2 className="w-5 h-5" />
+          </button>
                             </div>
                           )}
                           {/* User-initiated play overlay */}
@@ -742,8 +742,8 @@ export default function ProductPage() {
                 ))}
               </AnimatePresence>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
         {/* Features Section */}
         <section className="py-12 sm:py-20 bg-white">
@@ -815,10 +815,10 @@ export default function ProductPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-                <motion.div
+          <motion.div
                   initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                   className="space-y-4 sm:space-y-6"
                 >
@@ -882,7 +882,7 @@ export default function ProductPage() {
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="text-mobile-2xl sm:text-3xl md:text-4xl font-bold text-emineon-blue mb-3 sm:mb-4">
                 Obtenez une Solution Conçue pour Votre Entreprise
-              </h2>
+            </h2>
               <p className="text-mobile-base sm:text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto">
                 Chaque entreprise de recrutement est unique. Laissez-nous créer une solution personnalisée et un plan de tarification qui correspondent à vos besoins spécifiques et à votre budget.
               </p>
@@ -943,22 +943,22 @@ export default function ProductPage() {
                   </div>
                   
                   <div className="space-y-4">
-                    <Button 
-                      size="lg"
+              <Button
+                size="lg"
                       asChild
                       className="w-full bg-emineon-blue hover:bg-emineon-blue/90 px-6 py-4 text-lg font-semibold"
                       style={{ color: 'white' }}
-                    >
+              >
                       <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
                         <Calendar className="mr-2 h-5 w-5" />
                         Planifier une Démo Personnalisée
                       </Link>
-                    </Button>
+              </Button>
                     
-                    <Button 
-                      size="lg"
+              <Button
+                size="lg"
                       variant="outline"
-                      asChild
+                asChild
                       className="w-full border-emineon-orange text-emineon-orange hover:bg-emineon-orange hover:text-white px-6 py-4 text-lg font-semibold"
                     >
                       <Link href="/fr/contact" className="flex items-center justify-center">
@@ -970,15 +970,15 @@ export default function ProductPage() {
                     <div className="text-center pt-4 border-t border-gray-100">
                       <p className="text-sm text-neutral-500 mb-3">Ou essayez notre plateforme sans risque</p>
                       <Button 
-                        variant="outline"
+                variant="outline"
                         asChild
                         className="border-gray-300 text-gray-600 hover:bg-gray-50 px-6 py-2"
-                      >
+              >
                         <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
                           Commencer l'Essai Gratuit
-                        </Link>
-                      </Button>
-                    </div>
+                </Link>
+              </Button>
+            </div>
                   </div>
                 </div>
               </div>
@@ -1016,8 +1016,8 @@ export default function ProductPage() {
                 </Button>
               </div>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
       </main>
 
       <footer className="py-8 bg-emineon-dark text-white/60">
@@ -1045,7 +1045,7 @@ export default function ProductPage() {
 
       {/* Feature Detail Modals */}
       {activeFeatureModal && (
-        <motion.div 
+          <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -1143,9 +1143,9 @@ export default function ProductPage() {
                         <span key={item} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
                           {item}
                         </span>
-                      ))}
-                    </div>
-                  </div>
+            ))}
+          </div>
+        </div>
 
                   <div>
                     <h3 className="text-xl font-bold text-emineon-blue mb-4">LinkedIn Integration</h3>
@@ -1183,11 +1183,11 @@ export default function ProductPage() {
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">1</div>
                           <span>Initial Email</span>
-                        </div>
+          </div>
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
                           <span className="text-gray-600">Wait 3 days</span>
-                        </div>
+        </div>
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">2</div>
                           <span>If opened: LinkedIn InMail | If not opened: Connection Request</span>

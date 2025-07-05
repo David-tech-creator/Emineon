@@ -2,10 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Linkedin, Instagram, Menu } from "lucide-react";
+import { Linkedin, Instagram, Menu, X } from "lucide-react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 function VettingProcessCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
@@ -96,6 +95,81 @@ export default function FindTalentPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const showcaseRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Form states
+  const [projectData, setProjectData] = useState({
+    industry: '',
+    roleType: '',
+    location: '',
+    duration: '',
+    budgetAmount: '',
+    budgetCurrency: 'CHF',
+    budgetType: 'daily',
+    startDate: '',
+    languageRequirements: '',
+    projectDescription: ''
+  });
+
+  const [contactData, setContactData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: ''
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setProjectData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleContactChange = (field: string, value: string) => {
+    setContactData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const handleSubmitProfileRequest = async () => {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/profile-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          projectData,
+          contactData
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setTimeout(() => {
+          setIsProfileModalOpen(false);
+          setSubmitSuccess(false);
+          setContactData({
+            name: '',
+            email: '',
+            company: '',
+            phone: ''
+          });
+        }, 3000);
+      } else {
+        alert('Failed to submit request. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting profile request:', error);
+      alert('An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 text-foreground flex flex-col items-center">
@@ -227,32 +301,71 @@ export default function FindTalentPage() {
         <form className="space-y-4">
           <div className="flex flex-col gap-2">
             <label className="font-medium">Industry</label>
-            <input className="border rounded p-2" type="text" placeholder="e.g. Finance, Life Sciences" />
+            <input 
+              className="border rounded p-2" 
+              type="text" 
+              placeholder="e.g. Finance, Life Sciences" 
+              value={projectData.industry}
+              onChange={(e) => handleInputChange('industry', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Type of role</label>
-            <input className="border rounded p-2" type="text" placeholder="e.g. Project Manager, Cloud Engineer" />
+            <input 
+              className="border rounded p-2" 
+              type="text" 
+              placeholder="e.g. Project Manager, Cloud Engineer" 
+              value={projectData.roleType}
+              onChange={(e) => handleInputChange('roleType', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Location or remote preference</label>
-            <input className="border rounded p-2" type="text" placeholder="e.g. Geneva, Remote" />
+            <input 
+              className="border rounded p-2" 
+              type="text" 
+              placeholder="e.g. Geneva, Remote" 
+              value={projectData.location}
+              onChange={(e) => handleInputChange('location', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Duration</label>
-            <input className="border rounded p-2" type="text" placeholder="e.g. 6 months" />
+            <input 
+              className="border rounded p-2" 
+              type="text" 
+              placeholder="e.g. 6 months" 
+              value={projectData.duration}
+              onChange={(e) => handleInputChange('duration', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Budget range <span className="text-xs text-neutral-400">(optional)</span></label>
             <div className="flex flex-col sm:flex-row gap-2">
               <div className="flex gap-2 w-full">
-                <select className="border rounded p-2" defaultValue="CHF" style={{ minWidth: 80 }}>
+                <select 
+                  className="border rounded p-2" 
+                  value={projectData.budgetCurrency}
+                  onChange={(e) => handleInputChange('budgetCurrency', e.target.value)}
+                  style={{ minWidth: 80 }}
+                >
                   <option value="CHF">CHF</option>
                   <option value="EUR">EUR</option>
                   <option value="USD">USD</option>
                 </select>
-                <input className="border rounded p-2 flex-1" type="text" placeholder="e.g. 800–1200 or 50k–100k" />
+                <input 
+                  className="border rounded p-2 flex-1" 
+                  type="text" 
+                  placeholder="e.g. 800–1200 or 50k–100k" 
+                  value={projectData.budgetAmount}
+                  onChange={(e) => handleInputChange('budgetAmount', e.target.value)}
+                />
               </div>
-              <select className="border rounded p-2" defaultValue="daily">
+              <select 
+                className="border rounded p-2" 
+                value={projectData.budgetType}
+                onChange={(e) => handleInputChange('budgetType', e.target.value)}
+              >
                 <option value="daily">Daily rate</option>
                 <option value="total">Total project budget</option>
               </select>
@@ -261,15 +374,32 @@ export default function FindTalentPage() {
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Start date</label>
-            <input className="border rounded p-2" type="date" />
+            <input 
+              className="border rounded p-2" 
+              type="date" 
+              value={projectData.startDate}
+              onChange={(e) => handleInputChange('startDate', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Language/cultural requirements</label>
-            <input className="border rounded p-2" type="text" placeholder="e.g. Bilingual French/German" />
+            <input 
+              className="border rounded p-2" 
+              type="text" 
+              placeholder="e.g. Bilingual French/German" 
+              value={projectData.languageRequirements}
+              onChange={(e) => handleInputChange('languageRequirements', e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label className="font-medium">Project description / requirements</label>
-            <textarea className="border rounded p-2" rows={4} placeholder="Describe your project, requirements, or any other details..." />
+            <textarea 
+              className="border rounded p-2" 
+              rows={4} 
+              placeholder="Describe your project, requirements, or any other details..." 
+              value={projectData.projectDescription}
+              onChange={(e) => handleInputChange('projectDescription', e.target.value)}
+            />
           </div>
         </form>
       </section>
@@ -306,11 +436,124 @@ export default function FindTalentPage() {
           </a>
           <Button
             className="bg-emineon-orange text-white hover:bg-emineon-orange/90 rounded-none font-semibold h-16 min-w-[260px] w-full sm:w-auto"
+            onClick={() => setIsProfileModalOpen(true)}
           >
             Just send me profiles
           </Button>
         </div>
       </section>
+
+      {/* Profile Request Modal */}
+      {isProfileModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg w-full max-w-md p-6 relative">
+            <button
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              onClick={() => setIsProfileModalOpen(false)}
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <h3 className="text-xl font-bold text-emineon-blue mb-4">Request Profiles</h3>
+            
+            {!submitSuccess ? (
+              <>
+                <p className="text-gray-600 mb-6">
+                  Please provide your contact information so we can send you matching profiles.
+                </p>
+                
+                <div className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-emineon-blue focus:border-transparent"
+                      placeholder="John Doe"
+                      value={contactData.name}
+                      onChange={(e) => handleContactChange('name', e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Business Email *
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-emineon-blue focus:border-transparent"
+                      placeholder="john.doe@company.com"
+                      value={contactData.email}
+                      onChange={(e) => handleContactChange('email', e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Company Name *
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-emineon-blue focus:border-transparent"
+                      placeholder="Company Inc."
+                      value={contactData.company}
+                      onChange={(e) => handleContactChange('company', e.target.value)}
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-emineon-blue focus:border-transparent"
+                      placeholder="+41 XX XXX XX XX"
+                      value={contactData.phone}
+                      onChange={(e) => handleContactChange('phone', e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="flex gap-3 mt-6">
+                  <Button
+                    className="flex-1 bg-emineon-blue text-white hover:bg-emineon-blue/90"
+                    onClick={handleSubmitProfileRequest}
+                    disabled={isSubmitting || !contactData.name || !contactData.email || !contactData.company || !contactData.phone}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Request'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => setIsProfileModalOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">Request Sent!</h4>
+                <p className="text-gray-600">
+                  Thank you for your request. We'll review your requirements and send you matching profiles within 24 hours.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Vetting Process */}
       <VettingProcessSection />
@@ -329,7 +572,7 @@ export default function FindTalentPage() {
             </p>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="space-y-2">
-                                    <p className="font-medium">Contact: info@emineon.com</p>
+                <p className="font-medium">Contact: info@emineon.com</p>
                 <p className="opacity-80">Founder & Partner, EMINEON</p>
                 <p className="opacity-80">david.v@emineon.com</p>
                 <p className="opacity-80">+41 (0) 79 533 28 09</p>
