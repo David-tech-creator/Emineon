@@ -401,185 +401,140 @@ export default function ProductPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md safe-top">
-        <div className="container-mobile flex h-16 sm:h-20 items-center justify-between py-2 sm:py-4">
+      <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur-md">
+        <div className="container flex h-20 items-center justify-between py-4 relative">
           <div className="flex items-center gap-2">
-            <Link href="/fr" className="flex items-center gap-2 touch-target">
+            <Link href="/fr" className="flex items-center gap-2">
               <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }}>
-                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={40} height={40} className="sm:w-12 sm:h-12" />
+                <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={48} height={48} />
               </motion.div>
               <span className="flex flex-col leading-tight">
-                <span className="text-xl sm:text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
-                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase hidden sm:block">forge your edge.</span>
+                <span className="text-2xl font-bold tracking-tight text-emineon-blue">EMINEON</span>
+                <span className="text-xs font-medium text-emineon-orange mt-0.5 tracking-widest lowercase">forgez votre avantage.</span>
               </span>
             </Link>
           </div>
+          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="/fr/#qui-nous-sommes" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Qui nous sommes
-            </Link>
-            <Link href="/fr/product" className="text-sm font-medium text-emineon-blue border-b-2 border-emineon-blue">
-                ATS & CRM
-            </Link>
-            <Link href="/fr/#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Services
-            </Link>
-            <Link href="/fr/#comment-nous-travaillons" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Comment nous travaillons
-            </Link>
-            <Link href="/fr/#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Expertise
-            </Link>
-            <Link href="/fr/#temoignages" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Témoignages
-            </Link>
-            <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-              Blog
-            </Link>
-          </nav>
-          <div className="hidden md:flex items-center gap-4">
-            <Button 
-              asChild
-              className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-2 font-medium touch-target"
+            <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Qui nous sommes
+      </Link>
+      <Link href="/fr/product" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-orange after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        <span className="flex items-center gap-1">
+          ATS & CRM
+          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
+        </span>
+      </Link>
+      <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Services
+      </Link>
+      <Link href="#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Notre approche
+      </Link>
+      <Link href="#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Expertise
+      </Link>
+      <Link href="#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Témoignages
+      </Link>
+      <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
+        Blog
+      </Link>
+    </nav>
+    <div className="hidden md:flex items-center gap-4">
+      <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
+      <LanguageSwitcher currentLang="fr" />
+    </div>
+    {/* Hamburger for mobile */}
+    <button
+      className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
+      aria-label="Open menu"
+      onClick={() => setMobileMenuOpen(true)}
+    >
+      <Menu className="w-6 h-6 text-emineon-blue" />
+    </button>
+    {/* Mobile menu drawer */}
+    {mobileMenuOpen && (
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 md:hidden"
+      >
+        {/* Backdrop */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-black bg-opacity-50"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        {/* Menu panel */}
+        <motion.div 
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ type: "tween", duration: 0.3 }}
+          className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+            <div className="flex items-center gap-2">
+              <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={32} height={32} />
+              <span className="text-lg font-semibold text-emineon-blue">Menu</span>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
+              aria-label="Close menu"
             >
-              <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
-                                      Réserver une Démo
-              </Link>
-            </Button>
-            <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg touch-target">Nous contacter</Link>
-            <LanguageSwitcher currentLang="fr" />
+              <span className="text-2xl">×</span>
+            </button>
           </div>
-          {/* Hamburger for mobile */}
-          <button
-            className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
-            aria-label="Ouvrir le menu"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Menu className="w-6 h-6 text-emineon-blue" />
-          </button>
-          {/* Mobile menu drawer */}
-          {mobileMenuOpen && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 md:hidden"
-            >
-              {/* Backdrop */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 bg-black bg-opacity-50"
+          {/* Navigation links */}
+          <div className="py-2 bg-white overflow-y-auto flex-1">
+            {[
+              { href: "#who-we-are", label: "Qui nous sommes" },
+              { href: "/fr/product", label: "ATS & CRM", isNew: true },
+              { href: "#services", label: "Services" },
+              { href: "#how-we-work", label: "Notre approche" },
+              { href: "#expertise", label: "Expertise" },
+              { href: "#testimonials", label: "Témoignages" },
+              { href: "/fr/blog", label: "Blog" }
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
                 onClick={() => setMobileMenuOpen(false)}
-              />
-              
-              {/* Menu panel */}
-              <motion.div 
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ type: "tween", duration: 0.3 }}
-                className="relative bg-white h-full w-80 max-w-[85vw] shadow-xl ml-auto safe-top safe-bottom"
               >
-                {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
-                  <div className="flex items-center gap-2">
-                    <Image src="/Emineon logo_tree.png" alt="Emineon Logo" width={32} height={32} />
-                    <span className="text-lg font-semibold text-emineon-blue">Menu</span>
-                  </div>
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target no-select"
-                    aria-label="Close menu"
-                  >
-                    <span className="text-2xl">×</span>
-                  </button>
-                </div>
-                
-                {/* Navigation links */}
-                <div className="py-2 bg-white overflow-y-auto flex-1">
-                  <Link
-                    href="/fr/#qui-nous-sommes"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Qui nous sommes
-                  </Link>
-                  <Link
-                    href="/fr/product"
-                    className="block px-6 py-4 text-base font-medium text-white bg-emineon-blue touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <span className="flex items-center gap-3">
-                      ATS & CRM
-                      <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
-                    </span>
-                  </Link>
-                  <Link
-                    href="/fr/#services"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Services
-                  </Link>
-                  <Link
-                    href="/fr/#comment-nous-travaillons"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Comment nous travaillons
-                  </Link>
-                  <Link
-                    href="/fr/#expertise"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Expertise
-                  </Link>
-                  <Link
-                    href="/fr/#temoignages"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Témoignages
-                  </Link>
-                  <Link
-                    href="/fr/blog"
-                    className="block px-6 py-4 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200 touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Blog
-                  </Link>
-                </div>
-                
-                {/* Contact button and language switcher */}
-                <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
-                  <Button 
-                    asChild
-                    className="w-full bg-emineon-orange text-white py-4 px-4 rounded-lg font-medium mb-3 hover:bg-emineon-orange/90 transition-colors touch-target"
-                  >
-                    <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
-                      Réserver une Démo
-                    </Link>
-                  </Button>
-                  <Link 
-                    href="/fr/contact" 
-                    className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    Nous contacter
-                  </Link>
-                  
-                  <div className="flex justify-center">
-                    <LanguageSwitcher currentLang="fr" />
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </div>
-      </header>
+                <span className="flex items-center gap-3">
+                  {link.label}
+                  {link.isNew && (
+                    <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
+                  )}
+                </span>
+              </Link>
+            ))}
+          </div>
+          {/* Contact button and language switcher */}
+          <div className="p-4 border-t border-gray-200 bg-white safe-bottom">
+            <Link 
+              href="/fr/contact" 
+              className="block w-full bg-emineon-blue text-white text-center py-4 px-4 rounded-lg font-medium mb-4 hover:bg-emineon-blue/90 transition-colors touch-target"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contactez-nous
+            </Link>
+            <div className="flex justify-center">
+              <LanguageSwitcher currentLang="fr" />
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    )}
+  </div>
+</header>
 
       <main className="flex-1">
       {/* Hero Section */}
