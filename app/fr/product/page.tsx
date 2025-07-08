@@ -1022,8 +1022,8 @@ export default function ProductPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-emineon-blue to-emineon-light text-white">
@@ -1031,7 +1031,7 @@ export default function ProductPage() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Prêt à révolutionner votre processus de recrutement ?
-              </h2>
+            </h2>
               <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
                 Rejoignez les équipes RH, cabinets de conseil et agences de recrutement avant-gardistes qui utilisent déjà Emineon ATS & CRM pour placer plus de candidats plus rapidement.
               </p>
@@ -1078,7 +1078,7 @@ export default function ProductPage() {
           <div className="flex items-center gap-3">
             <motion.div whileHover={{ scale: 1.15 }} transition={{ type: 'spring', stiffness: 300, damping: 18 }} className="h-10 w-auto">
               <Image src="/Emineon logo_tree_white.png" alt="Emineon logo" height={40} width={40} />
-            </motion.div>
+          </motion.div>
             <span className="text-sm hidden md:inline">© {new Date().getFullYear()} EMINEON. Tous droits réservés.</span>
           </div>
           <span className="text-sm md:hidden text-center block mt-2">© {new Date().getFullYear()} EMINEON. Tous droits réservés.</span>

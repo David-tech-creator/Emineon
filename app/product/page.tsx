@@ -740,27 +740,33 @@ export default function ProductPage() {
                         </Button>
                         <Modal open={activeFeatureModal === step.id} onClose={() => setActiveFeatureModal(null)} ariaLabel={step.title}>
             {/* Modal Header */}
-            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl">
-              <div className="flex items-center justify-between">
+                          <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl z-30 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-emineon-blue flex items-center justify-center">
-                                  {step.id === 'source' && <Search className="w-6 h-6 text-white" />}
-                                  {step.id === 'engage' && <MessageSquare className="w-6 h-6 text-white" />}
-                                  {step.id === 'interview' && <Calendar className="w-6 h-6 text-white" />}
-                                  {step.id === 'present' && <BarChart3 className="w-6 h-6 text-white" />}
+                                {step.id === 'source' && <Search className="w-6 h-6 text-white" />}
+                                {step.id === 'engage' && <MessageSquare className="w-6 h-6 text-white" />}
+                                {step.id === 'interview' && <Calendar className="w-6 h-6 text-white" />}
+                                {step.id === 'present' && <BarChart3 className="w-6 h-6 text-white" />}
                   </div>
                   <div>
-                                  <h2 className="text-2xl font-bold text-emineon-blue capitalize">{step.id}</h2>
+                                <h2 className="text-2xl font-bold text-emineon-blue capitalize">{step.id}</h2>
                     <p className="text-neutral-600">
-                                    {step.id === 'source' && 'AI-Powered Candidate Sourcing'}
-                                    {step.id === 'engage' && 'Automated Outreach & Engagement'}
-                                    {step.id === 'interview' && 'Smart Interview Management'}
-                                    {step.id === 'present' && 'Intelligent Candidate Presentations'}
+                                  {step.id === 'source' && 'AI-Powered Candidate Sourcing'}
+                                  {step.id === 'engage' && 'Automated Outreach & Engagement'}
+                                  {step.id === 'interview' && 'Smart Interview Management'}
+                                  {step.id === 'present' && 'Intelligent Candidate Presentations'}
                     </p>
                   </div>
                 </div>
+                <button
+                  onClick={() => setActiveFeatureModal(null)}
+                              className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg text-emineon-blue hover:text-emineon-orange text-3xl font-bold focus:outline-none focus:ring-2 focus:ring-emineon-orange transition-all"
+                  aria-label="Close modal"
+                              type="button"
+                >
+                              ×
+                </button>
               </div>
-            </div>
             {/* Modal Content */}
             <div className="p-6 sm:p-8">
                             {step.id === 'source' && (

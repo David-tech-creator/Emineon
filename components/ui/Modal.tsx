@@ -70,7 +70,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children, ariaLabel }) => 
       >
         {children}
         <button
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/10 text-emineon-blue hover:text-emineon-orange text-2xl font-bold focus:outline-none"
+          className="absolute top-4 right-4 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-lg text-emineon-blue hover:text-emineon-orange text-3xl font-bold focus:outline-none focus:ring-2 focus:ring-emineon-orange transition-all"
           onClick={onClose}
           aria-label="Close modal"
           type="button"
