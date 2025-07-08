@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
+import { createPortal } from "react-dom";
 
 function FeatureCard({ icon: Icon, title, description, benefits }: { icon: any; title: string; description: string; benefits: string[] }) {
   const [hovered, setHovered] = useState(false);
@@ -87,6 +88,7 @@ export default function ProductPage() {
   const [showDemo, setShowDemo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeFeatureModal, setActiveFeatureModal] = useState<'source' | 'engage' | 'interview' | 'present' | null>(null);
+  const [showDemoVideo, setShowDemoVideo] = useState(false);
   const [demoForm, setDemoForm] = useState({ name: "", email: "", company: "", companySize: "" });
   const [demoFormErrors, setDemoFormErrors] = useState<{ [key: string]: string }>({});
   const [demoFormLoading, setDemoFormLoading] = useState(false);
@@ -101,6 +103,15 @@ export default function ProductPage() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [seeking, setSeeking] = useState(false);
+
+  // Demo video controls state
+  const demoVideoRef = useRef<HTMLVideoElement>(null);
+  const [demoIsPlaying, setDemoIsPlaying] = useState(false);
+  const [demoUserStarted, setDemoUserStarted] = useState(false);
+  const [demoIsMuted, setDemoIsMuted] = useState(true);
+  const [demoProgress, setDemoProgress] = useState(0);
+  const [demoDuration, setDemoDuration] = useState(0);
+  const [demoSeeking, setDemoSeeking] = useState(false);
 
   // Detect mobile device
   const isMobile = typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -202,6 +213,59 @@ export default function ProductPage() {
     return `${m}:${s}`;
   };
 
+  // Demo video control handlers
+  const handleDemoFullscreen = () => {
+    if (demoVideoRef.current) {
+      if (demoVideoRef.current.requestFullscreen) {
+        demoVideoRef.current.requestFullscreen();
+      } else if ((demoVideoRef.current as any).webkitRequestFullscreen) {
+        (demoVideoRef.current as any).webkitRequestFullscreen();
+      } else if ((demoVideoRef.current as any).msRequestFullscreen) {
+        (demoVideoRef.current as any).msRequestFullscreen();
+      }
+    }
+  };
+
+  const handleDemoPlayPause = () => {
+    if (!demoVideoRef.current) return;
+    if (demoVideoRef.current.paused) {
+      demoVideoRef.current.play();
+      setDemoIsPlaying(true);
+    } else {
+      demoVideoRef.current.pause();
+      setDemoIsPlaying(false);
+    }
+  };
+
+  const handleDemoUserPlay = () => {
+    if (!demoVideoRef.current) return;
+    demoVideoRef.current.muted = false;
+    setDemoIsMuted(false);
+    demoVideoRef.current.play();
+    setDemoIsPlaying(true);
+    setDemoUserStarted(true);
+  };
+
+  const handleDemoMuteToggle = () => {
+    if (!demoVideoRef.current) return;
+    demoVideoRef.current.muted = !demoVideoRef.current.muted;
+    setDemoIsMuted(demoVideoRef.current.muted);
+  };
+
+  const handleDemoSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!demoVideoRef.current) return;
+    const time = parseFloat(e.target.value);
+    demoVideoRef.current.currentTime = time;
+    setDemoProgress(time);
+  };
+
+  const formatDemoTime = (t: number) => {
+    if (isNaN(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
   // Update progress
   useEffect(() => {
     const video = videoRef.current;
@@ -217,6 +281,22 @@ export default function ProductPage() {
       video.removeEventListener('durationchange', update);
     };
   }, []);
+
+  // Update demo video progress
+  useEffect(() => {
+    const video = demoVideoRef.current;
+    if (!video) return;
+    const update = () => {
+      setDemoProgress(video.currentTime);
+      setDemoDuration(video.duration || 0);
+    };
+    video.addEventListener('timeupdate', update);
+    video.addEventListener('durationchange', update);
+    return () => {
+      video.removeEventListener('timeupdate', update);
+      video.removeEventListener('durationchange', update);
+    };
+  }, [showDemoVideo]);
 
   const features = [
     {
@@ -1011,8 +1091,20 @@ export default function ProductPage() {
                   size="lg"
                   variant="outline"
                   className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                  onClick={() => setShowDemoVideo(true)}
                 >
-                  Commencer l'Essai Gratuit
+                  <Play className="mr-2 h-5 w-5" />
+                  Regarder la Démo
+                </Button>
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                  asChild
+                >
+                  <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    Commencer l'Essai Gratuit
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -1044,8 +1136,8 @@ export default function ProductPage() {
       </footer>
 
       {/* Feature Detail Modals */}
-      {activeFeatureModal && (
-          <motion.div
+      {typeof window !== 'undefined' && activeFeatureModal && createPortal(
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -1492,7 +1584,114 @@ export default function ProductPage() {
               </div>
             </div>
           </motion.div>
-        </motion.div>
+        </motion.div>,
+        document.body
+      )}
+
+      {/* Demo Video Modal */}
+      {typeof window !== 'undefined' && showDemoVideo && createPortal(
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 safe-top safe-bottom"
+          onClick={() => setShowDemoVideo(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-black rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setShowDemoVideo(false)}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              aria-label="Fermer la vidéo"
+            >
+              <span className="text-2xl">×</span>
+            </button>
+
+            {/* Video container */}
+            <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
+              <video
+                ref={demoVideoRef}
+                src="/Emineon features - ppt.mp4"
+                className="w-full h-full object-contain"
+                onPlay={() => setDemoIsPlaying(true)}
+                onPause={() => setDemoIsPlaying(false)}
+                {...(isMobile ? { controls: true } : {})}
+              >
+                Désolé, votre navigateur ne prend pas en charge les vidéos intégrées.
+              </video>
+
+              {/* Desktop video controls */}
+              {!isMobile && (
+                <>
+                  {/* Control buttons overlay */}
+                  <div className="absolute top-4 left-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
+                      onClick={handleDemoPlayPause}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label={demoIsPlaying ? "Mettre en pause" : "Lire la vidéo"}
+                    >
+                      {demoIsPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+                    </button>
+                    <button
+                      onClick={handleDemoMuteToggle}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label={demoIsMuted ? "Activer le son" : "Couper le son"}
+                    >
+                      {demoIsMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
+                    </button>
+                    <button
+                      onClick={handleDemoFullscreen}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label="Plein écran"
+                    >
+                      <Maximize2 className="w-6 h-6" />
+                    </button>
+                  </div>
+
+                  {/* User-initiated play overlay */}
+                  {!demoUserStarted && !demoIsPlaying && (
+                    <button
+                      onClick={handleDemoUserPlay}
+                      className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors focus:outline-none"
+                      aria-label="Lire la vidéo avec le son"
+                    >
+                      <div className="bg-emineon-orange rounded-full p-6 shadow-lg">
+                        <Play className="w-12 h-12 text-white ml-1" />
+                      </div>
+                    </button>
+                  )}
+
+                  {/* Progress bar */}
+                  <div className="absolute bottom-0 left-0 w-full px-6 pb-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoProgress)}</span>
+                      <input
+                        type="range"
+                        min={0}
+                        max={demoDuration || 0}
+                        step={0.1}
+                        value={demoProgress}
+                        onChange={handleDemoSeek}
+                        onMouseDown={() => setDemoSeeking(true)}
+                        onMouseUp={() => setDemoSeeking(false)}
+                        className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
+                        style={{ accentColor: '#C75B12' }}
+                      />
+                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoDuration)}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>,
+        document.body
       )}
 
       {/* Demo Modal */}
