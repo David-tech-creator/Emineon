@@ -95,6 +95,15 @@
   }
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: static;
+  overflow-x: hidden;
+}
+
 @layer utilities {
   .line-clamp-2 {
     display: -webkit-box;
