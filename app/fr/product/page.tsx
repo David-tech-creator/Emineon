@@ -8,6 +8,7 @@ import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { createPortal } from "react-dom";
+import Modal from '@/components/ui/Modal';
 
 function FeatureCard({ icon: Icon, title, description, benefits }: { icon: any; title: string; description: string; benefits: string[] }) {
   const [hovered, setHovered] = useState(false);
@@ -417,42 +418,42 @@ export default function ProductPage() {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             <Link href="#who-we-are" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Qui nous sommes
-      </Link>
+              Qui nous sommes
+            </Link>
       <Link href="/fr/product" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-orange after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        <span className="flex items-center gap-1">
-          ATS & CRM
-          <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
-        </span>
-      </Link>
+              <span className="flex items-center gap-1">
+                ATS & CRM
+                <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-0.5 rounded-full font-semibold">NOUVEAU</span>
+              </span>
+            </Link>
       <Link href="#services" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Services
-      </Link>
+              Services
+            </Link>
       <Link href="#how-we-work" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Notre approche
-      </Link>
+              Notre approche
+            </Link>
       <Link href="#expertise" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Expertise
-      </Link>
+              Expertise
+            </Link>
       <Link href="#testimonials" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Témoignages
-      </Link>
+              Témoignages
+            </Link>
       <Link href="/fr/blog" className="text-sm font-medium text-neutral-700 hover:text-emineon-blue relative transition-colors duration-200 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-full after:h-0.5 after:bg-emineon-blue after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:duration-200">
-        Blog
-      </Link>
-    </nav>
-    <div className="hidden md:flex items-center gap-4">
+              Blog
+            </Link>
+          </nav>
+          <div className="hidden md:flex items-center gap-4">
       <Link href="/fr/contact" className="bg-emineon-blue hover:bg-emineon-light text-white rounded-lg px-6 py-2 font-medium transition-all duration-200 shadow-md hover:shadow-lg">Contactez-nous</Link>
       <LanguageSwitcher currentLang="fr" />
-    </div>
-    {/* Hamburger for mobile */}
-    <button
+          </div>
+          {/* Hamburger for mobile */}
+          <button
       className="md:hidden p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-emineon-blue ml-auto touch-target no-select"
       aria-label="Open menu"
-      onClick={() => setMobileMenuOpen(true)}
-    >
+            onClick={() => setMobileMenuOpen(true)}
+          >
       <Menu className="w-6 h-6 text-emineon-blue" />
-    </button>
+          </button>
     {/* Mobile menu drawer */}
     {mobileMenuOpen && (
       <motion.div 
@@ -533,8 +534,8 @@ export default function ProductPage() {
         </motion.div>
       </motion.div>
     )}
-  </div>
-</header>
+        </div>
+      </header>
 
       <main className="flex-1">
       {/* Hero Section */}
@@ -1096,19 +1097,9 @@ export default function ProductPage() {
       </footer>
 
       {/* Feature Detail Modals */}
-      {hasMounted && activeFeatureModal && createPortal(
-          <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 safe-top safe-bottom"
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-mobile"
-          >
+      {hasMounted && (
+        <Modal open={activeFeatureModal !== null} onClose={() => setActiveFeatureModal(null)} ariaLabel="En savoir plus">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-mobile">
             {/* Modal Header */}
             <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl">
               <div className="flex items-center justify-between">
@@ -1122,23 +1113,15 @@ export default function ProductPage() {
                   <div>
                     <h2 className="text-2xl font-bold text-emineon-blue capitalize">{activeFeatureModal}</h2>
                     <p className="text-neutral-600">
-                      {activeFeatureModal === 'source' && 'Sourcing de Candidats Alimenté par l\'IA'}
+                      {activeFeatureModal === 'source' && "Sourcing de Candidats Alimenté par l'IA"}
                       {activeFeatureModal === 'engage' && 'Outreach et Engagement Automatisés'}
                       {activeFeatureModal === 'interview' && 'Gestion Intelligente des Entretiens'}
                       {activeFeatureModal === 'present' && 'Présentations Intelligentes de Candidats'}
                     </p>
                   </div>
                 </div>
-                <button
-                  onClick={() => setActiveFeatureModal(null)}
-                  className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target"
-                  aria-label="Fermer la modal"
-                >
-                  <span className="text-2xl">×</span>
-                </button>
               </div>
             </div>
-
             {/* Modal Content */}
             <div className="p-6 sm:p-8">
               {activeFeatureModal === 'source' && (
@@ -1543,115 +1526,25 @@ export default function ProductPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
-        </motion.div>,
-        document.body
+          </div>
+        </Modal>
       )}
 
       {/* Demo Video Modal */}
-      {hasMounted && showDemoVideo && createPortal(
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 safe-top safe-bottom"
-          onClick={() => setShowDemoVideo(false)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-black rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setShowDemoVideo(false)}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-              aria-label="Fermer la vidéo"
+      {hasMounted && (
+        <Modal open={showDemoVideo} onClose={() => setShowDemoVideo(false)} ariaLabel="Regarder la Démo">
+          <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
+            <video
+              src="/Emineon features - ppt.mp4"
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
             >
-              <span className="text-2xl">×</span>
-            </button>
-
-            {/* Video container */}
-            <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
-              <video
-                ref={demoVideoRef}
-                src="/Emineon features - ppt.mp4"
-                className="w-full h-full object-contain"
-                onPlay={() => setDemoIsPlaying(true)}
-                onPause={() => setDemoIsPlaying(false)}
-                {...(isMobile ? { controls: true } : {})}
-              >
-                Désolé, votre navigateur ne prend pas en charge les vidéos intégrées.
-              </video>
-
-              {/* Desktop video controls */}
-              {!isMobile && (
-                <>
-                  {/* Control buttons overlay */}
-                  <div className="absolute top-4 left-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button
-                      onClick={handleDemoPlayPause}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label={demoIsPlaying ? "Mettre en pause" : "Lire la vidéo"}
-                    >
-                      {demoIsPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-                    </button>
-                    <button
-                      onClick={handleDemoMuteToggle}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label={demoIsMuted ? "Activer le son" : "Couper le son"}
-                    >
-                      {demoIsMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-                    </button>
-                    <button
-                      onClick={handleDemoFullscreen}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label="Plein écran"
-                    >
-                      <Maximize2 className="w-6 h-6" />
-                    </button>
-                  </div>
-
-                  {/* User-initiated play overlay */}
-                  {!demoUserStarted && !demoIsPlaying && (
-                    <button
-                      onClick={handleDemoUserPlay}
-                      className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors focus:outline-none"
-                      aria-label="Lire la vidéo avec le son"
-                    >
-                      <div className="bg-emineon-orange rounded-full p-6 shadow-lg">
-                        <Play className="w-12 h-12 text-white ml-1" />
-                      </div>
-                    </button>
-                  )}
-
-                  {/* Progress bar */}
-                  <div className="absolute bottom-0 left-0 w-full px-6 pb-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoProgress)}</span>
-                      <input
-                        type="range"
-                        min={0}
-                        max={demoDuration || 0}
-                        step={0.1}
-                        value={demoProgress}
-                        onChange={handleDemoSeek}
-                        onMouseDown={() => setDemoSeeking(true)}
-                        onMouseUp={() => setDemoSeeking(false)}
-                        className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
-                        style={{ accentColor: '#C75B12' }}
-                      />
-                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoDuration)}</span>
+              Désolé, votre navigateur ne supporte pas la vidéo intégrée.
+            </video>
           </div>
-        </div>
-                </>
-              )}
-            </div>
-          </motion.div>
-        </motion.div>,
-        document.body
+          <div className="pb-6 text-center text-emineon-orange font-semibold">Présentation des fonctionnalités Emineon</div>
+        </Modal>
       )}
 
       {/* Demo Modal */}

@@ -8,6 +8,8 @@ import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
+import { createPortal } from "react-dom";
+import Modal from '@/components/ui/Modal';
 
 function RemoteWorkCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
@@ -89,6 +91,9 @@ function BottomBanner() {
 export default function Home() {
   const [showLeadForm, setShowLeadForm] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showDemoVideo, setShowDemoVideo] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => { setHasMounted(true); }, []);
 
   const handleGetStarted = () => {
     const section = document.getElementById("get-started-section");
@@ -532,6 +537,7 @@ export default function Home() {
                       size="lg"
                       variant="outline"
                       className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                      onClick={() => setShowDemoVideo(true)}
                     >
                       Voir la démo
                     </Button>
@@ -688,6 +694,21 @@ export default function Home() {
         </div>
       )}
       <BottomBanner />
+      {hasMounted && (
+        <Modal open={showDemoVideo} onClose={() => setShowDemoVideo(false)} ariaLabel="Regarder la Démo">
+          <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
+            <video
+              src="/Emineon features - ppt.mp4"
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
+            >
+              Désolé, votre navigateur ne supporte pas la vidéo intégrée.
+            </video>
+          </div>
+          <div className="pb-6 text-center text-emineon-orange font-semibold">Présentation des fonctionnalités Emineon</div>
+        </Modal>
+      )}
     </div>
   )
 }

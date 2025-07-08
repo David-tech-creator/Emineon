@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
 import LanguageSwitcher from "@/components/LanguageSwitcher"
 import { createPortal } from "react-dom";
+import Modal from "@/components/ui/Modal";
 
 function RemoteWorkCard({ title, description, hoverDetail }: { title: string; description: string; hoverDetail: string }) {
   const [hovered, setHovered] = useState(false);
@@ -883,109 +884,20 @@ export default function Home() {
       <BottomBanner />
 
       {/* Demo Video Modal */}
-      {typeof window !== 'undefined' && showDemoVideo && createPortal(
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 safe-top safe-bottom"
-          onClick={() => setShowDemoVideo(false)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-black rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setShowDemoVideo(false)}
-              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-              aria-label="Close video"
+      {showDemoVideo && (
+        <Modal open={showDemoVideo} onClose={() => setShowDemoVideo(false)} ariaLabel="Watch Demo">
+          <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
+            <video
+              src="/Emineon features - ppt.mp4"
+              controls
+              autoPlay
+              className="w-full h-full object-contain"
             >
-              <span className="text-2xl">×</span>
-            </button>
-
-            {/* Video container */}
-            <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
-              <video
-                ref={demoVideoRef}
-                src="/Emineon features - ppt.mp4"
-                className="w-full h-full object-contain"
-                onPlay={() => setDemoIsPlaying(true)}
-                onPause={() => setDemoIsPlaying(false)}
-                {...(isMobile ? { controls: true } : {})}
-              >
-                Sorry, your browser does not support embedded videos.
-              </video>
-
-              {/* Desktop video controls */}
-              {!isMobile && (
-                <>
-                  {/* Control buttons overlay */}
-                  <div className="absolute top-4 left-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button
-                      onClick={handleDemoPlayPause}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label={demoIsPlaying ? "Pause video" : "Play video"}
-                    >
-                      {demoIsPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-                    </button>
-                    <button
-                      onClick={handleDemoMuteToggle}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label={demoIsMuted ? "Unmute video" : "Mute video"}
-                    >
-                      {demoIsMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-                    </button>
-                    <button
-                      onClick={handleDemoFullscreen}
-                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                      aria-label="Fullscreen video"
-                    >
-                      <Maximize2 className="w-6 h-6" />
-                    </button>
-                  </div>
-
-                  {/* User-initiated play overlay */}
-                  {!demoUserStarted && !demoIsPlaying && (
-                    <button
-                      onClick={handleDemoUserPlay}
-                      className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors focus:outline-none"
-                      aria-label="Play video with sound"
-                    >
-                      <div className="bg-emineon-orange rounded-full p-6 shadow-lg">
-                        <Play className="w-12 h-12 text-white ml-1" />
-                      </div>
-                    </button>
-                  )}
-
-                  {/* Progress bar */}
-                  <div className="absolute bottom-0 left-0 w-full px-6 pb-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoProgress)}</span>
-                      <input
-                        type="range"
-                        min={0}
-                        max={demoDuration || 0}
-                        step={0.1}
-                        value={demoProgress}
-                        onChange={handleDemoSeek}
-                        onMouseDown={() => setDemoSeeking(true)}
-                        onMouseUp={() => setDemoSeeking(false)}
-                        className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
-                        style={{ accentColor: '#C75B12' }}
-                      />
-                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoDuration)}</span>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
-          </motion.div>
-        </motion.div>,
-        document.body
+              Sorry, your browser does not support embedded videos.
+            </video>
+          </div>
+          <div className="pb-6 text-center text-emineon-orange font-semibold">Emineon Feature Demo</div>
+        </Modal>
       )}
     </div>
   )
