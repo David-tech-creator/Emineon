@@ -217,9 +217,9 @@ export default function FindTalentPage() {
           {mobileMenuOpen && (
             <div className="fixed inset-0 z-50 md:hidden">
               {/* Backdrop */}
-              <div 
+            <div
                 className="absolute inset-0 bg-black bg-opacity-50"
-                onClick={() => setMobileMenuOpen(false)}
+              onClick={() => setMobileMenuOpen(false)}
               />
               
               {/* Menu panel */}
@@ -238,29 +238,29 @@ export default function FindTalentPage() {
                 {/* Navigation links */}
                 <div className="py-4 bg-white">
                   <Link href="/fr#who-we-are" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Qui sommes-nous
-                  </Link>
+                  Qui sommes-nous
+                </Link>
                   <Link href="/fr/product" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    <span className="flex items-center gap-2">
-                      ATS & CRM
-                      <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
-                    </span>
-                  </Link>
+                  <span className="flex items-center gap-2">
+                    ATS & CRM
+                    <span className="inline-block bg-emineon-orange text-white text-xs px-2 py-1 rounded-full font-semibold">NOUVEAU</span>
+                  </span>
+                </Link>
                   <Link href="/fr#services" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Services
-                  </Link>
+                  Services
+                </Link>
                   <Link href="/fr#how-we-work" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Notre approche
-                  </Link>
+                  Notre approche
+                </Link>
                   <Link href="/fr#expertise" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Expertise
-                  </Link>
+                  Expertise
+                </Link>
                   <Link href="/fr#testimonials" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Témoignages
-                  </Link>
+                  Témoignages
+                </Link>
                   <Link href="/fr/blog" className="block px-4 py-3 text-base font-medium text-emineon-blue hover:bg-emineon-blue hover:text-white transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
-                    Blog
-                  </Link>
+                  Blog
+                </Link>
                 </div>
                 
                 {/* Contact button and language switcher */}
@@ -571,7 +571,7 @@ export default function FindTalentPage() {
             </p>
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="space-y-2">
-                <p className="font-medium">Contact: info@emineon.com</p>
+                                    <p className="font-medium">Contact: info@emineon.com</p>
                 <p className="opacity-80">Fondateur & Associé, EMINEON</p>
                 <p className="opacity-80">david.v@emineon.com</p>
                 <p className="opacity-80">+41 (0) 79 533 28 09</p>

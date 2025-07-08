@@ -116,6 +116,9 @@ export default function ProductPage() {
   // Detect mobile device
   const isMobile = typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => { setHasMounted(true); }, []);
+
   function validateDemoForm() {
     const errs: { [key: string]: string } = {};
     if (!demoForm.name.trim()) errs.name = "Name is required.";
@@ -1087,15 +1090,17 @@ export default function ProductPage() {
                     Schedule a demo
                   </Link>
                 </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
-                  onClick={() => setShowDemoVideo(true)}
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Demo
-                </Button>
+                {hasMounted && (
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="bg-white/10 border-white text-white hover:bg-white hover:text-emineon-blue px-8 py-4 text-lg font-semibold backdrop-blur-sm"
+                    onClick={() => setShowDemoVideo(true)}
+                  >
+                    <Play className="mr-2 h-5 w-5" />
+                    Watch Demo
+                  </Button>
+                )}
                 <Button 
                   size="lg"
                   variant="outline"
@@ -1136,567 +1141,457 @@ export default function ProductPage() {
       </footer>
 
       {/* Feature Detail Modals */}
-      <AnimatePresence>
-        {typeof window !== 'undefined' && activeFeatureModal && createPortal(
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 safe-top safe-bottom"
+      {hasMounted && activeFeatureModal && createPortal(
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 safe-top safe-bottom"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-mobile"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-mobile"
-            >
-              {/* Modal Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-emineon-blue flex items-center justify-center">
-                      {activeFeatureModal === 'source' && <Search className="w-6 h-6 text-white" />}
-                      {activeFeatureModal === 'engage' && <MessageSquare className="w-6 h-6 text-white" />}
-                      {activeFeatureModal === 'interview' && <Calendar className="w-6 h-6 text-white" />}
-                      {activeFeatureModal === 'present' && <BarChart3 className="w-6 h-6 text-white" />}
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-emineon-blue capitalize">{activeFeatureModal}</h2>
-                      <p className="text-neutral-600">
-                        {activeFeatureModal === 'source' && 'AI-Powered Candidate Sourcing'}
-                        {activeFeatureModal === 'engage' && 'Automated Outreach & Engagement'}
-                        {activeFeatureModal === 'interview' && 'Smart Interview Management'}
-                        {activeFeatureModal === 'present' && 'Intelligent Candidate Presentations'}
-                      </p>
-                    </div>
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6 sm:p-8 rounded-t-2xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-emineon-blue flex items-center justify-center">
+                    {activeFeatureModal === 'source' && <Search className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'engage' && <MessageSquare className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'interview' && <Calendar className="w-6 h-6 text-white" />}
+                    {activeFeatureModal === 'present' && <BarChart3 className="w-6 h-6 text-white" />}
                   </div>
-                  <button
-                    onClick={() => setActiveFeatureModal(null)}
-                    className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target"
-                    aria-label="Close modal"
-                  >
-                    <span className="text-2xl">×</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Modal Content */}
-              <div className="p-6 sm:p-8">
-                {activeFeatureModal === 'source' && (
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Natural Language Search Engine</h3>
-                      <p className="text-neutral-700 mb-6">
-                        Find qualified talent using natural language. Just describe who you're searching for, no Boolean operators needed. Our AI handles the complex search logic behind the scenes.
-                      </p>
-                      <div className="bg-gray-50 rounded-xl p-6 mb-6">
-                        <h4 className="font-semibold text-emineon-blue mb-3">Example Search</h4>
-                        <div className="bg-white rounded-lg p-4 border border-gray-200 mb-4">
-                          <p className="text-sm text-gray-600 mb-2">Instead of:</p>
-                          <code className="text-sm text-red-600">(React OR Angular) AND (TypeScript OR JavaScript) AND (Senior OR Lead) AND experience</code>
-                        </div>
-                        <div className="bg-white rounded-lg p-4 border border-emineon-blue/20">
-                          <p className="text-sm text-gray-600 mb-2">Simply type:</p>
-                          <p className="text-emineon-blue font-medium">"Senior frontend developer with React and TypeScript experience"</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Smart Candidate Scoring</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Our AI analyzes your requirements and scores candidates based on experience, skills, and industry fit to surface the best matches instantly.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="bg-green-50 rounded-lg p-4 border border-green-200">
-                          <div className="text-green-600 font-bold text-lg">96%</div>
-                          <div className="text-sm text-green-700">Excellent Match</div>
-                          <div className="text-xs text-green-600 mt-1">All requirements met</div>
-                        </div>
-                        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                          <div className="text-blue-600 font-bold text-lg">89%</div>
-                          <div className="text-sm text-blue-700">Strong Match</div>
-                          <div className="text-xs text-blue-600 mt-1">Minor skill gaps</div>
-                        </div>
-                        <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
-                          <div className="text-orange-600 font-bold text-lg">75%</div>
-                          <div className="text-sm text-orange-700">Fair Match</div>
-                          <div className="text-xs text-orange-600 mt-1">Some training needed</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Complete Candidate Snapshot</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Our AI analyzes every interaction with your candidates - from emails and calls to notes and meetings - to build a complete understanding of their qualifications and career trajectory.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {['Emails', 'Calls', 'Notes', 'Messages', 'Meetings', 'Reports'].map((item) => (
-                          <span key={item} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">LinkedIn Integration</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Import candidates directly from LinkedIn using our Chrome extension. Sync individual profiles or import entire search results in bulk.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>One-click profile import from LinkedIn</span>
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>Bulk import from LinkedIn Recruiter lists</span>
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>Automatic data enrichment with verified emails</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                {activeFeatureModal === 'engage' && (
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Multi-Channel Outreach Campaigns</h3>
-                      <p className="text-neutral-700 mb-6">
-                        Create intelligent outreach sequences that adapt to your prospects' behavior across LinkedIn, email, and WhatsApp. No more manual follow-ups or missed opportunities.
-                      </p>
-                      <div className="bg-gray-50 rounded-xl p-6">
-                        <h4 className="font-semibold text-emineon-blue mb-4">Example Campaign Flow</h4>
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">1</div>
-                            <span>Initial Email</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
-                            <span className="text-gray-600">Wait 3 days</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">2</div>
-                            <span>If opened: LinkedIn InMail | If not opened: Connection Request</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
-                            <span className="text-gray-600">Wait 1 week</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">3</div>
-                            <span>WhatsApp follow-up (if available)</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Personalization at Scale</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Go beyond simple mail merge. Craft highly personalized messages using past conversations, communication style, and candidate background.
-                      </p>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <div className="text-sm text-gray-600 mb-2">AI-Generated Message:</div>
-                        <div className="space-y-2">
-                          <p>Hi <span className="bg-yellow-100 px-1 rounded">Sarah</span>,</p>
-                          <p><span className="bg-blue-100 px-1 rounded">Following up on our discussion about cloud architecture last month</span>, I wanted to reach out about an exciting opportunity.</p>
-                          <p>We're hiring for a <span className="bg-green-100 px-1 rounded">Senior Backend Engineer</span> position with greater team responsibilities.</p>
-                          <p><span className="bg-purple-100 px-1 rounded">Would you be available for a brief call to discuss this further?</span></p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Centralized Communication Hub</h3>
-                      <p className="text-neutral-700 mb-4">
-                        All your candidate communications in one place. Message across WhatsApp, LinkedIn, and email without switching platforms.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="bg-blue-50 rounded-lg p-4 text-center">
-                          <div className="text-blue-600 font-semibold">Email</div>
-                          <div className="text-sm text-blue-600 mt-1">Professional outreach</div>
-                        </div>
-                        <div className="bg-blue-50 rounded-lg p-4 text-center">
-                          <div className="text-blue-600 font-semibold">LinkedIn</div>
-                          <div className="text-sm text-blue-600 mt-1">InMails & messages</div>
-                        </div>
-                        <div className="bg-green-50 rounded-lg p-4 text-center">
-                          <div className="text-green-600 font-semibold">WhatsApp</div>
-                          <div className="text-sm text-green-600 mt-1">Personal & work chats</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">AI-Powered Response Analytics</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Get instant insights about candidate engagement and optimize your outreach strategy with real-time analytics.
-                      </p>
-                      <ul className="space-y-2">
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>Open and response rate tracking</span>
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>Best performing message templates</span>
-                        </li>
-                        <li className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-emineon-blue" />
-                          <span>Optimal send times and frequencies</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                {activeFeatureModal === 'interview' && (
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">AI-Powered Note Taking</h3>
-                      <p className="text-neutral-700 mb-6">
-                        Focus on the conversation while our AI assistant automatically captures comprehensive notes and key discussion points from every interview.
-                      </p>
-                      <div className="bg-gray-50 rounded-xl p-6">
-                        <h4 className="font-semibold text-emineon-blue mb-3">Live Transcription</h4>
-                        <div className="bg-white rounded-lg p-4 border border-gray-200">
-                          <div className="flex items-center gap-2 mb-3">
-                            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                            <span className="text-sm text-gray-600">Recording in progress...</span>
-                          </div>
-                          <p className="text-sm text-gray-700">
-                            "I have 8+ years of experience with React and TypeScript, and I've led three major frontend projects at my current company..."
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Intelligent Interview Summaries</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Get AI-generated summaries of your interviews and ask questions about any past conversation. Never lose important details again.
-                      </p>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <div className="text-sm font-semibold text-emineon-blue mb-2">Interview Summary - Sarah Chen</div>
-                        <div className="text-sm text-gray-600 mb-3">March 15, 2024 • 45 minutes</div>
-                        <div className="space-y-2 text-sm">
-                          <div><strong>Key Strengths:</strong> Strong technical background in distributed systems, excellent communication skills</div>
-                          <div><strong>Experience:</strong> 8+ years React/TypeScript, led 3 major projects</div>
-                          <div><strong>Salary Expectations:</strong> $145,000 (updated from $120,000)</div>
-                          <div><strong>Next Steps:</strong> Schedule technical round with hiring manager</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Automatic ATS Updates</h3>
-                      <p className="text-neutral-700 mb-4">
-                        AI suggests updates to candidate fields based on information discussed during interviews. Keep your database current effortlessly.
-                      </p>
-                      <div className="space-y-3">
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                          <div className="text-green-700 font-semibold text-sm">✓ Current Salary Updated</div>
-                          <div className="text-green-600 text-sm">$120,000 → $145,000</div>
-                        </div>
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                          <div className="text-blue-700 font-semibold text-sm">+ Education Added</div>
-                          <div className="text-blue-600 text-sm">MSc Computer Science, Stanford University 2019</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Smart Scheduling & Pipeline Management</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Coordinate interviews effortlessly with automatic calendar sync and customizable pipeline stages.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <h5 className="font-semibold text-emineon-blue mb-3">Available Slots</h5>
-                          <div className="space-y-2">
-                            <div className="bg-white border border-gray-200 rounded p-2 text-sm">Tuesday, Mar 12 - 2:00 PM</div>
-                            <div className="bg-white border border-gray-200 rounded p-2 text-sm">Tuesday, Mar 12 - 3:00 PM</div>
-                            <div className="bg-white border border-gray-200 rounded p-2 text-sm">Wednesday, Mar 13 - 11:00 AM</div>
-                            <div className="text-emineon-blue text-sm">+ 12 more slots available</div>
-                          </div>
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-emineon-blue mb-3">Custom Pipeline Labels</h5>
-                          <div className="space-y-2">
-                            <span className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm">Phone Screen</span>
-                            <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-sm ml-2">Technical Interview</span>
-                            <span className="inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-sm ml-2">Final Round</span>
-                            <span className="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm ml-2">Awaiting Feedback</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {activeFeatureModal === 'present' && (
-                  <div className="space-y-8">
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">One-Click Candidate Reports</h3>
-                      <p className="text-neutral-700 mb-6">
-                        Generate professional candidate presentations in seconds. Never start from a blank page again with our AI-powered report generation.
-                      </p>
-                      <div className="bg-gray-50 rounded-xl p-6">
-                        <h4 className="font-semibold text-emineon-blue mb-3">Document Inputs</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                          <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
-                            <div className="text-red-500 font-semibold text-sm">PDF</div>
-                            <div className="text-xs text-gray-600">Candidate CV</div>
-                          </div>
-                          <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
-                            <div className="text-blue-500 font-semibold text-sm">DOC</div>
-                            <div className="text-xs text-gray-600">Job Description</div>
-                          </div>
-                          <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
-                            <div className="text-green-500 font-semibold text-sm">DOCX</div>
-                            <div className="text-xs text-gray-600">Interview Notes</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Custom Templates & Branding</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Use your company's branded templates. Generate reports directly exportable in Word or PowerPoint, ready to share with clients.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-blue-50 rounded-lg p-4">
-                          <div className="text-blue-600 font-semibold mb-2">Word Export</div>
-                          <div className="text-sm text-blue-600">Professional documents with your branding</div>
-                        </div>
-                        <div className="bg-orange-50 rounded-lg p-4">
-                          <div className="text-orange-600 font-semibold mb-2">PowerPoint Export</div>
-                          <div className="text-sm text-orange-600">Presentation-ready slides for client meetings</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Intelligent Content Generation</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Our AI analyzes candidate data and creates tailored presentations highlighting the most relevant experience and skills for each specific role.
-                      </p>
-                      <div className="bg-white border border-gray-200 rounded-lg p-4">
-                        <div className="text-sm font-semibold text-emineon-blue mb-3">Auto-Generated Sections</div>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-emineon-blue" />
-                            <span>Executive Summary</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-emineon-blue" />
-                            <span>Relevant Experience Highlights</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-emineon-blue" />
-                            <span>Skills Match Analysis</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-emineon-blue" />
-                            <span>Cultural Fit Assessment</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-emineon-blue" />
-                            <span>Interview Summary & Recommendations</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">CV Formatting & Tailoring</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Reformat any CV into your company template in seconds. Create consistent, professional presentations that match your brand standards.
-                      </p>
-                      <div className="bg-gradient-to-r from-gray-100 to-emineon-blue/5 rounded-lg p-4">
-                        <div className="flex items-center justify-between">
-                          <div className="text-center">
-                            <div className="text-sm text-gray-600">Original CV</div>
-                            <div className="text-xs text-gray-500 mt-1">Various formats</div>
-                          </div>
-                          <ArrowRight className="w-6 h-6 text-emineon-blue" />
-                          <div className="text-center">
-                            <div className="text-sm text-emineon-blue font-semibold">Branded CV</div>
-                            <div className="text-xs text-emineon-blue mt-1">Your template</div>
-                          </div>
-                          <ArrowRight className="w-6 h-6 text-emineon-blue" />
-                          <div className="text-center">
-                            <div className="text-sm text-green-600 font-semibold">Client Ready</div>
-                            <div className="text-xs text-green-600 mt-1">Professional output</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-bold text-emineon-blue mb-4">Multi-Language Support</h3>
-                      <p className="text-neutral-700 mb-4">
-                        Generate presentations in any language. Our AI automatically uses the right language model for optimal results.
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {['English', 'French', 'German', 'Spanish', 'Dutch', 'Italian'].map((lang) => (
-                          <span key={lang} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
-                            {lang}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA */}
-                <div className="bg-emineon-blue/5 rounded-xl p-6 text-center">
-                  <h3 className="text-lg font-bold text-emineon-blue mb-3">Ready to experience this feature?</h3>
-                  <p className="text-neutral-600 mb-4">
-                    See how Emineon can transform your recruitment process with AI-powered {activeFeatureModal} capabilities.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Button 
-                      asChild
-                      className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-3"
-                    >
-                      <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
-                        Schedule Demo
-                      </Link>
-                    </Button>
-                    <Button 
-                      asChild
-                      variant="outline"
-                      className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 py-3"
-                    >
-                      <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
-                        Try Free Trial
-                      </Link>
-                    </Button>
+                  <div>
+                    <h2 className="text-2xl font-bold text-emineon-blue capitalize">{activeFeatureModal}</h2>
+                    <p className="text-neutral-600">
+                      {activeFeatureModal === 'source' && 'AI-Powered Candidate Sourcing'}
+                      {activeFeatureModal === 'engage' && 'Automated Outreach & Engagement'}
+                      {activeFeatureModal === 'interview' && 'Smart Interview Management'}
+                      {activeFeatureModal === 'present' && 'Intelligent Candidate Presentations'}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
-
-      {/* Demo Video Modal */}
-      <AnimatePresence>
-        {typeof window !== 'undefined' && showDemoVideo && createPortal(
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 safe-top safe-bottom"
-            onClick={() => setShowDemoVideo(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="bg-black rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close button */}
-              <button
-                onClick={() => setShowDemoVideo(false)}
-                className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-                aria-label="Close video"
-              >
-                <span className="text-2xl">×</span>
-              </button>
-
-              {/* Video container */}
-              <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
-                <video
-                  ref={demoVideoRef}
-                  src="/Emineon features - ppt.mp4"
-                  className="w-full h-full object-contain"
-                  onPlay={() => setDemoIsPlaying(true)}
-                  onPause={() => setDemoIsPlaying(false)}
-                  {...(isMobile ? { controls: true } : {})}
+                <button
+                  onClick={() => setActiveFeatureModal(null)}
+                  className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 touch-target"
+                  aria-label="Close modal"
                 >
-                  Sorry, your browser does not support embedded videos.
-                </video>
+                  <span className="text-2xl">×</span>
+                </button>
+              </div>
+            </div>
 
-                {/* Desktop video controls */}
-                {!isMobile && (
-                  <>
-                    {/* Control buttons overlay */}
-                    <div className="absolute top-4 left-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button
-                        onClick={handleDemoPlayPause}
-                        className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                        aria-label={demoIsPlaying ? "Pause video" : "Play video"}
-                      >
-                        {demoIsPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-                      </button>
-                      <button
-                        onClick={handleDemoMuteToggle}
-                        className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                        aria-label={demoIsMuted ? "Unmute video" : "Mute video"}
-                      >
-                        {demoIsMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-                      </button>
-                      <button
-                        onClick={handleDemoFullscreen}
-                        className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
-                        aria-label="Fullscreen video"
-                      >
-                        <Maximize2 className="w-6 h-6" />
-                      </button>
-                    </div>
-
-                    {/* User-initiated play overlay */}
-                    {!demoUserStarted && !demoIsPlaying && (
-                      <button
-                        onClick={handleDemoUserPlay}
-                        className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors focus:outline-none"
-                        aria-label="Play video with sound"
-                      >
-                        <div className="bg-emineon-orange rounded-full p-6 shadow-lg">
-                          <Play className="w-12 h-12 text-white ml-1" />
-                        </div>
-                      </button>
-                    )}
-
-                    {/* Progress bar */}
-                    <div className="absolute bottom-0 left-0 w-full px-6 pb-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoProgress)}</span>
-                        <input
-                          type="range"
-                          min={0}
-                          max={demoDuration || 0}
-                          step={0.1}
-                          value={demoProgress}
-                          onChange={handleDemoSeek}
-                          onMouseDown={() => setDemoSeeking(true)}
-                          onMouseUp={() => setDemoSeeking(false)}
-                          className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
-                          style={{ accentColor: '#C75B12' }}
-                        />
-                        <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoDuration)}</span>
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8">
+              {activeFeatureModal === 'source' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Natural Language Search Engine</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Find qualified talent using natural language. Just describe who you're searching for, no Boolean operators needed. Our AI handles the complex search logic behind the scenes.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Example Search</h4>
+                      <div className="bg-white rounded-lg p-4 border border-gray-200 mb-4">
+                        <p className="text-sm text-gray-600 mb-2">Instead of:</p>
+                        <code className="text-sm text-red-600">(React OR Angular) AND (TypeScript OR JavaScript) AND (Senior OR Lead) AND experience</code>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 border border-emineon-blue/20">
+                        <p className="text-sm text-gray-600 mb-2">Simply type:</p>
+                        <p className="text-emineon-blue font-medium">"Senior frontend developer with React and TypeScript experience"</p>
                       </div>
                     </div>
-                  </>
-                )}
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Smart Candidate Scoring</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Our AI analyzes your requirements and scores candidates based on experience, skills, and industry fit to surface the best matches instantly.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-green-50 rounded-lg p-4 border border-green-200">
+                        <div className="text-green-600 font-bold text-lg">96%</div>
+                        <div className="text-sm text-green-700">Excellent Match</div>
+                        <div className="text-xs text-green-600 mt-1">All requirements met</div>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                        <div className="text-blue-600 font-bold text-lg">89%</div>
+                        <div className="text-sm text-blue-700">Strong Match</div>
+                        <div className="text-xs text-blue-600 mt-1">Minor skill gaps</div>
+                      </div>
+                      <div className="bg-orange-50 rounded-lg p-4 border border-orange-200">
+                        <div className="text-orange-600 font-bold text-lg">75%</div>
+                        <div className="text-sm text-orange-700">Fair Match</div>
+                        <div className="text-xs text-orange-600 mt-1">Some training needed</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Complete Candidate Snapshot</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Our AI analyzes every interaction with your candidates - from emails and calls to notes and meetings - to build a complete understanding of their qualifications and career trajectory.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Emails', 'Calls', 'Notes', 'Messages', 'Meetings', 'Reports'].map((item) => (
+                        <span key={item} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">LinkedIn Integration</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Import candidates directly from LinkedIn using our Chrome extension. Sync individual profiles or import entire search results in bulk.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>One-click profile import from LinkedIn</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Bulk import from LinkedIn Recruiter lists</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Automatic data enrichment with verified emails</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'engage' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Multi-Channel Outreach Campaigns</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Create intelligent outreach sequences that adapt to your prospects' behavior across LinkedIn, email, and WhatsApp. No more manual follow-ups or missed opportunities.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-4">Example Campaign Flow</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm">1</div>
+                          <span>Initial Email</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
+                          <span className="text-gray-600">Wait 3 days</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-sm">2</div>
+                          <span>If opened: LinkedIn InMail | If not opened: Connection Request</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 text-sm">↓</div>
+                          <span className="text-gray-600">Wait 1 week</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-sm">3</div>
+                          <span>WhatsApp follow-up (if available)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Personalization at Scale</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Go beyond simple mail merge. Craft highly personalized messages using past conversations, communication style, and candidate background.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm text-gray-600 mb-2">AI-Generated Message:</div>
+                      <div className="space-y-2">
+                        <p>Hi <span className="bg-yellow-100 px-1 rounded">Sarah</span>,</p>
+                        <p><span className="bg-blue-100 px-1 rounded">Following up on our discussion about cloud architecture last month</span>, I wanted to reach out about an exciting opportunity.</p>
+                        <p>We're hiring for a <span className="bg-green-100 px-1 rounded">Senior Backend Engineer</span> position with greater team responsibilities.</p>
+                        <p><span className="bg-purple-100 px-1 rounded">Would you be available for a brief call to discuss this further?</span></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Centralized Communication Hub</h3>
+                    <p className="text-neutral-700 mb-4">
+                      All your candidate communications in one place. Message across WhatsApp, LinkedIn, and email without switching platforms.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-blue-50 rounded-lg p-4 text-center">
+                        <div className="text-blue-600 font-semibold">Email</div>
+                        <div className="text-sm text-blue-600 mt-1">Professional outreach</div>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-4 text-center">
+                        <div className="text-blue-600 font-semibold">LinkedIn</div>
+                        <div className="text-sm text-blue-600 mt-1">InMails & messages</div>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-4 text-center">
+                        <div className="text-green-600 font-semibold">WhatsApp</div>
+                        <div className="text-sm text-green-600 mt-1">Personal & work chats</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">AI-Powered Response Analytics</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Get instant insights about candidate engagement and optimize your outreach strategy with real-time analytics.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Open and response rate tracking</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Best performing message templates</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-emineon-blue" />
+                        <span>Optimal send times and frequencies</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'interview' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">AI-Powered Note Taking</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Focus on the conversation while our AI assistant automatically captures comprehensive notes and key discussion points from every interview.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Live Transcription</h4>
+                      <div className="bg-white rounded-lg p-4 border border-gray-200">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                          <span className="text-sm text-gray-600">Recording in progress...</span>
+                        </div>
+                        <p className="text-sm text-gray-700">
+                          "I have 8+ years of experience with React and TypeScript, and I've led three major frontend projects at my current company..."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Intelligent Interview Summaries</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Get AI-generated summaries of your interviews and ask questions about any past conversation. Never lose important details again.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm font-semibold text-emineon-blue mb-2">Interview Summary - Sarah Chen</div>
+                      <div className="text-sm text-gray-600 mb-3">March 15, 2024 • 45 minutes</div>
+                      <div className="space-y-2 text-sm">
+                        <div><strong>Key Strengths:</strong> Strong technical background in distributed systems, excellent communication skills</div>
+                        <div><strong>Experience:</strong> 8+ years React/TypeScript, led 3 major projects</div>
+                        <div><strong>Salary Expectations:</strong> $145,000 (updated from $120,000)</div>
+                        <div><strong>Next Steps:</strong> Schedule technical round with hiring manager</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Automatic ATS Updates</h3>
+                    <p className="text-neutral-700 mb-4">
+                      AI suggests updates to candidate fields based on information discussed during interviews. Keep your database current effortlessly.
+                    </p>
+                    <div className="space-y-3">
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                        <div className="text-green-700 font-semibold text-sm">✓ Current Salary Updated</div>
+                        <div className="text-green-600 text-sm">$120,000 → $145,000</div>
+                      </div>
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <div className="text-blue-700 font-semibold text-sm">+ Education Added</div>
+                        <div className="text-blue-600 text-sm">MSc Computer Science, Stanford University 2019</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Smart Scheduling & Pipeline Management</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Coordinate interviews effortlessly with automatic calendar sync and customizable pipeline stages.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-emineon-blue mb-3">Available Slots</h5>
+                        <div className="space-y-2">
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Tuesday, Mar 12 - 2:00 PM</div>
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Tuesday, Mar 12 - 3:00 PM</div>
+                          <div className="bg-white border border-gray-200 rounded p-2 text-sm">Wednesday, Mar 13 - 11:00 AM</div>
+                          <div className="text-emineon-blue text-sm">+ 12 more slots available</div>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-emineon-blue mb-3">Custom Pipeline Labels</h5>
+                        <div className="space-y-2">
+                          <span className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm">Phone Screen</span>
+                          <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-sm ml-2">Technical Interview</span>
+                          <span className="inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-sm ml-2">Final Round</span>
+                          <span className="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm ml-2">Awaiting Feedback</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {activeFeatureModal === 'present' && (
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">One-Click Candidate Reports</h3>
+                    <p className="text-neutral-700 mb-6">
+                      Generate professional candidate presentations in seconds. Never start from a blank page again with our AI-powered report generation.
+                    </p>
+                    <div className="bg-gray-50 rounded-xl p-6">
+                      <h4 className="font-semibold text-emineon-blue mb-3">Document Inputs</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-red-500 font-semibold text-sm">PDF</div>
+                          <div className="text-xs text-gray-600">Candidate CV</div>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-blue-500 font-semibold text-sm">DOC</div>
+                          <div className="text-xs text-gray-600">Job Description</div>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 border border-gray-200 text-center">
+                          <div className="text-green-500 font-semibold text-sm">DOCX</div>
+                          <div className="text-xs text-gray-600">Interview Notes</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Custom Templates & Branding</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Use your company's branded templates. Generate reports directly exportable in Word or PowerPoint, ready to share with clients.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <div className="text-blue-600 font-semibold mb-2">Word Export</div>
+                        <div className="text-sm text-blue-600">Professional documents with your branding</div>
+                      </div>
+                      <div className="bg-orange-50 rounded-lg p-4">
+                        <div className="text-orange-600 font-semibold mb-2">PowerPoint Export</div>
+                        <div className="text-sm text-orange-600">Presentation-ready slides for client meetings</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Intelligent Content Generation</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Our AI analyzes candidate data and creates tailored presentations highlighting the most relevant experience and skills for each specific role.
+                    </p>
+                    <div className="bg-white border border-gray-200 rounded-lg p-4">
+                      <div className="text-sm font-semibold text-emineon-blue mb-3">Auto-Generated Sections</div>
+                      <ul className="space-y-2 text-sm">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Executive Summary</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Relevant Experience Highlights</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Skills Match Analysis</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Cultural Fit Assessment</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-4 h-4 text-emineon-blue" />
+                          <span>Interview Summary & Recommendations</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">CV Formatting & Tailoring</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Reformat any CV into your company template in seconds. Create consistent, professional presentations that match your brand standards.
+                    </p>
+                    <div className="bg-gradient-to-r from-gray-100 to-emineon-blue/5 rounded-lg p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="text-center">
+                          <div className="text-sm text-gray-600">Original CV</div>
+                          <div className="text-xs text-gray-500 mt-1">Various formats</div>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-emineon-blue" />
+                        <div className="text-center">
+                          <div className="text-sm text-emineon-blue font-semibold">Branded CV</div>
+                          <div className="text-xs text-emineon-blue mt-1">Your template</div>
+                        </div>
+                        <ArrowRight className="w-6 h-6 text-emineon-blue" />
+                        <div className="text-center">
+                          <div className="text-sm text-green-600 font-semibold">Client Ready</div>
+                          <div className="text-xs text-green-600 mt-1">Professional output</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-emineon-blue mb-4">Multi-Language Support</h3>
+                    <p className="text-neutral-700 mb-4">
+                      Generate presentations in any language. Our AI automatically uses the right language model for optimal results.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['English', 'French', 'German', 'Spanish', 'Dutch', 'Italian'].map((lang) => (
+                        <span key={lang} className="bg-emineon-blue/10 text-emineon-blue px-3 py-1 rounded-full text-sm">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* CTA */}
+              <div className="bg-emineon-blue/5 rounded-xl p-6 text-center">
+                <h3 className="text-lg font-bold text-emineon-blue mb-3">Ready to experience this feature?</h3>
+                <p className="text-neutral-600 mb-4">
+                  See how Emineon can transform your recruitment process with AI-powered {activeFeatureModal} capabilities.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button 
+                    asChild
+                    className="bg-emineon-orange hover:bg-emineon-orange/90 text-white px-6 py-3"
+                  >
+                    <Link href="https://calendly.com/david-v-emineon" target="_blank" rel="noopener noreferrer">
+                      Schedule Demo
+                    </Link>
+                  </Button>
+                  <Button 
+                    asChild
+                    variant="outline"
+                    className="border-emineon-blue text-emineon-blue hover:bg-emineon-blue hover:text-white px-6 py-3"
+                  >
+                    <Link href="https://app-emineon.vercel.app/" target="_blank" rel="noopener noreferrer">
+                      Try Free Trial
+                    </Link>
+                  </Button>
+                </div>
               </div>
-            </motion.div>
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
+            </div>
+          </motion.div>
+        </motion.div>,
+        document.body
+      )}
 
       {/* Demo Modal */}
       {showDemo && (
@@ -1804,6 +1699,112 @@ export default function ProductPage() {
             )}
           </motion.div>
         </motion.div>
+      )}
+
+      {/* Demo Video Modal */}
+      {hasMounted && showDemoVideo && createPortal(
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 safe-top safe-bottom"
+          onClick={() => setShowDemoVideo(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="bg-black rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setShowDemoVideo(false)}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              aria-label="Close video"
+            >
+              <span className="text-2xl">×</span>
+            </button>
+
+            {/* Video container */}
+            <div className="relative w-full aspect-video bg-black rounded-2xl overflow-hidden group">
+              <video
+                ref={demoVideoRef}
+                src="/Emineon features - ppt.mp4"
+                className="w-full h-full object-contain"
+                onPlay={() => setDemoIsPlaying(true)}
+                onPause={() => setDemoIsPlaying(false)}
+                {...(isMobile ? { controls: true } : {})}
+              >
+                Sorry, your browser does not support embedded videos.
+              </video>
+
+              {/* Desktop video controls */}
+              {!isMobile && (
+                <>
+                  {/* Control buttons overlay */}
+                  <div className="absolute top-4 left-4 z-20 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
+                      onClick={handleDemoPlayPause}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label={demoIsPlaying ? "Pause video" : "Play video"}
+                    >
+                      {demoIsPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+                    </button>
+                    <button
+                      onClick={handleDemoMuteToggle}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label={demoIsMuted ? "Unmute video" : "Mute video"}
+                    >
+                      {demoIsMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
+                    </button>
+                    <button
+                      onClick={handleDemoFullscreen}
+                      className="bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors"
+                      aria-label="Fullscreen video"
+                    >
+                      <Maximize2 className="w-6 h-6" />
+                    </button>
+                  </div>
+
+                  {/* User-initiated play overlay */}
+                  {!demoUserStarted && !demoIsPlaying && (
+                    <button
+                      onClick={handleDemoUserPlay}
+                      className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors focus:outline-none"
+                      aria-label="Play video with sound"
+                    >
+                      <div className="bg-emineon-orange rounded-full p-6 shadow-lg">
+                        <Play className="w-12 h-12 text-white ml-1" />
+                      </div>
+                    </button>
+                  )}
+
+                  {/* Progress bar */}
+                  <div className="absolute bottom-0 left-0 w-full px-6 pb-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoProgress)}</span>
+                      <input
+                        type="range"
+                        min={0}
+                        max={demoDuration || 0}
+                        step={0.1}
+                        value={demoProgress}
+                        onChange={handleDemoSeek}
+                        onMouseDown={() => setDemoSeeking(true)}
+                        onMouseUp={() => setDemoSeeking(false)}
+                        className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer"
+                        style={{ accentColor: '#C75B12' }}
+                      />
+                      <span className="text-xs text-white font-mono min-w-[40px]">{formatDemoTime(demoDuration)}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>,
+        document.body
       )}
     </div>
   )
