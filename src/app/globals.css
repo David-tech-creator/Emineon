@@ -1,0 +1,518 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Emineon design tokens — "Frontier lab, rooted in Geneva"
+   Source of truth: BRIEF.md §4 and DESIGN.md. Do not add ad-hoc colours.
+   ========================================================================== */
+
+:root {
+  /* ---- Fixed palette ------------------------------------------------------
+     Light-first (Nov 2026 re-theme): paper is the canvas, ink is the text.
+     The dark palette (void/carbon/graphite/bone) is kept for the rare "night"
+     moments (tone-night: the closing CTA band, the hero gradient panel). */
+  --paper: #f1eee8; /* page canvas (warm bone paper) */
+  --stone: #e8e4dc; /* raised / alternate section */
+  --stone-deep: #dfdbd2; /* pressed, media placeholders */
+  --mist-top: #efeeeb; /* report-card grey gradient (cool, neutral) */
+  --mist-bottom: #dcdad5;
+
+  --void: #07080a;
+  --carbon: #0d0f12;
+  --graphite: #16191e;
+
+  --bone: #edeae3;
+  --ash: #9a978f;
+  --smoke: #5e5c57;
+  --ink: #0b0c0e;
+  --ink-line: rgba(11, 12, 14, 0.12);
+  --ink-line-strong: rgba(11, 12, 14, 0.24);
+  --ink-muted: #55534e;
+
+  /* Accent: ember is a FILL colour (buttons, live dots, pulses). Ember-ink is
+     the text tone that passes AA on paper (5.1:1); on night it is ember. */
+  --ember: #ff5b1f;
+  --ember-deep: #c75b12;
+  --ember-glow: rgba(255, 91, 31, 0.35);
+  --steel: #6f86a8;
+
+  /* ---- Semantic (default = light). Flip with .tone-night ------------------ */
+  --bg: var(--paper);
+  --surface: var(--stone);
+  --raised: var(--stone-deep);
+  --fg: var(--ink);
+  --fg-muted: var(--ink-muted); /* 6.6:1 on paper, 5.2:1 on mist-bottom */
+  --fg-dim: #66635d; /* 5.2:1 on paper, 4.5:1 on stone-deep */
+  /* Heading two-tone: the non-key part of a heading (large text, >= 3:1). */
+  --fg-quiet: #77736c;
+  --line: var(--ink-line);
+  --line-strong: var(--ink-line-strong);
+  --ember-ink: #a3450d;
+  --nav-bg: rgba(241, 238, 232, 0.86);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-ui: 200ms;
+  --dur-reveal: 800ms;
+
+  /* Layout */
+  --container: 1440px;
+  --gutter: 20px;
+  --nav-h: 72px;
+
+  color-scheme: light;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: 32px;
+  }
+}
+
+@theme inline {
+  /* Colours -> bg-void, text-bone, border-line, text-ember ... */
+  --color-void: var(--void);
+  --color-carbon: var(--carbon);
+  --color-graphite: var(--graphite);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-bone: var(--bone);
+  --color-ash: var(--ash);
+  --color-smoke: var(--smoke);
+  --color-ink: var(--ink);
+  --color-ink-line: var(--ink-line);
+  --color-ink-line-strong: var(--ink-line-strong);
+  --color-ink-muted: var(--ink-muted);
+  --color-ember: var(--ember);
+  --color-ember-deep: var(--ember-deep);
+  --color-ember-glow: var(--ember-glow);
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-canvas: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ember-ink: var(--ember-ink);
+  --color-steel: var(--steel);
+  --color-fg-quiet: var(--fg-quiet);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-dim: var(--fg-dim);
+
+  /* Fonts (variables are injected by next/font in the locale layout) */
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Radius: 2px controls, 0 panels */
+  --radius-control: 2px;
+
+  /* Easing / durations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Type scale */
+  --text-hero: clamp(52px, 10.5vw, 168px);
+  --text-hero--line-height: 0.92;
+  --text-hero--letter-spacing: -0.045em;
+  --text-h1: clamp(44px, 7vw, 112px);
+  --text-h1--line-height: 0.95;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h2: clamp(36px, 5vw, 72px);
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.035em;
+  --text-h3: clamp(24px, 2.4vw, 34px);
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.02em;
+  --text-lead: clamp(19px, 1.6vw, 23px);
+  --text-lead--line-height: 1.45;
+  --text-body: 17px;
+  --text-body--line-height: 1.6;
+  --text-eyebrow: 11.5px;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.16em;
+
+  /* Breakpoints match Tailwind defaults; container width */
+  --container-site: 1440px;
+
+  /* Animations */
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-pulse-dot: pulse-dot 2.4s var(--ease-out-expo) infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 var(--ember-glow);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 91, 31, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 91, 31, 0);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--line);
+  }
+
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: calc(var(--nav-h) + 16px);
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--ember);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--ember);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Lenis */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@utility container-site {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Heading emphasis (replaces the old serif-italic accent): one grotesk, two
+   tones. The key phrase is full fg; the rest of the heading is fg-quiet. */
+@utility accent {
+  font-style: normal;
+  color: var(--fg);
+}
+@utility heading-quiet {
+  color: var(--fg-quiet);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility hairline-t {
+  border-top: 1px solid var(--line);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---- Section tones -------------------------------------------------------
+   Default (no class) = paper. tone-stone = warm raised paper. tone-bone = the
+   cool grey "report card" gradient. tone-night = the rare dark moment. */
+@utility tone-stone {
+  --bg: var(--stone);
+  --surface: var(--paper);
+  --raised: var(--stone-deep);
+  background: var(--stone);
+  color: var(--fg);
+}
+
+@utility tone-bone {
+  --bg: #e6e5e1;
+  --surface: var(--mist-top);
+  --raised: var(--stone-deep);
+  --fg-dim: #5f5c56; /* 4.6:1 on mist-bottom */
+  --fg-quiet: #6f6b65;
+  background: linear-gradient(180deg, var(--mist-top) 0%, var(--mist-bottom) 100%);
+  color: var(--fg);
+  color-scheme: light;
+}
+
+@utility tone-night {
+  --bg: var(--void);
+  --surface: var(--carbon);
+  --raised: var(--graphite);
+  --fg: var(--bone);
+  --fg-muted: #b3b0a8; /* 8.9:1 on void */
+  --fg-dim: #8f8c84; /* 6.0:1 on void */
+  --fg-quiet: #8f8c84;
+  --line: rgba(237, 234, 227, 0.12);
+  --line-strong: rgba(237, 234, 227, 0.24);
+  --ember-ink: var(--ember);
+  background: var(--void);
+  color: var(--bone);
+  color-scheme: dark;
+}
+
+/* Over gradient panels and photos: bone text, transparent background. */
+@utility tone-on-media {
+  --fg: var(--bone);
+  --fg-muted: rgba(237, 234, 227, 0.82);
+  --fg-dim: rgba(237, 234, 227, 0.68);
+  --fg-quiet: rgba(237, 234, 227, 0.8);
+  --line: rgba(237, 234, 227, 0.16);
+  --line-strong: rgba(237, 234, 227, 0.32);
+  --ember-ink: var(--ember);
+  color: var(--bone);
+  color-scheme: dark;
+}
+
+/* Night band (the closing CTA): grainy ember/steel gradient on void. */
+.night-backdrop {
+  background:
+    radial-gradient(120% 80% at 50% 118%, rgba(199, 91, 18, 0.82) 0%, rgba(255, 91, 31, 0.28) 36%, transparent 66%),
+    radial-gradient(70% 70% at 96% 0%, rgba(111, 134, 168, 0.5) 0%, rgba(111, 134, 168, 0.12) 45%, transparent 70%),
+    radial-gradient(50% 50% at 4% 8%, rgba(120, 70, 40, 0.35) 0%, transparent 70%),
+    linear-gradient(180deg, #1b1d22 0%, #121418 60%, #0d0e11 100%);
+}
+
+/* Report-card frame around media (MediaFrame framed, ReportCard). */
+.frame-card {
+  background: linear-gradient(180deg, #f4f3f0 0%, #e4e3df 55%, #d3d2ce 100%);
+}
+
+/* Grainy gradient panel (cover style): ember -> graphite -> steel, heavy grain.
+   Static CSS twin of the hero WebGL backdrop; also the no-WebGL fallback. */
+.panel-gradient {
+  background:
+    radial-gradient(52% 50% at 74% 12%, rgba(255, 91, 31, 0.78) 0%, rgba(199, 91, 18, 0.55) 34%, rgba(199, 91, 18, 0) 72%),
+    radial-gradient(55% 60% at 96% 96%, rgba(157, 184, 255, 0.55) 0%, rgba(111, 134, 168, 0.5) 32%, rgba(111, 134, 168, 0) 74%),
+    radial-gradient(42% 46% at 22% 46%, rgba(190, 186, 178, 0.32) 0%, rgba(190, 186, 178, 0) 70%),
+    radial-gradient(70% 70% at 0% 100%, rgba(10, 11, 13, 0.92) 0%, rgba(10, 11, 13, 0) 70%),
+    linear-gradient(160deg, #2b211c 0%, #24262b 46%, #2a3240 100%);
+}
+.panel-grain {
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Visible 12-column lines as texture */
+@utility grid-lines {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) 1px,
+    transparent 1px,
+    transparent calc((100% - 1px) / 12)
+  );
+}
+
+/* ==========================================================================
+   Film grain (site-wide, ~4%)
+   ========================================================================== */
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 100;
+  width: 200%;
+  height: 200%;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04  0 0 0 0 0.04  0 0 0 0 0.05  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1.2s steps(6) infinite;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 200;
+  transform: translateY(-200%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform var(--dur-ui) var(--ease-out-expo);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Heading masked line reveal (see components/ui/Heading.tsx)
+   Hidden state only with JS (html.js) and no reduced-motion preference.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal-mask] .mask-inner {
+    transform: translate3d(0, 110%, 0);
+    transition: transform 950ms var(--ease-out-expo);
+    transition-delay: calc(var(--line, 0) * 90ms + var(--delay, 0ms));
+    will-change: transform;
+  }
+  html.js [data-reveal-mask][data-inview] .mask-inner {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Hairline grids (`gap-px bg-line`) whose cells reveal on scroll: while any
+   cell is still hidden, drop the grid's line fill so a pending reveal never
+   reads as a solid grey slab. The lines fade in with the cells.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js .bg-line:has(> [data-reveal]) {
+    transition: background-color 700ms var(--ease-out-expo);
+  }
+  html.js .bg-line:has(> [data-reveal][style^="opacity:0;"], > [data-reveal][style^="opacity: 0;"]) {
+    background-color: transparent;
+  }
+}
+
+/* ==========================================================================
+   Above-the-fold heroes (.hero-enter): entrance runs in CSS from first paint,
+   not after hydration, so the hero text is a fast LCP. CSS animations take
+   precedence over motion's inline opacity/transform, ending in the same state.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-enter [data-reveal] {
+    animation: hero-enter-rise 900ms var(--ease-out-expo) 120ms both;
+  }
+  .hero-enter [data-reveal-mask] .mask-inner {
+    animation: hero-enter-mask 950ms var(--ease-out-expo) both;
+    animation-delay: calc(var(--line, 0) * 90ms + var(--delay, 0ms));
+  }
+}
+@keyframes hero-enter-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-enter-mask {
+  from { transform: translate3d(0, 110%, 0); }
+  to { transform: none; }
+}
+
+/* ==========================================================================
+   Reduced motion: everything calm and static
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .grain {
+    animation: none;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,11 @@
+export { HomeHero } from "./HomeHero";
+export { ProofStrip } from "./ProofStrip";
+export { GapSection } from "./GapSection";
+export { ServicesGrid } from "./ServicesGrid";
+export { ApproachSection } from "./ApproachSection";
+export { FdeSection } from "./FdeSection";
+export { IndustriesSection } from "./IndustriesSection";
+export { WorkSection } from "./WorkSection";
+export { TrustSection } from "./TrustSection";
+export { InsightsSection } from "./InsightsSection";
+export { FinalCta } from "./FinalCta";

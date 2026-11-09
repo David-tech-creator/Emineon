@@ -1,0 +1,10 @@
+_ref
+_gen
+.env*
+scripts/gen
+*.pdf
+QA.md
+POLISH.md
+TODO.md
+BRIEF.md
+nas

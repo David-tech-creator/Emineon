@@ -1,0 +1,447 @@
+import type { AboutDict, ApproachDict, CareersDict, ContactDict, LegalDict } from '../../schema';
+
+export const approach: ApproachDict = {
+  hero: {
+    eyebrow: '[ Vorgehen ]',
+    title: { pre: 'Bezahlt nach Ergebnissen, ', accent: 'nicht', post: ' nach Stunden.' },
+    lead: 'Wir arbeiten in drei Schritten, jeder mit festem Umfang und einem Ergebnis, das Sie prüfen können, bevor Sie sich auf den nächsten festlegen. Kleine Senior-Teams, verstärkt durch KI, verantwortlich vom ersten Business Case bis zum System in Produktion.',
+  },
+  model: {
+    eyebrow: '[ 01 — Das Modell ]',
+    title: { pre: 'Analysieren. Bauen. ', accent: 'Betreiben.' },
+    lead: 'Die meisten Kunden starten mit der Analyse oder dem 30-Tage-Sprint. Manche kommen mit einem Piloten, der gehärtet werden muss, und beginnen beim Betrieb. Jeder Schritt funktioniert für sich.',
+    stages: [
+      {
+        key: 'assess',
+        icon: 'strategy',
+        label: '01 · Analysieren',
+        title: 'Wissen, wo KI sich lohnt',
+        tagline: 'Eine Analyse zum Festpreis, die in einen Entscheid mündet, nicht in einen Bericht.',
+        text: 'Wir zeigen, wo in Ihren Workflows Zeit, Kosten und Risiken liegen, messen Ausgangslagen, erarbeiten Business Cases mit dem Finanzteam und schreiben KI-Richtlinie und Roadmap. Die letzte Woche grenzt die erste Umsetzung ein und bepreist sie.',
+        includes: [
+          'KI-Reifegrad über Daten, Systeme, Menschen und Governance',
+          'Drei bis fünf Business Cases mit ROI und Amortisation',
+          'KI-Nutzungs- und Governance-Richtlinie',
+          'Zwölfmonatige Roadmap mit Verantwortlichen und Abhängigkeiten',
+          'Entscheidungsreife Empfehlung für den Verwaltungsrat',
+        ],
+        pricing: 'Festpreis',
+        duration: '2–4 Wochen',
+        exitCriteria: 'Eine freigegebene Roadmap und eine eingegrenzte, bepreiste erste Umsetzung.',
+      },
+      {
+        key: 'build',
+        icon: 'agents',
+        label: '02 · Bauen',
+        title: 'Systeme in Produktion bringen',
+        tagline: 'Laufende Systeme in Ihrer Umgebung, bepreist nach dem, was live geht.',
+        text: 'Ein Senior-Team mit Forward-deployed Engineers baut den Workflow in Ihrer Umgebung, auf Ihren Daten. Das Evaluationsset steht vor dem ersten Prompt und wird zur Go-live-Schwelle. Menschen bleiben überall dort im Prozess, wo Urteilsvermögen zählt.',
+        includes: [
+          'Workflow-Design und Evaluationsset aus echten Fällen',
+          'Agenten, Integrationen und Prüfoberfläche',
+          'Sicherheit, Zugriffskontrolle und Audit-Trail',
+          'Monitoring, Runbook und Rückfallplan',
+          'Schulung des Teams, das ihn betreiben wird',
+        ],
+        pricing: 'Pro Meilenstein oder pro Workflow in Produktion',
+        duration: '4–12 Wochen pro Workflow',
+        exitCriteria: 'Der Workflow besteht seine Evaluationsschwelle und läuft in Produktion, betrieben von Ihrem Team.',
+      },
+      {
+        key: 'run',
+        icon: 'operations',
+        label: '03 · Betreiben',
+        title: 'Betreiben, härten, übergeben',
+        tagline: 'Korrekt, bezahlbar und prüfbar halten, dann übergeben.',
+        text: 'Wir überwachen Qualität und Kosten, führen Modell-Upgrades sicher durch, erweitern das System auf weitere Gesellschaften und Teams und übergeben die Verantwortung, sobald Ihr Team bereit ist. Der Ausstieg ist ab dem ersten Tag geplant.',
+        includes: [
+          'Laufende Evaluation und Produktionsmonitoring',
+          'Release-Management für Modelle und Prompts',
+          'Rollout auf Tochtergesellschaften und Einheiten',
+          'Monatliches Review zu Qualität, Kosten und Adoption',
+          'Geplanter Wissenstransfer und Übergabe',
+        ],
+        pricing: 'Monatspauschale',
+        duration: 'Laufend, mit geplantem Ausstieg',
+        exitCriteria: 'Ihr Team betreibt das System selbstständig, mit Dokumentation und Evaluationen.',
+      },
+    ],
+  },
+  pricing: {
+    eyebrow: '[ 02 — Preise ]',
+    title: { pre: 'Wir bepreisen das ', accent: 'Ergebnis.' },
+    lead: 'Abrechenbare Stunden belohnen Aufwand. Wir werden lieber für das bezahlt, was sich verändert. So funktioniert das in der Praxis.',
+    principles: [
+      { title: 'Festpreis für die Diagnose', text: 'Analysen haben einen festen Umfang und Preis, die vor Beginn vereinbart werden. Sie kennen die Kosten eines Entscheids, bevor Sie ihn treffen.' },
+      { title: 'Überprüfbare Meilensteine', text: 'Umsetzungen werden pro Meilenstein oder pro Workflow in Produktion bepreist, jeweils definiert durch einen Test, den Sie selbst durchführen können: Evaluationsschwelle bestanden, System in Produktion, Team geschult.' },
+      { title: 'Ergebnisbeteiligung bei sauberer Ausgangslage', text: 'Wenn die Ausgangslage messbar ist, kann ein Teil unseres Honorars an das Ergebnis gebunden werden: gesparte Stunden, Durchlaufzeit, Fehlerquote. Wir schlagen das nur vor, wenn beide Seiten der Zahl vertrauen.' },
+      { title: 'Kein Lock-in, keine Lizenzsteuer', text: 'Code, Prompts, Evaluationen und Dokumentation gehören Ihnen. Modellkosten werden zum Selbstkostenpreis weiterverrechnet oder direkt Ihren eigenen Konten belastet.' },
+    ],
+    note: 'Abrechnung nach Aufwand nur bei wirklich explorativer Arbeit, und nur auf Ihren Wunsch.',
+  },
+  sprint: {
+    eyebrow: '[ 03 — Der 30-Tage-Sprint ]',
+    title: { pre: 'Von der Standortbestimmung zum ersten Workflow live, in ', accent: '30 Tagen.' },
+    lead: 'Der schnellste Weg herauszufinden, was KI in Ihrer Firma wert ist: einen Workflow in Produktion bringen. Der Sprint verbindet eine fokussierte Analyse mit einer ersten Umsetzung, zum Festpreis.',
+    weeks: [
+      {
+        label: 'Woche 1',
+        title: 'Eingrenzen',
+        text: 'Wir erfassen mögliche Workflows, messen die Ausgangslage des stärksten Kandidaten und vereinbaren die Erfolgskennzahl.',
+        outputs: ['Shortlist der Möglichkeiten', 'Messung der Ausgangslage', 'Erfolgskennzahl und Evaluationsplan'],
+      },
+      {
+        label: 'Woche 2',
+        title: 'Bauen',
+        text: 'Ein Senior-Team baut den Workflow in Ihrer Umgebung, auf Ihren Daten, gegen ein Evaluationsset aus echten Fällen.',
+        outputs: ['Evaluationsset aus echten Fällen', 'Funktionierender Workflow in einer Pilotumgebung', 'Integration mit einem oder zwei Systemen'],
+      },
+      {
+        label: 'Woche 3',
+        title: 'Härten',
+        text: 'Ihre Mitarbeitenden testen ihn an echter Arbeit. Wir kümmern uns um Grenzfälle, Zugriffskontrolle, Protokollierung und Prüfoberfläche.',
+        outputs: ['Pilot mit echten Nutzenden', 'Zugriffskontrolle und Audit-Trail', 'Bestehensquote der Evaluation ausgewiesen'],
+      },
+      {
+        label: 'Woche 4',
+        title: 'Live',
+        text: 'Der Workflow läuft in Produktion. Ihr Team ist für den Betrieb geschult, und Sie erhalten eine Roadmap für die nächsten Schritte.',
+        outputs: ['Produktivsetzung', 'Runbook und Schulung', 'Gemessenes Ergebnis gegenüber der Ausgangslage', 'Roadmap für die nächsten Workflows'],
+      },
+    ],
+    promise: 'Besteht der Workflow die vereinbarte Evaluationsschwelle bis Tag 30 nicht, arbeiten wir ohne zusätzliches Honorar weiter, bis er sie besteht.',
+  },
+  models: {
+    eyebrow: '[ 04 — Zusammenarbeitsmodelle ]',
+    title: { pre: 'Wählen Sie, wie wir ', accent: 'zusammenarbeiten.' },
+    items: [
+      { icon: 'sprint', name: '30-Tage-Sprint', bestFor: 'Firmen, die einen Beweis in Produktion wollen, bevor sie sich grösser verpflichten.', text: 'Festpreis, ein Workflow live, Team geschult. Der häufigste Einstieg.' },
+      { icon: 'strategy', name: 'Analyse', bestFor: 'Geschäftsleitungen, die einen firmenweiten Entscheid brauchen.', text: 'Festpreis, zwei bis vier Wochen, Business Cases, Richtlinie und Roadmap.' },
+      { icon: 'fde', name: 'Forward-deployed Team', bestFor: 'Programme mit mehreren Workflows und einer klaren Roadmap.', text: 'Ein Senior-Team, eingebettet in Ihre Teams, bepreist pro Meilenstein oder Workflow in Produktion.' },
+      { icon: 'operations', name: 'Betriebspauschale', bestFor: 'Systeme in Produktion, die Pflege, Skalierung oder ein Sicherheitsnetz brauchen.', text: 'Monatspauschale für Betrieb, Verbesserung, Rollout und Übergabe.' },
+    ],
+  },
+  team: {
+    eyebrow: '[ 05 — Mit wem Sie arbeiten ]',
+    title: { pre: 'Senior-Leute, ', accent: 'verstärkt.' },
+    lead: 'Keine Junior-Pyramide. Jedes Mandat wird von Leuten geführt, die diese Arbeit schon gemacht haben und KI nutzen, um mehr davon zu leisten.',
+    pods: [
+      { icon: 'strategy', title: 'Mandatsleitung', text: 'Verantwortlich für das Ergebnis. Trägt den Business Case, die Beziehung zu Ihrer Geschäftsleitung und die Entscheide zum Umfang.' },
+      { icon: 'fde', title: 'Forward-deployed Engineers', text: 'Senior-Ingenieure in Genf oder vor Ort, eingebettet in Ihr Team, die in Ihrer Umgebung bauen.' },
+      { icon: 'evals', title: 'KI- und Evaluationsspezialisten', text: 'Sie gestalten Agenten, Suche und die Evaluationssuiten, die entscheiden, wann ein System bereit ist.' },
+      { icon: 'globe', title: 'Globales Delivery-Netzwerk', text: 'Zusätzliche Engineering-Kapazität in Asien-Pazifik und Amerika, für alles, was sicher geteilt werden kann.' },
+    ],
+  },
+  faq: [
+    { q: 'Wie schnell können wir starten?', a: 'In der Regel innert zwei Wochen nach dem ersten Gespräch. Sprint und Analyse brauchen einen Sponsor, Zugang zu den Leuten, die die Arbeit machen, und Zugang zu einer Testumgebung.' },
+    { q: 'Was, wenn wir schon ein KI-Team haben?', a: 'Dann arbeiten wir mit ihm zusammen. Oft bringen wir die Evaluationsdisziplin, die Härtung für die Produktion oder das Adoptionsprogramm ein und hinterlassen Ihr Team mit mehr Fähigkeiten als zuvor.' },
+    { q: 'Wo findet die Arbeit statt?', a: 'In Ihrer Umgebung. Forward-deployed Engineers arbeiten in Genf oder vor Ort. Arbeit mit sensiblen Daten findet in der Schweiz oder in Ihrer eigenen Cloud statt; unser globales Netzwerk arbeitet nur an dem, was sicher geteilt werden kann.' },
+    { q: 'Was gehört uns am Ende?', a: 'Alles, was wir für Sie bauen: Code, Prompts, Evaluationssets, Konfiguration und Dokumentation.' },
+  ],
+  cta: {
+    title: { pre: 'Beginnen Sie mit ', accent: 'einem', post: ' Workflow.' },
+    text: 'Sagen Sie uns, welcher Prozess Ihr Team am meisten Zeit kostet. In dreissig Minuten sagen wir Ihnen, ob der Sprint der richtige Einstieg ist.',
+    primary: { label: '30-Minuten-Gespräch buchen', href: '/contact' },
+    secondary: { label: 'Repräsentative Projekte ansehen', href: '/work' },
+  },
+};
+
+export const about: AboutDict = {
+  hero: {
+    eyebrow: '[ Über uns ]',
+    title: { pre: 'Verwurzelt in Genf. ', accent: 'Gewachsen', post: ' in alle Richtungen.' },
+    lead: 'Emineon ist eine führende, KI-native Beratungsfirma. Wir begleiten Firmen vom Entscheid, KI zu nutzen, bis zu ihrem Einsatz in der echten Arbeit, mit einem verantwortlichen Team von der Strategie über die Produktion bis zur Adoption.',
+  },
+  name: {
+    eyebrow: '[ 01 — Der Name ]',
+    title: { pre: 'Eminent, ', accent: 'neu.' },
+    paragraphs: [
+      'Emineon verbindet zwei Wörter: eminent, für den Anspruch, den wir an unsere Arbeit stellen, und neo, für eine Arbeitsweise, die für das KI-Zeitalter gebaut und nicht nachträglich angepasst wurde.',
+      'Wir haben uns neu als KI-native Firma positioniert und sehen darin einen Vorteil. Wir müssen keine Junior-Pyramide auslasten und kein Stundenmodell verteidigen. Wir konnten die Firma um das herum bauen, was KI möglich macht: kleine Senior-Teams, laufende Systeme statt Präsentationen und Honorare, die an Ergebnisse gebunden sind.',
+    ],
+  },
+  oak: {
+    eyebrow: '[ 02 — Die Eiche ]',
+    title: { pre: 'Geduldig, beständig, ', accent: 'wachsend.' },
+    lead: 'Hinter dem Namen steht eine Eiche, gezeichnet als Raster aus Punkten mit einem einzigen glühenden Knoten. Sie beschreibt, wie KI unserer Meinung nach in einer Firma wachsen sollte.',
+    layers: [
+      { key: 'roots', name: 'Wurzeln', meaning: 'Ihre Daten, geregelt und am richtigen Ort. Ohne sie wächst nichts.' },
+      { key: 'trunk', name: 'Stamm', meaning: 'Die Plattform und die Kontrollen: Zugriff, Evaluation, Audit. Ein starker Kern statt vieler fragiler Triebe.' },
+      { key: 'branches', name: 'Äste', meaning: 'Agenten und Workflows, die jeweils in einen anderen Teil der Arbeit reichen.' },
+      { key: 'canopy', name: 'Krone', meaning: 'Die ganze Firma, die KI jeden Tag nutzt. Der Teil, den alle sehen, und der Grund für alles andere.' },
+    ],
+  },
+  principles: {
+    eyebrow: '[ 03 — Prinzipien ]',
+    title: { pre: 'Woran wir ', accent: 'festhalten.' },
+    items: [
+      { title: 'Laufende Systeme, keine Präsentationen', text: 'Ein Rat, den man nicht umsetzen kann, ist wenig wert. Jede Empfehlung, die wir abgeben, sind wir bereit, in Produktion zu bringen.' },
+      { title: 'Bezahlt nach Ergebnissen', text: 'Wir bepreisen das Ergebnis, wo es messbar ist, und sagen es, wo es das nicht ist.' },
+      { title: 'Messen, bevor man behauptet', text: 'Zuerst die Ausgangslage, Evaluationen vor dem Start, Zahlen in jedem Bericht. Was wir nicht messen können, versprechen wir nicht.' },
+      { title: 'Ihre Daten bleiben Ihre Daten', text: 'Kein Training mit Kundendaten, kein Lock-in, Datenhaltung in der Schweiz oder in Ihrer eigenen Cloud. Was wir bauen, gehört Ihnen.' },
+      { title: 'Für alle, nicht für wenige', text: 'Ein System, das nur eine Handvoll Leute nutzt, ist ein Pilot. Wir bleiben, bis die neue Arbeitsweise einfach die Arbeitsweise ist.' },
+      { title: 'Klartext reden', text: 'Kein Hype, kein Jargon, hinter dem man sich versteckt. Wir sagen Ihnen, was gebaut wird, was es kostet und welches Ergebnis es bringen soll.' },
+    ],
+  },
+  hq: {
+    eyebrow: '[ 04 — Hauptsitz ]',
+    title: { pre: 'Route de Vandœuvres ', accent: '77A.' },
+    text: 'Unser Hauptsitz liegt vor den Toren Genfs, in Vandœuvres, nahe bei den Banken, Handelshäusern und internationalen Organisationen, mit denen wir arbeiten. Mandatsleitung und Forward-deployed Engineering sind hier angesiedelt, und die meisten unserer Kunden sind nur eine kurze Fahrt entfernt.',
+  },
+  network: {
+    eyebrow: '[ 05 — Globales Netzwerk ]',
+    title: { pre: 'Eine Firma, ', accent: 'sieben', post: ' Städte.' },
+    lead: 'Die Senior-Teams in Genf werden von Engineering- und Delivery-Hubs in Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, im Silicon Valley und in Texas getragen. Die Arbeit läuft rund um die Uhr; sensible Daten bleiben, wo sie hingehören.',
+    stats: [
+      { value: '130+', label: 'Ingenieurinnen und Ingenieure im Netzwerk' },
+      { value: '200+', label: 'Abgeschlossene Projekte' },
+      { value: '7', label: 'Städte: Genf, Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, Silicon Valley, Texas' },
+    ],
+  },
+  organisation: {
+    eyebrow: '[ 06 — Wie wir organisiert sind ]',
+    title: { pre: 'Schlank vorne, ', accent: 'tief', post: ' dahinter.' },
+    lead: 'Kunden arbeiten mit einem kleinen Senior-Team, das für das Ergebnis verantwortlich ist. Dahinter steht die Kapazität einer viel grösseren Firma.',
+    units: [
+      { icon: 'strategy', title: 'Senior-Teams', text: 'Eine Mandatsleitung und Senior-Spezialisten, die Ergebnis, Beziehung und schwierige Entscheide verantworten.' },
+      { icon: 'fde', title: 'Forward-deployed Engineers', text: 'Senior-Ingenieure, eingebettet in Kundenteams in Genf und vor Ort, die in der Umgebung des Kunden bauen.' },
+      { icon: 'globe', title: 'Globales Delivery-Netzwerk', text: 'Engineering-Hubs in Asien-Pazifik und Amerika, die Bau- und Betriebskapazität rund um die Uhr ergänzen.' },
+    ],
+  },
+  practices: {
+    eyebrow: '[ 07 — Practices ]',
+    title: { pre: 'Fünf Practices, ', accent: 'ein', post: ' Team.' },
+    items: [
+      { title: 'Strategie', text: 'KI-Strategie, Business Cases, Richtlinie und Betriebsmodell.' },
+      { title: 'Agentisches Engineering', text: 'Agenten, Integrationen und Human-in-the-Loop-Systeme in Produktion.' },
+      { title: 'Daten und Plattformen', text: 'Datenzugang, Suche, Modell-Gateways und Governance.' },
+      { title: 'KI-Betrieb', text: 'Evaluation, Monitoring, Release-Management und Modellrisiko.' },
+      { title: 'Adoption', text: 'Schulung, Veränderungsbegleitung, Champions und Adoptionskennzahlen.' },
+    ],
+  },
+  cta: {
+    title: { pre: 'Finden wir Ihren ', accent: 'ersten', post: ' Workflow.' },
+    text: 'Dreissig Minuten, ohne Vorbereitung. Sie wissen danach, ob KI den Prozess verändert, an den Sie denken.',
+    primary: { label: 'Gespräch vereinbaren', href: '/contact' },
+    secondary: { label: 'Bei uns arbeiten', href: '/careers' },
+  },
+};
+
+export const careers: CareersDict = {
+  hero: {
+    eyebrow: '[ Karriere ]',
+    title: { pre: 'Bauen, was ', accent: 'läuft.' },
+    lead: 'Wir suchen erfahrene Leute, die wollen, dass ihre Arbeit in Produktion landet, von echten Teams genutzt und an echten Ergebnissen gemessen. Hauptsitz in Genf, ein globales Netzwerk und keine Folienfabrik.',
+  },
+  why: {
+    eyebrow: '[ 01 — Warum Emineon ]',
+    title: { pre: 'Senior-Arbeit, ', accent: 'echte', post: ' Systeme.' },
+    items: [
+      { icon: 'agents', title: 'Produktion, keine Prototypen', text: 'Was Sie bauen, geht in Banken, Handelshäusern und internationalen Organisationen live und bleibt live.' },
+      { icon: 'fde', title: 'Nah an der Arbeit', text: 'Sie arbeiten mit den Menschen, die nutzen, was Sie bauen. Anforderungen kommen aus der Praxis, Feedback am selben Tag.' },
+      { icon: 'spark', title: 'KI-nativ als Standard', text: 'Wir nutzen KI in allem, was wir tun, von der Recherche bis zum Code-Review. Sie arbeiten an der Spitze, statt darüber zu lesen.' },
+      { icon: 'globe', title: 'Ein globales Team', text: 'Kolleginnen und Kollegen in Genf, Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, im Silicon Valley und in Texas, mit Genf als Anker.' },
+      { icon: 'outcome', title: 'Gemessen an Ergebnissen', text: 'Kein Stundenzettel-Theater. Uns zählt, was Sie liefern und was es bewirkt.' },
+      { icon: 'roots', title: 'Raum zum Wachsen', text: 'Kleine Senior-Teams bedeuten früh echte Verantwortung, in einer Firma, die noch von den Menschen in ihr geformt wird.' },
+    ],
+  },
+  roles: {
+    eyebrow: '[ 02 — Stellen ]',
+    title: { pre: 'Wen wir ', accent: 'suchen.' },
+    lead: 'Für diese Rollen stellen wir laufend ein. Wenn eine passt, schreiben Sie uns ein paar Zeilen über etwas, das Sie gebaut haben, und warum es wichtig war.',
+    items: [
+      {
+        slug: 'forward-deployed-engineer',
+        title: 'Forward-deployed Engineer',
+        team: 'Engineering',
+        locations: ['Genf', 'Vor Ort bei Kunden'],
+        type: 'Vollzeit',
+        summary: 'Sich in Kundenteams einbetten, verstehen, wie die Arbeit wirklich läuft, und agentische Systeme in deren Produktionsumgebungen bringen.',
+        responsibilities: [
+          'Kundenteams begleiten und unübersichtliche Prozesse in präzise Workflow-Spezifikationen übersetzen',
+          'Agenten, Integrationen und Prüfoberflächen in Kundenumgebungen bauen',
+          'Evaluationssets aus echten Fällen schreiben und als Go-live-Schwelle nutzen',
+          'Das System bis zum Go-live und durch die ersten Wochen in Produktion verantworten',
+          'Mit dem globalen Delivery-Netzwerk die Arbeit koordinieren, die geteilt werden kann',
+        ],
+        requirements: [
+          'Mindestens sechs Jahre Erfahrung im Bau produktiver Software, idealerweise integrationslastig',
+          'Praktische Erfahrung damit, LLM-basierte Systeme an echte Nutzende auszuliefern',
+          'Sehr gutes Python oder TypeScript und sicherer Umgang mit Cloud-Infrastruktur',
+          'Fliessend Englisch und Französisch; Deutsch ist ein grosses Plus',
+          'Gelassen im Umgang mit Unklarheit und Kunden; kann Zielkonflikte Nicht-Ingenieuren erklären',
+        ],
+        niceToHave: [
+          'Erfahrung in Banking, Rohstoffhandel, Life Sciences oder internationalen Organisationen',
+          'Vertrautheit mit den Anforderungen von revDSG, DSGVO oder FINMA',
+        ],
+      },
+      {
+        slug: 'ai-engineer',
+        title: 'AI Engineer',
+        team: 'Engineering',
+        locations: ['Genf', 'Hubs des globalen Netzwerks'],
+        type: 'Vollzeit',
+        summary: 'Die Such-, Agenten- und Evaluationssysteme hinter unseren Mandaten entwerfen und bauen, ebenso wie die gemeinsamen Werkzeuge, die jedes Projekt schneller machen.',
+        responsibilities: [
+          'Such-Pipelines für mehrsprachige, gescannte und strukturierte Dokumente bauen',
+          'Agentenarchitekturen mit Tool-Nutzung, Leitplanken und menschlicher Prüfung entwerfen',
+          'Evaluations-Harnesses und Monitoring aufbauen und pflegen',
+          'Kosten und Latenz über Modelle und Anbieter optimieren',
+          'Zu internen Beschleunigern und wiederverwendbaren Komponenten beitragen',
+        ],
+        requirements: [
+          'Mindestens vier Jahre in ML oder Software Engineering',
+          'Fundiertes praktisches Wissen zu LLMs, Embeddings und Retrieval',
+          'Erfahrung im Entwerfen von Evaluationen und im Handeln auf deren Basis',
+          'Sehr gutes Python; saubere Engineering-Praxis',
+          'Fliessend Englisch',
+        ],
+        niceToHave: [
+          'Erfahrung mit der Bereitstellung von Open-Weight-Modellen',
+          'Französisch oder Deutsch',
+        ],
+      },
+      {
+        slug: 'ai-strategist',
+        title: 'AI Strategist',
+        team: 'Strategie',
+        locations: ['Genf'],
+        type: 'Vollzeit',
+        summary: 'Analysen mit Geschäftsleitungen führen, Business Cases bauen, die der Prüfung durch die Finanzabteilung standhalten, und über Umsetzung und Adoption hinweg verantwortlich bleiben.',
+        responsibilities: [
+          'Analysen durchführen: Gespräche, Prozessanalyse, Messung der Ausgangslage',
+          'Business Cases mit ROI und Amortisation gemeinsam mit den Finanzteams der Kunden erarbeiten',
+          'KI-Richtlinien und Betriebsmodelle mit Risk und Compliance entwerfen',
+          'Umsetzungen eingrenzen und bepreisen; während der Lieferung beteiligt bleiben',
+          'Über unsere Erkenntnisse schreiben und sprechen',
+        ],
+        requirements: [
+          'Mindestens sieben Jahre in Strategieberatung, Operations oder einer Transformationsrolle',
+          'Glaubwürdigkeit bei Geschäftsleitungen und Sicherheit im Umgang mit Zahlen',
+          'Genug technisches Verständnis, um zu wissen, was schwer zu bauen ist',
+          'Fliessend Französisch und Englisch; Deutsch ist ein grosses Plus',
+          'Erfahrung in einer unserer Branchen',
+        ],
+        niceToHave: [
+          'Hintergrund in regulierten Branchen oder internationalen Organisationen',
+          'Erfahrung mit Veränderungsmanagement oder Adoptionsprogrammen',
+        ],
+      },
+    ],
+    openApplication: {
+      title: 'Nicht auf der Liste?',
+      text: 'Wenn Sie aussergewöhnlich gut in etwas sind, das wir tun sollten, schreiben Sie uns trotzdem.',
+    },
+  },
+  locations: {
+    eyebrow: '[ 03 — Standorte ]',
+    title: { pre: 'Genf, und ', accent: 'darüber', post: ' hinaus.' },
+    text: 'Kundennahe Rollen sind in Genf angesiedelt, mit Reisen zu Kundenstandorten. Engineering-Rollen sind in Genf und in unseren Netzwerk-Hubs in Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, im Silicon Valley und in Texas offen.',
+  },
+  process: {
+    eyebrow: '[ 04 — Wie wir einstellen ]',
+    title: { pre: 'Vier Schritte, ', accent: 'keine', post: ' Rätsel.' },
+    steps: [
+      { title: 'Gespräch', text: 'Dreissig Minuten mit jemandem, der den Job macht. Wir sprechen darüber, was Sie gebaut haben und was Sie als Nächstes wollen.' },
+      { title: 'Arbeitsprobe', text: 'Ein realistisches Problem aus unserer Arbeit, in wenigen Stunden zu Hause oder live mit uns, nach Ihrer Wahl. Die Zeit zu Hause wird bezahlt.' },
+      { title: 'Teamtag', text: 'Lernen Sie die Menschen kennen, mit denen Sie arbeiten würden, besprechen Sie Ihre Arbeitsprobe und stellen Sie alle Fragen.' },
+      { title: 'Entscheid', text: 'Eine Antwort innert einer Woche nach dem Teamtag, mit Feedback in jedem Fall.' },
+    ],
+  },
+  apply: {
+    title: 'Bewerben',
+    text: 'Senden Sie eine kurze Nachricht und einen Lebenslauf oder einen Link zu Ihrer Arbeit. Jede Bewerbung wird von einem Menschen gelesen.',
+    email: 'hello@emineon.com',
+    subject: 'Bewerbung: {role}',
+  },
+};
+
+export const contact: ContactDict = {
+  hero: {
+    eyebrow: '[ Kontakt ]',
+    title: { pre: 'Sprechen ', accent: 'wir.' },
+    lead: 'Nennen Sie einen Prozess, der Ihr Team zu viel Zeit kostet. Dreissig Minuten, ohne Vorbereitung, und Sie wissen, ob KI ihn verändert.',
+  },
+  form: {
+    title: 'Gespräch beginnen',
+    text: 'Ein Senior-Mitglied des Teams liest jede Nachricht und antwortet innert eines Arbeitstags.',
+  },
+  direct: {
+    title: 'Oder direkt Kontakt aufnehmen',
+    emailLabel: 'E-Mail',
+    email: 'hello@emineon.com',
+    addressLabel: 'Hauptsitz',
+    addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genf, Schweiz'],
+    responseTime: 'Antwort innert eines Arbeitstags, auf Deutsch, Französisch oder Englisch.',
+  },
+  next: {
+    title: 'Wie es weitergeht',
+    steps: [
+      { title: 'Wir antworten', text: 'Innert eines Arbeitstags, mit dem Vorschlag für ein dreissigminütiges Gespräch.' },
+      { title: 'Wir hören zu', text: 'Sie beschreiben den Prozess. Wir fragen, wie er heute funktioniert und wie ein gutes Ergebnis aussähe.' },
+      { title: 'Wir sagen es offen', text: 'Ob KI ihn verändert, was es ungefähr bräuchte und ob wir die Richtigen dafür sind.' },
+    ],
+  },
+  officesTitle: 'Standorte',
+};
+
+export const legal: LegalDict = {
+  privacy: {
+    title: 'Datenschutzerklärung',
+    updated: 'Zuletzt aktualisiert: 1. November 2026',
+    intro:
+      'Diese Erklärung beschreibt, wie Emineon Personendaten bearbeitet, wenn Sie emineon.com besuchen, mit uns Kontakt aufnehmen oder sich bewerben. Wir bearbeiten Personendaten gemäss dem revidierten Bundesgesetz über den Datenschutz (revDSG) und, soweit anwendbar, der Datenschutz-Grundverordnung der EU (DSGVO).',
+    blocks: [
+      { type: 'h2', text: '1. Verantwortliche Stelle' },
+      { type: 'p', text: 'Verantwortlich ist Emineon [Rechtsform zu bestätigen], Route de Vandœuvres 77A, 1253 Vandœuvres, Schweiz. Kontakt für Datenschutzfragen: hello@emineon.com.' },
+      { type: 'h2', text: '2. Bearbeitete Daten' },
+      {
+        type: 'list',
+        items: [
+          'Kontaktformular und E-Mail: Name, geschäftliche E-Mail, Firma, Funktion, Thema und Inhalt Ihrer Nachricht.',
+          'Newsletter: Ihre E-Mail-Adresse und das Anmeldedatum.',
+          'Bewerbungen: die Angaben und Unterlagen, die Sie uns senden.',
+          'Nutzung der Website: technische Daten, die für die sichere Bereitstellung nötig sind, etwa IP-Adresse, Browsertyp und Zugriffszeit, gespeichert in Server-Logs.',
+        ],
+      },
+      { type: 'h2', text: '3. Zwecke und Rechtsgrundlagen' },
+      { type: 'p', text: 'Wir bearbeiten Ihre Daten, um Ihre Anfrage zu beantworten, Ihnen den abonnierten Newsletter zu senden, Bewerbungen zu prüfen und eine sichere Website zu betreiben. Soweit die DSGVO anwendbar ist, sind die Rechtsgrundlagen Ihre Einwilligung, vorvertragliche Massnahmen und unser berechtigtes Interesse am Betrieb und an der Sicherheit der Website.' },
+      { type: 'h2', text: '4. Cookies und Analyse' },
+      { type: 'p', text: 'Wir verwenden nur unbedingt notwendige Cookies, etwa um Ihre Sprachwahl zu speichern. Wir verwenden keine Werbe-Cookies und kein seitenübergreifendes Tracking. [Allfälliges Analysetool zu bestätigen.]' },
+      { type: 'h2', text: '5. Empfänger und Auftragsbearbeiter' },
+      { type: 'p', text: 'Wir setzen sorgfältig ausgewählte Dienstleister für Hosting und E-Mail-Versand ein. Sie bearbeiten Daten nur nach unseren Weisungen. [Liste der Auftragsbearbeiter und Hosting-Standorte zu bestätigen.] Wir verkaufen keine Personendaten.' },
+      { type: 'h2', text: '6. Bekanntgabe ins Ausland' },
+      { type: 'p', text: 'Werden Daten in ein Land ohne vom Bundesrat anerkannten angemessenen Datenschutz bekanntgegeben, stützen wir uns auf anerkannte Garantien wie die vom EDÖB anerkannten Standardvertragsklauseln.' },
+      { type: 'h2', text: '7. Aufbewahrung' },
+      { type: 'p', text: 'Anfragen werden so lange aufbewahrt, wie es für ihre Bearbeitung nötig ist, und danach bis zu zwei Jahre. Bewerbungen werden sechs Monate nach Abschluss des Verfahrens gelöscht, sofern Sie keiner längeren Frist zustimmen. Newsletter-Daten werden bis zur Abmeldung aufbewahrt.' },
+      { type: 'h2', text: '8. Ihre Rechte' },
+      { type: 'p', text: 'Sie können Auskunft über Ihre Personendaten, deren Berichtigung oder Löschung verlangen, der Bearbeitung widersprechen und die Herausgabe oder Übertragung Ihrer Daten verlangen. Beruht eine Bearbeitung auf Ihrer Einwilligung, können Sie diese jederzeit widerrufen. Schreiben Sie an hello@emineon.com. Sie haben zudem das Recht, sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) oder, soweit die DSGVO anwendbar ist, an eine zuständige Aufsichtsbehörde zu wenden.' },
+      { type: 'h2', text: '9. Sicherheit' },
+      { type: 'p', text: 'Wir treffen angemessene technische und organisatorische Massnahmen zum Schutz von Personendaten, darunter Verschlüsselung bei der Übertragung, Zugriffskontrolle sowie Datenschutz durch Technik und datenschutzfreundliche Voreinstellungen.' },
+      { type: 'h2', text: '10. Änderungen' },
+      { type: 'p', text: 'Wir können diese Erklärung anpassen. Es gilt die jeweils auf dieser Seite veröffentlichte Fassung.' },
+    ],
+  },
+  imprint: {
+    title: 'Impressum',
+    updated: 'Zuletzt aktualisiert: 1. November 2026',
+    intro: 'Angaben gemäss Schweizer Recht.',
+    blocks: [
+      { type: 'h2', text: 'Firma' },
+      { type: 'p', text: 'Emineon [Rechtsform zu bestätigen]' },
+      { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Schweiz' },
+      { type: 'p', text: 'E-Mail: hello@emineon.com' },
+      { type: 'h2', text: 'Registereintrag' },
+      { type: 'p', text: 'Handelsregister: Kanton Genf. Unternehmens-Identifikationsnummer (UID): [CHE-xxx.xxx.xxx, zu bestätigen]. MWST-Nummer: [zu bestätigen].' },
+      { type: 'h2', text: 'Vertretungsberechtigte Personen' },
+      { type: 'p', text: '[Zu bestätigen]' },
+      { type: 'h2', text: 'Haftungsausschluss' },
+      { type: 'p', text: 'Die Inhalte dieser Website dienen der allgemeinen Information. Obwohl wir auf Richtigkeit und Aktualität achten, übernehmen wir keine Haftung für Vollständigkeit oder Richtigkeit. Fallstudien beschreiben repräsentative, anonymisierte Mandate und stellen keine Garantie für Ergebnisse dar.' },
+      { type: 'h2', text: 'Externe Links' },
+      { type: 'p', text: 'Für die Inhalte externer Websites, auf die verlinkt wird, sind wir nicht verantwortlich.' },
+      { type: 'h2', text: 'Urheberrecht' },
+      { type: 'p', text: 'Alle Inhalte dieser Website, einschliesslich Texte, Bilder und Grafiken, gehören Emineon, sofern nicht anders angegeben. Die Vervielfältigung bedarf unserer vorgängigen schriftlichen Zustimmung.' },
+    ],
+  },
+};

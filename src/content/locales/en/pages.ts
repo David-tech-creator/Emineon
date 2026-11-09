@@ -1,0 +1,447 @@
+import type { AboutDict, ApproachDict, CareersDict, ContactDict, LegalDict } from '../../schema';
+
+export const approach: ApproachDict = {
+  hero: {
+    eyebrow: '[ Approach ]',
+    title: { pre: 'Paid on outcomes, ', accent: 'not', post: ' hours.' },
+    lead: 'We work in three steps, each with a fixed scope and a result you can verify before committing to the next. Small senior teams, amplified by AI, accountable from the first business case to the system running in production.',
+  },
+  model: {
+    eyebrow: '[ 01 — The model ]',
+    title: { pre: 'Assess. Build. ', accent: 'Run.' },
+    lead: 'Most clients enter at Assess or with the 30-day sprint. Some arrive with a pilot that needs hardening and start at Run. Every step can stand alone.',
+    stages: [
+      {
+        key: 'assess',
+        icon: 'strategy',
+        label: '01 · Assess',
+        title: 'Know where AI pays',
+        tagline: 'A fixed-fee diagnostic that ends in a decision, not a report.',
+        text: 'We map where time, cost and risk sit across your workflows, measure baselines, build business cases with the finance team and write the AI policy and roadmap. The final week scopes and prices the first build.',
+        includes: [
+          'AI readiness across data, systems, people and governance',
+          'Three to five business cases with ROI and payback',
+          'AI acceptable-use and governance policy',
+          'Twelve-month roadmap with owners and dependencies',
+          'Board-ready recommendation',
+        ],
+        pricing: 'Fixed fee',
+        duration: '2–4 weeks',
+        exitCriteria: 'A signed-off roadmap and a first build scoped and priced.',
+      },
+      {
+        key: 'build',
+        icon: 'agents',
+        label: '02 · Build',
+        title: 'Put systems into production',
+        tagline: 'Working systems in your environment, priced on what goes live.',
+        text: 'A senior pod with forward-deployed engineers builds the workflow in your environment, on your data. The eval set is written before the first prompt and becomes the go-live gate. People stay in the loop wherever judgement matters.',
+        includes: [
+          'Workflow design and eval set from real cases',
+          'Agents, integrations and review interface',
+          'Security, access control and audit trail',
+          'Monitoring, runbook and rollback plan',
+          'Training for the team that will operate it',
+        ],
+        pricing: 'Per milestone or per workflow live',
+        duration: '4–12 weeks per workflow',
+        exitCriteria: 'The workflow passes its eval gate and runs in production with your team operating it.',
+      },
+      {
+        key: 'run',
+        icon: 'operations',
+        label: '03 · Run',
+        title: 'Operate, harden, transfer',
+        tagline: 'Keep it accurate, affordable and auditable, then hand it over.',
+        text: 'We monitor quality and cost, handle model upgrades safely, extend the system to new entities and teams, and transfer ownership when your team is ready. Exit is planned from day one.',
+        includes: [
+          'Continuous evaluation and production monitoring',
+          'Model and prompt release management',
+          'Roll-out across subsidiaries and entities',
+          'Monthly quality, cost and adoption review',
+          'Planned knowledge transfer and handover',
+        ],
+        pricing: 'Monthly retainer',
+        duration: 'Ongoing, with a planned exit',
+        exitCriteria: 'Your team runs the system on its own, with documentation and evals in place.',
+      },
+    ],
+  },
+  pricing: {
+    eyebrow: '[ 02 — Pricing ]',
+    title: { pre: 'We price the ', accent: 'result.' },
+    lead: 'Billable hours reward effort. We would rather be paid for what changes. Here is how that works in practice.',
+    principles: [
+      { title: 'Fixed fee for diagnosis', text: 'Assessments have a fixed scope and price agreed before we start. You know the cost of a decision before you make it.' },
+      { title: 'Milestones you can verify', text: 'Builds are priced per milestone or per workflow live, each defined by a test you can run: the eval gate passes, the system is in production, the team is trained.' },
+      { title: 'Outcome share where the baseline is clean', text: 'When the baseline is measurable, part of our fee can be tied to the result: hours saved, cycle time, error rate. We only propose it when both sides trust the number.' },
+      { title: 'No lock-in, no licence tax', text: 'You own the code, prompts, evals and documentation. Model costs are passed through at cost or billed to your own accounts.' },
+    ],
+    note: 'Time and materials only for genuinely exploratory work, and only when you ask for it.',
+  },
+  sprint: {
+    eyebrow: '[ 03 — The 30-day sprint ]',
+    title: { pre: 'Readiness to a first workflow live, in ', accent: '30 days.' },
+    lead: 'The fastest way to find out what AI is worth in your firm is to put one workflow into production. The sprint combines a focused assessment with a first build, at a fixed price.',
+    weeks: [
+      {
+        label: 'Week 1',
+        title: 'Scope',
+        text: 'We map candidate workflows, measure the baseline for the strongest one and agree the success metric.',
+        outputs: ['Opportunity shortlist', 'Baseline measurement', 'Success metric and eval plan'],
+      },
+      {
+        label: 'Week 2',
+        title: 'Build',
+        text: 'A senior pod builds the workflow in your environment, on your data, against an eval set drawn from real cases.',
+        outputs: ['Eval set from real cases', 'Working workflow in a pilot environment', 'Integration with one or two systems'],
+      },
+      {
+        label: 'Week 3',
+        title: 'Harden',
+        text: 'Your people test it on live work. We handle edge cases, access control, logging and the review interface.',
+        outputs: ['Pilot with real users', 'Access control and audit trail', 'Eval pass rate reported'],
+      },
+      {
+        label: 'Week 4',
+        title: 'Live',
+        text: 'The workflow runs in production. Your team is trained to operate it, and you get a roadmap for what to build next.',
+        outputs: ['Production release', 'Runbook and training', 'Measured result against baseline', 'Roadmap for the next workflows'],
+      },
+    ],
+    promise: 'If the workflow does not pass its agreed eval gate by day 30, we keep working at no additional fee until it does.',
+  },
+  models: {
+    eyebrow: '[ 04 — Engagement models ]',
+    title: { pre: 'Choose how we ', accent: 'work', post: ' together.' },
+    items: [
+      { icon: 'sprint', name: '30-day sprint', bestFor: 'Firms that want proof in production before a larger commitment.', text: 'Fixed price, one workflow live, team trained. The most common starting point.' },
+      { icon: 'strategy', name: 'Assessment', bestFor: 'Leadership teams that need a board-level decision across the firm.', text: 'Fixed fee, two to four weeks, business cases, policy and roadmap.' },
+      { icon: 'fde', name: 'Forward-deployed pod', bestFor: 'Programmes with several workflows and a clear roadmap.', text: 'A senior pod embedded with your teams, priced per milestone or workflow live.' },
+      { icon: 'operations', name: 'Run retainer', bestFor: 'Systems already in production that need care, scale or a safety net.', text: 'Monthly retainer for operation, improvement, roll-out and transfer.' },
+    ],
+  },
+  team: {
+    eyebrow: '[ 05 — Who you work with ]',
+    title: { pre: 'Senior people, ', accent: 'amplified.' },
+    lead: 'No junior pyramid. Every engagement is led by people who have done the work before, using AI to do more of it.',
+    pods: [
+      { icon: 'strategy', title: 'Engagement lead', text: 'Accountable for the outcome. Owns the business case, the relationship with your leadership and the decisions on scope.' },
+      { icon: 'fde', title: 'Forward-deployed engineers', text: 'Senior engineers in Geneva or on site, embedded with your team, building in your environment.' },
+      { icon: 'evals', title: 'AI and evaluation specialists', text: 'Design agents, retrieval and the eval suites that decide when a system is ready.' },
+      { icon: 'globe', title: 'Global delivery network', text: 'Additional engineering capacity across Asia-Pacific and the Americas, working on what is safe to share.' },
+    ],
+  },
+  faq: [
+    { q: 'How quickly can we start?', a: 'Usually within two weeks of the first call. The sprint and the assessment need a sponsor, access to the people doing the work and access to a test environment.' },
+    { q: 'What if we already have an AI team?', a: 'We work alongside them. Often we bring the evaluation discipline, the production hardening or the adoption programme, and leave your team with more capability than before.' },
+    { q: 'Where does the work happen?', a: 'In your environment. Forward-deployed engineers work in Geneva or on site. Work on sensitive data happens in Switzerland or in your own cloud; our global network works only on what is safe to share.' },
+    { q: 'What do we own at the end?', a: 'Everything we build for you: code, prompts, eval sets, configuration and documentation.' },
+  ],
+  cta: {
+    title: { pre: 'Start with ', accent: 'one', post: ' workflow.' },
+    text: 'Tell us which process costs your team the most time. We will tell you in thirty minutes whether the sprint is the right start.',
+    primary: { label: 'Book a 30-minute call', href: '/contact' },
+    secondary: { label: 'See representative work', href: '/work' },
+  },
+};
+
+export const about: AboutDict = {
+  hero: {
+    eyebrow: '[ About ]',
+    title: { pre: 'Rooted in Geneva. ', accent: 'Growing', post: ' everywhere.' },
+    lead: 'Emineon is a frontier, AI-native consulting firm. We take firms from deciding to use AI to running it in their real work, with one accountable team from strategy to production to adoption.',
+  },
+  name: {
+    eyebrow: '[ 01 — The name ]',
+    title: { pre: 'Eminent, ', accent: 'new.' },
+    paragraphs: [
+      'Emineon joins two words: eminent, for the standard of work we hold ourselves to, and neo, for a way of working built for the AI era rather than adapted to it.',
+      'We are newly repositioned as an AI-native firm, and we see that as an advantage. We have no pyramid of juniors to keep busy and no billable-hour model to defend. We could build the firm around what AI makes possible: small senior teams, working systems instead of decks, and fees tied to results.',
+    ],
+  },
+  oak: {
+    eyebrow: '[ 02 — The oak ]',
+    title: { pre: 'Patient, enduring, ', accent: 'compounding.' },
+    lead: 'Behind the name stands an oak, drawn as a lattice of points with one ember node. It describes how we think AI should grow inside a firm.',
+    layers: [
+      { key: 'roots', name: 'Roots', meaning: 'Your data, governed and in the right place. Nothing grows without them.' },
+      { key: 'trunk', name: 'Trunk', meaning: 'The platform and the controls: access, evaluation, audit. One strong core instead of many fragile stems.' },
+      { key: 'branches', name: 'Branches', meaning: 'Agents and workflows, each reaching into a different part of the work.' },
+      { key: 'canopy', name: 'Canopy', meaning: 'The whole firm using AI every day. The part everyone sees, and the reason for the rest.' },
+    ],
+  },
+  principles: {
+    eyebrow: '[ 03 — Principles ]',
+    title: { pre: 'What we ', accent: 'hold', post: ' to.' },
+    items: [
+      { title: 'Working systems, not decks', text: 'Advice we cannot build is not worth much. Every recommendation we make, we are prepared to put into production.' },
+      { title: 'Paid on outcomes', text: 'We price the result where it can be measured, and we say so when it cannot.' },
+      { title: 'Measure before you claim', text: 'Baselines first, evals before launch, numbers in every report. If we cannot measure it, we do not promise it.' },
+      { title: 'Your data stays yours', text: 'No training on client data, no lock-in, residency in Switzerland or your own cloud. You own what we build.' },
+      { title: 'For everyone, not a few', text: 'A system only a handful of people use is a pilot. We stay until the new way of working is simply the way.' },
+      { title: 'Say it plainly', text: 'No hype, no jargon to hide behind. We tell you what will be built, what it will cost and what result it should produce.' },
+    ],
+  },
+  hq: {
+    eyebrow: '[ 04 — Headquarters ]',
+    title: { pre: 'Route de Vandœuvres ', accent: '77A.' },
+    text: 'Our headquarters sit just outside Geneva, in Vandœuvres, close to the banks, trading houses and international organisations we work with. Client leadership and forward-deployed engineering are based here, and most of our clients are a short drive away.',
+  },
+  network: {
+    eyebrow: '[ 05 — Global network ]',
+    title: { pre: 'One firm, ', accent: 'seven', post: ' cities.' },
+    lead: 'Senior pods in Geneva are backed by engineering and delivery hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas. Work moves around the clock; sensitive data stays where it belongs.',
+    stats: [
+      { value: '130+', label: 'Engineers across the network' },
+      { value: '200+', label: 'Projects delivered' },
+      { value: '7', label: 'Cities: Genève, Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley, Texas' },
+    ],
+  },
+  organisation: {
+    eyebrow: '[ 06 — How we are organised ]',
+    title: { pre: 'Small at the front, ', accent: 'deep', post: ' behind.' },
+    lead: 'Clients work with a small senior team that is accountable for the outcome. Behind it is the capacity of a much larger firm.',
+    units: [
+      { icon: 'strategy', title: 'Senior pods', text: 'An engagement lead and senior specialists who own the outcome, the relationship and the hard decisions.' },
+      { icon: 'fde', title: 'Forward-deployed engineers', text: 'Senior engineers embedded with client teams in Geneva and on site, building in the client’s environment.' },
+      { icon: 'globe', title: 'Global delivery network', text: 'Engineering hubs across Asia-Pacific and the Americas, adding build and operations capacity around the clock.' },
+    ],
+  },
+  practices: {
+    eyebrow: '[ 07 — Practice areas ]',
+    title: { pre: 'Five practices, ', accent: 'one', post: ' team.' },
+    items: [
+      { title: 'Strategy', text: 'AI strategy, business cases, policy and operating model.' },
+      { title: 'Agentic engineering', text: 'Agents, integrations and human-in-the-loop systems in production.' },
+      { title: 'Data and platforms', text: 'Data access, retrieval, model gateways and governance.' },
+      { title: 'AI operations', text: 'Evaluation, monitoring, release management and model risk.' },
+      { title: 'Adoption', text: 'Training, change, champions and adoption metrics.' },
+    ],
+  },
+  cta: {
+    title: { pre: 'Let’s find your ', accent: 'first', post: ' workflow.' },
+    text: 'Thirty minutes, no preparation. You will know whether AI changes the process you have in mind.',
+    primary: { label: "Let's talk", href: '/contact' },
+    secondary: { label: 'Join us', href: '/careers' },
+  },
+};
+
+export const careers: CareersDict = {
+  hero: {
+    eyebrow: '[ Careers ]',
+    title: { pre: 'Build what ', accent: 'runs.' },
+    lead: 'We hire senior people who want their work to end up in production, used by real teams, measured by real results. Geneva headquarters, a global network, and no slide factory.',
+  },
+  why: {
+    eyebrow: '[ 01 — Why Emineon ]',
+    title: { pre: 'Senior work, ', accent: 'real', post: ' systems.' },
+    items: [
+      { icon: 'agents', title: 'Production, not prototypes', text: 'What you build goes live in banks, trading houses and international organisations, and stays live.' },
+      { icon: 'fde', title: 'Close to the work', text: 'You sit with the people who use what you build. Requirements come from the floor, feedback comes the same day.' },
+      { icon: 'spark', title: 'AI-native by default', text: 'We use AI in everything we do, from research to code review. You will work at the frontier, not read about it.' },
+      { icon: 'globe', title: 'A global team', text: 'Colleagues in Genève, Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas, with Geneva as the anchor.' },
+      { icon: 'outcome', title: 'Judged on outcomes', text: 'No timesheet theatre. We care about what you ship and what it changes.' },
+      { icon: 'roots', title: 'Room to grow', text: 'Small senior teams mean real responsibility early, and a firm still being shaped by the people in it.' },
+    ],
+  },
+  roles: {
+    eyebrow: '[ 02 — Roles ]',
+    title: { pre: 'Who we are ', accent: 'looking', post: ' for.' },
+    lead: 'We hire continuously for these roles. If one fits, write to us with a few lines on something you built and why it mattered.',
+    items: [
+      {
+        slug: 'forward-deployed-engineer',
+        title: 'Forward-Deployed Engineer',
+        team: 'Engineering',
+        locations: ['Genève', 'On site with clients'],
+        type: 'Full-time',
+        summary: 'Embed with client teams, understand how the work really runs and ship agentic systems into their production environments.',
+        responsibilities: [
+          'Shadow client teams and turn messy processes into precise workflow specifications',
+          'Build agents, integrations and review interfaces in client environments',
+          'Write eval sets from real cases and use them as the go-live gate',
+          'Own the system through launch and the first weeks in production',
+          'Coordinate with the global delivery network on work that can be shared',
+        ],
+        requirements: [
+          'Six or more years building production software, ideally integration-heavy',
+          'Hands-on experience shipping LLM-based systems to real users',
+          'Strong Python or TypeScript, and comfort with cloud infrastructure',
+          'Fluent English and French; German is a strong plus',
+          'Calm with ambiguity and clients; able to explain trade-offs to non-engineers',
+        ],
+        niceToHave: [
+          'Experience in banking, trading, life sciences or international organisations',
+          'Familiarity with nFADP, GDPR or FINMA requirements',
+        ],
+      },
+      {
+        slug: 'ai-engineer',
+        title: 'AI Engineer',
+        team: 'Engineering',
+        locations: ['Genève', 'Global network hubs'],
+        type: 'Full-time',
+        summary: 'Design and build the retrieval, agent and evaluation systems behind our client work, and the shared tooling that makes each project faster.',
+        responsibilities: [
+          'Build retrieval pipelines for multilingual, scanned and structured documents',
+          'Design agent architectures with tool use, guardrails and human review',
+          'Build and maintain evaluation harnesses and monitoring',
+          'Optimise cost and latency across models and providers',
+          'Contribute to internal accelerators and reusable components',
+        ],
+        requirements: [
+          'Four or more years in ML or software engineering',
+          'Deep practical knowledge of LLMs, embeddings and retrieval',
+          'Experience designing evaluations and acting on the results',
+          'Strong Python; good engineering hygiene',
+          'Fluent English',
+        ],
+        niceToHave: [
+          'Experience with open-weight model deployment',
+          'French or German',
+        ],
+      },
+      {
+        slug: 'ai-strategist',
+        title: 'AI Strategist',
+        team: 'Strategy',
+        locations: ['Genève'],
+        type: 'Full-time',
+        summary: 'Lead assessments with client leadership, build business cases that survive finance review, and stay accountable through build and adoption.',
+        responsibilities: [
+          'Run assessments: interviews, process analysis, baseline measurement',
+          'Build business cases with ROI and payback alongside client finance teams',
+          'Draft AI policies and operating models with risk and compliance',
+          'Shape and price builds; stay involved through delivery',
+          'Write and speak on what we learn',
+        ],
+        requirements: [
+          'Seven or more years in strategy consulting, operations or a transformation role',
+          'Credibility with executive teams and comfort with numbers',
+          'Enough technical understanding to know what is hard to build',
+          'Fluent French and English; German is a strong plus',
+          'Experience in one of our sectors',
+        ],
+        niceToHave: [
+          'Background in regulated industries or international organisations',
+          'Experience with change management or adoption programmes',
+        ],
+      },
+    ],
+    openApplication: {
+      title: 'Not on the list?',
+      text: 'If you are exceptional at something we should be doing, write to us anyway.',
+    },
+  },
+  locations: {
+    eyebrow: '[ 03 — Locations ]',
+    title: { pre: 'Geneva, and ', accent: 'beyond.' },
+    text: 'Client-facing roles are based in Geneva, with travel to client sites. Engineering roles are open in Geneva and across our network hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas.',
+  },
+  process: {
+    eyebrow: '[ 04 — How we hire ]',
+    title: { pre: 'Four steps, ', accent: 'no', post: ' riddles.' },
+    steps: [
+      { title: 'Conversation', text: 'Thirty minutes with someone who does the job. We talk about what you have built and what you want next.' },
+      { title: 'Work sample', text: 'A realistic problem from our work, done at home in a few hours or live with us, your choice. We pay for take-home time.' },
+      { title: 'Team day', text: 'Meet the people you would work with, discuss your work sample and ask anything.' },
+      { title: 'Decision', text: 'An answer within a week of the team day, with feedback either way.' },
+    ],
+  },
+  apply: {
+    title: 'Apply',
+    text: 'Send a short note and a CV or link to your work. A person reads every application.',
+    email: 'hello@emineon.com',
+    subject: 'Application: {role}',
+  },
+};
+
+export const contact: ContactDict = {
+  hero: {
+    eyebrow: '[ Contact ]',
+    title: { pre: 'Let’s ', accent: 'talk.' },
+    lead: 'Name one process that costs your team too much time. Thirty minutes, no preparation, and you will know whether AI changes it.',
+  },
+  form: {
+    title: 'Start a conversation',
+    text: 'A senior member of the team reads every message and replies within one business day.',
+  },
+  direct: {
+    title: 'Or reach us directly',
+    emailLabel: 'Email',
+    email: 'hello@emineon.com',
+    addressLabel: 'Headquarters',
+    addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genève, Switzerland'],
+    responseTime: 'Reply within one business day, in English, French or German.',
+  },
+  next: {
+    title: 'What happens next',
+    steps: [
+      { title: 'We reply', text: 'Within one business day, to propose a thirty-minute call.' },
+      { title: 'We listen', text: 'You describe the process. We ask how it works today and what good would look like.' },
+      { title: 'We tell you straight', text: 'Whether AI changes it, roughly what it would take, and whether we are the right people.' },
+    ],
+  },
+  officesTitle: 'Offices',
+};
+
+export const legal: LegalDict = {
+  privacy: {
+    title: 'Privacy policy',
+    updated: 'Last updated: 1 November 2026',
+    intro:
+      'This policy explains how Emineon processes personal data when you visit emineon.com, contact us or apply for a role. We process personal data in accordance with the Swiss Federal Act on Data Protection (nFADP) and, where it applies, the EU General Data Protection Regulation (GDPR).',
+    blocks: [
+      { type: 'h2', text: '1. Controller' },
+      { type: 'p', text: 'The controller is Emineon [legal form to be confirmed], Route de Vandœuvres 77A, 1253 Vandœuvres, Switzerland. Contact for data protection matters: hello@emineon.com.' },
+      { type: 'h2', text: '2. Data we process' },
+      {
+        type: 'list',
+        items: [
+          'Contact form and email: name, work email, company, role, topic and the content of your message.',
+          'Newsletter: your email address and the date of subscription.',
+          'Applications: the information and documents you send us.',
+          'Website use: technical data needed to deliver the site securely, such as IP address, browser type and time of access, held in server logs.',
+        ],
+      },
+      { type: 'h2', text: '3. Purposes and legal basis' },
+      { type: 'p', text: 'We process your data to answer your request, send the newsletter you subscribed to, assess applications and operate a secure website. Where the GDPR applies, the legal bases are your consent, steps prior to a contract, and our legitimate interest in running and securing the website.' },
+      { type: 'h2', text: '4. Cookies and analytics' },
+      { type: 'p', text: 'We use only cookies that are strictly necessary, such as remembering your language choice. We do not use advertising cookies or cross-site tracking. [Analytics tool, if any, to be confirmed.]' },
+      { type: 'h2', text: '5. Recipients and processors' },
+      { type: 'p', text: 'We use carefully selected providers for hosting and email delivery. They process data only on our instructions. [List of processors and hosting locations to be confirmed.] We do not sell personal data.' },
+      { type: 'h2', text: '6. Transfers abroad' },
+      { type: 'p', text: 'If data is transferred to a country without an adequate level of data protection as recognised by the Federal Council, we rely on recognised safeguards such as the standard contractual clauses approved by the FDPIC.' },
+      { type: 'h2', text: '7. Retention' },
+      { type: 'p', text: 'Enquiries are kept for as long as needed to handle them and for up to two years afterwards. Applications are deleted six months after the process ends unless you agree to a longer period. Newsletter data is kept until you unsubscribe.' },
+      { type: 'h2', text: '8. Your rights' },
+      { type: 'p', text: 'You may request access to your personal data, its rectification or deletion, object to processing, and request data portability. Where processing is based on consent, you can withdraw it at any time. Write to hello@emineon.com. You also have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC) or, where the GDPR applies, with a competent supervisory authority.' },
+      { type: 'h2', text: '9. Security' },
+      { type: 'p', text: 'We take appropriate technical and organisational measures to protect personal data, including encryption in transit, access control and the principles of privacy by design and by default.' },
+      { type: 'h2', text: '10. Changes' },
+      { type: 'p', text: 'We may update this policy. The current version is always published on this page.' },
+    ],
+  },
+  imprint: {
+    title: 'Imprint',
+    updated: 'Last updated: 1 November 2026',
+    intro: 'Information in accordance with Swiss law.',
+    blocks: [
+      { type: 'h2', text: 'Company' },
+      { type: 'p', text: 'Emineon [legal form to be confirmed]' },
+      { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Switzerland' },
+      { type: 'p', text: 'Email: hello@emineon.com' },
+      { type: 'h2', text: 'Registration' },
+      { type: 'p', text: 'Commercial register: Canton of Geneva. Company number (UID): [CHE-xxx.xxx.xxx, to be confirmed]. VAT number: [to be confirmed].' },
+      { type: 'h2', text: 'Authorised representatives' },
+      { type: 'p', text: '[To be confirmed]' },
+      { type: 'h2', text: 'Disclaimer' },
+      { type: 'p', text: 'The content of this website is provided for general information. While we take care that it is accurate and current, we accept no liability for its completeness or accuracy. Case studies describe representative, anonymised engagements and are not a guarantee of results.' },
+      { type: 'h2', text: 'External links' },
+      { type: 'p', text: 'We are not responsible for the content of external websites linked from this site.' },
+      { type: 'h2', text: 'Copyright' },
+      { type: 'p', text: 'All content on this website, including text, images and graphics, belongs to Emineon unless stated otherwise. Reproduction requires our prior written consent.' },
+    ],
+  },
+};

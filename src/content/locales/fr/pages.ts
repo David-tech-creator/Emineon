@@ -1,0 +1,447 @@
+import type { AboutDict, ApproachDict, CareersDict, ContactDict, LegalDict } from '../../schema';
+
+export const approach: ApproachDict = {
+  hero: {
+    eyebrow: '[ Approche ]',
+    title: { pre: 'Rémunérés sur les résultats, ', accent: 'pas', post: ' sur les heures.' },
+    lead: 'Nous travaillons en trois étapes, chacune avec un périmètre fixe et un résultat vérifiable avant de s’engager dans la suivante. De petites équipes seniors, amplifiées par l’IA, responsables du premier business case jusqu’au système en production.',
+  },
+  model: {
+    eyebrow: '[ 01 — Le modèle ]',
+    title: { pre: 'Évaluer. Construire. ', accent: 'Opérer.' },
+    lead: 'La plupart des clients commencent par Évaluer ou par le sprint de 30 jours. Certains arrivent avec un pilote à consolider et commencent par Opérer. Chaque étape peut se suffire à elle-même.',
+    stages: [
+      {
+        key: 'assess',
+        icon: 'strategy',
+        label: '01 · Évaluer',
+        title: 'Savoir où l’IA rapporte',
+        tagline: 'Un diagnostic à prix fixe qui débouche sur une décision, pas sur un rapport.',
+        text: 'Nous cartographions où se concentrent le temps, les coûts et les risques dans vos workflows, mesurons les situations de référence, construisons les business cases avec la finance et rédigeons la politique IA et la feuille de route. La dernière semaine cadre et chiffre la première réalisation.',
+        includes: [
+          'Maturité IA : données, systèmes, personnes et gouvernance',
+          'Trois à cinq business cases avec ROI et délai de retour',
+          'Politique d’usage et de gouvernance de l’IA',
+          'Feuille de route sur douze mois avec responsables et dépendances',
+          'Recommandation prête pour le conseil',
+        ],
+        pricing: 'Prix fixe',
+        duration: '2 à 4 semaines',
+        exitCriteria: 'Une feuille de route validée et une première réalisation cadrée et chiffrée.',
+      },
+      {
+        key: 'build',
+        icon: 'agents',
+        label: '02 · Construire',
+        title: 'Mettre les systèmes en production',
+        tagline: 'Des systèmes qui tournent dans votre environnement, facturés sur ce qui est mis en service.',
+        text: 'Une équipe senior avec des forward-deployed engineers construit le workflow dans votre environnement, sur vos données. Le jeu d’évaluation est écrit avant le premier prompt et devient le seuil de mise en service. Les personnes restent dans la boucle partout où le jugement compte.',
+        includes: [
+          'Conception du workflow et jeu d’évaluation à partir de cas réels',
+          'Agents, intégrations et interface de revue',
+          'Sécurité, contrôle d’accès et piste d’audit',
+          'Supervision, runbook et plan de retour arrière',
+          'Formation de l’équipe qui l’exploitera',
+        ],
+        pricing: 'Par jalon ou par workflow en service',
+        duration: '4 à 12 semaines par workflow',
+        exitCriteria: 'Le workflow franchit son seuil d’évaluation et tourne en production, exploité par votre équipe.',
+      },
+      {
+        key: 'run',
+        icon: 'operations',
+        label: '03 · Opérer',
+        title: 'Exploiter, consolider, transférer',
+        tagline: 'Le garder juste, maîtrisé en coût et auditable, puis le transmettre.',
+        text: 'Nous surveillons la qualité et les coûts, gérons les mises à jour de modèles en sécurité, étendons le système à de nouvelles entités et équipes, et transférons la maîtrise quand votre équipe est prête. La sortie est planifiée dès le premier jour.',
+        includes: [
+          'Évaluation continue et supervision en production',
+          'Gestion des livraisons de modèles et de prompts',
+          'Déploiement dans les filiales et entités',
+          'Revue mensuelle de la qualité, des coûts et de l’adoption',
+          'Transfert de compétences et passation planifiés',
+        ],
+        pricing: 'Forfait mensuel',
+        duration: 'Dans la durée, avec une sortie planifiée',
+        exitCriteria: 'Votre équipe exploite le système seule, avec documentation et évaluations en place.',
+      },
+    ],
+  },
+  pricing: {
+    eyebrow: '[ 02 — Tarification ]',
+    title: { pre: 'Nous facturons le ', accent: 'résultat.' },
+    lead: 'L’heure facturable récompense l’effort. Nous préférons être payés pour ce qui change. Voici comment cela fonctionne concrètement.',
+    principles: [
+      { title: 'Prix fixe pour le diagnostic', text: 'Les diagnostics ont un périmètre et un prix fixes convenus avant de commencer. Vous connaissez le coût d’une décision avant de la prendre.' },
+      { title: 'Des jalons vérifiables', text: 'Les réalisations sont facturées par jalon ou par workflow en service, chacun défini par un test que vous pouvez exécuter : le seuil d’évaluation est franchi, le système est en production, l’équipe est formée.' },
+      { title: 'Une part du résultat quand la référence est fiable', text: 'Lorsque la situation de référence est mesurable, une partie de nos honoraires peut être liée au résultat : heures gagnées, délai de traitement, taux d’erreur. Nous ne le proposons que si les deux parties ont confiance dans le chiffre.' },
+      { title: 'Sans verrouillage ni taxe de licence', text: 'Le code, les prompts, les évaluations et la documentation vous appartiennent. Les coûts des modèles sont refacturés au prix coûtant ou imputés à vos propres comptes.' },
+    ],
+    note: 'Régie uniquement pour un travail véritablement exploratoire, et seulement si vous le demandez.',
+  },
+  sprint: {
+    eyebrow: '[ 03 — Le sprint de 30 jours ]',
+    title: { pre: 'De l’état des lieux à un premier workflow en service, en ', accent: '30 jours.' },
+    lead: 'Le moyen le plus rapide de savoir ce que vaut l’IA dans votre entreprise est de mettre un workflow en production. Le sprint combine un diagnostic ciblé et une première réalisation, à prix fixe.',
+    weeks: [
+      {
+        label: 'Semaine 1',
+        title: 'Cadrage',
+        text: 'Nous cartographions les workflows candidats, mesurons la situation de référence du plus prometteur et convenons de l’indicateur de succès.',
+        outputs: ['Liste courte d’opportunités', 'Mesure de la situation de référence', 'Indicateur de succès et plan d’évaluation'],
+      },
+      {
+        label: 'Semaine 2',
+        title: 'Construction',
+        text: 'Une équipe senior construit le workflow dans votre environnement, sur vos données, face à un jeu d’évaluation tiré de cas réels.',
+        outputs: ['Jeu d’évaluation à partir de cas réels', 'Workflow fonctionnel en environnement pilote', 'Intégration à un ou deux systèmes'],
+      },
+      {
+        label: 'Semaine 3',
+        title: 'Consolidation',
+        text: 'Vos équipes le testent sur du travail réel. Nous traitons les cas limites, le contrôle d’accès, la journalisation et l’interface de revue.',
+        outputs: ['Pilote avec de vrais utilisateurs', 'Contrôle d’accès et piste d’audit', 'Taux de réussite aux évaluations publié'],
+      },
+      {
+        label: 'Semaine 4',
+        title: 'En service',
+        text: 'Le workflow tourne en production. Votre équipe est formée pour l’exploiter, et vous recevez une feuille de route pour la suite.',
+        outputs: ['Mise en production', 'Runbook et formation', 'Résultat mesuré par rapport à la référence', 'Feuille de route des prochains workflows'],
+      },
+    ],
+    promise: 'Si le workflow ne franchit pas le seuil d’évaluation convenu au jour 30, nous continuons sans honoraires supplémentaires jusqu’à ce qu’il y parvienne.',
+  },
+  models: {
+    eyebrow: '[ 04 — Modes d’engagement ]',
+    title: { pre: 'Choisissez comment nous ', accent: 'travaillons', post: ' ensemble.' },
+    items: [
+      { icon: 'sprint', name: 'Sprint de 30 jours', bestFor: 'Les entreprises qui veulent une preuve en production avant un engagement plus large.', text: 'Prix fixe, un workflow en service, une équipe formée. Le point de départ le plus fréquent.' },
+      { icon: 'strategy', name: 'Diagnostic', bestFor: 'Les directions qui doivent prendre une décision à l’échelle de l’entreprise.', text: 'Prix fixe, deux à quatre semaines, business cases, politique et feuille de route.' },
+      { icon: 'fde', name: 'Équipe déployée', bestFor: 'Les programmes comportant plusieurs workflows et une feuille de route claire.', text: 'Une équipe senior intégrée à vos équipes, facturée par jalon ou par workflow en service.' },
+      { icon: 'operations', name: 'Forfait Opérer', bestFor: 'Les systèmes déjà en production qui ont besoin de soin, d’extension ou d’un filet de sécurité.', text: 'Forfait mensuel pour l’exploitation, l’amélioration, le déploiement et le transfert.' },
+    ],
+  },
+  team: {
+    eyebrow: '[ 05 — Avec qui vous travaillez ]',
+    title: { pre: 'Des seniors, ', accent: 'amplifiés.' },
+    lead: 'Pas de pyramide de juniors. Chaque mission est menée par des personnes qui ont déjà fait ce travail, et qui utilisent l’IA pour en faire davantage.',
+    pods: [
+      { icon: 'strategy', title: 'Responsable de mission', text: 'Responsable du résultat. Porte le business case, la relation avec votre direction et les décisions de périmètre.' },
+      { icon: 'fde', title: 'Forward-deployed engineers', text: 'Des ingénieurs seniors à Genève ou sur site, intégrés à votre équipe, qui construisent dans votre environnement.' },
+      { icon: 'evals', title: 'Spécialistes IA et évaluation', text: 'Ils conçoivent les agents, la recherche et les suites d’évaluation qui décident quand un système est prêt.' },
+      { icon: 'globe', title: 'Réseau de delivery mondial', text: 'Une capacité d’ingénierie supplémentaire en Asie-Pacifique et dans les Amériques, sur ce qui peut être partagé sans risque.' },
+    ],
+  },
+  faq: [
+    { q: 'En combien de temps pouvons-nous démarrer ?', a: 'En général dans les deux semaines suivant le premier appel. Le sprint et le diagnostic nécessitent un sponsor, l’accès à ceux qui font le travail et l’accès à un environnement de test.' },
+    { q: 'Et si nous avons déjà une équipe IA ?', a: 'Nous travaillons avec elle. Souvent, nous apportons la discipline d’évaluation, la consolidation pour la production ou le programme d’adoption, et laissons votre équipe plus capable qu’avant.' },
+    { q: 'Où se fait le travail ?', a: 'Dans votre environnement. Les forward-deployed engineers travaillent à Genève ou sur site. Le travail sur des données sensibles se fait en Suisse ou dans votre propre cloud ; notre réseau mondial ne travaille que sur ce qui peut être partagé sans risque.' },
+    { q: 'Que possédons-nous à la fin ?', a: 'Tout ce que nous construisons pour vous : code, prompts, jeux d’évaluation, configuration et documentation.' },
+  ],
+  cta: {
+    title: { pre: 'Commencez par ', accent: 'un', post: ' workflow.' },
+    text: 'Dites-nous quel processus coûte le plus de temps à votre équipe. En trente minutes, nous vous dirons si le sprint est le bon point de départ.',
+    primary: { label: 'Réserver un appel de 30 minutes', href: '/contact' },
+    secondary: { label: 'Voir des missions représentatives', href: '/work' },
+  },
+};
+
+export const about: AboutDict = {
+  hero: {
+    eyebrow: '[ À propos ]',
+    title: { pre: 'Ancrés à Genève. ', accent: 'Présents', post: ' partout.' },
+    lead: 'Emineon est un cabinet de conseil de pointe, natif de l’IA. Nous accompagnons les entreprises de la décision d’adopter l’IA jusqu’à son usage dans le travail réel, avec une seule équipe responsable, de la stratégie à la production et à l’adoption.',
+  },
+  name: {
+    eyebrow: '[ 01 — Le nom ]',
+    title: { pre: 'Éminent, ', accent: 'nouveau.' },
+    paragraphs: [
+      'Emineon réunit deux mots : éminent, pour le niveau d’exigence que nous nous imposons, et néo, pour une manière de travailler conçue pour l’ère de l’IA plutôt qu’adaptée à elle.',
+      'Nous venons de nous repositionner comme cabinet natif de l’IA, et nous y voyons un avantage. Nous n’avons pas de pyramide de juniors à occuper ni de modèle à l’heure à défendre. Nous avons pu bâtir le cabinet autour de ce que l’IA rend possible : de petites équipes seniors, des systèmes qui tournent plutôt que des présentations, et des honoraires liés aux résultats.',
+    ],
+  },
+  oak: {
+    eyebrow: '[ 02 — Le chêne ]',
+    title: { pre: 'Patient, durable, ', accent: 'cumulatif.' },
+    lead: 'Derrière le nom, un chêne, dessiné comme une trame de points avec un seul nœud ambre. Il décrit la façon dont l’IA devrait grandir dans une entreprise.',
+    layers: [
+      { key: 'roots', name: 'Racines', meaning: 'Vos données, gouvernées et au bon endroit. Rien ne pousse sans elles.' },
+      { key: 'trunk', name: 'Tronc', meaning: 'La plateforme et les contrôles : accès, évaluation, audit. Un cœur solide plutôt que de nombreuses tiges fragiles.' },
+      { key: 'branches', name: 'Branches', meaning: 'Les agents et les workflows, chacun atteignant une autre partie du travail.' },
+      { key: 'canopy', name: 'Canopée', meaning: 'Toute l’entreprise qui utilise l’IA chaque jour. La partie que chacun voit, et la raison d’être du reste.' },
+    ],
+  },
+  principles: {
+    eyebrow: '[ 03 — Principes ]',
+    title: { pre: 'Ce à quoi nous ', accent: 'tenons.' },
+    items: [
+      { title: 'Des systèmes, pas des présentations', text: 'Un conseil que l’on ne sait pas réaliser ne vaut pas grand-chose. Chaque recommandation que nous faisons, nous sommes prêts à la mettre en production.' },
+      { title: 'Rémunérés sur les résultats', text: 'Nous facturons le résultat lorsqu’il est mesurable, et nous le disons quand il ne l’est pas.' },
+      { title: 'Mesurer avant d’affirmer', text: 'D’abord les situations de référence, les évaluations avant le lancement, des chiffres dans chaque rapport. Ce que nous ne pouvons pas mesurer, nous ne le promettons pas.' },
+      { title: 'Vos données restent les vôtres', text: 'Aucun entraînement sur les données clients, aucun verrouillage, hébergement en Suisse ou dans votre propre cloud. Ce que nous construisons vous appartient.' },
+      { title: 'Pour tous, pas pour quelques-uns', text: 'Un système que seule une poignée de personnes utilise est un pilote. Nous restons jusqu’à ce que la nouvelle façon de travailler devienne simplement la façon de travailler.' },
+      { title: 'Parler clair', text: 'Pas d’emphase, pas de jargon derrière lequel se cacher. Nous vous disons ce qui sera construit, ce que cela coûtera et quel résultat cela doit produire.' },
+    ],
+  },
+  hq: {
+    eyebrow: '[ 04 — Siège ]',
+    title: { pre: 'Route de Vandœuvres ', accent: '77A.' },
+    text: 'Notre siège se trouve aux portes de Genève, à Vandœuvres, près des banques, des maisons de négoce et des organisations internationales avec lesquelles nous travaillons. La direction des missions et le forward-deployed engineering y sont basés, et la plupart de nos clients sont à quelques minutes.',
+  },
+  network: {
+    eyebrow: '[ 05 — Réseau mondial ]',
+    title: { pre: 'Un cabinet, ', accent: 'sept', post: ' villes.' },
+    lead: 'Les équipes seniors de Genève s’appuient sur des centres d’ingénierie et de delivery à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas. Le travail avance 24 heures sur 24 ; les données sensibles restent là où elles doivent être.',
+    stats: [
+      { value: '130+', label: 'Ingénieurs dans le réseau' },
+      { value: '200+', label: 'Projets livrés' },
+      { value: '7', label: 'Villes : Genève, Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, Silicon Valley, Texas' },
+    ],
+  },
+  organisation: {
+    eyebrow: '[ 06 — Notre organisation ]',
+    title: { pre: 'Légers devant, ', accent: 'profonds', post: ' derrière.' },
+    lead: 'Nos clients travaillent avec une petite équipe senior responsable du résultat. Derrière elle se trouve la capacité d’un cabinet bien plus grand.',
+    units: [
+      { icon: 'strategy', title: 'Équipes seniors', text: 'Un responsable de mission et des spécialistes seniors qui portent le résultat, la relation et les décisions difficiles.' },
+      { icon: 'fde', title: 'Forward-deployed engineers', text: 'Des ingénieurs seniors intégrés aux équipes clientes, à Genève et sur site, qui construisent dans l’environnement du client.' },
+      { icon: 'globe', title: 'Réseau de delivery mondial', text: 'Des centres d’ingénierie en Asie-Pacifique et dans les Amériques, qui ajoutent une capacité de construction et d’exploitation 24 heures sur 24.' },
+    ],
+  },
+  practices: {
+    eyebrow: '[ 07 — Domaines de pratique ]',
+    title: { pre: 'Cinq practices, ', accent: 'une', post: ' équipe.' },
+    items: [
+      { title: 'Stratégie', text: 'Stratégie IA, business cases, politique et modèle opérationnel.' },
+      { title: 'Ingénierie agentique', text: 'Agents, intégrations et systèmes avec humain dans la boucle, en production.' },
+      { title: 'Données et plateformes', text: 'Accès aux données, recherche, passerelles de modèles et gouvernance.' },
+      { title: 'Opérations IA', text: 'Évaluation, supervision, gestion des livraisons et risque modèle.' },
+      { title: 'Adoption', text: 'Formation, accompagnement du changement, ambassadeurs et indicateurs d’adoption.' },
+    ],
+  },
+  cta: {
+    title: { pre: 'Trouvons votre ', accent: 'premier', post: ' workflow.' },
+    text: 'Trente minutes, sans préparation. Vous saurez si l’IA transforme le processus auquel vous pensez.',
+    primary: { label: 'Parlons-en', href: '/contact' },
+    secondary: { label: 'Nous rejoindre', href: '/careers' },
+  },
+};
+
+export const careers: CareersDict = {
+  hero: {
+    eyebrow: '[ Carrières ]',
+    title: { pre: 'Construire ce qui ', accent: 'tourne.' },
+    lead: 'Nous cherchons des profils seniors qui veulent que leur travail finisse en production, utilisé par de vraies équipes et mesuré par de vrais résultats. Un siège à Genève, un réseau mondial, et pas d’usine à slides.',
+  },
+  why: {
+    eyebrow: '[ 01 — Pourquoi Emineon ]',
+    title: { pre: 'Un travail senior, de ', accent: 'vrais', post: ' systèmes.' },
+    items: [
+      { icon: 'agents', title: 'La production, pas des prototypes', text: 'Ce que vous construisez est mis en service dans des banques, des maisons de négoce et des organisations internationales, et y reste.' },
+      { icon: 'fde', title: 'Au plus près du travail', text: 'Vous travaillez avec ceux qui utilisent ce que vous construisez. Les exigences viennent du terrain, les retours arrivent le jour même.' },
+      { icon: 'spark', title: 'Natifs de l’IA', text: 'Nous utilisons l’IA dans tout ce que nous faisons, de la recherche à la revue de code. Vous travaillerez à la frontière, au lieu de la lire.' },
+      { icon: 'globe', title: 'Une équipe mondiale', text: 'Des collègues à Genève, Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas, avec Genève comme point d’ancrage.' },
+      { icon: 'outcome', title: 'Jugés sur les résultats', text: 'Pas de théâtre des feuilles de temps. Ce qui compte, c’est ce que vous livrez et ce que cela change.' },
+      { icon: 'roots', title: 'De la place pour grandir', text: 'De petites équipes seniors, c’est de vraies responsabilités très tôt, dans un cabinet encore façonné par ceux qui le composent.' },
+    ],
+  },
+  roles: {
+    eyebrow: '[ 02 — Postes ]',
+    title: { pre: 'Les profils que nous ', accent: 'recherchons.' },
+    lead: 'Nous embauchons en continu pour ces postes. Si l’un d’eux vous correspond, écrivez-nous quelques lignes sur une chose que vous avez construite et pourquoi elle comptait.',
+    items: [
+      {
+        slug: 'forward-deployed-engineer',
+        title: 'Forward-Deployed Engineer',
+        team: 'Ingénierie',
+        locations: ['Genève', 'Sur site chez les clients'],
+        type: 'Temps plein',
+        summary: 'S’intégrer aux équipes clientes, comprendre comment le travail se fait réellement et livrer des systèmes agentiques dans leurs environnements de production.',
+        responsibilities: [
+          'Observer les équipes clientes et transformer des processus confus en spécifications de workflow précises',
+          'Construire agents, intégrations et interfaces de revue dans les environnements clients',
+          'Écrire des jeux d’évaluation à partir de cas réels et les utiliser comme seuil de mise en service',
+          'Porter le système jusqu’au lancement et pendant les premières semaines en production',
+          'Coordonner avec le réseau de delivery mondial le travail qui peut être partagé',
+        ],
+        requirements: [
+          'Au moins six ans d’expérience dans la construction de logiciels en production, idéalement riches en intégrations',
+          'Expérience concrète de la mise en service de systèmes à base de LLM auprès de vrais utilisateurs',
+          'Excellente maîtrise de Python ou TypeScript, aisance avec l’infrastructure cloud',
+          'Anglais et français courants ; l’allemand est un vrai atout',
+          'Calme face à l’ambiguïté et aux clients ; capacité à expliquer des arbitrages à des non-ingénieurs',
+        ],
+        niceToHave: [
+          'Expérience dans la banque, le négoce, les sciences de la vie ou les organisations internationales',
+          'Connaissance des exigences de la nLPD, du RGPD ou de la FINMA',
+        ],
+      },
+      {
+        slug: 'ai-engineer',
+        title: 'Ingénieur·e IA',
+        team: 'Ingénierie',
+        locations: ['Genève', 'Centres du réseau mondial'],
+        type: 'Temps plein',
+        summary: 'Concevoir et construire les systèmes de recherche, d’agents et d’évaluation au cœur de nos missions, ainsi que les outils communs qui accélèrent chaque projet.',
+        responsibilities: [
+          'Construire des chaînes de recherche pour des documents multilingues, scannés et structurés',
+          'Concevoir des architectures d’agents avec usage d’outils, garde-fous et revue humaine',
+          'Construire et maintenir les bancs d’évaluation et la supervision',
+          'Optimiser coûts et latence entre modèles et fournisseurs',
+          'Contribuer aux accélérateurs internes et aux composants réutilisables',
+        ],
+        requirements: [
+          'Au moins quatre ans d’expérience en ML ou en génie logiciel',
+          'Connaissance pratique approfondie des LLM, des embeddings et de la recherche',
+          'Expérience de la conception d’évaluations et de l’exploitation de leurs résultats',
+          'Excellente maîtrise de Python ; bonne hygiène d’ingénierie',
+          'Anglais courant',
+        ],
+        niceToHave: [
+          'Expérience du déploiement de modèles open-weight',
+          'Français ou allemand',
+        ],
+      },
+      {
+        slug: 'ai-strategist',
+        title: 'Stratège IA',
+        team: 'Stratégie',
+        locations: ['Genève'],
+        type: 'Temps plein',
+        summary: 'Mener les diagnostics avec les directions clientes, construire des business cases qui résistent à l’examen de la finance, et rester responsable pendant la construction et l’adoption.',
+        responsibilities: [
+          'Conduire les diagnostics : entretiens, analyse des processus, mesure des situations de référence',
+          'Construire des business cases avec ROI et délai de retour aux côtés des équipes financières clientes',
+          'Rédiger politiques IA et modèles opérationnels avec les risques et la conformité',
+          'Cadrer et chiffrer les réalisations ; rester impliqué pendant la livraison',
+          'Écrire et intervenir sur ce que nous apprenons',
+        ],
+        requirements: [
+          'Au moins sept ans en conseil en stratégie, en opérations ou dans un rôle de transformation',
+          'Crédibilité auprès des comités de direction et aisance avec les chiffres',
+          'Une compréhension technique suffisante pour savoir ce qui est difficile à construire',
+          'Français et anglais courants ; l’allemand est un vrai atout',
+          'Expérience dans l’un de nos secteurs',
+        ],
+        niceToHave: [
+          'Parcours dans un secteur réglementé ou une organisation internationale',
+          'Expérience de l’accompagnement du changement ou de programmes d’adoption',
+        ],
+      },
+    ],
+    openApplication: {
+      title: 'Pas dans la liste ?',
+      text: 'Si vous excellez dans quelque chose que nous devrions faire, écrivez-nous quand même.',
+    },
+  },
+  locations: {
+    eyebrow: '[ 03 — Lieux ]',
+    title: { pre: 'Genève, et ', accent: 'au-delà.' },
+    text: 'Les postes en contact avec les clients sont basés à Genève, avec des déplacements chez les clients. Les postes d’ingénierie sont ouverts à Genève et dans les centres de notre réseau à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas.',
+  },
+  process: {
+    eyebrow: '[ 04 — Notre processus d’embauche ]',
+    title: { pre: 'Quatre étapes, ', accent: 'sans', post: ' devinettes.' },
+    steps: [
+      { title: 'Échange', text: 'Trente minutes avec quelqu’un qui fait le métier. Nous parlons de ce que vous avez construit et de ce que vous voulez faire ensuite.' },
+      { title: 'Cas pratique', text: 'Un problème réaliste tiré de nos missions, à faire chez vous en quelques heures ou en direct avec nous, au choix. Le temps passé chez vous est rémunéré.' },
+      { title: 'Journée d’équipe', text: 'Rencontrez les personnes avec qui vous travailleriez, discutez de votre cas pratique et posez toutes vos questions.' },
+      { title: 'Décision', text: 'Une réponse dans la semaine qui suit la journée d’équipe, avec un retour dans tous les cas.' },
+    ],
+  },
+  apply: {
+    title: 'Postuler',
+    text: 'Envoyez un court message et un CV ou un lien vers vos travaux. Chaque candidature est lue par une personne.',
+    email: 'hello@emineon.com',
+    subject: 'Candidature : {role}',
+  },
+};
+
+export const contact: ContactDict = {
+  hero: {
+    eyebrow: '[ Contact ]',
+    title: { pre: 'Parlons-', accent: 'en.' },
+    lead: 'Citez un processus qui coûte trop de temps à votre équipe. Trente minutes, sans préparation, et vous saurez si l’IA le transforme.',
+  },
+  form: {
+    title: 'Démarrer la conversation',
+    text: 'Un membre senior de l’équipe lit chaque message et répond sous un jour ouvrable.',
+  },
+  direct: {
+    title: 'Ou contactez-nous directement',
+    emailLabel: 'E-mail',
+    email: 'hello@emineon.com',
+    addressLabel: 'Siège',
+    addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genève, Suisse'],
+    responseTime: 'Réponse sous un jour ouvrable, en français, en allemand ou en anglais.',
+  },
+  next: {
+    title: 'La suite',
+    steps: [
+      { title: 'Nous répondons', text: 'Sous un jour ouvrable, pour proposer un appel de trente minutes.' },
+      { title: 'Nous écoutons', text: 'Vous décrivez le processus. Nous demandons comment il fonctionne aujourd’hui et à quoi ressemblerait une réussite.' },
+      { title: 'Nous vous parlons franchement', text: 'Si l’IA le transforme, ce que cela demanderait approximativement, et si nous sommes les bons interlocuteurs.' },
+    ],
+  },
+  officesTitle: 'Bureaux',
+};
+
+export const legal: LegalDict = {
+  privacy: {
+    title: 'Politique de confidentialité',
+    updated: 'Dernière mise à jour : 1er novembre 2026',
+    intro:
+      'Cette politique explique comment Emineon traite les données personnelles lorsque vous visitez emineon.com, nous contactez ou postulez à un poste. Nous traitons les données personnelles conformément à la loi fédérale sur la protection des données (nLPD) et, lorsqu’il s’applique, au règlement général sur la protection des données de l’UE (RGPD).',
+    blocks: [
+      { type: 'h2', text: '1. Responsable du traitement' },
+      { type: 'p', text: 'Le responsable du traitement est Emineon [forme juridique à confirmer], Route de Vandœuvres 77A, 1253 Vandœuvres, Suisse. Contact pour les questions de protection des données : hello@emineon.com.' },
+      { type: 'h2', text: '2. Données traitées' },
+      {
+        type: 'list',
+        items: [
+          'Formulaire de contact et e-mail : nom, e-mail professionnel, société, fonction, sujet et contenu de votre message.',
+          'Newsletter : votre adresse e-mail et la date d’inscription.',
+          'Candidatures : les informations et documents que vous nous transmettez.',
+          'Utilisation du site : données techniques nécessaires à la fourniture sécurisée du site, telles que l’adresse IP, le type de navigateur et l’heure d’accès, conservées dans les journaux du serveur.',
+        ],
+      },
+      { type: 'h2', text: '3. Finalités et bases juridiques' },
+      { type: 'p', text: 'Nous traitons vos données pour répondre à votre demande, vous envoyer la newsletter à laquelle vous vous êtes inscrit, évaluer les candidatures et exploiter un site sécurisé. Lorsque le RGPD s’applique, les bases juridiques sont votre consentement, les mesures précontractuelles et notre intérêt légitime à exploiter et sécuriser le site.' },
+      { type: 'h2', text: '4. Cookies et mesure d’audience' },
+      { type: 'p', text: 'Nous n’utilisons que des cookies strictement nécessaires, par exemple pour mémoriser votre choix de langue. Nous n’utilisons ni cookies publicitaires ni suivi intersites. [Outil de mesure d’audience éventuel à confirmer.]' },
+      { type: 'h2', text: '5. Destinataires et sous-traitants' },
+      { type: 'p', text: 'Nous faisons appel à des prestataires soigneusement sélectionnés pour l’hébergement et l’envoi d’e-mails. Ils ne traitent les données que sur nos instructions. [Liste des sous-traitants et lieux d’hébergement à confirmer.] Nous ne vendons pas de données personnelles.' },
+      { type: 'h2', text: '6. Transferts à l’étranger' },
+      { type: 'p', text: 'Si des données sont communiquées dans un pays dont le Conseil fédéral n’a pas reconnu le niveau de protection adéquat, nous recourons à des garanties reconnues, telles que les clauses contractuelles types reconnues par le PFPDT.' },
+      { type: 'h2', text: '7. Durée de conservation' },
+      { type: 'p', text: 'Les demandes sont conservées le temps nécessaire à leur traitement et jusqu’à deux ans ensuite. Les candidatures sont supprimées six mois après la fin du processus, sauf si vous acceptez une durée plus longue. Les données de la newsletter sont conservées jusqu’à votre désinscription.' },
+      { type: 'h2', text: '8. Vos droits' },
+      { type: 'p', text: 'Vous pouvez demander l’accès à vos données personnelles, leur rectification ou leur effacement, vous opposer à un traitement et demander la portabilité de vos données. Lorsqu’un traitement repose sur votre consentement, vous pouvez le retirer à tout moment. Écrivez à hello@emineon.com. Vous avez également le droit de saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) ou, lorsque le RGPD s’applique, une autorité de contrôle compétente.' },
+      { type: 'h2', text: '9. Sécurité' },
+      { type: 'p', text: 'Nous prenons des mesures techniques et organisationnelles appropriées pour protéger les données personnelles, notamment le chiffrement en transit, le contrôle d’accès et les principes de protection des données dès la conception et par défaut.' },
+      { type: 'h2', text: '10. Modifications' },
+      { type: 'p', text: 'Nous pouvons mettre à jour cette politique. La version en vigueur est toujours publiée sur cette page.' },
+    ],
+  },
+  imprint: {
+    title: 'Mentions légales',
+    updated: 'Dernière mise à jour : 1er novembre 2026',
+    intro: 'Informations conformément au droit suisse.',
+    blocks: [
+      { type: 'h2', text: 'Société' },
+      { type: 'p', text: 'Emineon [forme juridique à confirmer]' },
+      { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Suisse' },
+      { type: 'p', text: 'E-mail : hello@emineon.com' },
+      { type: 'h2', text: 'Inscription' },
+      { type: 'p', text: 'Registre du commerce : canton de Genève. Numéro d’identification des entreprises (IDE) : [CHE-xxx.xxx.xxx, à confirmer]. Numéro de TVA : [à confirmer].' },
+      { type: 'h2', text: 'Personnes autorisées à représenter la société' },
+      { type: 'p', text: '[À confirmer]' },
+      { type: 'h2', text: 'Clause de non-responsabilité' },
+      { type: 'p', text: 'Le contenu de ce site est fourni à titre d’information générale. Bien que nous veillions à son exactitude et à son actualité, nous déclinons toute responsabilité quant à son exhaustivité ou à son exactitude. Les études de cas décrivent des missions représentatives et anonymisées et ne constituent pas une garantie de résultats.' },
+      { type: 'h2', text: 'Liens externes' },
+      { type: 'p', text: 'Nous ne sommes pas responsables du contenu des sites externes liés depuis ce site.' },
+      { type: 'h2', text: 'Droits d’auteur' },
+      { type: 'p', text: 'L’ensemble du contenu de ce site, y compris les textes, images et graphismes, appartient à Emineon sauf mention contraire. Toute reproduction requiert notre accord écrit préalable.' },
+    ],
+  },
+};

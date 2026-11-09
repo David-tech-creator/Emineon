@@ -1,0 +1,57 @@
+/* Home section styles (home agent). Plain global CSS with a home- prefix (not a CSS module: see TODO). Global reduced-motion rules cut these to their end state. */
+
+/* Hero scroll hint: a short ember segment sliding down a hairline */
+.home-scroll-hint {
+  animation: scroll-hint 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes scroll-hint {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+
+/* Delivery map arcs draw in from Genève */
+.home-arc {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.home-arc-on {
+  animation: arc-draw 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes arc-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Hub nodes fade/scale in */
+.home-node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.home-node-on {
+  animation: node-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes node-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Hero entrance (QA perf fix): CSS-only, starts on first paint instead of after
+   hydration, so the headline/sub are the LCP element without waiting for JS. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero-in {
+    animation: home-hero-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+  #home-hero-title .mask-inner {
+    animation: home-hero-mask 950ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--line, 0) * 90ms + var(--delay, 0ms));
+  }
+}
+@keyframes home-hero-rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes home-hero-mask {
+  from { transform: translate3d(0, 110%, 0); }
+  to { transform: none; }
+}
