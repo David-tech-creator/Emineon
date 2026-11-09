@@ -240,7 +240,7 @@ export const common: CommonDict = {
     successTitle: 'Merci, bien reçu.',
     successText: 'Un membre senior de l’équipe vous répondra sous un jour ouvrable.',
     errorTitle: 'L’envoi n’a pas abouti.',
-    errorText: 'Veuillez réessayer, ou écrire directement à hello@emineon.com.',
+    errorText: 'Veuillez réessayer, ou écrire directement à david.v@emineon.com.',
     required: 'Obligatoire',
     invalidEmail: 'Veuillez saisir une adresse e-mail valide',
     tooShort: 'Quelques mots de plus, s’il vous plaît',

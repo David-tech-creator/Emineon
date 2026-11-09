@@ -352,7 +352,7 @@ export const careers: CareersDict = {
   apply: {
     title: 'Bewerben',
     text: 'Senden Sie eine kurze Nachricht und einen Lebenslauf oder einen Link zu Ihrer Arbeit. Jede Bewerbung wird von einem Menschen gelesen.',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     subject: 'Bewerbung: {role}',
   },
 };
@@ -370,7 +370,7 @@ export const contact: ContactDict = {
   direct: {
     title: 'Oder direkt Kontakt aufnehmen',
     emailLabel: 'E-Mail',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     addressLabel: 'Hauptsitz',
     addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genf, Schweiz'],
     responseTime: 'Antwort innert eines Arbeitstags, auf Deutsch, Französisch oder Englisch.',
@@ -394,7 +394,7 @@ export const legal: LegalDict = {
       'Diese Erklärung beschreibt, wie Emineon Personendaten bearbeitet, wenn Sie emineon.com besuchen, mit uns Kontakt aufnehmen oder sich bewerben. Wir bearbeiten Personendaten gemäss dem revidierten Bundesgesetz über den Datenschutz (revDSG) und, soweit anwendbar, der Datenschutz-Grundverordnung der EU (DSGVO).',
     blocks: [
       { type: 'h2', text: '1. Verantwortliche Stelle' },
-      { type: 'p', text: 'Verantwortlich ist Emineon [Rechtsform zu bestätigen], Route de Vandœuvres 77A, 1253 Vandœuvres, Schweiz. Kontakt für Datenschutzfragen: hello@emineon.com.' },
+      { type: 'p', text: 'Verantwortlich ist Emineon [Rechtsform zu bestätigen], Route de Vandœuvres 77A, 1253 Vandœuvres, Schweiz. Kontakt für Datenschutzfragen: david.v@emineon.com.' },
       { type: 'h2', text: '2. Bearbeitete Daten' },
       {
         type: 'list',
@@ -416,7 +416,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: '7. Aufbewahrung' },
       { type: 'p', text: 'Anfragen werden so lange aufbewahrt, wie es für ihre Bearbeitung nötig ist, und danach bis zu zwei Jahre. Bewerbungen werden sechs Monate nach Abschluss des Verfahrens gelöscht, sofern Sie keiner längeren Frist zustimmen. Newsletter-Daten werden bis zur Abmeldung aufbewahrt.' },
       { type: 'h2', text: '8. Ihre Rechte' },
-      { type: 'p', text: 'Sie können Auskunft über Ihre Personendaten, deren Berichtigung oder Löschung verlangen, der Bearbeitung widersprechen und die Herausgabe oder Übertragung Ihrer Daten verlangen. Beruht eine Bearbeitung auf Ihrer Einwilligung, können Sie diese jederzeit widerrufen. Schreiben Sie an hello@emineon.com. Sie haben zudem das Recht, sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) oder, soweit die DSGVO anwendbar ist, an eine zuständige Aufsichtsbehörde zu wenden.' },
+      { type: 'p', text: 'Sie können Auskunft über Ihre Personendaten, deren Berichtigung oder Löschung verlangen, der Bearbeitung widersprechen und die Herausgabe oder Übertragung Ihrer Daten verlangen. Beruht eine Bearbeitung auf Ihrer Einwilligung, können Sie diese jederzeit widerrufen. Schreiben Sie an david.v@emineon.com. Sie haben zudem das Recht, sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) oder, soweit die DSGVO anwendbar ist, an eine zuständige Aufsichtsbehörde zu wenden.' },
       { type: 'h2', text: '9. Sicherheit' },
       { type: 'p', text: 'Wir treffen angemessene technische und organisatorische Massnahmen zum Schutz von Personendaten, darunter Verschlüsselung bei der Übertragung, Zugriffskontrolle sowie Datenschutz durch Technik und datenschutzfreundliche Voreinstellungen.' },
       { type: 'h2', text: '10. Änderungen' },
@@ -431,7 +431,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: 'Firma' },
       { type: 'p', text: 'Emineon [Rechtsform zu bestätigen]' },
       { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Schweiz' },
-      { type: 'p', text: 'E-Mail: hello@emineon.com' },
+      { type: 'p', text: 'E-Mail: david.v@emineon.com' },
       { type: 'h2', text: 'Registereintrag' },
       { type: 'p', text: 'Handelsregister: Kanton Genf. Unternehmens-Identifikationsnummer (UID): [CHE-xxx.xxx.xxx, zu bestätigen]. MWST-Nummer: [zu bestätigen].' },
       { type: 'h2', text: 'Vertretungsberechtigte Personen' },

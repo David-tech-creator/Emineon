@@ -3,7 +3,7 @@ import type { SeoDict } from '../../schema';
 /**
  * Contenu SEO/GEO (SEO-PLAN.md  4,  6,  7), version française. Même politique
  * de faits que partout ailleurs : uniquement l’ensemble vérifié, pas de nombre
- * de continents (les centres sont listés), hello@emineon.com comme seule adresse
+ * de continents (les centres sont listés), david.v@emineon.com comme seule adresse
  * publique, aucun client ni chiffre inventé. Les énoncés réglementaires restent
  * volontairement généraux ; ce qui doit être revérifié avant le lancement figure
  * dans TODO.md (« SEO pages: verify »).
@@ -57,7 +57,7 @@ export const seo: SeoDict = {
       { label: 'Langues', value: 'Anglais, français, allemand' },
       { label: 'Données et conformité', value: 'Hébergement des données en Suisse possible · nLPD (en vigueur depuis le 1er septembre 2023) · communication FINMA sur la surveillance 08/2024 · RGPD · préparation à l’AI Act européen · indépendant des modèles' },
       { label: 'Secteurs', value: 'Négoce de matières premières et shipping · banque privée et gestion de fortune · organisations internationales et ONG · sciences de la vie et MedTech · parfumerie, arômes et chimie de spécialité · industrie et production' },
-      { label: 'Contact', value: 'hello@emineon.com' },
+      { label: 'Contact', value: 'david.v@emineon.com' },
     ],
   },
 
@@ -199,7 +199,7 @@ export const seo: SeoDict = {
         id: 'contact',
         group: 'firm',
         q: 'Comment entamer la discussion ?',
-        a: 'Écrivez à hello@emineon.com ou utilisez le formulaire de contact. Un premier appel permet de voir ce qui convient. La phase Évaluer, un sprint de 30 jours ou une réalisation ciblée.',
+        a: 'Écrivez à david.v@emineon.com ou utilisez le formulaire de contact. Un premier appel permet de voir ce qui convient. La phase Évaluer, un sprint de 30 jours ou une réalisation ciblée.',
       },
     ],
   },
@@ -213,7 +213,7 @@ export const seo: SeoDict = {
     hero: {
       eyebrow: '[ FAQ ]',
       title: { pre: 'Les questions qu’on nous pose ', accent: 'le plus', post: ' souvent.' },
-      lead: 'Des réponses courtes, classées par thème. Si votre question n’y figure pas, écrivez à hello@emineon.com. Un membre senior de l’équipe vous répond sous un jour ouvrable.',
+      lead: 'Des réponses courtes, classées par thème. Si votre question n’y figure pas, écrivez à david.v@emineon.com. Un membre senior de l’équipe vous répond sous un jour ouvrable.',
     },
   },
 

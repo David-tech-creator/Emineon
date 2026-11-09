@@ -11,7 +11,7 @@
  * - No continent count anywhere: copy lists the hubs instead.
  */
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.emineon.com";
-export const CONTACT_EMAIL = "hello@emineon.com";
+export const CONTACT_EMAIL = "david.v@emineon.com";
 
 export type SocialProfile = { id: "linkedin" | "x" | "github" | "crunchbase" | "wikidata" | "clutch"; label: string; url: string };
 

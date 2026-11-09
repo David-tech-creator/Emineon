@@ -16,7 +16,7 @@ export const emailConfig = {
     return !env("RESEND_API_KEY");
   },
   contact: {
-    /** David's mailbox. The public address on the site stays hello@emineon.com. */
+    /** David's mailbox. Also the public address on the site until a hello@ alias exists. */
     get to() {
       return env("CONTACT_TO") ?? "david.v@emineon.com";
     },
@@ -28,18 +28,18 @@ export const emailConfig = {
       return env("CONTACT_CONFIRMATION") !== "false";
     },
     get confirmationFrom() {
-      return env("CONTACT_CONFIRMATION_FROM") ?? env("NEWSLETTER_FROM") ?? "Emineon <hello@emineon.com>";
+      return env("CONTACT_CONFIRMATION_FROM") ?? env("NEWSLETTER_FROM") ?? "Emineon <david.v@emineon.com>";
     },
     get replyTo() {
-      return env("CONTACT_REPLY_TO") ?? "hello@emineon.com";
+      return env("CONTACT_REPLY_TO") ?? "david.v@emineon.com";
     },
   },
   newsletter: {
     get from() {
-      return env("NEWSLETTER_FROM") ?? "Emineon <hello@emineon.com>";
+      return env("NEWSLETTER_FROM") ?? "Emineon <david.v@emineon.com>";
     },
     get replyTo() {
-      return env("NEWSLETTER_REPLY_TO") ?? "hello@emineon.com";
+      return env("NEWSLETTER_REPLY_TO") ?? "david.v@emineon.com";
     },
     /** HMAC secret for confirmation links. Required once a key is set; a fixed dev value in dry mode. */
     get secret() {

@@ -3,7 +3,7 @@ import type { SeoDict } from '../../schema';
 /**
  * SEO/GEO content (SEO-PLAN.md §4, §6, §7). Facts policy as everywhere else:
  * only the verified set, no continent count (the hubs are listed instead),
- * hello@emineon.com is the only public address, no invented clients or numbers.
+ * david.v@emineon.com is the only public address, no invented clients or numbers.
  * Regulatory statements are deliberately general; anything to re-check before
  * launch is listed in TODO.md ("SEO pages: verify").
  */
@@ -56,7 +56,7 @@ export const seo: SeoDict = {
       { label: 'Languages', value: 'English, French, German' },
       { label: 'Data and compliance', value: 'Swiss data residency available; nFADP (in force since 1 September 2023); FINMA Guidance 08/2024; GDPR; EU AI Act readiness; model-agnostic' },
       { label: 'Sectors', value: 'Commodities trading and shipping; private banking and wealth; international organisations and NGOs; life sciences and MedTech; fragrance, flavour and specialty chemicals; industry and manufacturing' },
-      { label: 'Contact', value: 'hello@emineon.com' },
+      { label: 'Contact', value: 'david.v@emineon.com' },
     ],
   },
 
@@ -198,7 +198,7 @@ export const seo: SeoDict = {
         id: 'contact',
         group: 'firm',
         q: 'How do I start a conversation?',
-        a: 'Write to hello@emineon.com or use the contact form. A first call scopes whether Assess, a 30-day sprint or a specific build fits.',
+        a: 'Write to david.v@emineon.com or use the contact form. A first call scopes whether Assess, a 30-day sprint or a specific build fits.',
       },
     ],
   },
@@ -212,7 +212,7 @@ export const seo: SeoDict = {
     hero: {
       eyebrow: '[ FAQ ]',
       title: { pre: 'Questions we are ', accent: 'asked', post: ' most.' },
-      lead: 'Short answers you can quote, grouped by topic. If yours is not here, write to hello@emineon.com and a senior member of the team will reply within one business day.',
+      lead: 'Short answers you can quote, grouped by topic. If yours is not here, write to david.v@emineon.com and a senior member of the team will reply within one business day.',
     },
   },
 

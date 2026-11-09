@@ -352,7 +352,7 @@ export const careers: CareersDict = {
   apply: {
     title: 'Postuler',
     text: 'Envoyez un court message et un CV ou un lien vers vos travaux. Chaque candidature est lue par une personne.',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     subject: 'Candidature : {role}',
   },
 };
@@ -370,7 +370,7 @@ export const contact: ContactDict = {
   direct: {
     title: 'Ou contactez-nous directement',
     emailLabel: 'E-mail',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     addressLabel: 'Siège',
     addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genève, Suisse'],
     responseTime: 'Réponse sous un jour ouvrable, en français, en allemand ou en anglais.',
@@ -394,7 +394,7 @@ export const legal: LegalDict = {
       'Cette politique explique comment Emineon traite les données personnelles lorsque vous visitez emineon.com, nous contactez ou postulez à un poste. Nous traitons les données personnelles conformément à la loi fédérale sur la protection des données (nLPD) et, lorsqu’il s’applique, au règlement général sur la protection des données de l’UE (RGPD).',
     blocks: [
       { type: 'h2', text: '1. Responsable du traitement' },
-      { type: 'p', text: 'Le responsable du traitement est Emineon [forme juridique à confirmer], Route de Vandœuvres 77A, 1253 Vandœuvres, Suisse. Contact pour les questions de protection des données : hello@emineon.com.' },
+      { type: 'p', text: 'Le responsable du traitement est Emineon [forme juridique à confirmer], Route de Vandœuvres 77A, 1253 Vandœuvres, Suisse. Contact pour les questions de protection des données : david.v@emineon.com.' },
       { type: 'h2', text: '2. Données traitées' },
       {
         type: 'list',
@@ -416,7 +416,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: '7. Durée de conservation' },
       { type: 'p', text: 'Les demandes sont conservées le temps nécessaire à leur traitement et jusqu’à deux ans ensuite. Les candidatures sont supprimées six mois après la fin du processus, sauf si vous acceptez une durée plus longue. Les données de la newsletter sont conservées jusqu’à votre désinscription.' },
       { type: 'h2', text: '8. Vos droits' },
-      { type: 'p', text: 'Vous pouvez demander l’accès à vos données personnelles, leur rectification ou leur effacement, vous opposer à un traitement et demander la portabilité de vos données. Lorsqu’un traitement repose sur votre consentement, vous pouvez le retirer à tout moment. Écrivez à hello@emineon.com. Vous avez également le droit de saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) ou, lorsque le RGPD s’applique, une autorité de contrôle compétente.' },
+      { type: 'p', text: 'Vous pouvez demander l’accès à vos données personnelles, leur rectification ou leur effacement, vous opposer à un traitement et demander la portabilité de vos données. Lorsqu’un traitement repose sur votre consentement, vous pouvez le retirer à tout moment. Écrivez à david.v@emineon.com. Vous avez également le droit de saisir le Préposé fédéral à la protection des données et à la transparence (PFPDT) ou, lorsque le RGPD s’applique, une autorité de contrôle compétente.' },
       { type: 'h2', text: '9. Sécurité' },
       { type: 'p', text: 'Nous prenons des mesures techniques et organisationnelles appropriées pour protéger les données personnelles, notamment le chiffrement en transit, le contrôle d’accès et les principes de protection des données dès la conception et par défaut.' },
       { type: 'h2', text: '10. Modifications' },
@@ -431,7 +431,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: 'Société' },
       { type: 'p', text: 'Emineon [forme juridique à confirmer]' },
       { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Suisse' },
-      { type: 'p', text: 'E-mail : hello@emineon.com' },
+      { type: 'p', text: 'E-mail : david.v@emineon.com' },
       { type: 'h2', text: 'Inscription' },
       { type: 'p', text: 'Registre du commerce : canton de Genève. Numéro d’identification des entreprises (IDE) : [CHE-xxx.xxx.xxx, à confirmer]. Numéro de TVA : [à confirmer].' },
       { type: 'h2', text: 'Personnes autorisées à représenter la société' },

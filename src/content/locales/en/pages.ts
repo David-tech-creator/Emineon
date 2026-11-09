@@ -352,7 +352,7 @@ export const careers: CareersDict = {
   apply: {
     title: 'Apply',
     text: 'Send a short note and a CV or link to your work. A person reads every application.',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     subject: 'Application: {role}',
   },
 };
@@ -370,7 +370,7 @@ export const contact: ContactDict = {
   direct: {
     title: 'Or reach us directly',
     emailLabel: 'Email',
-    email: 'hello@emineon.com',
+    email: 'david.v@emineon.com',
     addressLabel: 'Headquarters',
     addressLines: ['Emineon', 'Route de Vandœuvres 77A', '1253 Vandœuvres', 'Genève, Switzerland'],
     responseTime: 'Reply within one business day, in English, French or German.',
@@ -394,7 +394,7 @@ export const legal: LegalDict = {
       'This policy explains how Emineon processes personal data when you visit emineon.com, contact us or apply for a role. We process personal data in accordance with the Swiss Federal Act on Data Protection (nFADP) and, where it applies, the EU General Data Protection Regulation (GDPR).',
     blocks: [
       { type: 'h2', text: '1. Controller' },
-      { type: 'p', text: 'The controller is Emineon [legal form to be confirmed], Route de Vandœuvres 77A, 1253 Vandœuvres, Switzerland. Contact for data protection matters: hello@emineon.com.' },
+      { type: 'p', text: 'The controller is Emineon [legal form to be confirmed], Route de Vandœuvres 77A, 1253 Vandœuvres, Switzerland. Contact for data protection matters: david.v@emineon.com.' },
       { type: 'h2', text: '2. Data we process' },
       {
         type: 'list',
@@ -416,7 +416,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: '7. Retention' },
       { type: 'p', text: 'Enquiries are kept for as long as needed to handle them and for up to two years afterwards. Applications are deleted six months after the process ends unless you agree to a longer period. Newsletter data is kept until you unsubscribe.' },
       { type: 'h2', text: '8. Your rights' },
-      { type: 'p', text: 'You may request access to your personal data, its rectification or deletion, object to processing, and request data portability. Where processing is based on consent, you can withdraw it at any time. Write to hello@emineon.com. You also have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC) or, where the GDPR applies, with a competent supervisory authority.' },
+      { type: 'p', text: 'You may request access to your personal data, its rectification or deletion, object to processing, and request data portability. Where processing is based on consent, you can withdraw it at any time. Write to david.v@emineon.com. You also have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC) or, where the GDPR applies, with a competent supervisory authority.' },
       { type: 'h2', text: '9. Security' },
       { type: 'p', text: 'We take appropriate technical and organisational measures to protect personal data, including encryption in transit, access control and the principles of privacy by design and by default.' },
       { type: 'h2', text: '10. Changes' },
@@ -431,7 +431,7 @@ export const legal: LegalDict = {
       { type: 'h2', text: 'Company' },
       { type: 'p', text: 'Emineon [legal form to be confirmed]' },
       { type: 'p', text: 'Route de Vandœuvres 77A, 1253 Vandœuvres, Switzerland' },
-      { type: 'p', text: 'Email: hello@emineon.com' },
+      { type: 'p', text: 'Email: david.v@emineon.com' },
       { type: 'h2', text: 'Registration' },
       { type: 'p', text: 'Commercial register: Canton of Geneva. Company number (UID): [CHE-xxx.xxx.xxx, to be confirmed]. VAT number: [to be confirmed].' },
       { type: 'h2', text: 'Authorised representatives' },

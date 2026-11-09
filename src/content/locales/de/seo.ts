@@ -3,7 +3,7 @@ import type { SeoDict } from '../../schema';
 /**
  * SEO/GEO-Inhalte, Deutsch (Schweiz). Struktur, ids, Gruppen und faqIds sind
  * identisch mit en/seo.ts. Faktenregeln wie überall: nur das verifizierte Set,
- * keine Kontinentzahl, hello@emineon.com als einzige öffentliche Adresse.
+ * keine Kontinentzahl, david.v@emineon.com als einzige öffentliche Adresse.
  * Schweizer Orthografie: immer "ss", nie Eszett; Tausendertrennzeichen ’.
  */
 export const seo: SeoDict = {
@@ -55,7 +55,7 @@ export const seo: SeoDict = {
       { label: 'Sprachen', value: 'Englisch, Französisch, Deutsch' },
       { label: 'Daten und Compliance', value: 'Datenhaltung in der Schweiz möglich; revDSG (in Kraft seit 1. September 2023); FINMA-Aufsichtsmitteilung 08/2024; DSGVO; vorbereitet auf den EU AI Act; modellunabhängig' },
       { label: 'Branchen', value: 'Rohstoffhandel und Schifffahrt; Private Banking und Vermögensverwaltung; internationale Organisationen und NGOs; Life Sciences und MedTech; Riech- und Aromastoffe, Spezialchemie; Industrie und Fertigung' },
-      { label: 'Kontakt', value: 'hello@emineon.com' },
+      { label: 'Kontakt', value: 'david.v@emineon.com' },
     ],
   },
 
@@ -197,7 +197,7 @@ export const seo: SeoDict = {
         id: 'contact',
         group: 'firm',
         q: 'Wie nehme ich Kontakt auf?',
-        a: 'Schreiben Sie an hello@emineon.com oder nutzen Sie das Kontaktformular. In einem ersten Gespräch klären wir, ob eine Analyse, ein 30-Tage-Sprint oder eine bestimmte Umsetzung passt.',
+        a: 'Schreiben Sie an david.v@emineon.com oder nutzen Sie das Kontaktformular. In einem ersten Gespräch klären wir, ob eine Analyse, ein 30-Tage-Sprint oder eine bestimmte Umsetzung passt.',
       },
     ],
   },
@@ -211,7 +211,7 @@ export const seo: SeoDict = {
     hero: {
       eyebrow: '[ FAQ ]',
       title: { pre: 'Fragen, die uns ', accent: 'oft', post: ' gestellt werden.' },
-      lead: 'Kurze Antworten, nach Thema geordnet. Fehlt Ihre Frage, schreiben Sie an hello@emineon.com. Ein Senior-Mitglied des Teams antwortet innert eines Arbeitstags.',
+      lead: 'Kurze Antworten, nach Thema geordnet. Fehlt Ihre Frage, schreiben Sie an david.v@emineon.com. Ein Senior-Mitglied des Teams antwortet innert eines Arbeitstags.',
     },
   },
 
