@@ -14,47 +14,47 @@ export const meta: MetaDict = {
   home: {
     title: 'Emineon · KI-Beratung aus Genf, Schweiz',
     description:
-      'KI-Beratung mit Sitz in Genf, Schweiz. KI-Strategie, agentische Systeme in Produktion und Adoption in der ganzen Firma, bezahlt nach Ergebnis.',
+      'KI-Beratung mit Sitz in Genf, Schweiz. Wir helfen bei der KI-Strategie, bauen agentische Systeme für die Produktion und begleiten die Einführung. Bezahlt nach Ergebnis.',
   },
   services: {
     title: 'KI-Beratungsleistungen: Strategie, Agenten, Plattformen, Betrieb',
     description:
-      'KI-Strategie, agentische Systeme, Daten- und KI-Plattformen, KI-Betrieb und Adoption. Fünf Leistungen, ein verantwortliches Team, vom ersten Business Case bis zu Systemen, die Ihre Mitarbeitenden täglich nutzen.',
+      'KI-Strategie, agentische Systeme, Daten- und KI-Plattformen, KI-Betrieb und Adoption. Fünf Leistungen aus einem Team, vom ersten Business Case bis zu Systemen im täglichen Einsatz.',
   },
   approach: {
-    title: 'So arbeiten wir: Analysieren, Bauen, Betreiben, ergebnisbasiert',
+    title: 'So arbeiten wir: Analysieren, Bauen, Betreiben',
     description:
-      'So arbeitet Emineon: eine Analyse zum Festpreis, ergebnisbasiert vergütete Umsetzungen und eine Betriebsphase, die härtet und übergibt. Mit dem 30-Tage-Sprint von der Standortbestimmung bis zum ersten Workflow in Produktion.',
+      'So arbeitet Emineon. Eine Analyse zum Festpreis, Umsetzungen mit ergebnisbasierter Vergütung und eine Betriebsphase mit Übergabe. Der 30-Tage-Sprint führt von der Standortbestimmung zum ersten Workflow in Produktion.',
   },
   industries: {
     title: 'KI für regulierte Branchen in der Schweiz',
     description:
-      'KI für regulierte, dokumentenintensive und mehrsprachige Branchen: Rohstoffhandel, Private Banking und Vermögensverwaltung, internationale Organisationen, Life Sciences, Riech- und Aromastoffe sowie Industrie.',
+      'KI für regulierte, dokumentenintensive und mehrsprachige Branchen. Dazu gehören Rohstoffhandel, Private Banking und Vermögensverwaltung, internationale Organisationen, Life Sciences, Riech- und Aromastoffe sowie Industrie.',
   },
   work: {
     title: 'Projekte',
     description:
-      'Repräsentative Mandate von Emineon: anonymisierte Fallstudien mit Ausgangslage, Vorgehen, gebautem System und gemessenen Ergebnissen.',
+      'Repräsentative Mandate von Emineon. Anonymisierte Fallstudien mit Ausgangslage, Vorgehen, System und gemessenen Ergebnissen.',
   },
   insights: {
     title: 'Insights',
     description:
-      'Praxisnahe Texte zu KI in Produktion: vom Pilot zur Produktion, agentische Workflows, das revDSG in der Praxis, ergebnisbasierte Preise, Forward-deployed Engineering und Evaluationen.',
+      'Texte aus der Praxis zu KI in Produktion. Themen sind der Weg vom Pilot zur Produktion, agentische Workflows, das revDSG, ergebnisbasierte Preise, Forward-deployed Engineering und Evaluationen.',
   },
   about: {
     title: 'Über Emineon: KI-Beratung mit Sitz in Genf',
     description:
-      'Emineon ist eine KI-native Beratungsfirma mit Sitz in Genf. Senior-Teams, Forward-deployed Engineers und ein globales Delivery-Netzwerk mit Hubs in Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, im Silicon Valley und in Texas.',
+      'Emineon ist eine KI-native Beratungsfirma mit Sitz in Genf. Wir arbeiten mit Senior-Teams, Forward-deployed Engineers und einem globalen Delivery-Netzwerk. Es hat Hubs in Ho-Chi-Minh-Stadt, Hanoi, Tokio, Melbourne, im Silicon Valley und in Texas.',
   },
   careers: {
     title: 'Karriere',
     description:
-      'Arbeiten Sie bei Emineon als Forward-deployed Engineer, AI Engineer oder AI Strategist. Senior-Arbeit, echte Systeme in Produktion, in Genf und in unserem globalen Netzwerk.',
+      'Arbeiten Sie bei Emineon als Forward-deployed Engineer, AI Engineer oder AI Strategist. Senior-Arbeit an Systemen in Produktion, in Genf und in unserem globalen Netzwerk.',
   },
   contact: {
-    title: 'Kontakt: Sprechen wir',
+    title: 'Kontakt',
     description:
-      'Erzählen Sie uns von einem Prozess, der Ihr Team zu viel Zeit kostet. Dreissig Minuten, ohne Vorbereitung, und Sie wissen, ob KI ihn verändert.',
+      'Erzählen Sie uns von einem Prozess, der Ihr Team viel Zeit kostet. Wir nehmen uns gerne dreissig Minuten Zeit, ohne Vorbereitung.',
   },
   privacy: {
     title: 'Datenschutzerklärung',
@@ -90,28 +90,28 @@ export const nav: NavDict = {
   mega: {
     services: {
       eyebrow: '[ Leistungen ]',
-      intro: 'Vom Business Case auf Geschäftsleitungsebene bis zu Systemen in Produktion, die Ihre Mitarbeitenden nutzen.',
+      intro: 'Vom Business Case für die Geschäftsleitung bis zu Systemen, die Ihre Mitarbeitenden nutzen.',
       groupServices: 'Was wir tun',
       groupModel: 'Wie wir arbeiten',
       approachLabel: 'Analysieren → Bauen → Betreiben',
-      approachText: 'Analyse zum Festpreis, ergebnisbasiert vergütete Umsetzung, eine Betriebsphase, die die Verantwortung übergibt.',
+      approachText: 'Analyse zum Festpreis, Umsetzung mit ergebnisbasierter Vergütung, dann Betrieb und Übergabe.',
       viewAll: 'Alle Leistungen',
       featured: {
         eyebrow: '[ Flaggschiff ]',
         title: 'Von der Standortbestimmung zum ersten Workflow in Produktion, in 30 Tagen.',
-        text: 'Ein System, das in Produktion läuft und Ihrem Team gehört. Keine Präsentation, kein Prototyp.',
+        text: 'Am Ende läuft ein System in Produktion, und es gehört Ihrem Team.',
         cta: { label: 'Zum Sprint', href: '/approach#sprint' },
       },
     },
     industries: {
       eyebrow: '[ Branchen ]',
-      intro: 'Reguliert, dokumentenintensiv, mehrsprachig. Die Branchen, in denen Genf stark ist und KI sich am schnellsten auszahlt.',
+      intro: 'Branchen mit vielen Dokumenten, mehreren Sprachen und strenger Aufsicht. In Genf sind sie stark, und KI spart dort viel Zeit.',
       groupCore: 'Kernbranchen',
       groupAdjacent: 'Angrenzende Branchen',
       viewAll: 'Alle Branchen',
       featured: {
         eyebrow: '[ Repräsentatives Mandat ]',
-        title: 'Handelsbestätigungen von Agenten abgeglichen, Ausnahmen an Menschen weitergeleitet.',
+        title: 'Agenten gleichen Handelsbestätigungen ab und leiten Ausnahmen an Menschen weiter.',
         text: 'Ein Genfer Rohstoffhändler, vom Posteingang bis zum gebuchten Geschäft.',
         cta: { label: 'Fallstudie lesen', href: '/work/trade-confirmation-agents' },
       },
@@ -183,7 +183,7 @@ export const common: CommonDict = {
     relatedInsights: 'Verwandte Insights',
     representative: 'Repräsentatives Mandat',
     representativeNote:
-      'Kunde aus Vertraulichkeitsgründen (NDA) nicht genannt. Angaben sind anonymisiert und so kombiniert, dass kein Kunde erkennbar ist; die Kennzahlen wurden im Mandat gemessen.',
+      'Kunde aus Vertraulichkeitsgründen (NDA) nicht genannt. Angaben sind anonymisiert und so kombiniert, dass kein Kunde erkennbar ist. Die Kennzahlen wurden im Mandat gemessen.',
     category: 'Kategorie',
     published: 'Veröffentlicht',
     readingTime: 'Lesezeit',
@@ -233,11 +233,11 @@ export const common: CommonDict = {
       { value: 'other', label: 'Etwas anderes' },
     ],
     message: 'Nachricht',
-    messagePlaceholder: 'Ein Prozess, der Ihr Team zu viel Zeit kostet, und wie ein gutes Ergebnis aussähe.',
+    messagePlaceholder: 'Ein Prozess, der Ihr Team viel Zeit kostet, und wie ein gutes Ergebnis aussähe.',
     consent: 'Ich bin einverstanden, dass Emineon diese Angaben zur Beantwortung meiner Anfrage gemäss Datenschutzerklärung bearbeitet.',
     submit: 'Senden',
     sending: 'Wird gesendet…',
-    successTitle: 'Erhalten.',
+    successTitle: 'Danke für Ihre Nachricht.',
     successText: 'Ein Senior-Mitglied des Teams antwortet innert eines Arbeitstags.',
     errorTitle: 'Das hat nicht geklappt.',
     errorText: 'Bitte versuchen Sie es erneut oder schreiben Sie direkt an hello@emineon.com.',
@@ -305,7 +305,7 @@ export const offices: Office[] = [
 ];
 
 export const footer: FooterDict = {
-  tagline: 'KI-native Beratung. Strategie, Systeme in Produktion, Adoption. Ein verantwortliches Team.',
+  tagline: 'KI-native Beratung aus Genf. Wir begleiten Strategie, Umsetzung und Einführung mit einem Team.',
   brandLine: 'Forge your edge.',
   columns: {
     services: 'Leistungen',
@@ -323,19 +323,19 @@ export const footer: FooterDict = {
   ],
   newsletter: {
     title: 'Notizen aus der Praxis',
-    text: 'Eine durchdachte Notiz pro Woche darüber, wie KI in Produktion kommt. Kein Hype, keine Tracking-Pixel.',
+    text: 'Eine kurze Notiz pro Woche dazu, wie KI in Produktion kommt. Ohne Tracking-Pixel.',
   },
   legal: { privacy: 'Datenschutz', imprint: 'Impressum' },
   copyright: '© {year} Emineon. Alle Rechte vorbehalten.',
-  rooted: 'Verwurzelt in Genf. Gewachsen in alle Richtungen.',
+  rooted: 'Verwurzelt in Genf. Mit Teams in sieben Städten.',
   backToTop: 'Nach oben',
 };
 
 export const home: HomeDict = {
   hero: {
     eyebrow: '[ Genf · KI-native Beratung ]',
-    title: { pre: 'KI, die für Ihre ', accent: 'ganze', post: ' Firma arbeitet.' },
-    sub: 'Von der Strategie auf Geschäftsleitungsebene bis zu Systemen in Produktion, genutzt von Ihren Mitarbeitenden. Kleine Senior-Teams, verstärkt durch KI. Bezahlt nach Ergebnissen, nicht nach Stunden.',
+    title: { pre: 'KI, die Ihren ', accent: 'Teams', post: ' jeden Tag hilft.' },
+    sub: 'Wir begleiten Sie von der Strategie bis zu Systemen, die Ihre Mitarbeitenden nutzen. Kleine Senior-Teams, unterstützt durch KI. Die Vergütung richtet sich nach Ergebnissen.',
     primaryCta: { label: 'Gespräch vereinbaren', href: '/contact' },
     secondaryCta: { label: 'Unser Vorgehen', href: '/approach' },
     ticker: [
@@ -361,16 +361,16 @@ export const home: HomeDict = {
     note: 'Die Netzwerkzahlen umfassen Emineon und sein globales Delivery-Netzwerk.',
   },
   gap: {
-    eyebrow: '[ 01 — Die Lücke ]',
-    title: { pre: 'Die meisten Firmen haben entschieden, KI zu nutzen. Wenige haben einen ', accent: 'Weg', post: ', sie umzusetzen.' },
+    eyebrow: '[ 01 · Die Lücke ]',
+    title: { pre: 'Viele Firmen wollen KI nutzen. Oft fehlt noch ein klarer ', accent: 'Weg', post: ' dafür.' },
     paragraphs: [
-      'Die Lizenzen sind gekauft. Eine Handvoll Leute nutzt sie gut. Für alle anderen läuft die Arbeit wie vor zehn Jahren: von Hand, aus dem Gedächtnis, wenn jemand daran denkt.',
-      'Jemand findet einen besseren Weg für eine Aufgabe. Er bleibt bei dieser Person. Die Firma profitiert nie davon, weil nichts die Idee mit den Systemen verbindet, in denen die Arbeit tatsächlich stattfindet.',
-      'Die Tools sind nicht das Problem. Sie in die echte Arbeit zu bringen, für alle, mit der Governance, die Ihre Aufsicht erwartet: Das ist das Problem, das wir lösen.',
+      'Die Lizenzen sind gekauft. Einige Leute nutzen sie gut. Viele Aufgaben laufen aber noch von Hand.',
+      'Findet jemand einen besseren Weg für eine Aufgabe, bleibt er oft bei dieser Person. Die Idee kommt nicht in die Systeme, in denen die Arbeit stattfindet.',
+      'Wir helfen, die Tools in die tägliche Arbeit zu bringen. Für alle Teams und mit der nötigen Governance.',
     ],
     stat: {
       value: '22% → 34%',
-      label: 'KI-Nutzung in Schweizer KMU innerhalb eines Jahres. Wer sie in die echte Arbeit bringt, zieht davon.',
+      label: 'KI-Nutzung in Schweizer KMU innerhalb eines Jahres.',
       source: 'AXA KMU-Studie · kmu.admin.ch',
     },
     mock: {
@@ -385,22 +385,22 @@ export const home: HomeDict = {
     },
   },
   services: {
-    eyebrow: '[ 02 — Was wir tun ]',
-    title: { pre: 'Fünf Leistungen. Ein ', accent: 'verantwortliches', post: ' Team.' },
-    lead: 'Wir entscheiden, wo KI sich lohnt, bauen die Systeme, die den Wert realisieren, betreiben sie sicher und sorgen dafür, dass Ihre Mitarbeitenden sie nutzen. Keine Übergabe zwischen denen, die beraten, und denen, die bauen.',
+    eyebrow: '[ 02 · Was wir tun ]',
+    title: { pre: 'Fünf Leistungen aus einem ', accent: 'Team', post: '.' },
+    lead: 'Wir klären, wo KI sich lohnt, und bauen die passenden Systeme. Wir betreiben sie sicher und begleiten Ihre Mitarbeitenden bei der Nutzung. Beratung und Umsetzung liegen beim selben Team.',
     cta: { label: 'Alle Leistungen', href: '/services' },
   },
   approach: {
-    eyebrow: '[ 03 — Wie wir arbeiten ]',
+    eyebrow: '[ 03 · Wie wir arbeiten ]',
     title: { pre: 'Analysieren. Bauen. ', accent: 'Betreiben.' },
-    lead: 'Eine Leiter, die Sie Sprosse für Sprosse erklimmen. Jeder Schritt hat einen festen Umfang, eine klare Preislogik und ein Ergebnis, das Sie prüfen können, bevor Sie sich auf den nächsten festlegen.',
+    lead: 'Wir gehen Schritt für Schritt vor. Jeder Schritt hat einen festen Umfang, eine klare Preislogik und ein prüfbares Ergebnis. Danach entscheiden Sie über den nächsten.',
     stages: [
       {
         key: 'assess',
         icon: 'strategy',
         label: '01 · Analysieren',
-        title: 'Wissen, wo KI sich lohnt',
-        text: 'Eine Analyse zum Festpreis: Reifegrad, priorisierte Business Cases mit ROI, eine KI-Richtlinie und eine Roadmap, die Ihr Verwaltungsrat freigeben kann.',
+        title: 'Klären, wo KI sich lohnt',
+        text: 'Eine Analyse zum Festpreis. Sie erhalten den Reifegrad, priorisierte Business Cases mit ROI, eine KI-Richtlinie und eine Roadmap für den Verwaltungsrat.',
         pricing: 'Festpreis',
         duration: '2–4 Wochen',
       },
@@ -409,7 +409,7 @@ export const home: HomeDict = {
         icon: 'agents',
         label: '02 · Bauen',
         title: 'Systeme in Produktion bringen',
-        text: 'Agentische Workflows in Ihrer Umgebung, auf Ihren Daten, mit Evaluationen und Kontrollen ab dem ersten Tag. Vergütet pro Meilenstein oder pro Workflow in Produktion.',
+        text: 'Agentische Workflows in Ihrer Umgebung und auf Ihren Daten. Evaluationen und Kontrollen gibt es ab dem ersten Tag. Vergütet pro Meilenstein oder pro Workflow in Produktion.',
         pricing: 'Meilenstein- oder ergebnisbasiert',
         duration: '4–12 Wochen pro Workflow',
       },
@@ -418,7 +418,7 @@ export const home: HomeDict = {
         icon: 'operations',
         label: '03 · Betreiben',
         title: 'Betreiben, härten, übergeben',
-        text: 'Wir überwachen, verbessern und härten, was live ist, rollen es auf weitere Gesellschaften aus und übergeben die Verantwortung an Ihr Team, sobald es bereit ist.',
+        text: 'Wir überwachen und verbessern, was live ist, und rollen es auf weitere Gesellschaften aus. Wenn Ihr Team bereit ist, übergeben wir die Verantwortung.',
         pricing: 'Monatspauschale',
         duration: 'Laufend, mit geplantem Ausstieg',
       },
@@ -426,35 +426,35 @@ export const home: HomeDict = {
     sprint: {
       eyebrow: '[ Flaggschiff · 30 Tage ]',
       title: { pre: 'Vom ersten Gespräch zum Workflow live, in ', accent: '30 Tagen.' },
-      sub: 'Ein System, das in Produktion läuft und Ihrem Team gehört. Keine Präsentation, kein Prototyp.',
+      sub: 'Am Ende läuft ein System in Produktion, und es gehört Ihrem Team.',
       weeks: [
-        { label: 'Woche 1', title: 'Eingrenzen', text: 'Wir zeigen, wo KI in Ihrer Firma Wert schafft, legen die Ausgangslage fest und wählen den ersten Workflow.' },
-        { label: 'Woche 2', title: 'Bauen', text: 'Ein Senior-Team baut ihn in Ihrer Umgebung, auf Ihren Daten, mit dem Evaluationsset, das vor dem ersten Prompt steht.' },
-        { label: 'Woche 3', title: 'Härten', text: 'Grenzfälle, Ausnahmen, Zugriffskontrollen und Audit-Trail. Ihre Mitarbeitenden testen ihn an echter Arbeit.' },
-        { label: 'Woche 4', title: 'Live', text: 'Der Workflow läuft in Produktion. Ihr Team ist geschult, ihn zu betreiben, und weiss, was als Nächstes kommt.' },
+        { label: 'Woche 1', title: 'Eingrenzen', text: 'Wir klären, wo KI in Ihrer Firma hilft, legen die Ausgangslage fest und wählen den ersten Workflow.' },
+        { label: 'Woche 2', title: 'Bauen', text: 'Ein Senior-Team baut ihn in Ihrer Umgebung und auf Ihren Daten. Das Evaluationsset steht vor dem ersten Prompt.' },
+        { label: 'Woche 3', title: 'Härten', text: 'Wir prüfen Grenzfälle, Ausnahmen, Zugriffskontrollen und Audit-Trail. Ihre Mitarbeitenden testen ihn im Alltag.' },
+        { label: 'Woche 4', title: 'Live', text: 'Der Workflow läuft in Produktion. Ihr Team kann ihn betreiben und kennt die nächsten Schritte.' },
       ],
       cta: { label: 'Mit dem Sprint starten', href: '/approach#sprint' },
     },
   },
   fde: {
-    eyebrow: '[ 04 — Forward-deployed Engineering ]',
+    eyebrow: '[ 04 · Forward-deployed Engineering ]',
     title: { pre: 'Senior-Ingenieure ', accent: 'in', post: ' Ihrem Team.' },
-    lead: 'Unsere Forward-deployed Engineers arbeiten mit Ihren Leuten in Genf oder vor Ort. Sie lernen, wie die Arbeit wirklich läuft, liefern in Ihrer Umgebung und bleiben, bis es sitzt. Dahinter ergänzt unser globales Delivery-Netzwerk die Kapazität rund um die Uhr.',
+    lead: 'Unsere Forward-deployed Engineers arbeiten mit Ihren Leuten in Genf oder vor Ort. Sie lernen, wie die Arbeit läuft, und liefern in Ihrer Umgebung. Sie bleiben, bis alles sitzt. Unser globales Delivery-Netzwerk ergänzt die Kapazität.',
     points: [
       {
         icon: 'fde',
-        title: 'Eingebettet, nicht aus der Ferne',
-        text: 'Sie sind in Ihren Stand-ups, lesen Ihre Ausnahmen-Queue und sprechen mit den Leuten, die die Arbeit machen. Anforderungen kommen aus der Praxis, nicht aus einem Workshop.',
+        title: 'Bei Ihnen im Team',
+        text: 'Sie sind in Ihren Stand-ups, lesen Ihre Ausnahmen-Queue und sprechen mit den Leuten, die die Arbeit machen. So kommen die Anforderungen aus der Praxis.',
       },
       {
         icon: 'globe',
-        title: 'Getragen von einem globalen Netzwerk',
-        text: 'Engineering-Kapazität in Asien-Pazifik und Amerika, damit ein kleines Senior-Team im Tempo eines viel grösseren arbeitet.',
+        title: 'Mit einem globalen Netzwerk',
+        text: 'Engineering-Kapazität in Asien-Pazifik und Amerika. So kann ein kleines Senior-Team mehr Arbeit übernehmen.',
       },
       {
         icon: 'residency',
         title: 'Sensible Daten bleiben in der Schweiz',
-        text: 'Arbeit mit regulierten Daten findet in der Schweiz oder in Ihrer eigenen Cloud statt. Das Netzwerk berührt nur, was sicher geteilt werden kann.',
+        text: 'Arbeit mit regulierten Daten findet in der Schweiz oder in Ihrer eigenen Cloud statt. Das Netzwerk sieht nur Daten, die geteilt werden dürfen.',
       },
     ],
     map: {
@@ -463,61 +463,61 @@ export const home: HomeDict = {
     },
     stats: [
       { value: '7', label: 'Städte' },
-      { value: '24h', label: 'Delivery rund um die Uhr' },
-      { value: '1', label: 'Verantwortliches Team' },
+      { value: '24h', label: 'Arbeit über mehrere Zeitzonen' },
+      { value: '1', label: 'Team als Ansprechpartner' },
     ],
   },
   industries: {
-    eyebrow: '[ 05 — Branchen ]',
+    eyebrow: '[ 05 · Branchen ]',
     title: { pre: 'Gebaut für ', accent: 'regulierte', post: ' Arbeit.' },
-    lead: 'Dokumentenintensiv, mehrsprachig, geprüft. Die Branchen, die Genf ausmachen, sind jene, in denen KI am meisten Zeit spart und am meisten Sorgfalt verlangt.',
+    lead: 'Wir arbeiten in den Branchen, die Genf prägen. Dort gibt es viele Dokumente, mehrere Sprachen und strenge Prüfungen. KI spart hier Zeit und verlangt Sorgfalt.',
     cta: { label: 'Alle Branchen', href: '/industries' },
   },
   work: {
-    eyebrow: '[ 06 — Ausgewählte Projekte ]',
+    eyebrow: '[ 06 · Ausgewählte Projekte ]',
     title: { pre: 'Laufende Systeme, ', accent: 'gemessene', post: ' Ergebnisse.' },
-    lead: 'Repräsentative Mandate, anonymisiert unter NDA. Jedes ist ein System in Produktion, mit einer Ausgangslage und einer Zahl.',
+    lead: 'Repräsentative Mandate, anonymisiert unter NDA. Zu jedem System in Produktion gibt es eine Ausgangslage und eine Zahl.',
     cta: { label: 'Alle Projekte', href: '/work' },
     featured: ['trade-confirmation-agents', 'private-bank-kyc-refresh', 'multilingual-document-pipeline'],
   },
   trust: {
-    eyebrow: '[ 07 — Ihre Daten ]',
+    eyebrow: '[ 07 · Ihre Daten ]',
     title: { pre: 'Ihre Daten bleiben ', accent: 'Ihre', post: ' Daten.' },
     lead: 'Wir trainieren keine Modelle damit und behalten nichts, was die Arbeit nicht braucht. Alles läuft in einer Umgebung, die nur Ihr Team erreicht.',
     pillars: [
       {
         icon: 'residency',
         title: 'Datenhaltung in der Schweiz',
-        text: 'In der Schweiz oder in Ihrem eigenen Cloud-Tenant. Sie wählen die Region; wir dokumentieren sie.',
+        text: 'In der Schweiz oder in Ihrem eigenen Cloud-Tenant. Sie wählen die Region, und wir dokumentieren sie.',
       },
       {
         icon: 'shield',
         title: 'revDSG, FINMA und DSGVO',
-        text: 'Gebaut für das revidierte Datenschutzgesetz, in Kraft seit 1. September 2023: Meldung von Verletzungen an den EDÖB, Verzeichnis der Bearbeitungstätigkeiten, Datenschutz durch Technik und datenschutzfreundliche Voreinstellungen.',
+        text: 'Gebaut für das revidierte Datenschutzgesetz, in Kraft seit 1. September 2023. Dazu gehören die Meldung von Verletzungen an den EDÖB, das Verzeichnis der Bearbeitungstätigkeiten und Datenschutz durch Technik und Voreinstellungen.',
       },
       {
         icon: 'trust',
         title: 'Bereit für den EU AI Act',
-        text: 'Risikoklassifizierung, Dokumentation und menschliche Aufsicht eingebaut, damit Systeme mit Bezug zum EU-Markt bereit sind, wenn die Pflichten gelten.',
+        text: 'Risikoklassifizierung, Dokumentation und menschliche Aufsicht sind eingebaut. So sind Systeme mit Bezug zum EU-Markt bereit, wenn die Pflichten gelten.',
       },
       {
         icon: 'branch',
-        title: 'Modellunabhängig, kein Lock-in',
-        text: 'Wir wählen das richtige Modell pro Aufgabe und können es ohne Neuentwicklung wechseln. Code, Prompts und Evaluationen gehören Ihnen.',
+        title: 'Modellunabhängig',
+        text: 'Wir wählen pro Aufgabe ein passendes Modell und können es ohne Neuentwicklung wechseln. Code, Prompts und Evaluationen gehören Ihnen.',
       },
     ],
-    footnote: 'Die meisten mittelgrossen Firmen können die Ausnahme vom Bearbeitungsverzeichnis für Bearbeitungen mit geringem Risiko nutzen. Wir sagen Ihnen, ob das auf Sie zutrifft.',
+    footnote: 'Viele mittelgrosse Firmen können die Ausnahme vom Bearbeitungsverzeichnis für Bearbeitungen mit geringem Risiko nutzen. Wir sagen Ihnen gerne, ob das auf Sie zutrifft.',
   },
   insights: {
-    eyebrow: '[ 08 — Insights ]',
+    eyebrow: '[ 08 · Insights ]',
     title: { pre: 'Notizen aus der ', accent: 'Produktion.' },
-    lead: 'Was wir lernen, wenn wir KI in echte Arbeit bringen, geschrieben für die Leute, die es umsetzen müssen.',
+    lead: 'Was wir bei der Arbeit mit KI lernen. Geschrieben für die Leute, die es umsetzen.',
     cta: { label: 'Alle Insights', href: '/insights' },
   },
   cta: {
     eyebrow: '[ Nächster Schritt ]',
-    title: { pre: 'Forge your ', accent: 'edge.' },
-    text: 'Nennen Sie einen Prozess, der Ihr Team zu viel Zeit kostet. In dreissig Minuten, ohne Vorbereitung, wissen Sie, was KI daraus machen würde.',
+    title: { pre: 'Sprechen ', accent: 'wir', post: ' darüber.' },
+    text: 'Erzählen Sie uns von einem Prozess, der Ihr Team viel Zeit kostet. Gerne in einem Gespräch von dreissig Minuten, ohne Vorbereitung.',
     primary: { label: '30-Minuten-Gespräch buchen', href: '/contact' },
     secondary: { label: 'Zum 30-Tage-Sprint', href: '/approach#sprint' },
   },
@@ -527,14 +527,14 @@ export const hubs: HubsDict = {
   services: {
     eyebrow: '[ Leistungen ]',
     title: { pre: 'Vom Business Case zum ', accent: 'laufenden', post: ' System.' },
-    lead: 'Fünf Leistungen, die einzeln oder gemeinsam wirken. Die meisten Kunden beginnen mit einer Analyse zum Festpreis oder dem 30-Tage-Sprint und ergänzen den Rest, sobald der Wert belegt ist.',
-    modelNote: 'Jede Leistung folgt Analysieren → Bauen → Betreiben, mit festem Umfang und einem Preis, der an ein überprüfbares Ergebnis gebunden ist.',
+    lead: 'Die fünf Leistungen gibt es einzeln oder zusammen. Die meisten Kunden beginnen mit einer Analyse zum Festpreis oder dem 30-Tage-Sprint. Weiteres kommt dazu, wenn der Wert belegt ist.',
+    modelNote: 'Jede Leistung folgt Analysieren → Bauen → Betreiben. Der Umfang ist fest, und der Preis hängt an einem prüfbaren Ergebnis.',
     cta: { label: 'Unser Vorgehen', href: '/approach' },
   },
   industries: {
     eyebrow: '[ Branchen ]',
-    title: { pre: 'Wo Genf arbeitet, zahlt sich ', accent: 'KI', post: ' aus.' },
-    lead: 'Wir gehen in wenigen Branchen in die Tiefe statt in vielen in die Breite. Jede hat ihre eigenen Dokumente, Aufsichtsbehörden, Sprachen und Fehlerbilder, und wir gestalten für alle.',
+    title: { pre: 'KI für die Branchen, in denen ', accent: 'Genf', post: ' arbeitet.' },
+    lead: 'Wir arbeiten in wenigen Branchen und kennen sie gut. Jede hat eigene Dokumente, Aufsichtsbehörden, Sprachen und typische Fehler. Darauf richten wir unsere Arbeit aus.',
     coreLabel: 'Kernbranchen',
     adjacentLabel: 'Angrenzende Branchen',
     cta: { label: 'Über Ihre Branche sprechen', href: '/contact' },
@@ -544,14 +544,14 @@ export const hubs: HubsDict = {
     title: { pre: 'Systeme in Produktion, ', accent: 'gemessen.' },
     lead: 'Sechs repräsentative Mandate aus unseren Branchen. Jedes zeigt die Ausgangslage, was wir gebaut haben und was sich verändert hat.',
     disclaimer:
-      'Alle Mandate sind anonymisiert und als repräsentativ dargestellt. Kunden werden aus Vertraulichkeitsgründen (NDA) nicht genannt; Angaben sind so kombiniert, dass kein Kunde erkennbar ist.',
+      'Alle Mandate sind anonymisiert und als repräsentativ dargestellt. Kunden werden aus Vertraulichkeitsgründen (NDA) nicht genannt. Angaben sind so kombiniert, dass kein Kunde erkennbar ist.',
     filterAll: 'Alle Branchen',
     cta: { label: 'Über ein ähnliches System sprechen', href: '/contact' },
   },
   insights: {
     eyebrow: '[ Insights ]',
     title: { pre: 'Geschrieben aus der ', accent: 'Praxis.' },
-    lead: 'Ausführliche Notizen dazu, wie KI in regulierten Firmen in Produktion kommt. Geschrieben von unseren Practices, für Praktiker, nicht für Suchmaschinen.',
+    lead: 'Ausführliche Notizen dazu, wie KI in regulierten Firmen in Produktion kommt. Geschrieben von unseren Practices für Leute aus der Praxis.',
     filterAll: 'Alle Themen',
     latest: 'Neueste',
     cta: { label: 'Notizen aus der Praxis abonnieren', href: '#newsletter' },

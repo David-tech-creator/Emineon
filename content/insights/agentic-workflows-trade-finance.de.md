@@ -1,62 +1,62 @@
 ---
-title: Agentische Workflows in der Handelsfinanzierung: wo Agenten sich bezahlt machen und wo sie nicht allein handeln dürfen
-summary: Rohstoffhandel lebt von Dokumenten. Agenten können fast alle lesen, abgleichen und vorprüfen. Die Kunst liegt darin, zu entscheiden, welche Schritte sie selbstständig gehen.
+title: Agentische Workflows in der Handelsfinanzierung. Wo Agenten helfen und wo ein Mensch entscheidet
+summary: Rohstoffhandel arbeitet mit vielen Dokumenten. Agenten können die meisten lesen, abgleichen und vorprüfen. Wichtig ist, welche Schritte sie selbst ausführen.
 author: Emineon · Practice Rohstoffe & Handel
 ---
 
-Genf ist weltweit führend in der Handelsfinanzierung, und zwölf der vierzehn Schweizer Handelsfinanzierungsbanken sind hier ansässig. Um sie herum sind rund 400 Handelsfirmen tätig. Zwischen einem am Desk abgeschlossenen Geschäft und dem Zahlungseingang führt jede dieser Firmen eine lange Kette von Dokumenten: Recaps, Bestätigungen, Akkreditive, Konnossemente, Ursprungs- und Qualitätszertifikate, Inspektionsberichte, Rechnungen und die Korrespondenz, die alles zusammenhält.
+Genf ist weltweit führend in der Handelsfinanzierung. Zwölf der vierzehn Schweizer Handelsfinanzierungsbanken sind hier ansässig. Um sie herum sind rund 400 Handelsfirmen tätig. Zwischen Geschäftsabschluss und Zahlungseingang führt jede Firma eine lange Kette von Dokumenten. Recaps, Bestätigungen, Akkreditive, Konnossemente, Ursprungs- und Qualitätszertifikate, Inspektionsberichte, Rechnungen und die Korrespondenz dazu.
 
-Das ist ein nahezu ideales Feld für agentische KI. Die Dokumente sind halbstrukturiert, die Regeln bekannt, Verzögerungen teuer und die Leute, die die Arbeit machen, erfahren und kostspielig. Es ist aber auch ein Feld, in dem ein Fehler eine Zahlung, eine Ladung oder eine Bankbeziehung kosten kann. Die Frage ist also nicht, ob man Agenten einsetzt, sondern wie man die Arbeit zwischen Agenten und Menschen aufteilt.
+Das passt gut zu agentischer KI. Die Dokumente sind halbstrukturiert, und die Regeln sind bekannt. Verzögerungen sind teuer, und die Fachleute sind erfahren und gefragt. Gleichzeitig kann ein Fehler eine Zahlung, eine Ladung oder eine Bankbeziehung kosten. Es geht also darum, die Arbeit gut zwischen Agenten und Menschen aufzuteilen.
 
 ## Was ein Agent hier tatsächlich tut
 
-Ein Agent ist ein System, das seine Eingaben liest, über eine Abfolge von Schritten entscheidet und Werkzeuge nutzt, um sie auszuführen. In Handels-Operations sind die Werkzeuge meist gewöhnlich: das Postfach lesen, ein PDF verarbeiten, das ETRM abfragen, eine Sanktionsliste prüfen, eine E-Mail entwerfen, einen Status aktualisieren. Agentisch wird es dadurch, dass die Abfolge nicht im Voraus feststeht. Eine perfekt passende Bestätigung braucht drei Schritte. Eine mit abweichender Preisformel braucht sieben, darunter einen Vergleich mit dem ursprünglichen Recap und einen Entwurf für eine Rückfrage an die Gegenpartei.
+Ein Agent ist ein System, das Eingaben liest, eine Abfolge von Schritten wählt und Werkzeuge nutzt. In Handels-Operations sind die Werkzeuge meist einfach. Das Postfach lesen, ein PDF verarbeiten, das ETRM abfragen, eine Sanktionsliste prüfen, eine E-Mail entwerfen, einen Status setzen. Agentisch wird es, weil die Abfolge nicht im Voraus feststeht. Eine passende Bestätigung braucht drei Schritte. Eine mit abweichender Preisformel braucht sieben. Dazu gehören ein Vergleich mit dem ursprünglichen Recap und ein Entwurf für eine Rückfrage an die Gegenpartei.
 
-Drei Workflows stechen heraus, gemessen am Nutzen im Verhältnis zum Risiko.
+Drei Workflows haben einen guten Nutzen im Verhältnis zum Risiko.
 
 ### Abgleich von Bestätigungen
 
-Bestätigungen von Gegenparteien kommen per E-Mail in jedem erdenklichen Format. Jede muss mit dem gebuchten Geschäft verglichen werden: Menge und Toleranz, Preis und Formel, Lieferperiode, Incoterm, Lade- und Löschhafen, Zahlungsbedingungen, anwendbares Recht. Ein Agent kann die Konditionen extrahieren, das Geschäft abfragen, Feld für Feld vergleichen und das Ergebnis als abgeglichen, abweichend oder unsicher einstufen. Das Operations-Team bearbeitet dann nur noch Abweichungen und Unsicherheiten, mit hervorgehobenen Belegen.
+Bestätigungen von Gegenparteien kommen per E-Mail in vielen Formaten. Jede wird mit dem gebuchten Geschäft verglichen. Menge und Toleranz, Preis und Formel, Lieferperiode, Incoterm, Lade- und Löschhafen, Zahlungsbedingungen und anwendbares Recht. Ein Agent extrahiert die Konditionen, fragt das Geschäft ab und vergleicht Feld für Feld. Er stuft das Ergebnis als abgeglichen, abweichend oder unsicher ein. Operations bearbeitet dann nur Abweichungen und unsichere Fälle, mit hervorgehobenen Belegen.
 
 ### Vorprüfung von Akkreditiven
 
-Abweichungen zwischen einem Akkreditiv und den vorgelegten Dokumenten sind eine klassische Quelle von Verzögerungen und Kosten. Ein Agent kann die Akkreditivbedingungen als Checkliste extrahieren, jedes eintreffende Dokument lesen und Unstimmigkeiten melden, bevor die Dokumente zur Bank gehen: ein anders geschriebener Hafen, eine Menge ausserhalb der Toleranz, ein Datum, das nicht zur Verschiffungsperiode passt. Der Entscheid, einzureichen, eine Änderung zu verlangen oder um einen Verzicht zu bitten, bleibt beim Dokumententeam.
+Abweichungen zwischen Akkreditiv und vorgelegten Dokumenten verursachen oft Verzögerungen und Kosten. Ein Agent macht aus den Akkreditivbedingungen eine Checkliste. Er liest jedes eintreffende Dokument und meldet Unstimmigkeiten, bevor die Dokumente zur Bank gehen. Zum Beispiel ein anders geschriebener Hafen, eine Menge ausserhalb der Toleranz oder ein unpassendes Datum. Ob eingereicht, eine Änderung verlangt oder um einen Verzicht gebeten wird, entscheidet das Dokumententeam.
 
 ### KYC-Aktualisierung von Gegenparteien
 
-Periodische Überprüfungen von Gegenparteien erfordern Handelsregisterauszüge, Angaben zu wirtschaftlich Berechtigten, Jahresabschlüsse und negative Presseberichte, oft in der Originalsprache. Ein Agent kann das Dossier zusammenstellen, zusammenfassen, was sich seit der letzten Überprüfung geändert hat, und auflisten, was fehlt. Eine Compliance-Verantwortliche prüft und entscheidet.
+Periodische Überprüfungen von Gegenparteien brauchen Handelsregisterauszüge, Angaben zu wirtschaftlich Berechtigten, Jahresabschlüsse und negative Presseberichte. Oft in der Originalsprache. Ein Agent stellt das Dossier zusammen und fasst zusammen, was sich seit der letzten Überprüfung geändert hat. Er listet auf, was fehlt. Eine Compliance-Verantwortliche prüft und entscheidet.
 
 ## Wo Agenten nicht allein handeln dürfen
 
-Das Leitprinzip ist einfach: Autonomie soll der Umkehrbarkeit und dem Risiko folgen. Lesen, Extrahieren, Vergleichen und Entwerfen sind umkehrbar und risikoarm. Senden, Verpflichten, Genehmigen und Freigeben sind es nicht.
+Das Prinzip ist einfach. Die Autonomie richtet sich nach Umkehrbarkeit und Risiko. Lesen, Extrahieren, Vergleichen und Entwerfen sind umkehrbar und risikoarm. Senden, Verpflichten, Genehmigen und Freigeben sind es nicht.
 
-- Sanktionsentscheide. Ein Agent kann Namen und Schiffe prüfen und erklären, warum ein Treffer auftrat. Den Treffer aufzulösen oder zu eskalieren ist ein Compliance-Entscheid mit einer namentlich verantwortlichen Person.
+- Sanktionsentscheide. Ein Agent kann Namen und Schiffe prüfen und einen Treffer erklären. Den Treffer aufzulösen oder zu eskalieren ist ein Compliance-Entscheid einer namentlich verantwortlichen Person.
 - Alles, was Geld bindet oder einen Vertrag ändert. Zahlungsfreigaben, Änderungen und Verzichte gehen jedes Mal über einen Menschen.
-- Externe Kommunikation mit kommerziellen Folgen. Entwürfe sind nützlich; eine Antwort zu senden, die der Gegenpartei einen Punkt zugesteht, ist ein kommerzieller Akt.
-- Änderungen an gebuchten Geschäften. Agenten können Korrekturen im ETRM vorschlagen; ein Mensch nimmt sie vor.
+- Externe Kommunikation mit kommerziellen Folgen. Entwürfe sind nützlich. Eine Antwort, die der Gegenpartei einen Punkt zugesteht, ist ein kommerzieller Schritt.
+- Änderungen an gebuchten Geschäften. Agenten schlagen Korrekturen im ETRM vor. Ein Mensch nimmt sie vor.
 
-In der Praxis entsteht so ein Workflow, in dem der Agent den Grossteil des Lesens und Vergleichens übernimmt und Menschen ihre Zeit für Entscheide einsetzen. Das ist die richtige Arbeitsteilung. Es ist auch das, was Revision, Banken und Aufsicht sehen wollen.
+So übernimmt der Agent den Grossteil des Lesens und Vergleichens. Menschen setzen ihre Zeit für Entscheide ein. Diese Aufteilung erwarten auch Revision, Banken und Aufsicht.
 
 ## Für die Dokumente gestalten, die tatsächlich eintreffen
 
-Die Schwierigkeit bei Handelsdokumenten liegt nicht im Lesen sauberer PDFs. Sondern im gescannten Zertifikat mit einem Stempel über dem entscheidenden Feld, in der Bestätigung für zwei Geschäfte, im Recap, das in einem Chat geschrieben und in eine E-Mail kopiert wurde, im Konnossement mit handschriftlichen Korrekturen. Ein System, das nur mit sauberen Beispielen getestet wurde, glänzt in der Demo und enttäuscht in Woche zwei.
+Saubere PDFs zu lesen ist selten das Problem. Schwierig sind andere Fälle. Ein gescanntes Zertifikat mit einem Stempel über dem wichtigen Feld. Eine Bestätigung für zwei Geschäfte. Ein Recap aus einem Chat, in eine E-Mail kopiert. Ein Konnossement mit handschriftlichen Korrekturen. Ein System, das nur mit sauberen Beispielen getestet wurde, wirkt in der Demo gut und enttäuscht in Woche zwei.
 
-Wir beginnen jedes Mandat in Handels-Operations damit, einige Hundert echte historische Dokumente mit bekanntem Ergebnis zu sammeln, bewusst auch die hässlichen. Sie werden zum Evaluationsset. Das System geht erst in Produktion, wenn es darauf die vereinbarte Genauigkeit erreicht, und jede spätere Korrektur einer Mitarbeiterin wird ins Set aufgenommen, damit derselbe Fehler nicht unbemerkt zurückkehrt.
+Wir beginnen deshalb jedes Mandat in Handels-Operations mit einigen Hundert historischen Dokumenten mit bekanntem Ergebnis. Bewusst auch mit den schwierigen. Sie werden zum Evaluationsset. Das System geht erst in Produktion, wenn es darauf die vereinbarte Genauigkeit erreicht. Jede spätere Korrektur einer Mitarbeiterin kommt ins Set. So kehrt derselbe Fehler nicht unbemerkt zurück.
 
-> Das Ziel ist nicht ein Agent, der nie einen Menschen braucht. Sondern ein Operations-Team, das nie wieder ein Feld abtippen muss.
+> Ziel ist ein Operations-Team, das keine Felder mehr abtippen muss. Menschen bleiben für die Entscheide zuständig.
 
 ## Die Kontrollen, die es akzeptabel machen
 
-Handelsfirmen stehen unter der Beobachtung ihrer Banken ebenso wie ihrer Aufsicht. Ein agentisches System in diesem Umfeld braucht Kontrollen, die der Due Diligence einer Bank genügen würden.
+Handelsfirmen werden von ihren Banken und von der Aufsicht beobachtet. Ein agentisches System braucht deshalb Kontrollen, die auch der Due Diligence einer Bank genügen.
 
-- Standardmässig Nur-Lese-Zugriff auf ETRM und Kernsysteme; Schreibzugriff auf bestimmte Aktionen beschränkt und protokolliert.
-- Ein lückenloser Audit-Trail: das eingegangene Dokument, was der Agent extrahiert, verglichen und geschlossen hat und wer freigegeben hat.
-- Konfidenz pro Feld und ausdrückliche Unsicherheit, damit Prüfende wissen, wo sie hinschauen müssen.
+- Standardmässig Nur-Lese-Zugriff auf ETRM und Kernsysteme. Schreibzugriff nur für bestimmte Aktionen und protokolliert.
+- Ein vollständiger Audit-Trail. Das eingegangene Dokument, was der Agent extrahiert, verglichen und abgeschlossen hat, und wer freigegeben hat.
+- Konfidenz pro Feld und ausgewiesene Unsicherheit. So wissen Prüfende, wo sie hinschauen müssen.
 - Datenhaltung für Gegenpartei- und Handelsdaten in der Schweiz oder im eigenen Tenant der Firma.
-- Modellunabhängigkeit, damit ein Anbieterwechsel keinen Neubau bedeutet.
+- Modellunabhängigkeit. Ein Anbieterwechsel bedeutet keinen Neubau.
 
 ## Was es bringt
 
-In repräsentativen Mandaten sinkt die Bearbeitungszeit für Bestätigungen um mehr als die Hälfte, und die Mehrheit der Bestätigungen wird abgeglichen, ohne dass jemand ein Feld abtippt. Abweichungen werden am selben Tag statt Tage später gemeldet. Ebenso wichtig: Das Wissen, das bei wenigen erfahrenen Mitarbeitenden lag, steckt jetzt in Abgleichregeln und Evaluationsfällen, die das ganze Team teilt.
+In repräsentativen Mandaten sinkt die Bearbeitungszeit für Bestätigungen um mehr als die Hälfte. Die Mehrheit der Bestätigungen wird abgeglichen, ohne dass jemand ein Feld abtippt. Abweichungen werden am selben Tag gemeldet statt Tage später. Dazu kommt ein weiterer Punkt. Das Wissen weniger erfahrener Mitarbeitender steckt jetzt in Abgleichregeln und Evaluationsfällen, die das ganze Team teilt.
 
-Der grösste Nutzen ist oft strategisch. Handelsvolumen schwanken. Eine Firma, die einen Volumensprung bewältigen kann, ohne ein neues Operations-Team einzustellen, hat mehr Spielraum, Chancen zu nutzen, wenn sich die Märkte bewegen. Für eine Branche, die über Tempo und Zuverlässigkeit konkurriert, ist das ein Vorsprung, der zählt.
+Ein weiterer Nutzen betrifft das Volumen. Handelsvolumen schwanken. Eine Firma, die einen Volumensprung ohne neues Operations-Team bewältigt, hat mehr Spielraum, wenn sich die Märkte bewegen. In einer Branche, in der Tempo und Zuverlässigkeit zählen, ist das wertvoll.

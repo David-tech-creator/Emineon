@@ -7,28 +7,28 @@ export const industries: Industry[] = [
     image: 'ind-trading',
     tier: 'core',
     name: 'Rohstoffhandel & Schifffahrt',
-    short: 'Bestätigungen, KYC, Handelsfinanzierungsdokumente und Operations, erledigt von Agenten unter der Kontrolle von Tradern und Operations-Teams.',
+    short: 'Agenten bereiten Bestätigungen, KYC und Dokumente der Handelsfinanzierung vor. Trader und Operations behalten die Kontrolle.',
     hero: {
-      eyebrow: '[ Branche — Rohstoffhandel & Schifffahrt ]',
+      eyebrow: '[ Branche · Rohstoffhandel & Schifffahrt ]',
       title: { pre: 'Weniger Papier zwischen Geschäft und ', accent: 'Ladung.' },
-      lead: 'Handelshäuser leben von Dokumenten: Bestätigungen, Akkreditive, Konnossemente, Inspektionszertifikate, Sanktionsprüfungen. Wir setzen Agenten auf diesen Fluss an, damit Operations mit dem Desk Schritt hält und Compliance jeden Schritt lückenlos nachvollziehen kann.',
+      lead: 'Handelshäuser arbeiten mit vielen Dokumenten. Bestätigungen, Akkreditive, Konnossemente, Inspektionszertifikate und Sanktionsprüfungen gehören dazu. Wir setzen Agenten auf diese Abläufe an. So hält Operations mit dem Desk Schritt, und Compliance kann jeden Schritt nachvollziehen.',
     },
     stat: {
       value: '#1',
-      label: 'Genf ist weltweit führend in der Handelsfinanzierung; 12 der 14 Schweizer Handelsfinanzierungsbanken sind hier ansässig.',
+      label: 'Genf ist weltweit führend in der Handelsfinanzierung. 12 der 14 Schweizer Handelsfinanzierungsbanken sind hier ansässig.',
       source: 'ge.ch, Schlüsselbranchen',
     },
     context: {
-      title: 'Ein Dokumentengeschäft, das wie ein Handelsgeschäft aussieht',
+      title: 'Viel Handel ist Arbeit mit Dokumenten',
       paragraphs: [
-        'In Genf sind rund 400 Handelsfirmen mit etwa 6000 direkten Arbeitsplätzen tätig. Hinter jeder Ladung steht eine Kette von Dokumenten, die abgeglichen, geprüft und abgelegt werden müssen, oft in mehreren Sprachen und unter Zeitdruck, mit Gegenparteien, Banken, Inspektoren und Schiffsagenten, die alle mit eigenen Vorlagen arbeiten.',
-        'Die Compliance-Ausgaben steigen: Sanktionsregime ändern sich schneller, Banken verlangen mehr Nachweise, und die Handelsfinanzierung verzeiht Abweichungen immer weniger. Operations-Teams sind gewachsen, um das aufzufangen. KI-Agenten bieten eine andere Antwort: alles lesen, abgleichen und vorprüfen, und den Menschen nur geben, was Urteilsvermögen verlangt.',
+        'In Genf sind rund 400 Handelsfirmen mit etwa 6000 direkten Arbeitsplätzen tätig. Hinter jeder Ladung stehen Dokumente, die abgeglichen, geprüft und abgelegt werden. Oft in mehreren Sprachen und unter Zeitdruck. Gegenparteien, Banken, Inspektoren und Schiffsagenten nutzen jeweils eigene Vorlagen.',
+        'Die Ausgaben für Compliance steigen. Sanktionsregime ändern sich schneller, und Banken verlangen mehr Nachweise. Viele Operations-Teams sind deshalb gewachsen. KI-Agenten können Dokumente lesen, abgleichen und vorprüfen. Die Menschen erhalten dann die Fälle, die ein Urteil verlangen.',
       ],
     },
     valueStreams: [
       {
         name: 'Handels-Operations',
-        description: 'Von der Erfassung bis zur Abwicklung, mit automatisch abgeglichenen Dokumenten und früh erkannten Abweichungen.',
+        description: 'Von der Erfassung bis zur Abwicklung. Dokumente werden abgeglichen und Abweichungen früh erkannt.',
         useCases: [
           'Abgleich von Bestätigungen mit gebuchten Geschäften im ETRM',
           'Extraktion aus Term Sheets, Recaps und Nachträgen',
@@ -38,7 +38,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Dokumente der Handelsfinanzierung',
-        description: 'Akkreditive und Versanddokumente geprüft, bevor die Bank sie sieht.',
+        description: 'Akkreditive und Versanddokumente werden geprüft, bevor sie zur Bank gehen.',
         useCases: [
           'Extraktion der Akkreditivbedingungen und Erstellung der Dokumenten-Checkliste',
           'Abweichungsprüfung vor Einreichung bei Konnossementen und Zertifikaten',
@@ -47,7 +47,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Compliance und KYC',
-        description: 'Onboarding und Screening von Gegenparteien, mit zusammengestellten Belegen für die prüfende Person.',
+        description: 'Onboarding und Screening von Gegenparteien. Die Belege liegen für die prüfende Person bereit.',
         useCases: [
           'Zusammenstellung und periodische Aktualisierung von KYC-Dossiers für Gegenparteien',
           'Sanktions- und Schiffs-Screening mit erklärten Treffern',
@@ -56,7 +56,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Markt- und Desk-Informationen',
-        description: 'Analysen und Berichte, die sich selbst zusammenstellen.',
+        description: 'Analysen und Berichte werden vorbereitet.',
         useCases: [
           'Entwürfe für tägliche Positions- und P&L-Kommentare',
           'Zusammenfassung von Fracht- und Marktberichten',
@@ -65,10 +65,10 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Ergebnisse des Sanktions-Screenings sind Entscheidungshilfen; Entscheid und Begründung bleiben bei einer namentlich verantwortlichen Person.',
+      'Ergebnisse des Sanktions-Screenings sind Entscheidungshilfen. Entscheid und Begründung bleiben bei einer namentlich verantwortlichen Person.',
       'Daten zu Gegenparteien und Geschäften werden in der Schweiz oder im eigenen Tenant des Kunden bearbeitet.',
-      'Lückenloser Audit-Trail von Dokumentversionen, Agentenaktionen und Freigaben, aufbewahrt nach den Vorgaben der Firma.',
-      'Ausgelegt, um die von Banken im Rahmen von Handelsfinanzierung und GwG erwarteten Kontrollen zu unterstützen, nicht zu ersetzen.',
+      'Dokumentversionen, Agentenaktionen und Freigaben werden protokolliert und nach den Vorgaben der Firma aufbewahrt.',
+      'Das System unterstützt die Kontrollen, die Banken bei Handelsfinanzierung und GwG erwarten. Es ersetzt sie nicht.',
     ],
     relatedCase: 'trade-confirmation-agents',
     relatedServices: ['agentic-systems', 'ai-operations', 'data-ai-platforms'],
@@ -79,11 +79,11 @@ export const industries: Industry[] = [
     image: 'ind-banking',
     tier: 'core',
     name: 'Private Banking & Vermögensverwaltung',
-    short: 'KYC, Kundenreporting und Beratungsvorbereitung, mit Kontrollen auf FINMA-Niveau und Kundendaten, die die Schweiz nie verlassen.',
+    short: 'KYC, Kundenreporting und Beratungsvorbereitung. Mit Kontrollen auf FINMA-Niveau und Kundendaten in der Schweiz.',
     hero: {
-      eyebrow: '[ Branche — Private Banking & Vermögensverwaltung ]',
+      eyebrow: '[ Branche · Private Banking & Vermögensverwaltung ]',
       title: { pre: 'Mehr Zeit für Kunden, weniger für ', accent: 'Dossiers.' },
-      lead: 'Kundenberaterinnen und -berater verbringen einen grossen Teil ihrer Woche mit Dokumentation: KYC-Aktualisierungen, Eignungsnachweise, Gesprächsnotizen, Kundenberichte. Wir bauen Systeme, die diese Arbeit zur Prüfung vorbereiten, unter den Kontrollen, nach denen eine Schweizer Bank ohnehin lebt.',
+      lead: 'Kundenberaterinnen und -berater verbringen viel Zeit mit Dokumentation. Dazu gehören KYC-Aktualisierungen, Eignungsnachweise, Gesprächsnotizen und Kundenberichte. Wir bauen Systeme, die diese Arbeit zur Prüfung vorbereiten. Dabei gelten die Kontrollen, die eine Schweizer Bank ohnehin hat.',
     },
     stat: {
       value: '37’000+',
@@ -91,16 +91,16 @@ export const industries: Industry[] = [
       source: 'ge.ch, Schlüsselbranchen',
     },
     context: {
-      title: 'Diskretion ist das Produkt',
+      title: 'Diskretion gehört zum Angebot',
       paragraphs: [
-        'Private Banking in Genf beruht auf Vertrauen und auf Dokumentation. Jede Kundenbeziehung umfasst ein KYC-Dossier, Nachweise zur Vermögensherkunft, Eignungs- und Angemessenheitsprüfungen und Korrespondenz in mehreren Sprachen. Die Aufsicht erwartet sie vollständig; die Kundschaft erwartet sie unsichtbar.',
-        'Der Kostendruck ist real, und der Personalbestand ist nicht mehr der Hebel von früher. Die Chance besteht darin, die Stunden des Zusammentragens und Abtippens zwischen Bankier und Kunde zu streichen und das Dossier dabei besser statt dünner zu machen. Das gelingt nur, wenn Datenhaltung, Zugriffskontrolle und Prüfbarkeit ab der ersten Zeile mitgedacht sind.',
+        'Private Banking in Genf beruht auf Vertrauen und auf Dokumentation. Zu jeder Kundenbeziehung gehören ein KYC-Dossier und Nachweise zur Vermögensherkunft. Dazu kommen Eignungs- und Angemessenheitsprüfungen und Korrespondenz in mehreren Sprachen. Die Aufsicht erwartet sie vollständig. Die Kundschaft soll davon wenig merken.',
+        'Der Kostendruck ist hoch, und mehr Personal ist selten die Lösung. Wir helfen, Stunden des Zusammentragens und Abtippens einzusparen. Das Dossier soll dabei besser werden, nicht dünner. Dafür planen wir Datenhaltung, Zugriffskontrolle und Prüfbarkeit von Anfang an mit.',
       ],
     },
     valueStreams: [
       {
         name: 'Kundenlebenszyklus und KYC',
-        description: 'Onboarding und periodische Überprüfungen von Agenten vorbereitet, von Menschen entschieden.',
+        description: 'Agenten bereiten Onboarding und periodische Überprüfungen vor. Menschen entscheiden.',
         useCases: [
           'Periodische KYC-Dossiers aus Kernbankensystem und Dokumenten zusammengestellt',
           'Entwurf der Darstellung zur Vermögensherkunft mit zitierten Belegen',
@@ -109,7 +109,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Beratungsvorbereitung',
-        description: 'Die Beraterin geht ins Gespräch und hat bereits alles gelesen.',
+        description: 'Die Beraterin hat vor dem Gespräch die wichtigen Unterlagen gelesen.',
         useCases: [
           'Kundenbriefings vor dem Termin aus Portfolio, Notizen und News',
           'Erfassung von Gesprächsnotizen und Entwurf der Eignungsdokumentation',
@@ -118,7 +118,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Reporting und Kommunikation',
-        description: 'Kundenfertiges Reporting in der Sprache der Kundschaft.',
+        description: 'Kundenreporting in der Sprache der Kundschaft.',
         useCases: [
           'Entwürfe für Portfoliokommentare auf FR, DE, EN und IT',
           'Entwurf der Kundenkorrespondenz mit Prüfung von Tonalität und Compliance',
@@ -127,7 +127,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Operations und Compliance',
-        description: 'Backoffice-Queues schneller abgearbeitet, mit besseren Belegen.',
+        description: 'Backoffice-Queues werden schneller abgearbeitet, mit besseren Belegen.',
         useCases: [
           'Triage von Transaktionsüberwachungs-Alerts mit erklärtem Kontext',
           'Verarbeitung von Corporate Actions und Instruktionen aus E-Mails',
@@ -136,10 +136,10 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Kundenidentifizierende Daten werden in der Schweiz bearbeitet, auf bankkontrollierter Infrastruktur oder in einer in der Schweiz gehosteten Umgebung.',
+      'Kundenidentifizierende Daten werden in der Schweiz bearbeitet. Auf bankkontrollierter Infrastruktur oder in einer in der Schweiz gehosteten Umgebung.',
       'Ausgerichtet auf die Erwartungen der FINMA zu Drittdienstleistern, operationeller Resilienz und Vertraulichkeit der Daten.',
-      'Bankkundengeheimnis gewahrt: keine Kundendaten zum Modelltraining, keine dauerhafte Speicherung über das hinaus, was der Prozess verlangt.',
-      'Menschliche Freigabe für jedes kundenbezogene Dokument und jeden KYC-Entscheid, mit protokollierten Belegen.',
+      'Das Bankkundengeheimnis bleibt gewahrt. Kundendaten dienen nicht dem Modelltraining und werden nur so lange gespeichert, wie der Prozess es verlangt.',
+      'Jedes kundenbezogene Dokument und jeder KYC-Entscheid braucht eine menschliche Freigabe. Die Belege werden protokolliert.',
     ],
     relatedCase: 'private-bank-kyc-refresh',
     relatedServices: ['agentic-systems', 'ai-strategy', 'ai-operations'],
@@ -150,17 +150,17 @@ export const industries: Industry[] = [
     image: 'ind-intl',
     tier: 'core',
     name: 'Internationale Organisationen & NGOs',
-    short: 'Mehrsprachige Dokumente, Berichterstattung und Wissensarbeit, mit einer Governance, die öffentlichen Mandaten und der Prüfung durch Geldgeber gerecht wird.',
+    short: 'Mehrsprachige Dokumente, Berichterstattung und Wissensarbeit. Mit einer Governance, die öffentlichen Mandaten und Geldgebern genügt.',
     hero: {
-      eyebrow: '[ Branche — Internationale Organisationen & NGOs ]',
+      eyebrow: '[ Branche · Internationale Organisationen & NGOs ]',
       title: { pre: 'Mandate in vielen Sprachen, ', accent: 'ein', post: ' Gedächtnis.' },
-      lead: 'Das internationale Genf produziert und verarbeitet enorme Textmengen: Resolutionen, Berichte, Eingaben, Protokolle, Übersetzungen. Wir bauen Systeme, die entwerfen, zusammenfassen, übersetzen und finden, mit der Neutralität, Vertraulichkeit und Governance, die öffentliche Mandate verlangen.',
+      lead: 'Das internationale Genf produziert und verarbeitet sehr viel Text. Resolutionen, Berichte, Eingaben, Protokolle und Übersetzungen. Wir bauen Systeme, die entwerfen, zusammenfassen, übersetzen und finden. Mit der Neutralität, Vertraulichkeit und Governance, die öffentliche Mandate verlangen.',
     },
     context: {
-      title: 'Wissensarbeit im institutionellen Massstab',
+      title: 'Wissensarbeit in grossen Institutionen',
       paragraphs: [
-        'Organisationen in Genf arbeiten über Amtssprachen, Mitgliedstaaten und Partnernetzwerke hinweg. Ein grosser Teil ihrer Kapazität fliesst in die Produktion von Dokumenten und in die Suche nach bereits Entschiedenem: Welcher Absatz wurde verabschiedet, welches Land hat was berichtet, welche Evaluation kam zu welchem Schluss.',
-        'KI kann diese Kapazität dem Mandat zurückgeben. Das verlangt Sorgfalt: Daten können Personendaten von Begünstigten oder Mitarbeitenden enthalten, Vorrechte und Immunitäten bestimmen, wohin Daten gehen dürfen, und Ergebnisse müssen neutral und nachvollziehbar sein. Governance kommt zuerst, und sie lässt sich umsetzen, ohne alles zu verlangsamen.',
+        'Organisationen in Genf arbeiten über Amtssprachen, Mitgliedstaaten und Partnernetzwerke hinweg. Viel Kapazität fliesst in Dokumente und in die Suche nach früheren Entscheiden. Welcher Absatz wurde verabschiedet, welches Land hat was berichtet, zu welchem Schluss kam eine Evaluation.',
+        'KI kann dem Mandat Zeit zurückgeben. Das verlangt Sorgfalt. Daten können Personendaten von Begünstigten oder Mitarbeitenden enthalten. Vorrechte und Immunitäten bestimmen, wohin Daten gehen dürfen. Ergebnisse müssen neutral und nachvollziehbar sein. Wir klären die Governance zuerst, ohne die Arbeit unnötig zu bremsen.',
       ],
     },
     valueStreams: [
@@ -175,7 +175,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Institutionelles Wissen',
-        description: 'Jahrzehnte von Dokumenten durchsuchbar und befragbar gemacht.',
+        description: 'Dokumente aus Jahrzehnten werden durchsuchbar.',
         useCases: [
           'Suche und Fragen-Antworten über Resolutionen, Berichte und Archive mit Quellenangaben',
           'Präzedenzsuche für Verhandlungsführende und Sekretariat',
@@ -184,7 +184,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Programme und Fördermittel',
-        description: 'Berichterstattung an Geldgeber ohne Last-Minute-Hektik.',
+        description: 'Berichte an Geldgeber mit weniger Aufwand kurz vor der Frist.',
         useCases: [
           'Zusammenstellung von Geldgeberberichten aus Programmdaten und Feldmeldungen',
           'Entwurf von Anträgen nach Vorlagen und Kriterien der Geldgeber',
@@ -193,10 +193,10 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Bereitstellungsoptionen, die Vorrechte und Immunitäten respektieren, einschliesslich On-Premises und organisationskontrollierter Tenants.',
-      'Personendaten von Begünstigten und Mitarbeitenden minimiert, klassifiziert und bei Bedarf von externen Modellen ferngehalten.',
-      'Ergebnisse bis zu den Quelldokumenten nachvollziehbar; menschliche Prüfung vor jeder Veröffentlichung oder Übermittlung.',
-      'Abstimmung auf den eigenen Datenschutzrahmen der Organisation sowie auf revDSG und DSGVO, wo sie gelten.',
+      'Bereitstellungsoptionen, die Vorrechte und Immunitäten respektieren. Auch On-Premises und in Tenants der Organisation.',
+      'Personendaten von Begünstigten und Mitarbeitenden werden minimiert, klassifiziert und bei Bedarf von externen Modellen ferngehalten.',
+      'Ergebnisse lassen sich bis zu den Quelldokumenten zurückverfolgen. Vor jeder Veröffentlichung oder Übermittlung prüft ein Mensch.',
+      'Abstimmung auf den Datenschutzrahmen der Organisation sowie auf revDSG und DSGVO, wo sie gelten.',
     ],
     relatedCase: 'multilingual-document-pipeline',
     relatedServices: ['data-ai-platforms', 'adoption-enablement', 'ai-strategy'],
@@ -207,11 +207,11 @@ export const industries: Industry[] = [
     image: 'ind-life',
     tier: 'adjacent',
     name: 'Life Sciences & MedTech',
-    short: 'Regulatorisches Schreiben, Qualitätsdokumentation und wissenschaftliches Wissen, gebaut für GxP und validiert, wo es darauf ankommt.',
+    short: 'Regulatorisches Schreiben, Qualitätsdokumentation und wissenschaftliches Wissen. Gebaut für GxP und validiert, wo nötig.',
     hero: {
-      eyebrow: '[ Branche — Life Sciences & MedTech ]',
+      eyebrow: '[ Branche · Life Sciences & MedTech ]',
       title: { pre: 'Schneller zum Dossier, ', accent: 'sicherer', post: ' in der Akte.' },
-      lead: 'Hersteller regulierter Produkte schreiben enorme Mengen gelenkter Dokumentation. Wir bauen Systeme für Entwurf, Prüfung und Wissen, die GxP respektieren, die Verantwortung beim Menschen lassen und einen Audit-Trail hinterlassen, dem eine Inspektion folgen kann.',
+      lead: 'Hersteller regulierter Produkte schreiben viel gelenkte Dokumentation. Wir bauen Systeme für Entwurf, Prüfung und Wissen, die GxP respektieren. Die Verantwortung bleibt beim Menschen. Der Audit-Trail ist so aufgebaut, dass eine Inspektion ihm folgen kann.',
     },
     stat: {
       value: '313',
@@ -219,16 +219,16 @@ export const industries: Industry[] = [
       source: 'ge.ch, Schlüsselbranchen',
     },
     context: {
-      title: 'Dokumentation liegt auf dem kritischen Pfad',
+      title: 'Dokumentation bestimmt oft den Zeitplan',
       paragraphs: [
-        'In Life Sciences und MedTech begrenzt oft das Schreiben, nicht die Wissenschaft, die Zeit von den Daten bis zur Einreichung: klinische und technische Dokumentation, Abweichungen, CAPAs, Änderungskontrollen und Antworten an Behörden. Jedes Dokument muss mit Hunderten anderer gelenkter Dokumente übereinstimmen.',
-        'KI kann entwerfen, abgleichen und finden, schneller als jedes Team. In einer GxP-Umgebung ist das nur nützlich, wenn das System für den vorgesehenen Zweck validiert ist, Änderungen kontrolliert werden und jedes Ergebnis von einer qualifizierten Person geprüft wird. Wir gestalten von Anfang an nach diesem Standard.',
+        'In Life Sciences und MedTech bestimmt oft das Schreiben die Zeit bis zur Einreichung. Dazu gehören klinische und technische Dokumentation, Abweichungen, CAPAs, Änderungskontrollen und Antworten an Behörden. Jedes Dokument muss mit Hunderten anderer gelenkter Dokumente übereinstimmen.',
+        'KI kann entwerfen, abgleichen und finden. In einer GxP-Umgebung braucht es dafür klare Bedingungen. Das System ist für den vorgesehenen Zweck validiert, und Änderungen werden kontrolliert. Jedes Ergebnis prüft eine qualifizierte Person. Wir planen von Anfang an nach diesem Standard.',
       ],
     },
     valueStreams: [
       {
         name: 'Regulatory Affairs',
-        description: 'Einreichungen und Antworten aus gelenkten Quellen entworfen.',
+        description: 'Einreichungen und Antworten, entworfen aus gelenkten Quellen.',
         useCases: [
           'Entwurf von Abschnitten technischer Dokumentationen und Dossiers aus Quellberichten',
           'Triage von Behördenfragen und Entwurf der Antworten',
@@ -237,7 +237,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Qualität und Compliance',
-        description: 'Abweichungen und CAPAs schneller untersucht, besser dokumentiert.',
+        description: 'Abweichungen und CAPAs werden schneller untersucht und besser dokumentiert.',
         useCases: [
           'Entwurf von Abweichungsberichten und Suche nach ähnlichen Ereignissen',
           'Unterstützung der Ursachenanalyse über Chargen- und Anlagenprotokolle',
@@ -246,7 +246,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Wissenschaftliches Wissen',
-        description: 'Interne und publizierte Evidenz, auffindbar und zitiert.',
+        description: 'Interne und publizierte Evidenz, auffindbar und mit Quellen.',
         useCases: [
           'Literaturüberwachung und strukturierte Zusammenfassungen',
           'Fragen und Antworten zu Studienberichten und interner Forschung',
@@ -256,9 +256,9 @@ export const industries: Industry[] = [
     ],
     compliance: [
       'Validierungsansatz für computergestützte Systeme nach den Grundsätzen von GAMP 5 für GxP-relevante Anwendungen.',
-      'Änderungskontrolle für Modelle, Prompts und Suchquellen; Revalidierung bei Regression in der Evaluation.',
+      'Änderungskontrolle für Modelle, Prompts und Suchquellen. Bei einer Regression in der Evaluation wird revalidiert.',
       'Prüfung durch eine qualifizierte Person und elektronische Unterschrift für jedes gelenkte Dokument.',
-      'Gesundheits- und genetische Daten als besonders schützenswerte Personendaten nach revDSG behandelt.',
+      'Gesundheits- und genetische Daten gelten als besonders schützenswerte Personendaten nach revDSG.',
     ],
     relatedCase: 'regulatory-submission-drafting',
     relatedServices: ['ai-operations', 'data-ai-platforms', 'agentic-systems'],
@@ -269,11 +269,11 @@ export const industries: Industry[] = [
     image: 'ind-fragrance',
     tier: 'adjacent',
     name: 'Riech- & Aromastoffe, Spezialchemie',
-    short: 'Rezepturwissen, regulatorische Prüfung und Kundenbriefings verbunden, damit Kreative ihre Zeit dem Kreieren widmen.',
+    short: 'Rezepturwissen, regulatorische Prüfung und Kundenbriefings an einem Ort. So bleibt Kreativen mehr Zeit für ihre Arbeit.',
     hero: {
-      eyebrow: '[ Branche — Riech- & Aromastoffe, Spezialchemie ]',
-      title: { pre: 'Jahrzehnte an Rezepturen, ', accent: 'sofort', post: ' abrufbar.' },
-      lead: 'Kreative und technische Teams tragen Wissen, das in Rezepturen, Laborbüchern und Köpfen lebt. Wir machen es durchsuchbar und verbinden es mit regulatorischen und kundenseitigen Anforderungen, damit der richtige Ausgangspunkt in Minuten gefunden ist.',
+      eyebrow: '[ Branche · Riech- & Aromastoffe, Spezialchemie ]',
+      title: { pre: 'Jahrzehnte an Rezepturen, ', accent: 'schnell', post: ' abrufbar.' },
+      lead: 'Kreative und technische Teams haben viel Wissen in Rezepturen, Laborbüchern und im Kopf. Wir machen es durchsuchbar. Wir verbinden es mit regulatorischen Anforderungen und Kundenanforderungen. So ist ein guter Ausgangspunkt in Minuten gefunden.',
     },
     stat: {
       value: '400+',
@@ -281,16 +281,16 @@ export const industries: Industry[] = [
       source: 'ge.ch, Schlüsselbranchen',
     },
     context: {
-      title: 'Kreativität unter Vorgaben',
+      title: 'Kreativität mit Vorgaben',
       paragraphs: [
-        'Jedes Briefing bringt Vorgaben mit: ein Kostenziel, ein regulatorisches Profil für mehrere Märkte, Allergen- und Kennzeichnungsregeln, Nachhaltigkeitsaussagen, Stabilitätsanforderungen. Sie zu erfüllen heisst, Jahre früherer Arbeit zu durchsuchen und jeden Inhaltsstoff gegen Listen zu prüfen, die sich ändern.',
-        'Das Wissen existiert, aber es ist verstreut über Rezeptursysteme, Regulierungsdatenbanken, sensorische Panels und E-Mails. Es zu verbinden ist zuerst ein Datenproblem und dann ein KI-Problem, und genau in dieser Reihenfolge arbeiten wir.',
+        'Jedes Briefing bringt Vorgaben mit. Ein Kostenziel, ein regulatorisches Profil für mehrere Märkte, Allergen- und Kennzeichnungsregeln, Nachhaltigkeitsaussagen und Stabilitätsanforderungen. Dafür durchsuchen Teams frühere Arbeit. Und sie prüfen jeden Inhaltsstoff gegen Listen, die sich ändern.',
+        'Das Wissen ist vorhanden, aber verstreut. Es liegt in Rezeptursystemen, Regulierungsdatenbanken, sensorischen Panels und E-Mails. Es zu verbinden ist zuerst eine Datenaufgabe und dann eine KI-Aufgabe. In dieser Reihenfolge arbeiten wir.',
       ],
     },
     valueStreams: [
       {
         name: 'Vom Briefing zur Rezeptur',
-        description: 'Kundenbriefings übersetzt in Vorgaben und Ausgangspunkte.',
+        description: 'Kundenbriefings werden zu Vorgaben und Ausgangspunkten.',
         useCases: [
           'Zerlegung von Briefings in strukturierte technische und regulatorische Anforderungen',
           'Suche nach ähnlichen Rezepturen in historischen Projekten',
@@ -299,7 +299,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Regulatorik und Produktsicherheit',
-        description: 'Compliance-Prüfung im kreativen Prozess verankert.',
+        description: 'Die Compliance-Prüfung ist Teil des kreativen Prozesses.',
         useCases: [
           'Prüfung von Inhaltsstoffen gegen marktspezifische Beschränkungslisten',
           'Entwurf von Sicherheitsdatenblättern und Zertifikaten',
@@ -308,7 +308,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Vertrieb und Kundendienst',
-        description: 'Schnellere, genauere Antworten an Kunden.',
+        description: 'Schnellere und genauere Antworten an Kunden.',
         useCases: [
           'Beantwortung von Kundenfragebögen und Dokumentationsanfragen',
           'Bearbeitung von Musteranfragen und Bestellungen aus E-Mails',
@@ -317,10 +317,10 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Rezepturen als wertvollstes geistiges Eigentum behandelt: bearbeitet in kundenkontrollierten Umgebungen, nie zum Modelltraining verwendet.',
-      'Regulatorische Dokumente vor der Weitergabe an Kunden von qualifiziertem Personal geprüft.',
-      'Feingranulare Zugriffskontrolle, damit die Sichtbarkeit von Rezepturen den bestehenden Berechtigungen folgt.',
-      'Rückverfolgbarkeit jedes Prüfergebnisses auf die verwendete Listenversion und das Datum.',
+      'Rezepturen sind wertvolles geistiges Eigentum. Sie werden in kundenkontrollierten Umgebungen bearbeitet und nie zum Modelltraining verwendet.',
+      'Qualifiziertes Personal prüft regulatorische Dokumente, bevor sie an Kunden gehen.',
+      'Die Sichtbarkeit von Rezepturen folgt den bestehenden Berechtigungen.',
+      'Jedes Prüfergebnis lässt sich auf die verwendete Listenversion und das Datum zurückführen.',
     ],
     relatedCase: 'formulation-knowledge-graph',
     relatedServices: ['data-ai-platforms', 'agentic-systems', 'adoption-enablement'],
@@ -331,23 +331,23 @@ export const industries: Industry[] = [
     image: 'ind-manufacturing',
     tier: 'adjacent',
     name: 'Industrie & Fertigung',
-    short: 'Wissen zu Instandhaltung, Qualität und Lieferkette in den Händen der Menschen in der Werkhalle.',
+    short: 'Wissen zu Instandhaltung, Qualität und Lieferkette für die Menschen in der Werkhalle.',
     hero: {
-      eyebrow: '[ Branche — Industrie & Fertigung ]',
-      title: { pre: 'Das Wissen der Fachleute, an ', accent: 'jeder', post: ' Maschine.' },
-      lead: 'Präzisionshersteller sind auf erfahrene Technikerinnen und Techniker angewiesen, deren Wissen schwer weiterzugeben ist. Wir bauen Assistenten und Agenten, die Handbücher, Instandhaltungshistorie und Qualitätsdaten zur Person an der Maschine bringen, in ihrer Sprache.',
+      eyebrow: '[ Branche · Industrie & Fertigung ]',
+      title: { pre: 'Das Wissen der Fachleute, ', accent: 'direkt', post: ' an der Maschine.' },
+      lead: 'Präzisionshersteller sind auf erfahrene Technikerinnen und Techniker angewiesen. Ihr Wissen ist schwer weiterzugeben. Wir bauen Assistenten und Agenten, die Handbücher, Instandhaltungshistorie und Qualitätsdaten an die Maschine bringen. In der Sprache der Person, die dort arbeitet.',
     },
     context: {
-      title: 'Know-how ist der Engpass',
+      title: 'Know-how ist oft der Engpass',
       paragraphs: [
-        'Die Schweizer Industrie überzeugt durch Präzision und Zuverlässigkeit. Beides hängt an Menschen, die wissen, warum sich eine Maschine so verhält, wie sie es tut, und viele von ihnen stehen kurz vor der Pensionierung. Ihr Wissen steckt in ihren Köpfen, in stichwortartigen Instandhaltungsprotokollen und in Handbüchern, die niemand liest.',
-        'KI kann dieses Wissen erfassen und am Arbeitsplatz bereitstellen: eine Störung anhand ähnlicher Fälle diagnostizieren, einen Qualitätsbericht aus Sensordaten entwerfen, eine Lieferantenfrage aus dem Vertrag beantworten. Der Nutzen misst sich in Stillstandszeit und Ausschuss, was ergebnisbasierte Preise einfach macht.',
+        'Die Schweizer Industrie steht für Präzision und Zuverlässigkeit. Beides hängt an Menschen, die ihre Maschinen genau kennen. Viele von ihnen gehen bald in Pension. Ihr Wissen steckt im Kopf, in knappen Instandhaltungsprotokollen und in Handbüchern, die selten gelesen werden.',
+        'KI kann dieses Wissen am Arbeitsplatz bereitstellen. Sie hilft, eine Störung anhand ähnlicher Fälle zu diagnostizieren. Sie entwirft einen Qualitätsbericht aus Sensordaten. Sie beantwortet eine Lieferantenfrage aus dem Vertrag. Der Nutzen zeigt sich in Stillstandszeit und Ausschuss. Deshalb eignen sich hier ergebnisbasierte Preise gut.',
       ],
     },
     valueStreams: [
       {
         name: 'Instandhaltung und Zuverlässigkeit',
-        description: 'Schnellere Diagnose und weniger Wiederholungsausfälle.',
+        description: 'Schnellere Diagnose und weniger wiederholte Ausfälle.',
         useCases: [
           'Technikerassistent über Handbücher, Protokolle und frühere Einsätze',
           'Entwurf von Arbeitsaufträgen und Identifikation von Ersatzteilen',
@@ -356,7 +356,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Qualität',
-        description: 'Abweichungen schneller dokumentiert und abgeschlossen.',
+        description: 'Abweichungen werden schneller dokumentiert und abgeschlossen.',
         useCases: [
           'Entwurf von Abweichungsberichten aus Prüfdaten',
           'Unterstützung bei 8D-Berichten und Ursachenanalysen',
@@ -365,7 +365,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Lieferkette und Beschaffung',
-        description: 'Lieferantenkommunikation und Dokumente von Agenten bearbeitet.',
+        description: 'Agenten bearbeiten Lieferantenkommunikation und Dokumente.',
         useCases: [
           'Verfolgung von Auftragsbestätigungen und Lieferterminen aus E-Mails',
           'Fragen und Antworten zu Lieferantenverträgen und Spezifikationen',
@@ -375,8 +375,8 @@ export const industries: Industry[] = [
     ],
     compliance: [
       'Bereitstellung vor Ort oder im Tenant des Kunden, wenn Produktionsdaten das Werksnetz nicht verlassen dürfen.',
-      'Exportkontrolle und Dual-Use-Aspekte in Datenklassifizierung und Zugriffsrechten berücksichtigt.',
-      'Sicherheitsrelevante Hinweise stets als beratend gekennzeichnet, mit Verweis auf Verfahren und menschlicher Freigabe.',
+      'Exportkontrolle und Dual-Use-Aspekte sind in Datenklassifizierung und Zugriffsrechten berücksichtigt.',
+      'Sicherheitsrelevante Hinweise sind als beratend gekennzeichnet. Sie verweisen auf Verfahren und brauchen eine menschliche Freigabe.',
       'Integration in bestehende Qualitätsmanagementsysteme und deren Freigabeprozesse.',
     ],
     relatedCase: 'maintenance-copilot',

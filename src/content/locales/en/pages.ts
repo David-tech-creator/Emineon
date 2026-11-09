@@ -3,21 +3,21 @@ import type { AboutDict, ApproachDict, CareersDict, ContactDict, LegalDict } fro
 export const approach: ApproachDict = {
   hero: {
     eyebrow: '[ Approach ]',
-    title: { pre: 'Paid on outcomes, ', accent: 'not', post: ' hours.' },
-    lead: 'We work in three steps, each with a fixed scope and a result you can verify before committing to the next. Small senior teams, amplified by AI, accountable from the first business case to the system running in production.',
+    title: { pre: 'Three steps, priced on ', accent: 'results', post: '.' },
+    lead: 'We work in three steps. Each has a fixed scope and a result you can check before the next one. Small senior teams use AI in their work and stay with you from the business case to production.',
   },
   model: {
-    eyebrow: '[ 01 — The model ]',
-    title: { pre: 'Assess. Build. ', accent: 'Run.' },
-    lead: 'Most clients enter at Assess or with the 30-day sprint. Some arrive with a pilot that needs hardening and start at Run. Every step can stand alone.',
+    eyebrow: '[ 01 · The model ]',
+    title: { pre: 'Assess, build and ', accent: 'run.' },
+    lead: 'Most clients enter at Assess or with the 30-day sprint. Some arrive with a pilot that needs hardening and start at Run. Each step can stand alone.',
     stages: [
       {
         key: 'assess',
         icon: 'strategy',
         label: '01 · Assess',
-        title: 'Know where AI pays',
-        tagline: 'A fixed-fee diagnostic that ends in a decision, not a report.',
-        text: 'We map where time, cost and risk sit across your workflows, measure baselines, build business cases with the finance team and write the AI policy and roadmap. The final week scopes and prices the first build.',
+        title: 'Find where AI is worth it',
+        tagline: 'A fixed-fee diagnostic that ends with a decision.',
+        text: 'We map where time, cost and risk sit in your workflows and measure baselines. We build business cases with your finance team and write the AI policy and roadmap. In the final week we scope and price the first build.',
         includes: [
           'AI readiness across data, systems, people and governance',
           'Three to five business cases with ROI and payback',
@@ -34,8 +34,8 @@ export const approach: ApproachDict = {
         icon: 'agents',
         label: '02 · Build',
         title: 'Put systems into production',
-        tagline: 'Working systems in your environment, priced on what goes live.',
-        text: 'A senior pod with forward-deployed engineers builds the workflow in your environment, on your data. The eval set is written before the first prompt and becomes the go-live gate. People stay in the loop wherever judgement matters.',
+        tagline: 'Systems in your environment, priced on what goes live.',
+        text: 'A senior pod with forward-deployed engineers builds the workflow in your environment, on your data. The eval set is written before the first prompt and becomes the go-live gate. People stay in the loop where judgement matters.',
         includes: [
           'Workflow design and eval set from real cases',
           'Agents, integrations and review interface',
@@ -51,9 +51,9 @@ export const approach: ApproachDict = {
         key: 'run',
         icon: 'operations',
         label: '03 · Run',
-        title: 'Operate, harden, transfer',
-        tagline: 'Keep it accurate, affordable and auditable, then hand it over.',
-        text: 'We monitor quality and cost, handle model upgrades safely, extend the system to new entities and teams, and transfer ownership when your team is ready. Exit is planned from day one.',
+        title: 'Operate, improve, hand over',
+        tagline: 'We keep it accurate, affordable and auditable, then hand it over.',
+        text: 'We monitor quality and cost and handle model upgrades safely. We extend the system to new entities and teams. We hand it over when your team is ready, as planned from day one.',
         includes: [
           'Continuous evaluation and production monitoring',
           'Model and prompt release management',
@@ -68,21 +68,21 @@ export const approach: ApproachDict = {
     ],
   },
   pricing: {
-    eyebrow: '[ 02 — Pricing ]',
+    eyebrow: '[ 02 · Pricing ]',
     title: { pre: 'We price the ', accent: 'result.' },
-    lead: 'Billable hours reward effort. We would rather be paid for what changes. Here is how that works in practice.',
+    lead: 'We prefer to be paid for what changes in your firm. This is how it works.',
     principles: [
       { title: 'Fixed fee for diagnosis', text: 'Assessments have a fixed scope and price agreed before we start. You know the cost of a decision before you make it.' },
-      { title: 'Milestones you can verify', text: 'Builds are priced per milestone or per workflow live, each defined by a test you can run: the eval gate passes, the system is in production, the team is trained.' },
-      { title: 'Outcome share where the baseline is clean', text: 'When the baseline is measurable, part of our fee can be tied to the result: hours saved, cycle time, error rate. We only propose it when both sides trust the number.' },
-      { title: 'No lock-in, no licence tax', text: 'You own the code, prompts, evals and documentation. Model costs are passed through at cost or billed to your own accounts.' },
+      { title: 'Milestones you can verify', text: 'Builds are priced per milestone or per workflow live. Each milestone has a test you can run. The eval gate passes, the system is in production, the team is trained.' },
+      { title: 'Outcome share where the baseline is clean', text: 'When the baseline is measurable, part of our fee can be tied to the result, such as hours saved, cycle time or error rate. We only propose it when both sides trust the number.' },
+      { title: 'No lock-in, no licence fees', text: 'You own the code, prompts, evals and documentation. Model costs are passed through at cost or billed to your own accounts.' },
     ],
-    note: 'Time and materials only for genuinely exploratory work, and only when you ask for it.',
+    note: 'We use time and materials only for exploratory work, and only when you ask.',
   },
   sprint: {
-    eyebrow: '[ 03 — The 30-day sprint ]',
-    title: { pre: 'Readiness to a first workflow live, in ', accent: '30 days.' },
-    lead: 'The fastest way to find out what AI is worth in your firm is to put one workflow into production. The sprint combines a focused assessment with a first build, at a fixed price.',
+    eyebrow: '[ 03 · The 30-day sprint ]',
+    title: { pre: 'A first workflow live in ', accent: '30 days.' },
+    lead: 'A good way to see what AI is worth in your firm is to put one workflow into production. The sprint combines a short assessment with a first build, at a fixed price.',
     weeks: [
       {
         label: 'Week 1',
@@ -112,7 +112,7 @@ export const approach: ApproachDict = {
     promise: 'If the workflow does not pass its agreed eval gate by day 30, we keep working at no additional fee until it does.',
   },
   models: {
-    eyebrow: '[ 04 — Engagement models ]',
+    eyebrow: '[ 04 · Engagement models ]',
     title: { pre: 'Choose how we ', accent: 'work', post: ' together.' },
     items: [
       { icon: 'sprint', name: '30-day sprint', bestFor: 'Firms that want proof in production before a larger commitment.', text: 'Fixed price, one workflow live, team trained. The most common starting point.' },
@@ -122,9 +122,9 @@ export const approach: ApproachDict = {
     ],
   },
   team: {
-    eyebrow: '[ 05 — Who you work with ]',
-    title: { pre: 'Senior people, ', accent: 'amplified.' },
-    lead: 'No junior pyramid. Every engagement is led by people who have done the work before, using AI to do more of it.',
+    eyebrow: '[ 05 · Who you work with ]',
+    title: { pre: 'Senior people who use ', accent: 'AI', post: ' daily.' },
+    lead: 'Each engagement is led by people who have done this work before. They use AI to do more of it.',
     pods: [
       { icon: 'strategy', title: 'Engagement lead', text: 'Accountable for the outcome. Owns the business case, the relationship with your leadership and the decisions on scope.' },
       { icon: 'fde', title: 'Forward-deployed engineers', text: 'Senior engineers in Geneva or on site, embedded with your team, building in your environment.' },
@@ -136,11 +136,11 @@ export const approach: ApproachDict = {
     { q: 'How quickly can we start?', a: 'Usually within two weeks of the first call. The sprint and the assessment need a sponsor, access to the people doing the work and access to a test environment.' },
     { q: 'What if we already have an AI team?', a: 'We work alongside them. Often we bring the evaluation discipline, the production hardening or the adoption programme, and leave your team with more capability than before.' },
     { q: 'Where does the work happen?', a: 'In your environment. Forward-deployed engineers work in Geneva or on site. Work on sensitive data happens in Switzerland or in your own cloud; our global network works only on what is safe to share.' },
-    { q: 'What do we own at the end?', a: 'Everything we build for you: code, prompts, eval sets, configuration and documentation.' },
+    { q: 'What do we own at the end?', a: 'Everything we build for you. That includes code, prompts, eval sets, configuration and documentation.' },
   ],
   cta: {
     title: { pre: 'Start with ', accent: 'one', post: ' workflow.' },
-    text: 'Tell us which process costs your team the most time. We will tell you in thirty minutes whether the sprint is the right start.',
+    text: 'Tell us which process takes your team the most time. In a thirty-minute call, we can tell you if the sprint is a good start.',
     primary: { label: 'Book a 30-minute call', href: '/contact' },
     secondary: { label: 'See representative work', href: '/work' },
   },
@@ -149,49 +149,49 @@ export const approach: ApproachDict = {
 export const about: AboutDict = {
   hero: {
     eyebrow: '[ About ]',
-    title: { pre: 'Rooted in Geneva. ', accent: 'Growing', post: ' everywhere.' },
-    lead: 'Emineon is a frontier, AI-native consulting firm. We take firms from deciding to use AI to running it in their real work, with one accountable team from strategy to production to adoption.',
+    title: { pre: 'Based in ', accent: 'Geneva', post: ', with hubs in six other cities.' },
+    lead: 'Emineon is an AI-native consulting firm. We help firms move from deciding to use AI to using it in daily work. One team covers strategy, production and adoption.',
   },
   name: {
-    eyebrow: '[ 01 — The name ]',
+    eyebrow: '[ 01 · The name ]',
     title: { pre: 'Eminent, ', accent: 'new.' },
     paragraphs: [
-      'Emineon joins two words: eminent, for the standard of work we hold ourselves to, and neo, for a way of working built for the AI era rather than adapted to it.',
-      'We are newly repositioned as an AI-native firm, and we see that as an advantage. We have no pyramid of juniors to keep busy and no billable-hour model to defend. We could build the firm around what AI makes possible: small senior teams, working systems instead of decks, and fees tied to results.',
+      'Emineon joins two words. Eminent, for the standard of work we hold ourselves to. Neo, for a way of working built for the AI era.',
+      'We recently repositioned as an AI-native firm, and we see that as an advantage. We have no large junior teams and no billable-hour model to protect. So we built the firm around small senior teams, systems in production and fees tied to results.',
     ],
   },
   oak: {
-    eyebrow: '[ 02 — The oak ]',
-    title: { pre: 'Patient, enduring, ', accent: 'compounding.' },
+    eyebrow: '[ 02 · The oak ]',
+    title: { pre: 'An oak, grown ', accent: 'over time.' },
     lead: 'Behind the name stands an oak, drawn as a lattice of points with one ember node. It describes how we think AI should grow inside a firm.',
     layers: [
       { key: 'roots', name: 'Roots', meaning: 'Your data, governed and in the right place. Nothing grows without them.' },
-      { key: 'trunk', name: 'Trunk', meaning: 'The platform and the controls: access, evaluation, audit. One strong core instead of many fragile stems.' },
+      { key: 'trunk', name: 'Trunk', meaning: 'The platform and the controls, such as access, evaluation and audit. One solid core rather than many fragile stems.' },
       { key: 'branches', name: 'Branches', meaning: 'Agents and workflows, each reaching into a different part of the work.' },
       { key: 'canopy', name: 'Canopy', meaning: 'The whole firm using AI every day. The part everyone sees, and the reason for the rest.' },
     ],
   },
   principles: {
-    eyebrow: '[ 03 — Principles ]',
+    eyebrow: '[ 03 · Principles ]',
     title: { pre: 'What we ', accent: 'hold', post: ' to.' },
     items: [
-      { title: 'Working systems, not decks', text: 'Advice we cannot build is not worth much. Every recommendation we make, we are prepared to put into production.' },
-      { title: 'Paid on outcomes', text: 'We price the result where it can be measured, and we say so when it cannot.' },
+      { title: 'Systems in production', text: 'We only recommend what we are ready to build and put into production.' },
+      { title: 'Fees tied to results', text: 'We price the result where it can be measured, and we say so when it cannot.' },
       { title: 'Measure before you claim', text: 'Baselines first, evals before launch, numbers in every report. If we cannot measure it, we do not promise it.' },
       { title: 'Your data stays yours', text: 'No training on client data, no lock-in, residency in Switzerland or your own cloud. You own what we build.' },
-      { title: 'For everyone, not a few', text: 'A system only a handful of people use is a pilot. We stay until the new way of working is simply the way.' },
-      { title: 'Say it plainly', text: 'No hype, no jargon to hide behind. We tell you what will be built, what it will cost and what result it should produce.' },
+      { title: 'For all teams', text: 'If only a few people use a system, it is still a pilot. We stay until the new way of working is normal.' },
+      { title: 'Say it plainly', text: 'We avoid hype and jargon. We tell you what we will build, what it will cost and what result to expect.' },
     ],
   },
   hq: {
-    eyebrow: '[ 04 — Headquarters ]',
+    eyebrow: '[ 04 · Headquarters ]',
     title: { pre: 'Route de Vandœuvres ', accent: '77A.' },
     text: 'Our headquarters sit just outside Geneva, in Vandœuvres, close to the banks, trading houses and international organisations we work with. Client leadership and forward-deployed engineering are based here, and most of our clients are a short drive away.',
   },
   network: {
-    eyebrow: '[ 05 — Global network ]',
+    eyebrow: '[ 05 · Global network ]',
     title: { pre: 'One firm, ', accent: 'seven', post: ' cities.' },
-    lead: 'Senior pods in Geneva are backed by engineering and delivery hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas. Work moves around the clock; sensitive data stays where it belongs.',
+    lead: 'Senior pods in Geneva are backed by engineering and delivery hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas. Work continues across time zones. Sensitive data stays where it belongs.',
     stats: [
       { value: '130+', label: 'Engineers across the network' },
       { value: '200+', label: 'Projects delivered' },
@@ -199,17 +199,17 @@ export const about: AboutDict = {
     ],
   },
   organisation: {
-    eyebrow: '[ 06 — How we are organised ]',
-    title: { pre: 'Small at the front, ', accent: 'deep', post: ' behind.' },
+    eyebrow: '[ 06 · How we are organised ]',
+    title: { pre: 'A small team in front, more ', accent: 'capacity', post: ' behind.' },
     lead: 'Clients work with a small senior team that is accountable for the outcome. Behind it is the capacity of a much larger firm.',
     units: [
       { icon: 'strategy', title: 'Senior pods', text: 'An engagement lead and senior specialists who own the outcome, the relationship and the hard decisions.' },
       { icon: 'fde', title: 'Forward-deployed engineers', text: 'Senior engineers embedded with client teams in Geneva and on site, building in the client’s environment.' },
-      { icon: 'globe', title: 'Global delivery network', text: 'Engineering hubs across Asia-Pacific and the Americas, adding build and operations capacity around the clock.' },
+      { icon: 'globe', title: 'Global delivery network', text: 'Engineering hubs across Asia-Pacific and the Americas, adding build and operations capacity across time zones.' },
     ],
   },
   practices: {
-    eyebrow: '[ 07 — Practice areas ]',
+    eyebrow: '[ 07 · Practice areas ]',
     title: { pre: 'Five practices, ', accent: 'one', post: ' team.' },
     items: [
       { title: 'Strategy', text: 'AI strategy, business cases, policy and operating model.' },
@@ -221,7 +221,7 @@ export const about: AboutDict = {
   },
   cta: {
     title: { pre: 'Let’s find your ', accent: 'first', post: ' workflow.' },
-    text: 'Thirty minutes, no preparation. You will know whether AI changes the process you have in mind.',
+    text: 'Happy to have a thirty-minute call, no preparation needed. We can look at the process you have in mind together.',
     primary: { label: "Let's talk", href: '/contact' },
     secondary: { label: 'Join us', href: '/careers' },
   },
@@ -230,23 +230,23 @@ export const about: AboutDict = {
 export const careers: CareersDict = {
   hero: {
     eyebrow: '[ Careers ]',
-    title: { pre: 'Build what ', accent: 'runs.' },
-    lead: 'We hire senior people who want their work to end up in production, used by real teams, measured by real results. Geneva headquarters, a global network, and no slide factory.',
+    title: { pre: 'Build systems people ', accent: 'use.' },
+    lead: 'We hire senior people who want their work to run in production and be used by teams. We are based in Geneva, with a global network.',
   },
   why: {
-    eyebrow: '[ 01 — Why Emineon ]',
-    title: { pre: 'Senior work, ', accent: 'real', post: ' systems.' },
+    eyebrow: '[ 01 · Why Emineon ]',
+    title: { pre: 'Senior work on systems in ', accent: 'production.' },
     items: [
-      { icon: 'agents', title: 'Production, not prototypes', text: 'What you build goes live in banks, trading houses and international organisations, and stays live.' },
-      { icon: 'fde', title: 'Close to the work', text: 'You sit with the people who use what you build. Requirements come from the floor, feedback comes the same day.' },
-      { icon: 'spark', title: 'AI-native by default', text: 'We use AI in everything we do, from research to code review. You will work at the frontier, not read about it.' },
+      { icon: 'agents', title: 'Work that goes live', text: 'What you build goes live in banks, trading houses and international organisations.' },
+      { icon: 'fde', title: 'Close to the work', text: 'You sit with the people who use what you build. You often get feedback the same day.' },
+      { icon: 'spark', title: 'AI in daily work', text: 'We use AI in our own work, from research to code review.' },
       { icon: 'globe', title: 'A global team', text: 'Colleagues in Genève, Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas, with Geneva as the anchor.' },
-      { icon: 'outcome', title: 'Judged on outcomes', text: 'No timesheet theatre. We care about what you ship and what it changes.' },
-      { icon: 'roots', title: 'Room to grow', text: 'Small senior teams mean real responsibility early, and a firm still being shaped by the people in it.' },
+      { icon: 'outcome', title: 'Judged on outcomes', text: 'We look at what you ship and what it changes.' },
+      { icon: 'roots', title: 'Room to grow', text: 'In small senior teams you take on responsibility early. The firm is still shaped by the people in it.' },
     ],
   },
   roles: {
-    eyebrow: '[ 02 — Roles ]',
+    eyebrow: '[ 02 · Roles ]',
     title: { pre: 'Who we are ', accent: 'looking', post: ' for.' },
     lead: 'We hire continuously for these roles. If one fits, write to us with a few lines on something you built and why it mattered.',
     items: [
@@ -256,7 +256,7 @@ export const careers: CareersDict = {
         team: 'Engineering',
         locations: ['Genève', 'On site with clients'],
         type: 'Full-time',
-        summary: 'Embed with client teams, understand how the work really runs and ship agentic systems into their production environments.',
+        summary: 'Embed with client teams, understand how the work runs and ship agentic systems into their production environments.',
         responsibilities: [
           'Shadow client teams and turn messy processes into precise workflow specifications',
           'Build agents, integrations and review interfaces in client environments',
@@ -308,9 +308,9 @@ export const careers: CareersDict = {
         team: 'Strategy',
         locations: ['Genève'],
         type: 'Full-time',
-        summary: 'Lead assessments with client leadership, build business cases that survive finance review, and stay accountable through build and adoption.',
+        summary: 'Lead assessments with client leadership, build business cases that hold up in finance review, and stay accountable through build and adoption.',
         responsibilities: [
-          'Run assessments: interviews, process analysis, baseline measurement',
+          'Run assessments with interviews, process analysis and baseline measurement',
           'Build business cases with ROI and payback alongside client finance teams',
           'Draft AI policies and operating models with risk and compliance',
           'Shape and price builds; stay involved through delivery',
@@ -331,17 +331,17 @@ export const careers: CareersDict = {
     ],
     openApplication: {
       title: 'Not on the list?',
-      text: 'If you are exceptional at something we should be doing, write to us anyway.',
+      text: 'If you are very good at something we should be doing, write to us anyway.',
     },
   },
   locations: {
-    eyebrow: '[ 03 — Locations ]',
+    eyebrow: '[ 03 · Locations ]',
     title: { pre: 'Geneva, and ', accent: 'beyond.' },
     text: 'Client-facing roles are based in Geneva, with travel to client sites. Engineering roles are open in Geneva and across our network hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas.',
   },
   process: {
-    eyebrow: '[ 04 — How we hire ]',
-    title: { pre: 'Four steps, ', accent: 'no', post: ' riddles.' },
+    eyebrow: '[ 04 · How we hire ]',
+    title: { pre: 'Four ', accent: 'simple', post: ' steps.' },
     steps: [
       { title: 'Conversation', text: 'Thirty minutes with someone who does the job. We talk about what you have built and what you want next.' },
       { title: 'Work sample', text: 'A realistic problem from our work, done at home in a few hours or live with us, your choice. We pay for take-home time.' },
@@ -361,7 +361,7 @@ export const contact: ContactDict = {
   hero: {
     eyebrow: '[ Contact ]',
     title: { pre: 'Let’s ', accent: 'talk.' },
-    lead: 'Name one process that costs your team too much time. Thirty minutes, no preparation, and you will know whether AI changes it.',
+    lead: 'Tell us about one process that takes your team a lot of time. Happy to have a 30-minute call, no preparation needed.',
   },
   form: {
     title: 'Start a conversation',
@@ -380,7 +380,7 @@ export const contact: ContactDict = {
     steps: [
       { title: 'We reply', text: 'Within one business day, to propose a thirty-minute call.' },
       { title: 'We listen', text: 'You describe the process. We ask how it works today and what good would look like.' },
-      { title: 'We tell you straight', text: 'Whether AI changes it, roughly what it would take, and whether we are the right people.' },
+      { title: 'We give you an honest view', text: 'Whether AI changes it, roughly what it would take, and whether we are the right people.' },
     ],
   },
   officesTitle: 'Offices',

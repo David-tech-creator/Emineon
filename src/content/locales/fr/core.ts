@@ -14,47 +14,47 @@ export const meta: MetaDict = {
   home: {
     title: 'Emineon · Cabinet de conseil en IA à Genève, Suisse',
     description:
-      'Cabinet de conseil en IA basé à Genève, en Suisse. Stratégie IA, systèmes agentiques en production et adoption, rémunérés sur les résultats, pas les heures.',
+      'Cabinet de conseil en IA basé à Genève, en Suisse. Stratégie IA, systèmes agentiques en production et adoption. Honoraires liés aux résultats.',
   },
   services: {
     title: 'Services de conseil en IA : stratégie, agents, plateformes, opérations',
     description:
-      'Stratégie IA, systèmes agentiques, plateformes data et IA, opérations IA et adoption. Cinq services, une seule équipe responsable, du premier business case aux systèmes utilisés chaque jour par vos équipes.',
+      'Stratégie IA, systèmes agentiques, plateformes data et IA, opérations IA et adoption. Cinq services portés par une même équipe, du premier business case au système utilisé par vos équipes.',
   },
   approach: {
-    title: 'Notre méthode : évaluer, construire, opérer, rémunérée sur les résultats',
+    title: 'Notre méthode en trois étapes : évaluer, construire, opérer',
     description:
-      'Comment travaille Emineon : un diagnostic à prix fixe, des réalisations rémunérées sur les résultats et une phase d’exploitation qui consolide puis transfère. Avec le sprint de 30 jours, de l’état des lieux à un premier workflow en production.',
+      'Comment travaille Emineon. Un diagnostic à prix fixe, des réalisations facturées par jalon ou au résultat, puis une phase d’exploitation et un transfert. Le sprint de 30 jours mène à un premier workflow en production.',
   },
   industries: {
     title: 'L’IA pour les secteurs réglementés en Suisse',
     description:
-      'L’IA pour les secteurs réglementés, documentaires et multilingues : négoce de matières premières, banque privée et gestion de fortune, organisations internationales, sciences de la vie, parfums et arômes, industrie.',
+      'L’IA pour les secteurs réglementés, documentaires et multilingues. Négoce de matières premières, banque privée et gestion de fortune, organisations internationales, sciences de la vie, parfums et arômes, industrie.',
   },
   work: {
     title: 'Réalisations',
     description:
-      'Missions représentatives d’Emineon : études de cas anonymisées présentant l’enjeu, la démarche, le système construit et les résultats mesurés.',
+      'Missions représentatives d’Emineon. Des études de cas anonymisées, avec l’enjeu, la démarche, le système construit et les résultats mesurés.',
   },
   insights: {
     title: 'Analyses',
     description:
-      'Des textes pratiques sur l’IA en production : du pilote à la production, workflows agentiques, la nLPD en pratique, tarification au résultat, forward-deployed engineering et évaluations.',
+      'Des textes pratiques sur l’IA en production. Du pilote à la production, workflows agentiques, nLPD, tarification au résultat, forward-deployed engineering et évaluations.',
   },
   about: {
     title: 'À propos d’Emineon : cabinet de conseil IA à Genève',
     description:
-      'Emineon est un cabinet de conseil natif de l’IA basé à Genève. Des équipes seniors, des ingénieurs déployés chez nos clients et un réseau de delivery mondial, avec des hubs à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas.',
+      'Emineon est un cabinet de conseil en IA basé à Genève. Des équipes seniors, des ingénieurs chez nos clients et un réseau mondial, avec des hubs à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas.',
   },
   careers: {
     title: 'Carrières',
     description:
-      'Rejoignez Emineon comme forward-deployed engineer, ingénieur IA ou stratège IA. Un travail senior, de vrais systèmes en production, à Genève et dans notre réseau mondial.',
+      'Rejoignez Emineon comme forward-deployed engineer, ingénieur IA ou stratège IA. Des postes seniors et des systèmes en production, à Genève et dans notre réseau mondial.',
   },
   contact: {
-    title: 'Contact : parlons-en',
+    title: 'Nous contacter',
     description:
-      'Parlez-nous d’un processus qui coûte trop de temps à votre équipe. Trente minutes, sans préparation, et vous saurez si l’IA le transforme.',
+      'Parlez-nous d’un processus qui prend beaucoup de temps à votre équipe. Un appel de trente minutes, sans préparation.',
   },
   privacy: {
     title: 'Politique de confidentialité',
@@ -90,28 +90,28 @@ export const nav: NavDict = {
   mega: {
     services: {
       eyebrow: '[ Services ]',
-      intro: 'Du business case validé par la direction aux systèmes qui tournent en production, adoptés par vos équipes.',
+      intro: 'Du business case validé par la direction au système en production, utilisé par vos équipes.',
       groupServices: 'Ce que nous faisons',
       groupModel: 'Notre méthode',
       approachLabel: 'Évaluer → Construire → Opérer',
-      approachText: 'Diagnostic à prix fixe, réalisations rémunérées au résultat, une phase d’exploitation qui transfère la maîtrise.',
+      approachText: 'Un diagnostic à prix fixe. Des réalisations facturées par jalon ou au résultat. Puis l’exploitation et le transfert.',
       viewAll: 'Tous les services',
       featured: {
         eyebrow: '[ Programme phare ]',
         title: 'De l’état des lieux à un premier workflow en production, en 30 jours.',
-        text: 'Un système qui tourne en production, piloté par votre équipe. Pas une présentation, pas un prototype.',
+        text: 'Un système en production, piloté par votre équipe.',
         cta: { label: 'Découvrir le sprint', href: '/approach#sprint' },
       },
     },
     industries: {
       eyebrow: '[ Secteurs ]',
-      intro: 'Réglementés, documentaires, multilingues. Les secteurs où Genève est dense et où l’IA se rentabilise le plus vite.',
+      intro: 'Des secteurs réglementés, riches en documents et multilingues. Ce sont les secteurs forts de Genève.',
       groupCore: 'Secteurs clés',
       groupAdjacent: 'Secteurs adjacents',
       viewAll: 'Tous les secteurs',
       featured: {
         eyebrow: '[ Mission représentative ]',
-        title: 'Des confirmations rapprochées par des agents, les exceptions confiées aux équipes.',
+        title: 'Les agents rapprochent les confirmations. Les équipes traitent les exceptions.',
         text: 'Un négociant genevois en matières premières, de la boîte mail à la transaction enregistrée.',
         cta: { label: 'Lire le cas', href: '/work/trade-confirmation-agents' },
       },
@@ -233,11 +233,11 @@ export const common: CommonDict = {
       { value: 'other', label: 'Autre chose' },
     ],
     message: 'Message',
-    messagePlaceholder: 'Un processus qui coûte trop de temps à votre équipe, et ce à quoi ressemblerait une réussite.',
+    messagePlaceholder: 'Un processus qui prend beaucoup de temps à votre équipe, et le résultat que vous attendez.',
     consent: 'J’accepte qu’Emineon traite ces informations pour répondre à ma demande, conformément à la politique de confidentialité.',
     submit: 'Envoyer',
     sending: 'Envoi…',
-    successTitle: 'Bien reçu.',
+    successTitle: 'Merci, bien reçu.',
     successText: 'Un membre senior de l’équipe vous répondra sous un jour ouvrable.',
     errorTitle: 'L’envoi n’a pas abouti.',
     errorText: 'Veuillez réessayer, ou écrire directement à hello@emineon.com.',
@@ -305,7 +305,7 @@ export const offices: Office[] = [
 ];
 
 export const footer: FooterDict = {
-  tagline: 'Conseil natif de l’IA. Stratégie, systèmes en production, adoption. Une seule équipe responsable.',
+  tagline: 'Conseil en IA à Genève. De la stratégie à la production, avec une même équipe.',
   brandLine: 'Forge your edge.',
   columns: {
     services: 'Services',
@@ -323,19 +323,19 @@ export const footer: FooterDict = {
   ],
   newsletter: {
     title: 'Notes de terrain',
-    text: 'Une note soignée par semaine sur la mise en production de l’IA. Sans emphase, sans pixel de suivi.',
+    text: 'Une note par semaine sur l’IA en production. Sans pixel de suivi.',
   },
   legal: { privacy: 'Confidentialité', imprint: 'Mentions légales' },
   copyright: '© {year} Emineon. Tous droits réservés.',
-  rooted: 'Ancrés à Genève. Présents partout.',
+  rooted: 'Basés à Genève, avec une équipe dans sept villes.',
   backToTop: 'Haut de page',
 };
 
 export const home: HomeDict = {
   hero: {
-    eyebrow: '[ Genève · Conseil natif de l’IA ]',
-    title: { pre: 'L’IA qui travaille pour ', accent: 'toute', post: ' votre entreprise.' },
-    sub: 'De la stratégie au niveau de la direction aux systèmes qui tournent en production, adoptés par vos équipes. De petites équipes seniors, amplifiées par l’IA. Rémunérées sur les résultats, pas sur les heures.',
+    eyebrow: '[ Genève · Conseil en IA ]',
+    title: { pre: 'L’IA qui aide vos ', accent: 'équipes', post: ' au quotidien.' },
+    sub: 'Nous aidons la direction à choisir où utiliser l’IA. Puis nous construisons les systèmes et accompagnons vos équipes. De petites équipes seniors, avec des honoraires liés aux résultats.',
     primaryCta: { label: 'Parlons-en', href: '/contact' },
     secondaryCta: { label: 'Voir notre méthode', href: '/approach' },
     ticker: [
@@ -358,19 +358,19 @@ export const home: HomeDict = {
       { value: '7', label: 'Villes, de Genève à la Silicon Valley' },
       { value: '30', label: 'Jours jusqu’au premier workflow en service' },
     ],
-    note: 'Les chiffres du réseau couvrent Emineon et son réseau de delivery mondial.',
+    note: 'Ces chiffres couvrent Emineon et son réseau mondial.',
   },
   gap: {
-    eyebrow: '[ 01 — Le fossé ]',
-    title: { pre: 'La plupart des entreprises ont décidé d’adopter l’IA. Peu ont un ', accent: 'chemin', post: ' pour la concrétiser.' },
+    eyebrow: '[ 01 · Le constat ]',
+    title: { pre: 'Beaucoup d’entreprises ont décidé d’utiliser l’IA. Il reste à trouver le ', accent: 'chemin', post: ' pour la mettre en place.' },
     paragraphs: [
-      'Les licences sont achetées. Une poignée de personnes s’en servent bien. Pour tous les autres, le travail avance comme il y a dix ans : à la main, de mémoire, quand quelqu’un y pense.',
-      'Quelqu’un trouve une meilleure façon de faire. Elle reste avec lui. L’entreprise n’en profite jamais, parce que rien ne relie l’idée aux systèmes où le travail se fait réellement.',
-      'Les outils ne sont pas le problème. Les faire entrer dans le travail réel, pour tous, avec la gouvernance qu’attend votre régulateur : voilà le problème que nous résolvons.',
+      'Souvent, les licences sont achetées et quelques personnes s’en servent bien. Pour le reste de l’équipe, beaucoup de tâches se font encore à la main.',
+      'Quand quelqu’un trouve une meilleure façon de faire, elle reste souvent avec lui. Elle n’est pas encore reliée aux systèmes où le travail se fait.',
+      'Les outils sont là. Nous aidons à les intégrer dans le travail de chacun, avec la gouvernance dont vous avez besoin.',
     ],
     stat: {
       value: '22% → 34%',
-      label: 'Adoption de l’IA par les PME suisses en un an. Les entreprises qui l’intègrent au travail réel prennent de l’avance.',
+      label: 'Adoption de l’IA par les PME suisses en un an.',
       source: 'Étude PME AXA · kmu.admin.ch',
     },
     mock: {
@@ -385,22 +385,22 @@ export const home: HomeDict = {
     },
   },
   services: {
-    eyebrow: '[ 02 — Ce que nous faisons ]',
-    title: { pre: 'Cinq services. Une seule équipe ', accent: 'responsable.' },
-    lead: 'Nous décidons où l’IA rapporte, construisons les systèmes qui captent cette valeur, les exploitons en toute sécurité et veillons à ce que vos équipes s’en servent. Aucun passage de relais entre ceux qui conseillent et ceux qui construisent.',
+    eyebrow: '[ 02 · Ce que nous faisons ]',
+    title: { pre: 'Cinq services, portés par une même ', accent: 'équipe.' },
+    lead: 'Nous aidons à choisir où l’IA est utile. Nous construisons les systèmes, les exploitons en sécurité et accompagnons vos équipes. Les personnes qui conseillent sont aussi celles qui construisent.',
     cta: { label: 'Tous les services', href: '/services' },
   },
   approach: {
-    eyebrow: '[ 03 — Notre méthode ]',
+    eyebrow: '[ 03 · Notre méthode ]',
     title: { pre: 'Évaluer. Construire. ', accent: 'Opérer.' },
-    lead: 'Une échelle que l’on gravit un échelon à la fois. Chaque étape a un périmètre fixe, une logique de prix claire et un résultat vérifiable avant de s’engager dans la suivante.',
+    lead: 'Nous avançons une étape à la fois. Chaque étape a un périmètre fixe, un prix clair et un résultat que vous pouvez vérifier avant la suivante.',
     stages: [
       {
         key: 'assess',
         icon: 'strategy',
         label: '01 · Évaluer',
-        title: 'Savoir où l’IA rapporte',
-        text: 'Un diagnostic à prix fixe : maturité, business cases priorisés avec ROI, politique IA et feuille de route que votre conseil peut valider.',
+        title: 'Savoir où l’IA est utile',
+        text: 'Un diagnostic à prix fixe. Il couvre la maturité, des business cases priorisés avec ROI, une politique IA et une feuille de route pour votre conseil.',
         pricing: 'Prix fixe',
         duration: '2 à 4 semaines',
       },
@@ -426,64 +426,64 @@ export const home: HomeDict = {
     sprint: {
       eyebrow: '[ Programme phare · 30 jours ]',
       title: { pre: 'Du premier appel à un workflow en service, en ', accent: '30 jours.' },
-      sub: 'Un système qui tourne en production, piloté par votre équipe. Pas une présentation, pas un prototype.',
+      sub: 'Un système en production, piloté par votre équipe.',
       weeks: [
         { label: 'Semaine 1', title: 'Cadrage', text: 'Nous identifions où l’IA crée de la valeur chez vous, fixons la situation de référence et choisissons le premier workflow à livrer.' },
         { label: 'Semaine 2', title: 'Construction', text: 'Une équipe senior le construit dans votre environnement, sur vos données, avec le jeu d’évaluation écrit avant le premier prompt.' },
-        { label: 'Semaine 3', title: 'Consolidation', text: 'Cas limites, exceptions, contrôles d’accès et piste d’audit. Vos équipes le testent sur du travail réel.' },
+        { label: 'Semaine 3', title: 'Consolidation', text: 'Cas limites, exceptions, contrôles d’accès et piste d’audit. Vos équipes le testent sur des cas concrets.' },
         { label: 'Semaine 4', title: 'En service', text: 'Le workflow tourne en production. Votre équipe est formée pour le piloter et sait quoi construire ensuite.' },
       ],
       cta: { label: 'Commencer par le sprint', href: '/approach#sprint' },
     },
   },
   fde: {
-    eyebrow: '[ 04 — Forward-deployed engineering ]',
-    title: { pre: 'Des ingénieurs seniors ', accent: 'au sein', post: ' de votre équipe.' },
-    lead: 'Nos forward-deployed engineers travaillent aux côtés de vos équipes, à Genève ou sur site. Ils apprennent comment le travail se fait réellement, livrent dans votre environnement et restent jusqu’à ce que cela tienne. Derrière eux, notre réseau de delivery mondial ajoute de la capacité 24 heures sur 24.',
+    eyebrow: '[ 04 · Forward-deployed engineering ]',
+    title: { pre: 'Des ingénieurs seniors ', accent: 'avec', post: ' vos équipes.' },
+    lead: 'Nos forward-deployed engineers travaillent avec vos équipes, à Genève ou sur site. Ils apprennent comment le travail se fait et construisent dans votre environnement. Ils restent jusqu’à ce que le système tienne. Notre réseau mondial ajoute de la capacité sur plusieurs fuseaux horaires.',
     points: [
       {
         icon: 'fde',
-        title: 'Intégrés, pas à distance',
-        text: 'Ils participent à vos points quotidiens, lisent votre file d’exceptions et parlent avec ceux qui font le travail. Les exigences viennent du terrain, pas d’un atelier.',
+        title: 'Sur place avec vous',
+        text: 'Ils participent à vos points quotidiens, lisent votre file d’exceptions et parlent avec ceux qui font le travail. Les exigences viennent directement du terrain.',
       },
       {
         icon: 'globe',
-        title: 'Soutenus par un réseau mondial',
-        text: 'Une capacité d’ingénierie en Asie-Pacifique et dans les Amériques, pour qu’une petite équipe senior avance au rythme d’une équipe bien plus grande.',
+        title: 'Avec un réseau mondial',
+        text: 'Une capacité d’ingénierie en Asie-Pacifique et dans les Amériques. Une petite équipe senior peut ainsi avancer plus vite.',
       },
       {
         icon: 'residency',
         title: 'Les données sensibles restent en Suisse',
-        text: 'Le travail sur des données réglementées se fait en Suisse ou dans votre propre cloud. Le réseau ne touche que ce qui peut l’être sans risque.',
+        text: 'Le travail sur des données réglementées se fait en Suisse ou dans votre propre cloud. Le réseau travaille seulement sur ce qui peut être partagé.',
       },
     ],
     map: {
       title: 'Un cabinet, sept villes',
-      caption: 'Siège à Genève. Ingénierie et delivery en Asie-Pacifique et aux États-Unis.',
+      caption: 'Siège à Genève. Ingénierie en Asie-Pacifique et aux États-Unis.',
     },
     stats: [
       { value: '7', label: 'Villes' },
-      { value: '24h', label: 'Delivery en continu' },
-      { value: '1', label: 'Équipe responsable' },
+      { value: '24h', label: 'Sur plusieurs fuseaux horaires' },
+      { value: '1', label: 'Équipe, du début à la fin' },
     ],
   },
   industries: {
-    eyebrow: '[ 05 — Secteurs ]',
-    title: { pre: 'Conçu pour le travail ', accent: 'réglementé.' },
-    lead: 'Documentaires, multilingues, audités. Les secteurs qui font Genève sont ceux où l’IA fait gagner le plus de temps et exige le plus de rigueur.',
+    eyebrow: '[ 05 · Secteurs ]',
+    title: { pre: 'Pour les métiers ', accent: 'réglementés.' },
+    lead: 'Beaucoup de documents, plusieurs langues, des audits. Ce sont les secteurs forts de Genève, et l’IA y demande de la rigueur.',
     cta: { label: 'Tous les secteurs', href: '/industries' },
   },
   work: {
-    eyebrow: '[ 06 — Réalisations choisies ]',
-    title: { pre: 'Des systèmes qui tournent, des résultats ', accent: 'mesurés.' },
+    eyebrow: '[ 06 · Réalisations ]',
+    title: { pre: 'Des systèmes en production, des résultats ', accent: 'mesurés.' },
     lead: 'Missions représentatives, anonymisées sous NDA. Chacune est un système en production, avec une situation de référence et un chiffre.',
     cta: { label: 'Toutes les réalisations', href: '/work' },
     featured: ['trade-confirmation-agents', 'private-bank-kyc-refresh', 'multilingual-document-pipeline'],
   },
   trust: {
-    eyebrow: '[ 07 — Vos données ]',
+    eyebrow: '[ 07 · Vos données ]',
     title: { pre: 'Vos données restent les ', accent: 'vôtres.' },
-    lead: 'Nous ne les utilisons pas pour entraîner des modèles et ne gardons pas ce dont le travail n’a pas besoin. Tout s’exécute dans un environnement que seule votre équipe peut atteindre.',
+    lead: 'Nous ne les utilisons pas pour entraîner des modèles. Nous gardons seulement ce dont le travail a besoin. Tout tourne dans un environnement accessible à votre seule équipe.',
     pillars: [
       {
         icon: 'residency',
@@ -492,32 +492,32 @@ export const home: HomeDict = {
       },
       {
         icon: 'shield',
-        title: 'Maîtrise de la nLPD, de la FINMA et du RGPD',
-        text: 'Conçu pour la loi révisée sur la protection des données, en vigueur depuis le 1er septembre 2023 : annonce des violations au PFPDT, registre des activités de traitement, protection des données dès la conception et par défaut.',
+        title: 'Conçu pour la nLPD, la FINMA et le RGPD',
+        text: 'Conçu pour la loi révisée sur la protection des données, en vigueur depuis le 1er septembre 2023. Annonce des violations au PFPDT, registre des activités de traitement, protection des données dès la conception et par défaut.',
       },
       {
         icon: 'trust',
-        title: 'Prêt pour l’AI Act européen',
+        title: 'Préparé pour l’AI Act européen',
         text: 'Classification des risques, documentation et supervision humaine intégrées, pour que les systèmes destinés au marché européen soient prêts lorsque les obligations s’appliquent.',
       },
       {
         icon: 'branch',
         title: 'Indépendant des modèles, sans verrouillage',
-        text: 'Nous choisissons le bon modèle pour chaque tâche et pouvons le remplacer sans réécrire le système. Le code, les prompts et les évaluations vous appartiennent.',
+        text: 'Nous choisissons le modèle adapté à chaque tâche et pouvons le remplacer sans réécrire le système. Le code, les prompts et les évaluations vous appartiennent.',
       },
     ],
     footnote: 'La plupart des entreprises de taille moyenne peuvent bénéficier de l’exemption de registre prévue par la nLPD pour les traitements à faible risque. Nous vous disons si c’est votre cas.',
   },
   insights: {
-    eyebrow: '[ 08 — Analyses ]',
+    eyebrow: '[ 08 · Analyses ]',
     title: { pre: 'Notes de ', accent: 'production.' },
-    lead: 'Ce que nous apprenons en faisant entrer l’IA dans le travail réel, écrit pour ceux qui doivent la mettre en œuvre.',
+    lead: 'Ce que nous apprenons en mettant l’IA en production, écrit pour les équipes qui la mettent en œuvre.',
     cta: { label: 'Toutes les analyses', href: '/insights' },
   },
   cta: {
     eyebrow: '[ Prochaine étape ]',
-    title: { pre: 'Forge your ', accent: 'edge.' },
-    text: 'Citez un processus qui coûte trop de temps à votre équipe. En trente minutes, sans préparation, vous saurez ce que l’IA en ferait.',
+    title: { pre: 'Parlons-', accent: 'en.' },
+    text: 'Parlez-nous d’un processus qui prend beaucoup de temps à votre équipe. Nous en parlons volontiers en trente minutes, sans préparation.',
     primary: { label: 'Réserver un appel de 30 minutes', href: '/contact' },
     secondary: { label: 'Découvrir le sprint de 30 jours', href: '/approach#sprint' },
   },
@@ -526,15 +526,15 @@ export const home: HomeDict = {
 export const hubs: HubsDict = {
   services: {
     eyebrow: '[ Services ]',
-    title: { pre: 'Du business case au système qui ', accent: 'tourne.' },
-    lead: 'Cinq services qui fonctionnent seuls ou ensemble. La plupart de nos clients commencent par un diagnostic à prix fixe ou par le sprint de 30 jours, puis ajoutent le reste à mesure que la valeur se confirme.',
+    title: { pre: 'Du business case au système en ', accent: 'production.' },
+    lead: 'Cinq services, seuls ou combinés. La plupart de nos clients commencent par un diagnostic à prix fixe ou par le sprint de 30 jours. Ils ajoutent ensuite ce qui leur est utile.',
     modelNote: 'Chaque service suit la logique Évaluer → Construire → Opérer, avec un périmètre fixe et un prix lié à un résultat vérifiable.',
     cta: { label: 'Voir notre méthode', href: '/approach' },
   },
   industries: {
     eyebrow: '[ Secteurs ]',
-    title: { pre: 'Là où Genève travaille, l’', accent: 'IA', post: ' rapporte.' },
-    lead: 'Nous allons en profondeur dans quelques secteurs plutôt qu’en surface dans beaucoup. Chacun a ses documents, ses régulateurs, ses langues et ses modes de défaillance, et nous concevons pour tous.',
+    title: { pre: 'L’', accent: 'IA', post: ' dans les secteurs de Genève.' },
+    lead: 'Nous travaillons dans peu de secteurs, mais nous les connaissons bien. Chacun a ses documents, ses régulateurs, ses langues et ses points de fragilité.',
     coreLabel: 'Secteurs clés',
     adjacentLabel: 'Secteurs adjacents',
     cta: { label: 'Parlons de votre secteur', href: '/contact' },
@@ -551,7 +551,7 @@ export const hubs: HubsDict = {
   insights: {
     eyebrow: '[ Analyses ]',
     title: { pre: 'Écrit depuis le ', accent: 'terrain.' },
-    lead: 'Des notes de fond sur la mise en production de l’IA dans les entreprises réglementées. Écrites par nos practices, pour ceux qui opèrent, pas pour les moteurs de recherche.',
+    lead: 'Des notes sur l’IA en production dans les entreprises réglementées. Écrites par nos équipes, pour les personnes qui font le travail.',
     filterAll: 'Tous les thèmes',
     latest: 'Les plus récentes',
     cta: { label: 'S’abonner aux notes de terrain', href: '#newsletter' },

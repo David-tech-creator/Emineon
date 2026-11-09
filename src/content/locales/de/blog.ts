@@ -32,7 +32,7 @@ export const email: EmailDict = {
     subject: 'Bitte bestätigen Sie Ihr Abonnement von Emineon Insights',
     preheader: 'Ein Klick, und die nächste Notiz landet in Ihrem Postfach.',
     title: 'Abonnement bestätigen',
-    text: 'Jemand, hoffentlich Sie, möchte Emineon Insights erhalten: praxisnahe Notizen dazu, wie KI in regulierten Unternehmen in Produktion kommt. Eine E-Mail pro neuem Artikel, mehr nicht.',
+    text: 'Jemand, hoffentlich Sie, möchte Emineon Insights erhalten. Das sind Notizen aus der Praxis dazu, wie KI in regulierten Unternehmen in Produktion kommt. Sie erhalten eine E-Mail pro neuem Artikel.',
     button: 'Abonnement bestätigen',
     ignore: 'Wenn das nicht Sie waren, ignorieren Sie diese E-Mail, und Sie hören nichts mehr von uns. Der Link ist sieben Tage gültig.',
   },

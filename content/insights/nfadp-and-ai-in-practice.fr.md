@@ -1,68 +1,68 @@
 ---
-title: La nLPD et l’IA en pratique : ce que la protection des données suisse exige d’un système d’IA, et comment concevoir en conséquence
-summary: La loi fédérale révisée sur la protection des données s’applique depuis le 1er septembre 2023, et elle s’applique directement à l’IA. Voici ce que cela signifie pour un système que vous voulez mettre en production.
+title: La nLPD et l’IA en pratique, ce que la protection des données suisse demande à un système d’IA
+summary: La loi fédérale révisée sur la protection des données s’applique depuis le 1er septembre 2023, et elle s’applique directement à l’IA. Voici ce que cela change pour un système que vous voulez mettre en production.
 author: Emineon · Practice Données & plateformes
 ---
 
-Tout projet d’IA dans une entreprise suisse finit par rencontrer le délégué à la protection des données. Trop souvent, cette rencontre a lieu tard, une fois le pilote construit, et tourne à la négociation sur ce qu’il faut défaire. Il n’y a aucune raison qu’il en soit ainsi. La loi fédérale révisée sur la protection des données, en vigueur depuis le 1er septembre 2023, repose sur des principes et elle est raisonnablement claire. Concevoir en conséquence dès le départ coûte peu et supprime une raison fréquente d’enlisement des projets d’IA.
+Tout projet d’IA dans une entreprise suisse passe un jour par le délégué à la protection des données. Souvent, cette rencontre arrive tard, une fois le pilote construit. Elle devient alors une discussion sur ce qu’il faut défaire. Cela peut se passer autrement. La loi fédérale révisée sur la protection des données est en vigueur depuis le 1er septembre 2023. Elle repose sur des principes et elle est assez claire. En tenir compte dès le départ coûte peu. Cela évite aussi une cause fréquente de blocage des projets d’IA.
 
-Cet article est une synthèse de praticien, pas un avis juridique. Il couvre les obligations qui façonnent le plus souvent la conception d’un système d’IA, et les décisions que nous prenons pour y répondre.
+Cet article est une synthèse de praticien. Il ne constitue pas un avis juridique. Il couvre les obligations qui influencent le plus souvent la conception d’un système d’IA, et les choix que nous faisons pour y répondre.
 
 ## La loi s’applique déjà à l’IA
 
-La Suisse n’a pas de loi spécifique à l’IA. Le Préposé fédéral à la protection des données et à la transparence (PFPDT) a clairement indiqué que la législation existante sur la protection des données s’applique directement aux traitements de données personnelles assistés par l’IA. Le Conseil fédéral a choisi de ratifier la convention du Conseil de l’Europe sur l’IA et d’adapter le droit suisse secteur par secteur, plutôt que de reprendre l’AI Act européen. Pour une entreprise suisse, le point de départ pratique est donc la nLPD, complétée par l’AI Act partout où des systèmes ou leurs résultats atteignent le marché européen.
+La Suisse n’a pas de loi spécifique à l’IA. Le Préposé fédéral à la protection des données et à la transparence (PFPDT) l’a indiqué clairement. La législation existante s’applique directement aux traitements de données personnelles assistés par l’IA. Le Conseil fédéral a choisi de ratifier la convention du Conseil de l’Europe sur l’IA. Il adapte le droit suisse secteur par secteur, plutôt que de reprendre l’AI Act européen. Pour une entreprise suisse, le point de départ est donc la nLPD. L’AI Act s’y ajoute dès que des systèmes ou leurs résultats touchent le marché européen.
 
-Un détail de champ d’application compte : la nLPD ne protège que les personnes physiques. Les données relatives aux entreprises ne sont plus couvertes, ce qui simplifie de nombreux workflows B2B. Les données relatives aux personnes qui y travaillent le restent.
+Un point de champ d’application compte. La nLPD protège uniquement les personnes physiques. Les données relatives aux entreprises ne sont plus couvertes, ce qui simplifie de nombreux workflows B2B. Les données des personnes qui y travaillent restent couvertes.
 
-## Cinq obligations qui façonnent la conception
+## Cinq obligations qui influencent la conception
 
 ### 1. Protection des données dès la conception et par défaut
 
-La loi impose aux responsables du traitement d’intégrer la protection des données dans la conception technique et organisationnelle des traitements, et de prévoir des paramètres par défaut qui limitent le traitement au nécessaire. Pour un système d’IA, cela se traduit par des choix concrets : ne transmettre au modèle que les champs nécessaires à la tâche ; supprimer ou masquer les identifiants lorsqu’ils ne sont pas requis ; ne pas conserver indéfiniment les prompts complets contenant des données personnelles ; faire du réglage prudent le réglage par défaut.
+La loi demande aux responsables du traitement d’intégrer la protection des données dans la conception technique et organisationnelle. Les paramètres par défaut doivent limiter le traitement au nécessaire. Pour un système d’IA, cela donne des choix concrets. Transmettre au modèle seulement les champs utiles à la tâche. Supprimer ou masquer les identifiants quand ils ne sont pas requis. Ne pas conserver indéfiniment les prompts complets qui contiennent des données personnelles. Choisir le réglage prudent comme réglage par défaut.
 
 ### 2. Transparence et décisions automatisées
 
-Les personnes doivent être informées du traitement de leurs données personnelles. Lorsqu’une décision fondée exclusivement sur un traitement automatisé a des effets juridiques pour une personne ou l’affecte de manière significative, le responsable doit l’en informer, et la personne peut demander à faire valoir son point de vue et à ce que la décision soit revue par une personne physique.
+Les personnes doivent être informées du traitement de leurs données personnelles. Certaines décisions reposent uniquement sur un traitement automatisé et ont des effets juridiques ou significatifs pour une personne. Dans ce cas, le responsable doit l’en informer. La personne peut faire valoir son point de vue et demander qu’une personne physique revoie la décision.
 
-La plupart des systèmes que nous construisons gardent une personne dans la boucle précisément pour cette raison : l’agent prépare, une personne décide. Lorsqu’une automatisation complète est justifiée, le devoir d’information et la voie de recours humaine doivent être conçus d’emblée, pas ajoutés après coup.
+C’est une des raisons pour lesquelles nos systèmes gardent en général une personne dans la boucle. L’agent prépare, une personne décide. Si une automatisation complète est justifiée, le devoir d’information et le recours humain sont prévus dès le départ.
 
 ### 3. Analyses d’impact relatives à la protection des données
 
-Lorsqu’un traitement est susceptible d’entraîner un risque élevé pour la personnalité ou les droits fondamentaux des personnes concernées, une analyse d’impact est requise au préalable. Les nouvelles technologies, les grands volumes de données sensibles et la surveillance systématique en sont des déclencheurs typiques. Tous les systèmes d’IA n’en ont pas besoin, mais tout système qui établit des profils, traite des données de santé ou financières à grande échelle ou prend des décisions sur des individus doit être examiné.
+Un traitement peut présenter un risque élevé pour la personnalité ou les droits fondamentaux des personnes concernées. Une analyse d’impact est alors requise au préalable. Les nouvelles technologies, les grands volumes de données sensibles et la surveillance systématique sont des déclencheurs typiques. Tous les systèmes d’IA n’en ont pas besoin. Un système qui établit des profils, traite des données de santé ou financières à grande échelle ou décide sur des individus doit toutefois être examiné.
 
 ### 4. Registre des activités de traitement
 
-Les responsables du traitement doivent tenir un registre de leurs activités de traitement. Une exemption existe pour les entreprises de moins de 250 collaborateurs dont les traitements ne présentent qu’un risque limité pour les personnes concernées. De nombreuses entreprises de taille moyenne en bénéficient ; celles qui traitent des données sensibles à grande échelle généralement pas. Dans tous les cas, les systèmes d’IA doivent être documentés : quelles données, à quelle fin, quels sous-traitants, où et pour combien de temps.
+Les responsables du traitement tiennent un registre de leurs activités de traitement. Une exemption existe pour les entreprises de moins de 250 collaborateurs dont les traitements présentent un risque limité. Beaucoup d’entreprises de taille moyenne en bénéficient. Celles qui traitent des données sensibles à grande échelle en général non. Dans tous les cas, nous documentons les systèmes d’IA. Quelles données, pour quelle finalité, avec quels sous-traitants, où et pour combien de temps.
 
 ### 5. Annonce des violations
 
-Une violation de la sécurité des données susceptible d’entraîner un risque élevé pour les personnes concernées doit être annoncée au PFPDT dans les meilleurs délais. Pour un système d’IA, cela suppose de savoir où circulent les données personnelles, y compris vers les fournisseurs de modèles, et de disposer d’une journalisation suffisante pour établir ce qui s’est passé.
+Une violation de la sécurité des données qui présente un risque élevé pour les personnes concernées doit être annoncée au PFPDT dans les meilleurs délais. Pour un système d’IA, il faut donc savoir où circulent les données personnelles, y compris vers les fournisseurs de modèles. Il faut aussi une journalisation suffisante pour établir ce qui s’est passé.
 
 ## Données sensibles et flux transfrontières
 
-La nLPD a élargi les catégories de données personnelles sensibles aux données génétiques et biométriques, aux côtés notamment des données de santé, des opinions religieuses et politiques et des données pénales. Le traitement de données sensibles relève le niveau d’exigence en matière de consentement, de sécurité et d’analyse.
+La nLPD a ajouté les données génétiques et biométriques aux données personnelles sensibles. On y trouve aussi notamment les données de santé, les opinions religieuses et politiques et les données pénales. Le traitement de données sensibles demande plus en matière de consentement, de sécurité et d’analyse.
 
-La communication de données personnelles à l’étranger est autorisée vers les pays dont le Conseil fédéral reconnaît le niveau de protection adéquat, ou moyennant des garanties appropriées telles que des clauses contractuelles types. C’est en pratique là que se prennent la plupart des décisions d’architecture. Une API de modèle hébergée hors de Suisse ou de l’UE constitue une communication à l’étranger ; un modèle déployé dans une région suisse ou sur votre propre infrastructure, non.
+La communication de données personnelles à l’étranger est autorisée vers les pays dont le Conseil fédéral reconnaît le niveau de protection adéquat. Elle l’est aussi avec des garanties appropriées, comme des clauses contractuelles types. En pratique, c’est là que se prennent la plupart des décisions d’architecture. Une API de modèle hébergée hors de Suisse ou de l’UE est une communication à l’étranger. Un modèle déployé dans une région suisse ou sur votre propre infrastructure ne l’est pas.
 
-> La question n’est pas de savoir quel modèle est le meilleur. C’est de savoir quel est le meilleur parmi ceux qui peuvent légalement voir ces données.
+> La bonne question est de savoir quel est le meilleur modèle parmi ceux qui peuvent légalement voir ces données.
 
-## Comment nous concevons en conséquence
+## Comment nous en tenons compte
 
-Nous traduisons ces obligations en un petit ensemble de choix d’architecture par défaut, appliqués à chaque système que nous construisons pour des clients suisses.
+Nous traduisons ces obligations en quelques choix d’architecture par défaut. Nous les appliquons à chaque système construit pour des clients suisses.
 
-- Classification des données à l’ingestion. Chaque source et chaque champ sont classifiés, et la classification détermine quels modèles et quelles régions peuvent les traiter.
-- Une passerelle de modèles. Tous les appels de modèles passent par un point contrôlé qui applique le routage par classe de données, journalise les métadonnées et bloque les flux interdits.
-- Localisation par défaut. Les données personnelles et confidentielles sont traitées en Suisse ou dans le tenant du client. Les fournisseurs de modèles sont contractuellement tenus à ne rien conserver et à ne rien entraîner.
-- Minimisation dans les prompts. Les agents ne récupèrent que ce dont une étape a besoin ; les identifiants sont masqués lorsque la tâche ne les requiert pas.
-- Points de décision humains. Partout où un résultat concerne une personne, quelqu’un le valide, et le système enregistre qui et sur quelle base.
+- Classification des données à l’ingestion. Chaque source et chaque champ sont classifiés. La classification détermine quels modèles et quelles régions peuvent les traiter.
+- Une passerelle de modèles. Tous les appels de modèles passent par un point contrôlé. Il applique le routage par classe de données, journalise les métadonnées et bloque les flux interdits.
+- Localisation par défaut. Les données personnelles et confidentielles sont traitées en Suisse ou dans le tenant du client. Par contrat, les fournisseurs de modèles ne conservent rien et n’entraînent rien.
+- Minimisation dans les prompts. Les agents récupèrent seulement ce dont une étape a besoin. Les identifiants sont masqués quand la tâche ne les demande pas.
+- Points de décision humains. Quand un résultat concerne une personne, quelqu’un le valide. Le système enregistre qui a validé et sur quelle base.
 - La documentation comme livrable. Un registre de traitement, un schéma des flux de données et, si nécessaire, une analyse d’impact sont livrés avec le système.
 
 ## L’AI Act européen, en bref
 
-L’AI Act européen est entré en vigueur en août 2024, avec des obligations introduites progressivement entre 2025 et 2027. Il s’applique aux fournisseurs et aux utilisateurs dont les systèmes sont mis sur le marché européen ou dont les résultats sont utilisés dans l’UE, ce qui peut inclure des entreprises suisses. Il classe les systèmes par niveau de risque : quelques pratiques sont interdites ; les usages à haut risque comme l’évaluation du crédit, les décisions en matière d’emploi et certains composants de sécurité sont soumis à de lourdes obligations ; la plupart des outils internes de productivité ne portent que des obligations légères de transparence.
+L’AI Act européen est entré en vigueur en août 2024. Ses obligations arrivent progressivement entre 2025 et 2027. Il s’applique aux fournisseurs et aux utilisateurs dont les systèmes sont mis sur le marché européen ou dont les résultats sont utilisés dans l’UE. Cela peut inclure des entreprises suisses. Il classe les systèmes par niveau de risque. Quelques pratiques sont interdites. Les usages à haut risque, comme l’évaluation du crédit, les décisions en matière d’emploi et certains composants de sécurité, ont des obligations lourdes. La plupart des outils internes de productivité ont seulement des obligations légères de transparence.
 
-Les choix par défaut décrits plus haut, supervision humaine, documentation, journalisation et évaluation, sont aussi au cœur de ce que l’AI Act exige des systèmes à haut risque. Bien se conformer à la nLPD, c’est déjà faire l’essentiel du chemin vers l’AI Act.
+Les choix décrits plus haut sont aussi au cœur de ce que l’AI Act demande aux systèmes à haut risque. Supervision humaine, documentation, journalisation et évaluation. Une bonne conformité à la nLPD couvre donc déjà une grande partie du chemin vers l’AI Act.
 
 ## Associer le DPO dès la première semaine
 
-La mesure la plus efficace est procédurale. Associez le délégué à la protection des données et la fonction risques dès la première semaine, montrez-leur les flux de données et l’architecture, et convenez des règles de classification et de localisation avant de construire. D’après notre expérience, les équipes de protection des données ne sont pas un obstacle à l’IA. Elles sont un obstacle aux projets d’IA qui les ont ignorées. Associées tôt, elles deviennent celles qui rendent la production possible.
+La mesure la plus utile est une question de méthode. Associez le délégué à la protection des données et la fonction risques dès la première semaine. Montrez-leur les flux de données et l’architecture. Convenez des règles de classification et de localisation avant de construire. Dans notre expérience, les équipes de protection des données freinent surtout les projets qui les ont ignorées. Associées tôt, elles aident à rendre la production possible.

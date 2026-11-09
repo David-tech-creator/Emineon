@@ -3,13 +3,13 @@ import type { PageSectionsDict } from '../../schema';
 /** Abschnittstitel für Leistungs-, Branchen- und Vorgehensseiten (pages-a). Schweizer Schreibweise: ss. */
 export const pageSections: PageSectionsDict = {
   servicesHub: {
-    listEyebrow: '[ 01 — Fünf Leistungen ]',
+    listEyebrow: '[ 01 · Fünf Leistungen ]',
     listTitle: { pre: 'Ein Team vom Verwaltungsrat bis in die ', accent: 'Produktion.' },
-    modelEyebrow: '[ 02 — So läuft jede Leistung ]',
+    modelEyebrow: '[ 02 · So läuft jede Leistung ]',
     modelTitle: { pre: 'Analysieren. Bauen. ', accent: 'Betreiben.' },
-    industriesEyebrow: '[ 03 — Wo wir es einsetzen ]',
+    industriesEyebrow: '[ 03 · Wo wir es einsetzen ]',
     industriesTitle: { pre: 'Gebaut für regulierte, ', accent: 'dokumentenlastige', post: ' Arbeit.' },
-    workEyebrow: '[ 04 — Repräsentative Projekte ]',
+    workEyebrow: '[ 04 · Repräsentative Projekte ]',
     workTitle: { pre: 'So sieht es im Betrieb ', accent: 'aus.' },
   },
   service: {
@@ -32,15 +32,15 @@ export const pageSections: PageSectionsDict = {
     streamsTitle: { pre: 'Wo die Arbeit ', accent: 'fliesst.' },
     streamsLead: 'In jeder Branche beginnen wir beim Arbeitsfluss mit den meisten Dokumenten, dem grössten Risiko und den längsten Wartezeiten.',
     coreTitle: { pre: 'Wo Genf sich ', accent: 'bündelt.' },
-    coreLead: 'Drei Branchen, die die Genfer Wirtschaft prägen, in denen die Arbeit dokumentenlastig und mehrsprachig ist und in denen die Regulierung bestimmt, was möglich ist.',
+    coreLead: 'Drei Branchen, die die Genfer Wirtschaft prägen. Die Arbeit ist dokumentenlastig und mehrsprachig. Die Regulierung bestimmt, was möglich ist.',
     adjacentTitle: { pre: 'Nah am ', accent: 'Kern.' },
     adjacentLead: 'Regulierte, wissensintensive Branchen in der Genferseeregion und darüber hinaus, mit denselben Mustern und denselben Kontrollen.',
   },
   industry: {
     valueStreamsTitle: { pre: 'Wertströme und ', accent: 'Anwendungsfälle.' },
-    valueStreamsLead: 'Jeder Wertstrom ist eine Kette von Arbeitsschritten, die Agenten übernehmen können, während Menschen dort entscheiden, wo Urteilsvermögen zählt.',
+    valueStreamsLead: 'Jeder Wertstrom ist eine Kette von Arbeitsschritten, die Agenten übernehmen können. Wo Urteilsvermögen zählt, entscheiden Menschen.',
     complianceTitle: { pre: 'Gebaut für die ', accent: 'Regeln,', post: ' die für Sie gelten.' },
-    complianceLead: 'Kontrollen sind ab dem ersten Sprint eingebaut, nicht kurz vor dem Audit ergänzt.',
+    complianceLead: 'Wir bauen die Kontrollen ab dem ersten Sprint ein.',
     relatedCaseTitle: { pre: 'Ein System im ', accent: 'Betrieb.' },
     relatedServicesTitle: { pre: 'Wie wir ', accent: 'helfen.' },
     otherIndustriesTitle: { pre: 'Weitere ', accent: 'Branchen.' },
@@ -49,8 +49,8 @@ export const pageSections: PageSectionsDict = {
     factUseCases: 'Anwendungsfälle',
   },
   approach: {
-    faqEyebrow: '[ 06 — FAQ ]',
-    faqTitle: { pre: 'Bevor Sie ', accent: 'fragen.' },
+    faqEyebrow: '[ 06 · FAQ ]',
+    faqTitle: { pre: 'Häufige ', accent: 'Fragen.' },
     ctaEyebrow: '[ Nächster Schritt ]',
     includesLabel: 'Umfasst',
     exitLabel: 'Abschlusskriterien',

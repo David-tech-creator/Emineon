@@ -7,28 +7,28 @@ export const industries: Industry[] = [
     image: 'ind-trading',
     tier: 'core',
     name: 'Négoce de matières premières & shipping',
-    short: 'Confirmations, KYC, documents de financement du négoce et opérations, pris en charge par des agents sous le contrôle des traders et des opérateurs.',
+    short: 'Confirmations, KYC, documents de financement et opérations. Des agents préparent, les traders et les opérateurs valident.',
     hero: {
-      eyebrow: '[ Secteur — Négoce de matières premières & shipping ]',
+      eyebrow: '[ Secteur · Négoce de matières premières & shipping ]',
       title: { pre: 'Moins de papier entre la transaction et la ', accent: 'cargaison.' },
-      lead: 'Les maisons de négoce vivent de documents : confirmations, lettres de crédit, connaissements, certificats d’inspection, contrôles de sanctions. Nous confions ce flux à des agents pour que les opérations suivent le rythme du desk, et que la conformité dispose d’une trace complète de chaque étape.',
+      lead: 'Le négoce produit beaucoup de documents. Confirmations, lettres de crédit, connaissements, certificats d’inspection, contrôles de sanctions. Des agents prennent en charge ce flux. Les opérations suivent le rythme du desk et la conformité garde une trace de chaque étape.',
     },
     stat: {
       value: '#1',
-      label: 'Genève est la première place mondiale du financement du négoce ; 12 des 14 banques suisses actives dans ce domaine y sont établies.',
+      label: 'Genève est la première place mondiale du financement du négoce. 12 des 14 banques suisses actives dans ce domaine y sont établies.',
       source: 'ge.ch, secteurs clés',
     },
     context: {
-      title: 'Un métier de documents déguisé en métier de négoce',
+      title: 'Un métier de négoce, et beaucoup de documents',
       paragraphs: [
-        'Genève compte quelque 400 sociétés de négoce et environ 6000 emplois directs. Derrière chaque cargaison se trouve une chaîne de documents à rapprocher, contrôler et classer, souvent en plusieurs langues et sous pression, avec des contreparties, des banques, des inspecteurs et des agents maritimes qui travaillent chacun avec leurs propres modèles.',
-        'Les dépenses de conformité augmentent : les régimes de sanctions évoluent plus vite, les banques demandent davantage de justificatifs et le financement du négoce tolère de moins en moins les écarts. Les équipes d’opérations ont grossi pour absorber cette charge. Les agents IA offrent une autre réponse : tout lire, tout rapprocher et tout pré-contrôler, et ne confier aux personnes que ce qui exige du jugement.',
+        'Genève compte quelque 400 sociétés de négoce et environ 6000 emplois directs. Chaque cargaison s’accompagne d’une chaîne de documents à rapprocher, contrôler et classer. Ils arrivent souvent en plusieurs langues et dans des délais courts. Contreparties, banques, inspecteurs et agents maritimes ont chacun leurs propres modèles.',
+        'Les coûts de conformité augmentent. Les régimes de sanctions évoluent plus vite et les banques demandent davantage de justificatifs. Les équipes d’opérations ont grossi pour absorber cette charge. Les agents IA permettent une autre approche. Ils lisent, rapprochent et pré-contrôlent les documents. Les personnes gardent ce qui demande du jugement.',
       ],
     },
     valueStreams: [
       {
         name: 'Opérations de négoce',
-        description: 'De la saisie de la transaction au règlement, avec des documents rapprochés automatiquement et des écarts détectés tôt.',
+        description: 'De la saisie de la transaction au règlement. Les documents sont rapprochés automatiquement et les écarts détectés tôt.',
         useCases: [
           'Rapprochement des confirmations avec les transactions enregistrées dans l’ETRM',
           'Extraction des term sheets, récapitulatifs et avenants',
@@ -38,7 +38,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Documentation du financement du négoce',
-        description: 'Lettres de crédit et documents d’expédition contrôlés avant que la banque ne les voie.',
+        description: 'Lettres de crédit et documents d’expédition contrôlés avant leur envoi à la banque.',
         useCases: [
           'Extraction des conditions de la lettre de crédit et génération de la liste de contrôle documentaire',
           'Contrôle des écarts avant présentation sur les connaissements et certificats',
@@ -47,7 +47,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Conformité et KYC',
-        description: 'Entrée en relation et filtrage des contreparties, avec les justificatifs réunis pour le contrôleur.',
+        description: 'Entrée en relation et filtrage des contreparties. Les justificatifs sont réunis pour le contrôleur.',
         useCases: [
           'Constitution et actualisation périodique des dossiers KYC des contreparties',
           'Filtrage sanctions et navires avec explication des alertes',
@@ -56,7 +56,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Information de marché et du desk',
-        description: 'Des analyses et des rapports qui se compilent d’eux-mêmes.',
+        description: 'Des analyses et des rapports préparés automatiquement.',
         useCases: [
           'Projets de commentaires quotidiens sur les positions et le P&L',
           'Synthèse des rapports de fret et de marché',
@@ -65,10 +65,10 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Les résultats du filtrage sanctions sont une aide à la décision ; la décision et sa justification restent à un contrôleur nommé.',
+      'Le filtrage sanctions aide à la décision. La décision et sa justification restent à un contrôleur nommé.',
       'Données des contreparties et des transactions traitées en Suisse ou dans le tenant du client.',
-      'Piste d’audit complète des versions de documents, des actions des agents et des validations, conservée selon la politique de l’entreprise.',
-      'Conçu pour soutenir, et non remplacer, les contrôles qu’attendent les banques au titre du financement du négoce et de la LBA.',
+      'Piste d’audit des versions de documents, des actions des agents et des validations. Conservation selon la politique de l’entreprise.',
+      'Conçu pour soutenir les contrôles que les banques demandent pour le financement du négoce et la LBA.',
     ],
     relatedCase: 'trade-confirmation-agents',
     relatedServices: ['agentic-systems', 'ai-operations', 'data-ai-platforms'],
@@ -79,11 +79,11 @@ export const industries: Industry[] = [
     image: 'ind-banking',
     tier: 'core',
     name: 'Banque privée & gestion de fortune',
-    short: 'KYC, reporting client et préparation du conseil, avec des contrôles au niveau FINMA et des données clients qui ne quittent jamais la Suisse.',
+    short: 'KYC, reporting client et préparation du conseil. Avec des contrôles alignés sur la FINMA et des données clients qui restent en Suisse.',
     hero: {
-      eyebrow: '[ Secteur — Banque privée & gestion de fortune ]',
+      eyebrow: '[ Secteur · Banque privée & gestion de fortune ]',
       title: { pre: 'Plus de temps avec les clients, moins avec les ', accent: 'dossiers.' },
-      lead: 'Les gestionnaires de clientèle consacrent une large part de leur semaine à la documentation : actualisations KYC, profils d’adéquation, comptes rendus d’entretien, rapports clients. Nous construisons des systèmes qui préparent ce travail pour validation, sous les contrôles qu’une banque suisse applique déjà.',
+      lead: 'Les gestionnaires de clientèle passent une bonne partie de la semaine sur la documentation. Actualisations KYC, profils d’adéquation, comptes rendus d’entretien, rapports clients. Nous construisons des systèmes qui préparent ce travail pour validation. Les contrôles restent ceux que la banque applique déjà.',
     },
     stat: {
       value: '37 000+',
@@ -91,16 +91,16 @@ export const industries: Industry[] = [
       source: 'ge.ch, secteurs clés',
     },
     context: {
-      title: 'La discrétion est le produit',
+      title: 'La discrétion au cœur du métier',
       paragraphs: [
-        'La banque privée genevoise repose sur la confiance et sur la documentation. Chaque relation client s’accompagne d’un dossier KYC, de justificatifs sur l’origine du patrimoine, de profils d’adéquation et de caractère approprié, et d’une correspondance en plusieurs langues. Les régulateurs l’attendent complète ; les clients l’attendent invisible.',
-        'La pression sur les coûts est réelle et les effectifs ne sont plus le levier d’autrefois. L’enjeu est de supprimer les heures de compilation et de ressaisie qui séparent le banquier de son client, tout en rendant le dossier meilleur, pas plus mince. Cela ne fonctionne que si la localisation des données, le contrôle d’accès et l’auditabilité sont pensés dès la première ligne.',
+        'La banque privée genevoise repose sur la confiance et sur la documentation. Chaque relation client a son dossier KYC et ses justificatifs sur l’origine du patrimoine. S’y ajoutent les profils d’adéquation et une correspondance en plusieurs langues. Le dossier doit être complet, et rester discret pour le client.',
+        'Les coûts sont sous pression et ajouter du personnel n’est plus la réponse habituelle. L’idée est de réduire les heures de compilation et de ressaisie. Le banquier gagne du temps pour ses clients et le dossier gagne en qualité. Pour cela, la localisation des données, les accès et l’auditabilité sont prévus dès le départ.',
       ],
     },
     valueStreams: [
       {
         name: 'Cycle de vie client et KYC',
-        description: 'Entrées en relation et revues périodiques préparées par des agents, décidées par des personnes.',
+        description: 'Entrées en relation et revues périodiques préparées par des agents. Les décisions restent aux personnes.',
         useCases: [
           'Dossiers d’actualisation KYC constitués à partir du système bancaire et des documents',
           'Rédaction de l’historique sur l’origine du patrimoine avec justificatifs cités',
@@ -109,7 +109,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Préparation du conseil',
-        description: 'Le banquier arrive à l’entretien avec tout déjà lu.',
+        description: 'Le banquier arrive à l’entretien avec un dossier déjà préparé.',
         useCases: [
           'Notes de préparation à partir du portefeuille, des notes et de l’actualité',
           'Saisie des comptes rendus d’entretien et rédaction des profils d’adéquation',
@@ -118,7 +118,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Reporting et communication',
-        description: 'Un reporting prêt pour le client, dans la langue du client.',
+        description: 'Un reporting pour le client, dans sa langue.',
         useCases: [
           'Projets de commentaires de portefeuille en FR, DE, EN et IT',
           'Rédaction de la correspondance client avec contrôle du ton et de la conformité',
@@ -127,7 +127,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Opérations et conformité',
-        description: 'Des files de back-office traitées plus vite, avec de meilleurs justificatifs.',
+        description: 'Les files de back-office traitées plus vite, avec de meilleurs justificatifs.',
         useCases: [
           'Tri des alertes de surveillance des transactions avec contexte expliqué',
           'Traitement des opérations sur titres et des instructions reçues par e-mail',
@@ -138,8 +138,8 @@ export const industries: Industry[] = [
     compliance: [
       'Données d’identification des clients traitées en Suisse, sur une infrastructure contrôlée par la banque ou un environnement hébergé en Suisse.',
       'Conçu autour des attentes de la FINMA en matière de prestataires tiers, de résilience opérationnelle et de confidentialité des données.',
-      'Secret bancaire préservé : aucune donnée client utilisée pour entraîner des modèles, aucun stockage persistant au-delà de ce que le processus exige.',
-      'Validation humaine de chaque document destiné au client et de chaque décision KYC, avec justificatifs journalisés.',
+      'Secret bancaire préservé. Aucune donnée client ne sert à entraîner des modèles. Rien n’est stocké au-delà de ce que le processus demande.',
+      'Validation humaine des documents destinés au client et des décisions KYC, avec justificatifs journalisés.',
     ],
     relatedCase: 'private-bank-kyc-refresh',
     relatedServices: ['agentic-systems', 'ai-strategy', 'ai-operations'],
@@ -150,23 +150,23 @@ export const industries: Industry[] = [
     image: 'ind-intl',
     tier: 'core',
     name: 'Organisations internationales & ONG',
-    short: 'Documents multilingues, rapports et travail de connaissance, avec une gouvernance adaptée aux mandats publics et à l’exigence des bailleurs.',
+    short: 'Documents multilingues, rapports et gestion des connaissances. Avec une gouvernance adaptée aux mandats publics et aux bailleurs.',
     hero: {
-      eyebrow: '[ Secteur — Organisations internationales & ONG ]',
+      eyebrow: '[ Secteur · Organisations internationales & ONG ]',
       title: { pre: 'Des mandats en plusieurs langues, ', accent: 'une', post: ' seule mémoire.' },
-      lead: 'La Genève internationale produit et consomme d’immenses volumes de texte : résolutions, rapports, contributions, procès-verbaux, traductions. Nous construisons des systèmes qui rédigent, résument, traduisent et retrouvent, avec la neutralité, la confidentialité et la gouvernance qu’exigent les mandats publics.',
+      lead: 'La Genève internationale produit et lit beaucoup de texte. Résolutions, rapports, contributions, procès-verbaux, traductions. Nous construisons des systèmes qui rédigent, résument, traduisent et retrouvent l’information. Ils respectent la neutralité, la confidentialité et la gouvernance des mandats publics.',
     },
     context: {
-      title: 'Le travail de connaissance à l’échelle institutionnelle',
+      title: 'La gestion des connaissances dans une institution',
       paragraphs: [
-        'Les organisations établies à Genève travaillent entre langues officielles, États membres et réseaux de partenaires. Une grande partie de leur capacité est consacrée à produire des documents et à retrouver ce qui a déjà été décidé : quel paragraphe a été adopté, quel pays a rapporté quoi, quelle évaluation a conclu quoi.',
-        'L’IA peut rendre cette capacité au mandat. Cela demande de la prudence : les données peuvent contenir des informations personnelles sur des bénéficiaires ou des collaborateurs, les privilèges et immunités déterminent où les données peuvent aller, et les résultats doivent être neutres et traçables. La gouvernance vient en premier, et elle peut être assurée sans tout ralentir.',
+        'Les organisations établies à Genève travaillent entre langues officielles, États membres et partenaires. Une grande partie du temps sert à produire des documents. Une autre sert à retrouver ce qui a déjà été décidé. Quel paragraphe a été adopté, quel pays a rapporté quoi, ce qu’une évaluation a conclu.',
+        'L’IA peut rendre une partie de ce temps au mandat. Cela demande de la prudence. Les données peuvent contenir des informations personnelles sur des bénéficiaires ou des collaborateurs. Les privilèges et immunités déterminent où elles peuvent aller. Les résultats doivent être neutres et traçables. Nous commençons par la gouvernance, sans pour autant tout ralentir.',
       ],
     },
     valueStreams: [
       {
         name: 'Production documentaire',
-        description: 'Projets, synthèses et traductions préparés pour une revue experte.',
+        description: 'Projets, synthèses et traductions préparés pour la relecture des experts.',
         useCases: [
           'Premiers jets de rapports et de notes d’information à partir des sources',
           'Synthèses de réunions et relevés de décisions dans toutes les langues de travail',
@@ -184,7 +184,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Programmes et subventions',
-        description: 'Rendre compte aux bailleurs sans course de dernière minute.',
+        description: 'Rendre compte aux bailleurs sans urgence de dernière minute.',
         useCases: [
           'Compilation des rapports aux bailleurs à partir des données de programme et des remontées du terrain',
           'Rédaction de propositions selon les modèles et critères des bailleurs',
@@ -195,7 +195,7 @@ export const industries: Industry[] = [
     compliance: [
       'Options de déploiement respectant les privilèges et immunités, y compris sur site et dans des tenants contrôlés par l’organisation.',
       'Données personnelles des bénéficiaires et du personnel minimisées, classifiées et tenues à l’écart des modèles externes lorsque nécessaire.',
-      'Résultats traçables jusqu’aux documents sources ; revue humaine avant toute publication ou transmission.',
+      'Résultats traçables jusqu’aux documents sources. Revue humaine avant toute publication ou transmission.',
       'Alignement sur le cadre de protection des données propre à l’organisation, ainsi que sur la nLPD et le RGPD lorsqu’ils s’appliquent.',
     ],
     relatedCase: 'multilingual-document-pipeline',
@@ -207,11 +207,11 @@ export const industries: Industry[] = [
     image: 'ind-life',
     tier: 'adjacent',
     name: 'Sciences de la vie & MedTech',
-    short: 'Rédaction réglementaire, documentation qualité et connaissance scientifique, conçues pour les BPx et validées là où c’est nécessaire.',
+    short: 'Rédaction réglementaire, documentation qualité et connaissance scientifique. Conçues pour les BPx et validées là où c’est nécessaire.',
     hero: {
-      eyebrow: '[ Secteur — Sciences de la vie & MedTech ]',
+      eyebrow: '[ Secteur · Sciences de la vie & MedTech ]',
       title: { pre: 'Plus vite au dossier, plus ', accent: 'sûr', post: ' dans le dossier.' },
-      lead: 'Les entreprises de produits réglementés rédigent d’énormes volumes de documentation maîtrisée. Nous construisons des systèmes de rédaction, de relecture et de connaissance qui respectent les BPx, maintiennent la responsabilité humaine et laissent une piste d’audit qu’un inspecteur peut suivre.',
+      lead: 'Les entreprises de produits réglementés rédigent beaucoup de documentation maîtrisée. Nous construisons des systèmes de rédaction, de relecture et de recherche. Ils respectent les BPx et laissent la responsabilité aux personnes. La piste d’audit reste lisible pour un inspecteur.',
     },
     stat: {
       value: '313',
@@ -219,10 +219,10 @@ export const industries: Industry[] = [
       source: 'ge.ch, secteurs clés',
     },
     context: {
-      title: 'La documentation est sur le chemin critique',
+      title: 'La documentation sur le chemin critique',
       paragraphs: [
-        'Dans les sciences de la vie et la MedTech, le délai entre les données et la soumission est souvent limité par la rédaction, pas par la science : documentation clinique et technique, déviations, CAPA, maîtrise des changements et réponses aux autorités. Chaque document doit être cohérent avec des centaines d’autres documents maîtrisés.',
-        'L’IA peut rédiger, recouper et retrouver à une vitesse qu’aucune équipe n’égale. Dans un environnement BPx, cela n’a de valeur que si le système est validé pour son usage prévu, que les changements sont maîtrisés et que chaque résultat est revu par une personne qualifiée. Nous concevons selon ce standard dès le départ.',
+        'Dans les sciences de la vie et la MedTech, c’est souvent la rédaction qui fixe le délai jusqu’à la soumission. Documentation clinique et technique, déviations, CAPA, maîtrise des changements, réponses aux autorités. Chaque document doit rester cohérent avec des centaines d’autres.',
+        'L’IA aide à rédiger, recouper et retrouver plus vite. En environnement BPx, le système doit être validé pour son usage prévu. Les changements sont maîtrisés et chaque résultat est revu par une personne qualifiée. Nous travaillons selon ce standard dès le départ.',
       ],
     },
     valueStreams: [
@@ -237,7 +237,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Qualité et conformité',
-        description: 'Déviations et CAPA instruites plus vite, mieux documentées.',
+        description: 'Déviations et CAPA instruites plus vite et mieux documentées.',
         useCases: [
           'Rédaction des rapports de déviation et recherche d’événements similaires',
           'Aide à l’analyse des causes à partir des dossiers de lots et d’équipements',
@@ -256,8 +256,8 @@ export const industries: Industry[] = [
     ],
     compliance: [
       'Approche de validation des systèmes informatisés alignée sur les principes GAMP 5 pour les usages relevant des BPx.',
-      'Maîtrise des changements pour les modèles, les prompts et les sources ; revalidation déclenchée par une régression aux évaluations.',
-      'Revue par une personne qualifiée et signature électronique sur chaque document maîtrisé.',
+      'Maîtrise des changements pour les modèles, les prompts et les sources. Une régression aux évaluations déclenche une revalidation.',
+      'Revue par une personne qualifiée et signature électronique sur les documents maîtrisés.',
       'Données de santé et données génétiques traitées comme données personnelles sensibles au sens de la nLPD.',
     ],
     relatedCase: 'regulatory-submission-drafting',
@@ -269,11 +269,11 @@ export const industries: Industry[] = [
     image: 'ind-fragrance',
     tier: 'adjacent',
     name: 'Parfums, arômes & chimie de spécialité',
-    short: 'Connaissance des formules, contrôle réglementaire et briefs clients reliés, pour que les créateurs consacrent leur temps à créer.',
+    short: 'Formules, contrôle réglementaire et briefs clients reliés. Les créateurs gardent plus de temps pour créer.',
     hero: {
-      eyebrow: '[ Secteur — Parfums, arômes & chimie de spécialité ]',
-      title: { pre: 'Des décennies de formules, retrouvées ', accent: 'instantanément.' },
-      lead: 'Les équipes créatives et techniques détiennent un savoir qui vit dans les formules, les cahiers de laboratoire et la mémoire des personnes. Nous le rendons interrogeable et le relions aux exigences réglementaires et clients, pour trouver le bon point de départ en quelques minutes.',
+      eyebrow: '[ Secteur · Parfums, arômes & chimie de spécialité ]',
+      title: { pre: 'Des années de formules, faciles à ', accent: 'retrouver.' },
+      lead: 'Le savoir des équipes créatives et techniques est dans les formules, les cahiers de laboratoire et la mémoire des personnes. Nous le rendons consultable et le relions aux exigences réglementaires et clients. Le bon point de départ se trouve alors en quelques minutes.',
     },
     stat: {
       value: '400+',
@@ -283,14 +283,14 @@ export const industries: Industry[] = [
     context: {
       title: 'La créativité sous contraintes',
       paragraphs: [
-        'Chaque brief s’accompagne de contraintes : un objectif de coût, un profil réglementaire pour plusieurs marchés, des règles sur les allergènes et l’étiquetage, des allégations de durabilité, des exigences de stabilité. Y répondre suppose de fouiller des années de travaux antérieurs et de vérifier chaque ingrédient au regard de listes qui évoluent.',
-        'Le savoir existe, mais il est dispersé entre systèmes de formulation, bases réglementaires, panels sensoriels et e-mails. Le relier est d’abord un problème de données, ensuite un problème d’IA, et c’est exactement dans cet ordre que nous travaillons.',
+        'Chaque brief arrive avec ses contraintes. Un objectif de coût, un profil réglementaire pour plusieurs marchés, des règles sur les allergènes et l’étiquetage. S’y ajoutent des allégations de durabilité et des exigences de stabilité. Il faut parcourir des années de travaux et vérifier chaque ingrédient sur des listes qui évoluent.',
+        'Le savoir existe, mais il est dispersé entre systèmes de formulation, bases réglementaires, panels sensoriels et e-mails. Le relier est d’abord une question de données, ensuite d’IA. Nous travaillons dans cet ordre.',
       ],
     },
     valueStreams: [
       {
         name: 'Du brief à la formule',
-        description: 'Des briefs clients traduits en contraintes et en points de départ.',
+        description: 'Les briefs clients traduits en contraintes et en points de départ.',
         useCases: [
           'Analyse des briefs en exigences techniques et réglementaires structurées',
           'Recherche de formules similaires dans l’historique des projets',
@@ -308,7 +308,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Commercial et service client',
-        description: 'Des réponses plus rapides et plus justes aux clients.',
+        description: 'Des réponses plus rapides et plus précises aux clients.',
         useCases: [
           'Réponse aux questionnaires clients et aux demandes de documentation',
           'Traitement des demandes d’échantillons et des commandes reçues par e-mail',
@@ -317,9 +317,9 @@ export const industries: Industry[] = [
       },
     ],
     compliance: [
-      'Les formules sont traitées comme la propriété intellectuelle la plus précieuse : traitées dans des environnements contrôlés par le client, jamais utilisées pour entraîner des modèles.',
+      'Les formules sont une propriété intellectuelle sensible. Elles restent dans des environnements contrôlés par le client et ne servent pas à entraîner des modèles.',
       'Documents réglementaires revus par du personnel qualifié avant transmission aux clients.',
-      'Contrôle d’accès fin : la visibilité des formules suit les droits existants.',
+      'La visibilité des formules suit les droits d’accès existants.',
       'Traçabilité de chaque résultat de contrôle jusqu’à la version et à la date de la liste utilisée.',
     ],
     relatedCase: 'formulation-knowledge-graph',
@@ -331,17 +331,17 @@ export const industries: Industry[] = [
     image: 'ind-manufacturing',
     tier: 'adjacent',
     name: 'Industrie & production',
-    short: 'Le savoir de maintenance, de qualité et de chaîne d’approvisionnement mis entre les mains de ceux qui travaillent dans l’atelier.',
+    short: 'Le savoir de maintenance, de qualité et d’approvisionnement, à disposition des équipes de l’atelier.',
     hero: {
-      eyebrow: '[ Secteur — Industrie & production ]',
-      title: { pre: 'Le savoir de l’expert, à ', accent: 'chaque', post: ' machine.' },
-      lead: 'Les industriels de précision dépendent de techniciens expérimentés dont le savoir se transmet difficilement. Nous construisons des assistants et des agents qui apportent manuels, historique de maintenance et dossiers qualité à la personne devant la machine, dans sa langue.',
+      eyebrow: '[ Secteur · Industrie & production ]',
+      title: { pre: 'Le savoir de l’expert, au pied de la ', accent: 'machine.' },
+      lead: 'Les industriels de précision dépendent de techniciens expérimentés. Leur savoir se transmet difficilement. Nous construisons des assistants et des agents qui donnent accès aux manuels, à l’historique de maintenance et aux dossiers qualité. La personne devant la machine les consulte dans sa langue.',
     },
     context: {
-      title: 'Le savoir-faire est le goulet d’étranglement',
+      title: 'Le savoir-faire, ressource rare',
       paragraphs: [
-        'L’industrie suisse se distingue par la précision et la fiabilité. Les deux dépendent de personnes qui savent pourquoi une machine se comporte comme elle le fait, et beaucoup approchent de la retraite. Leur savoir est dans leur tête, dans des journaux de maintenance rédigés en abrégé et dans des manuels que personne ne lit.',
-        'L’IA peut capter ce savoir et le restituer au poste de travail : diagnostiquer une panne à partir de l’historique de pannes similaires, rédiger un rapport qualité à partir des données capteurs, répondre à une question fournisseur à partir du contrat. La valeur se mesure en temps d’arrêt et en rebuts, ce qui la rend facile à tarifer au résultat.',
+        'L’industrie suisse est connue pour sa précision et sa fiabilité. Les deux dépendent de personnes qui comprennent leurs machines. Beaucoup approchent de la retraite. Leur savoir est dans leur tête, dans des journaux de maintenance en abrégé et dans des manuels peu consultés.',
+        'L’IA peut garder ce savoir et le rendre disponible au poste de travail. Elle aide à diagnostiquer une panne à partir de pannes similaires. Elle rédige un rapport qualité à partir des données capteurs. Elle répond à une question fournisseur à partir du contrat. Le gain se mesure en temps d’arrêt et en rebuts, ce qui permet de le tarifer au résultat.',
       ],
     },
     valueStreams: [
@@ -365,7 +365,7 @@ export const industries: Industry[] = [
       },
       {
         name: 'Chaîne d’approvisionnement et achats',
-        description: 'La communication et les documents fournisseurs pris en charge par des agents.',
+        description: 'Des agents prennent en charge les échanges et documents fournisseurs.',
         useCases: [
           'Suivi des confirmations de commande et des dates de livraison reçues par e-mail',
           'Questions-réponses sur les contrats et spécifications fournisseurs',
@@ -376,7 +376,7 @@ export const industries: Industry[] = [
     compliance: [
       'Déploiement sur site ou dans le tenant du client lorsque les données de production ne peuvent pas quitter le réseau de l’usine.',
       'Contrôle des exportations et biens à double usage pris en compte dans la classification des données et les accès.',
-      'Les indications touchant à la sécurité sont toujours signalées comme consultatives, avec renvoi aux procédures et validation humaine.',
+      'Les indications liées à la sécurité sont signalées comme consultatives, avec renvoi aux procédures et validation humaine.',
       'Intégration aux systèmes de management de la qualité existants et à leurs circuits de validation.',
     ],
     relatedCase: 'maintenance-copilot',

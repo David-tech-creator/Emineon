@@ -3,20 +3,20 @@ import type { AboutDict, ApproachDict, CareersDict, ContactDict, LegalDict } fro
 export const approach: ApproachDict = {
   hero: {
     eyebrow: '[ Approche ]',
-    title: { pre: 'Rémunérés sur les résultats, ', accent: 'pas', post: ' sur les heures.' },
-    lead: 'Nous travaillons en trois étapes, chacune avec un périmètre fixe et un résultat vérifiable avant de s’engager dans la suivante. De petites équipes seniors, amplifiées par l’IA, responsables du premier business case jusqu’au système en production.',
+    title: { pre: 'Des honoraires liés aux ', accent: 'résultats', post: '.' },
+    lead: 'Nous travaillons en trois étapes. Chacune a un périmètre fixe et un résultat vérifiable avant la suivante. De petites équipes seniors suivent le travail, du premier business case au système en production.',
   },
   model: {
-    eyebrow: '[ 01 — Le modèle ]',
-    title: { pre: 'Évaluer. Construire. ', accent: 'Opérer.' },
+    eyebrow: '[ 01 · Le modèle ]',
+    title: { pre: 'Trois étapes, une à la ', accent: 'fois.' },
     lead: 'La plupart des clients commencent par Évaluer ou par le sprint de 30 jours. Certains arrivent avec un pilote à consolider et commencent par Opérer. Chaque étape peut se suffire à elle-même.',
     stages: [
       {
         key: 'assess',
         icon: 'strategy',
         label: '01 · Évaluer',
-        title: 'Savoir où l’IA rapporte',
-        tagline: 'Un diagnostic à prix fixe qui débouche sur une décision, pas sur un rapport.',
+        title: 'Savoir où l’IA est utile',
+        tagline: 'Un diagnostic à prix fixe qui aboutit à une décision.',
         text: 'Nous cartographions où se concentrent le temps, les coûts et les risques dans vos workflows, mesurons les situations de référence, construisons les business cases avec la finance et rédigeons la politique IA et la feuille de route. La dernière semaine cadre et chiffre la première réalisation.',
         includes: [
           'Maturité IA : données, systèmes, personnes et gouvernance',
@@ -68,21 +68,21 @@ export const approach: ApproachDict = {
     ],
   },
   pricing: {
-    eyebrow: '[ 02 — Tarification ]',
-    title: { pre: 'Nous facturons le ', accent: 'résultat.' },
-    lead: 'L’heure facturable récompense l’effort. Nous préférons être payés pour ce qui change. Voici comment cela fonctionne concrètement.',
+    eyebrow: '[ 02 · Tarification ]',
+    title: { pre: 'Une tarification liée au ', accent: 'résultat.' },
+    lead: 'Nous préférons être payés pour ce qui change. Voici comment cela fonctionne.',
     principles: [
       { title: 'Prix fixe pour le diagnostic', text: 'Les diagnostics ont un périmètre et un prix fixes convenus avant de commencer. Vous connaissez le coût d’une décision avant de la prendre.' },
-      { title: 'Des jalons vérifiables', text: 'Les réalisations sont facturées par jalon ou par workflow en service, chacun défini par un test que vous pouvez exécuter : le seuil d’évaluation est franchi, le système est en production, l’équipe est formée.' },
-      { title: 'Une part du résultat quand la référence est fiable', text: 'Lorsque la situation de référence est mesurable, une partie de nos honoraires peut être liée au résultat : heures gagnées, délai de traitement, taux d’erreur. Nous ne le proposons que si les deux parties ont confiance dans le chiffre.' },
+      { title: 'Des jalons vérifiables', text: 'Les réalisations sont facturées par jalon ou par workflow en service, chacun défini par un test que vous pouvez exécuter. Le seuil d’évaluation est franchi, le système est en production, l’équipe est formée.' },
+      { title: 'Une part du résultat quand la référence est fiable', text: 'Lorsque la situation de référence est mesurable, une partie de nos honoraires peut être liée au résultat, par exemple les heures gagnées, le délai de traitement ou le taux d’erreur. Nous ne le proposons que si les deux parties ont confiance dans le chiffre.' },
       { title: 'Sans verrouillage ni taxe de licence', text: 'Le code, les prompts, les évaluations et la documentation vous appartiennent. Les coûts des modèles sont refacturés au prix coûtant ou imputés à vos propres comptes.' },
     ],
-    note: 'Régie uniquement pour un travail véritablement exploratoire, et seulement si vous le demandez.',
+    note: 'Régie seulement pour un travail exploratoire, et si vous le demandez.',
   },
   sprint: {
-    eyebrow: '[ 03 — Le sprint de 30 jours ]',
+    eyebrow: '[ 03 · Le sprint de 30 jours ]',
     title: { pre: 'De l’état des lieux à un premier workflow en service, en ', accent: '30 jours.' },
-    lead: 'Le moyen le plus rapide de savoir ce que vaut l’IA dans votre entreprise est de mettre un workflow en production. Le sprint combine un diagnostic ciblé et une première réalisation, à prix fixe.',
+    lead: 'Pour savoir ce que l’IA apporte chez vous, le plus simple est de mettre un workflow en production. Le sprint combine un diagnostic ciblé et une première réalisation, à prix fixe.',
     weeks: [
       {
         label: 'Semaine 1',
@@ -99,8 +99,8 @@ export const approach: ApproachDict = {
       {
         label: 'Semaine 3',
         title: 'Consolidation',
-        text: 'Vos équipes le testent sur du travail réel. Nous traitons les cas limites, le contrôle d’accès, la journalisation et l’interface de revue.',
-        outputs: ['Pilote avec de vrais utilisateurs', 'Contrôle d’accès et piste d’audit', 'Taux de réussite aux évaluations publié'],
+        text: 'Vos équipes le testent sur des cas concrets. Nous traitons les cas limites, le contrôle d’accès, la journalisation et l’interface de revue.',
+        outputs: ['Pilote avec vos utilisateurs', 'Contrôle d’accès et piste d’audit', 'Taux de réussite aux évaluations publié'],
       },
       {
         label: 'Semaine 4',
@@ -112,7 +112,7 @@ export const approach: ApproachDict = {
     promise: 'Si le workflow ne franchit pas le seuil d’évaluation convenu au jour 30, nous continuons sans honoraires supplémentaires jusqu’à ce qu’il y parvienne.',
   },
   models: {
-    eyebrow: '[ 04 — Modes d’engagement ]',
+    eyebrow: '[ 04 · Modes d’engagement ]',
     title: { pre: 'Choisissez comment nous ', accent: 'travaillons', post: ' ensemble.' },
     items: [
       { icon: 'sprint', name: 'Sprint de 30 jours', bestFor: 'Les entreprises qui veulent une preuve en production avant un engagement plus large.', text: 'Prix fixe, un workflow en service, une équipe formée. Le point de départ le plus fréquent.' },
@@ -122,25 +122,25 @@ export const approach: ApproachDict = {
     ],
   },
   team: {
-    eyebrow: '[ 05 — Avec qui vous travaillez ]',
-    title: { pre: 'Des seniors, ', accent: 'amplifiés.' },
-    lead: 'Pas de pyramide de juniors. Chaque mission est menée par des personnes qui ont déjà fait ce travail, et qui utilisent l’IA pour en faire davantage.',
+    eyebrow: '[ 05 · Avec qui vous travaillez ]',
+    title: { pre: 'Une équipe ', accent: 'senior.' },
+    lead: 'Chaque mission est menée par des personnes qui ont déjà fait ce travail. Elles utilisent l’IA au quotidien.',
     pods: [
       { icon: 'strategy', title: 'Responsable de mission', text: 'Responsable du résultat. Porte le business case, la relation avec votre direction et les décisions de périmètre.' },
       { icon: 'fde', title: 'Forward-deployed engineers', text: 'Des ingénieurs seniors à Genève ou sur site, intégrés à votre équipe, qui construisent dans votre environnement.' },
       { icon: 'evals', title: 'Spécialistes IA et évaluation', text: 'Ils conçoivent les agents, la recherche et les suites d’évaluation qui décident quand un système est prêt.' },
-      { icon: 'globe', title: 'Réseau de delivery mondial', text: 'Une capacité d’ingénierie supplémentaire en Asie-Pacifique et dans les Amériques, sur ce qui peut être partagé sans risque.' },
+      { icon: 'globe', title: 'Réseau mondial', text: 'Une capacité d’ingénierie supplémentaire en Asie-Pacifique et dans les Amériques, sur ce qui peut être partagé sans risque.' },
     ],
   },
   faq: [
     { q: 'En combien de temps pouvons-nous démarrer ?', a: 'En général dans les deux semaines suivant le premier appel. Le sprint et le diagnostic nécessitent un sponsor, l’accès à ceux qui font le travail et l’accès à un environnement de test.' },
-    { q: 'Et si nous avons déjà une équipe IA ?', a: 'Nous travaillons avec elle. Souvent, nous apportons la discipline d’évaluation, la consolidation pour la production ou le programme d’adoption, et laissons votre équipe plus capable qu’avant.' },
+    { q: 'Et si nous avons déjà une équipe IA ?', a: 'Nous travaillons avec elle. Souvent, nous apportons la discipline d’évaluation, la consolidation pour la production ou le programme d’adoption, et votre équipe en garde les compétences.' },
     { q: 'Où se fait le travail ?', a: 'Dans votre environnement. Les forward-deployed engineers travaillent à Genève ou sur site. Le travail sur des données sensibles se fait en Suisse ou dans votre propre cloud ; notre réseau mondial ne travaille que sur ce qui peut être partagé sans risque.' },
     { q: 'Que possédons-nous à la fin ?', a: 'Tout ce que nous construisons pour vous : code, prompts, jeux d’évaluation, configuration et documentation.' },
   ],
   cta: {
     title: { pre: 'Commencez par ', accent: 'un', post: ' workflow.' },
-    text: 'Dites-nous quel processus coûte le plus de temps à votre équipe. En trente minutes, nous vous dirons si le sprint est le bon point de départ.',
+    text: 'Dites-nous quel processus prend le plus de temps à votre équipe. En trente minutes, nous vous disons si le sprint est un bon point de départ.',
     primary: { label: 'Réserver un appel de 30 minutes', href: '/contact' },
     secondary: { label: 'Voir des missions représentatives', href: '/work' },
   },
@@ -149,49 +149,49 @@ export const approach: ApproachDict = {
 export const about: AboutDict = {
   hero: {
     eyebrow: '[ À propos ]',
-    title: { pre: 'Ancrés à Genève. ', accent: 'Présents', post: ' partout.' },
-    lead: 'Emineon est un cabinet de conseil de pointe, natif de l’IA. Nous accompagnons les entreprises de la décision d’adopter l’IA jusqu’à son usage dans le travail réel, avec une seule équipe responsable, de la stratégie à la production et à l’adoption.',
+    title: { pre: 'Basés à ', accent: 'Genève', post: ', avec une équipe mondiale.' },
+    lead: 'Emineon est un cabinet de conseil en IA. Nous accompagnons les entreprises de la décision d’adopter l’IA jusqu’à son usage au quotidien. Une même équipe suit la stratégie, la production et l’adoption.',
   },
   name: {
-    eyebrow: '[ 01 — Le nom ]',
+    eyebrow: '[ 01 · Le nom ]',
     title: { pre: 'Éminent, ', accent: 'nouveau.' },
     paragraphs: [
-      'Emineon réunit deux mots : éminent, pour le niveau d’exigence que nous nous imposons, et néo, pour une manière de travailler conçue pour l’ère de l’IA plutôt qu’adaptée à elle.',
-      'Nous venons de nous repositionner comme cabinet natif de l’IA, et nous y voyons un avantage. Nous n’avons pas de pyramide de juniors à occuper ni de modèle à l’heure à défendre. Nous avons pu bâtir le cabinet autour de ce que l’IA rend possible : de petites équipes seniors, des systèmes qui tournent plutôt que des présentations, et des honoraires liés aux résultats.',
+      'Emineon réunit deux mots. Éminent, pour le niveau d’exigence que nous nous fixons. Néo, pour une manière de travailler pensée pour l’IA.',
+      'Nous nous sommes récemment repositionnés comme cabinet de conseil en IA. Nous n’avons pas de pyramide de juniors ni de modèle à l’heure. Le cabinet est organisé autour de petites équipes seniors, de systèmes en production et d’honoraires liés aux résultats.',
     ],
   },
   oak: {
-    eyebrow: '[ 02 — Le chêne ]',
-    title: { pre: 'Patient, durable, ', accent: 'cumulatif.' },
+    eyebrow: '[ 02 · Le chêne ]',
+    title: { pre: 'Un chêne qui grandit avec le ', accent: 'temps.' },
     lead: 'Derrière le nom, un chêne, dessiné comme une trame de points avec un seul nœud ambre. Il décrit la façon dont l’IA devrait grandir dans une entreprise.',
     layers: [
       { key: 'roots', name: 'Racines', meaning: 'Vos données, gouvernées et au bon endroit. Rien ne pousse sans elles.' },
-      { key: 'trunk', name: 'Tronc', meaning: 'La plateforme et les contrôles : accès, évaluation, audit. Un cœur solide plutôt que de nombreuses tiges fragiles.' },
+      { key: 'trunk', name: 'Tronc', meaning: 'La plateforme et les contrôles, avec l’accès, l’évaluation et l’audit. Un cœur solide plutôt que de nombreuses tiges fragiles.' },
       { key: 'branches', name: 'Branches', meaning: 'Les agents et les workflows, chacun atteignant une autre partie du travail.' },
-      { key: 'canopy', name: 'Canopée', meaning: 'Toute l’entreprise qui utilise l’IA chaque jour. La partie que chacun voit, et la raison d’être du reste.' },
+      { key: 'canopy', name: 'Canopée', meaning: 'Les équipes qui utilisent l’IA au quotidien. C’est la partie visible, et la raison d’être du reste.' },
     ],
   },
   principles: {
-    eyebrow: '[ 03 — Principes ]',
+    eyebrow: '[ 03 · Principes ]',
     title: { pre: 'Ce à quoi nous ', accent: 'tenons.' },
     items: [
-      { title: 'Des systèmes, pas des présentations', text: 'Un conseil que l’on ne sait pas réaliser ne vaut pas grand-chose. Chaque recommandation que nous faisons, nous sommes prêts à la mettre en production.' },
-      { title: 'Rémunérés sur les résultats', text: 'Nous facturons le résultat lorsqu’il est mesurable, et nous le disons quand il ne l’est pas.' },
+      { title: 'Des systèmes en production', text: 'Nous recommandons seulement ce que nous savons mettre en production.' },
+      { title: 'Des honoraires liés aux résultats', text: 'Nous facturons le résultat lorsqu’il est mesurable, et nous le disons quand il ne l’est pas.' },
       { title: 'Mesurer avant d’affirmer', text: 'D’abord les situations de référence, les évaluations avant le lancement, des chiffres dans chaque rapport. Ce que nous ne pouvons pas mesurer, nous ne le promettons pas.' },
       { title: 'Vos données restent les vôtres', text: 'Aucun entraînement sur les données clients, aucun verrouillage, hébergement en Suisse ou dans votre propre cloud. Ce que nous construisons vous appartient.' },
-      { title: 'Pour tous, pas pour quelques-uns', text: 'Un système que seule une poignée de personnes utilise est un pilote. Nous restons jusqu’à ce que la nouvelle façon de travailler devienne simplement la façon de travailler.' },
-      { title: 'Parler clair', text: 'Pas d’emphase, pas de jargon derrière lequel se cacher. Nous vous disons ce qui sera construit, ce que cela coûtera et quel résultat cela doit produire.' },
+      { title: 'Pour toute l’équipe', text: 'Un système utilisé par quelques personnes reste un pilote. Nous restons jusqu’à ce que la nouvelle façon de travailler soit installée.' },
+      { title: 'Parler clair', text: 'Nous vous disons ce qui sera construit, ce que cela coûtera et quel résultat attendre.' },
     ],
   },
   hq: {
-    eyebrow: '[ 04 — Siège ]',
+    eyebrow: '[ 04 · Siège ]',
     title: { pre: 'Route de Vandœuvres ', accent: '77A.' },
     text: 'Notre siège se trouve aux portes de Genève, à Vandœuvres, près des banques, des maisons de négoce et des organisations internationales avec lesquelles nous travaillons. La direction des missions et le forward-deployed engineering y sont basés, et la plupart de nos clients sont à quelques minutes.',
   },
   network: {
-    eyebrow: '[ 05 — Réseau mondial ]',
+    eyebrow: '[ 05 · Réseau mondial ]',
     title: { pre: 'Un cabinet, ', accent: 'sept', post: ' villes.' },
-    lead: 'Les équipes seniors de Genève s’appuient sur des centres d’ingénierie et de delivery à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas. Le travail avance 24 heures sur 24 ; les données sensibles restent là où elles doivent être.',
+    lead: 'Les équipes seniors de Genève travaillent avec des centres d’ingénierie à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas. Le travail avance sur plusieurs fuseaux horaires. Les données sensibles restent là où elles doivent être.',
     stats: [
       { value: '130+', label: 'Ingénieurs dans le réseau' },
       { value: '200+', label: 'Projets livrés' },
@@ -199,18 +199,18 @@ export const about: AboutDict = {
     ],
   },
   organisation: {
-    eyebrow: '[ 06 — Notre organisation ]',
-    title: { pre: 'Légers devant, ', accent: 'profonds', post: ' derrière.' },
-    lead: 'Nos clients travaillent avec une petite équipe senior responsable du résultat. Derrière elle se trouve la capacité d’un cabinet bien plus grand.',
+    eyebrow: '[ 06 · Notre organisation ]',
+    title: { pre: 'Une petite équipe, un ', accent: 'grand', post: ' réseau.' },
+    lead: 'Vous travaillez avec une petite équipe senior, responsable du résultat. Elle s’appuie sur la capacité d’un cabinet plus grand.',
     units: [
       { icon: 'strategy', title: 'Équipes seniors', text: 'Un responsable de mission et des spécialistes seniors qui portent le résultat, la relation et les décisions difficiles.' },
       { icon: 'fde', title: 'Forward-deployed engineers', text: 'Des ingénieurs seniors intégrés aux équipes clientes, à Genève et sur site, qui construisent dans l’environnement du client.' },
-      { icon: 'globe', title: 'Réseau de delivery mondial', text: 'Des centres d’ingénierie en Asie-Pacifique et dans les Amériques, qui ajoutent une capacité de construction et d’exploitation 24 heures sur 24.' },
+      { icon: 'globe', title: 'Réseau mondial', text: 'Des centres d’ingénierie en Asie-Pacifique et dans les Amériques, qui ajoutent de la capacité sur plusieurs fuseaux horaires.' },
     ],
   },
   practices: {
-    eyebrow: '[ 07 — Domaines de pratique ]',
-    title: { pre: 'Cinq practices, ', accent: 'une', post: ' équipe.' },
+    eyebrow: '[ 07 · Domaines de pratique ]',
+    title: { pre: 'Cinq domaines, ', accent: 'une', post: ' équipe.' },
     items: [
       { title: 'Stratégie', text: 'Stratégie IA, business cases, politique et modèle opérationnel.' },
       { title: 'Ingénierie agentique', text: 'Agents, intégrations et systèmes avec humain dans la boucle, en production.' },
@@ -221,7 +221,7 @@ export const about: AboutDict = {
   },
   cta: {
     title: { pre: 'Trouvons votre ', accent: 'premier', post: ' workflow.' },
-    text: 'Trente minutes, sans préparation. Vous saurez si l’IA transforme le processus auquel vous pensez.',
+    text: 'Un appel de trente minutes, sans préparation. Nous regardons ensemble si l’IA peut aider sur le processus auquel vous pensez.',
     primary: { label: 'Parlons-en', href: '/contact' },
     secondary: { label: 'Nous rejoindre', href: '/careers' },
   },
@@ -230,23 +230,23 @@ export const about: AboutDict = {
 export const careers: CareersDict = {
   hero: {
     eyebrow: '[ Carrières ]',
-    title: { pre: 'Construire ce qui ', accent: 'tourne.' },
-    lead: 'Nous cherchons des profils seniors qui veulent que leur travail finisse en production, utilisé par de vraies équipes et mesuré par de vrais résultats. Un siège à Genève, un réseau mondial, et pas d’usine à slides.',
+    title: { pre: 'Construire des systèmes ', accent: 'utiles.' },
+    lead: 'Nous cherchons des profils seniors qui veulent voir leur travail en production, utilisé par des équipes et mesuré par des résultats. Un siège à Genève et un réseau mondial.',
   },
   why: {
-    eyebrow: '[ 01 — Pourquoi Emineon ]',
-    title: { pre: 'Un travail senior, de ', accent: 'vrais', post: ' systèmes.' },
+    eyebrow: '[ 01 · Pourquoi Emineon ]',
+    title: { pre: 'Un travail senior, des systèmes en ', accent: 'production', post: '.' },
     items: [
-      { icon: 'agents', title: 'La production, pas des prototypes', text: 'Ce que vous construisez est mis en service dans des banques, des maisons de négoce et des organisations internationales, et y reste.' },
+      { icon: 'agents', title: 'Des systèmes en production', text: 'Ce que vous construisez est mis en service dans des banques, des maisons de négoce et des organisations internationales, et y reste.' },
       { icon: 'fde', title: 'Au plus près du travail', text: 'Vous travaillez avec ceux qui utilisent ce que vous construisez. Les exigences viennent du terrain, les retours arrivent le jour même.' },
-      { icon: 'spark', title: 'Natifs de l’IA', text: 'Nous utilisons l’IA dans tout ce que nous faisons, de la recherche à la revue de code. Vous travaillerez à la frontière, au lieu de la lire.' },
+      { icon: 'spark', title: 'L’IA au quotidien', text: 'Nous utilisons l’IA dans notre travail, de la recherche à la revue de code.' },
       { icon: 'globe', title: 'Une équipe mondiale', text: 'Des collègues à Genève, Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas, avec Genève comme point d’ancrage.' },
-      { icon: 'outcome', title: 'Jugés sur les résultats', text: 'Pas de théâtre des feuilles de temps. Ce qui compte, c’est ce que vous livrez et ce que cela change.' },
-      { icon: 'roots', title: 'De la place pour grandir', text: 'De petites équipes seniors, c’est de vraies responsabilités très tôt, dans un cabinet encore façonné par ceux qui le composent.' },
+      { icon: 'outcome', title: 'Jugés sur les résultats', text: 'Ce qui compte, c’est ce que vous livrez et ce que cela change.' },
+      { icon: 'roots', title: 'De la place pour grandir', text: 'Dans de petites équipes, vous prenez des responsabilités tôt. Le cabinet se construit encore avec les personnes qui le composent.' },
     ],
   },
   roles: {
-    eyebrow: '[ 02 — Postes ]',
+    eyebrow: '[ 02 · Postes ]',
     title: { pre: 'Les profils que nous ', accent: 'recherchons.' },
     lead: 'Nous embauchons en continu pour ces postes. Si l’un d’eux vous correspond, écrivez-nous quelques lignes sur une chose que vous avez construite et pourquoi elle comptait.',
     items: [
@@ -256,19 +256,19 @@ export const careers: CareersDict = {
         team: 'Ingénierie',
         locations: ['Genève', 'Sur site chez les clients'],
         type: 'Temps plein',
-        summary: 'S’intégrer aux équipes clientes, comprendre comment le travail se fait réellement et livrer des systèmes agentiques dans leurs environnements de production.',
+        summary: 'S’intégrer aux équipes clientes, comprendre comment le travail se fait et livrer des systèmes agentiques dans leurs environnements de production.',
         responsibilities: [
           'Observer les équipes clientes et transformer des processus confus en spécifications de workflow précises',
           'Construire agents, intégrations et interfaces de revue dans les environnements clients',
           'Écrire des jeux d’évaluation à partir de cas réels et les utiliser comme seuil de mise en service',
           'Porter le système jusqu’au lancement et pendant les premières semaines en production',
-          'Coordonner avec le réseau de delivery mondial le travail qui peut être partagé',
+          'Coordonner avec notre réseau mondial le travail qui peut être partagé',
         ],
         requirements: [
           'Au moins six ans d’expérience dans la construction de logiciels en production, idéalement riches en intégrations',
-          'Expérience concrète de la mise en service de systèmes à base de LLM auprès de vrais utilisateurs',
+          'Expérience concrète de la mise en service de systèmes à base de LLM auprès d’utilisateurs',
           'Excellente maîtrise de Python ou TypeScript, aisance avec l’infrastructure cloud',
-          'Anglais et français courants ; l’allemand est un vrai atout',
+          'Anglais et français courants ; l’allemand est un plus',
           'Calme face à l’ambiguïté et aux clients ; capacité à expliquer des arbitrages à des non-ingénieurs',
         ],
         niceToHave: [
@@ -278,11 +278,11 @@ export const careers: CareersDict = {
       },
       {
         slug: 'ai-engineer',
-        title: 'Ingénieur·e IA',
+        title: 'Ingénieur IA',
         team: 'Ingénierie',
         locations: ['Genève', 'Centres du réseau mondial'],
         type: 'Temps plein',
-        summary: 'Concevoir et construire les systèmes de recherche, d’agents et d’évaluation au cœur de nos missions, ainsi que les outils communs qui accélèrent chaque projet.',
+        summary: 'Concevoir et construire les systèmes de recherche, d’agents et d’évaluation au cœur de nos missions, et les outils communs utilisés dans nos projets.',
         responsibilities: [
           'Construire des chaînes de recherche pour des documents multilingues, scannés et structurés',
           'Concevoir des architectures d’agents avec usage d’outils, garde-fous et revue humaine',
@@ -292,7 +292,7 @@ export const careers: CareersDict = {
         ],
         requirements: [
           'Au moins quatre ans d’expérience en ML ou en génie logiciel',
-          'Connaissance pratique approfondie des LLM, des embeddings et de la recherche',
+          'Bonne connaissance pratique des LLM, des embeddings et de la recherche',
           'Expérience de la conception d’évaluations et de l’exploitation de leurs résultats',
           'Excellente maîtrise de Python ; bonne hygiène d’ingénierie',
           'Anglais courant',
@@ -320,7 +320,7 @@ export const careers: CareersDict = {
           'Au moins sept ans en conseil en stratégie, en opérations ou dans un rôle de transformation',
           'Crédibilité auprès des comités de direction et aisance avec les chiffres',
           'Une compréhension technique suffisante pour savoir ce qui est difficile à construire',
-          'Français et anglais courants ; l’allemand est un vrai atout',
+          'Français et anglais courants ; l’allemand est un plus',
           'Expérience dans l’un de nos secteurs',
         ],
         niceToHave: [
@@ -331,17 +331,17 @@ export const careers: CareersDict = {
     ],
     openApplication: {
       title: 'Pas dans la liste ?',
-      text: 'Si vous excellez dans quelque chose que nous devrions faire, écrivez-nous quand même.',
+      text: 'Si vous pensez pouvoir nous apporter quelque chose, écrivez-nous quand même.',
     },
   },
   locations: {
-    eyebrow: '[ 03 — Lieux ]',
+    eyebrow: '[ 03 · Lieux ]',
     title: { pre: 'Genève, et ', accent: 'au-delà.' },
     text: 'Les postes en contact avec les clients sont basés à Genève, avec des déplacements chez les clients. Les postes d’ingénierie sont ouverts à Genève et dans les centres de notre réseau à Hô Chi Minh-Ville, Hanoï, Tokyo, Melbourne, dans la Silicon Valley et au Texas.',
   },
   process: {
-    eyebrow: '[ 04 — Notre processus d’embauche ]',
-    title: { pre: 'Quatre étapes, ', accent: 'sans', post: ' devinettes.' },
+    eyebrow: '[ 04 · Notre processus d’embauche ]',
+    title: { pre: 'Quatre étapes, ', accent: 'claires', post: '.' },
     steps: [
       { title: 'Échange', text: 'Trente minutes avec quelqu’un qui fait le métier. Nous parlons de ce que vous avez construit et de ce que vous voulez faire ensuite.' },
       { title: 'Cas pratique', text: 'Un problème réaliste tiré de nos missions, à faire chez vous en quelques heures ou en direct avec nous, au choix. Le temps passé chez vous est rémunéré.' },
@@ -361,10 +361,10 @@ export const contact: ContactDict = {
   hero: {
     eyebrow: '[ Contact ]',
     title: { pre: 'Parlons-', accent: 'en.' },
-    lead: 'Citez un processus qui coûte trop de temps à votre équipe. Trente minutes, sans préparation, et vous saurez si l’IA le transforme.',
+    lead: 'Parlez-nous d’un processus qui prend beaucoup de temps à votre équipe. Volontiers un appel de trente minutes, sans préparation.',
   },
   form: {
-    title: 'Démarrer la conversation',
+    title: 'Nous écrire',
     text: 'Un membre senior de l’équipe lit chaque message et répond sous un jour ouvrable.',
   },
   direct: {
@@ -380,7 +380,7 @@ export const contact: ContactDict = {
     steps: [
       { title: 'Nous répondons', text: 'Sous un jour ouvrable, pour proposer un appel de trente minutes.' },
       { title: 'Nous écoutons', text: 'Vous décrivez le processus. Nous demandons comment il fonctionne aujourd’hui et à quoi ressemblerait une réussite.' },
-      { title: 'Nous vous parlons franchement', text: 'Si l’IA le transforme, ce que cela demanderait approximativement, et si nous sommes les bons interlocuteurs.' },
+      { title: 'Nous vous donnons notre avis', text: 'Si l’IA peut aider, ce que cela demanderait à peu près, et si nous sommes les bons interlocuteurs.' },
     ],
   },
   officesTitle: 'Bureaux',

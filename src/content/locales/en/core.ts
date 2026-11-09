@@ -14,47 +14,47 @@ export const meta: MetaDict = {
   home: {
     title: 'Emineon · AI consulting firm in Geneva, Switzerland',
     description:
-      'AI consulting firm headquartered in Geneva, Switzerland. AI strategy, agentic systems in production and adoption across your firm, paid on outcomes, not hours.',
+      'AI consulting firm headquartered in Geneva, Switzerland. AI strategy, agentic systems in production and adoption across your firm. Our fees are tied to results.',
   },
   services: {
     title: 'AI consulting services: strategy, agents, platforms, operations',
     description:
-      'AI strategy, agentic systems, data and AI platforms, AI operations and adoption. Five services, one accountable team, from the first business case to systems your people use every day.',
+      'AI strategy, agentic systems, data and AI platforms, AI operations and adoption. Five services from one team, from the first business case to systems your people use every day.',
   },
   approach: {
-    title: 'How we work: Assess, Build, Run, paid on outcomes',
+    title: 'How we work · Assess, Build, Run',
     description:
-      'How Emineon works: a fixed-fee assessment, outcome-priced builds and a run phase that hardens and transfers. Includes the 30-day sprint from readiness to a first workflow live in production.',
+      'How Emineon works. A fixed-fee assessment, outcome-priced builds and a run phase that ends with a handover. Includes the 30-day sprint from readiness to a first workflow live in production.',
   },
   industries: {
     title: 'AI for regulated industries in Switzerland',
     description:
-      'AI for regulated, document-heavy and multilingual industries: commodities trading, private banking and wealth, international organisations, life sciences, fragrance and flavour, and manufacturing.',
+      'AI for regulated, document-heavy and multilingual sectors. Commodities trading, private banking and wealth, international organisations, life sciences, fragrance and flavour, manufacturing.',
   },
   work: {
     title: 'Work',
     description:
-      'Representative Emineon engagements: anonymised case studies with the challenge, the approach, the system we built and the measured results.',
+      'Representative Emineon engagements. Each anonymised case shows the challenge, the approach, the system we built and the measured results.',
   },
   insights: {
     title: 'Insights',
     description:
-      'Practical writing on AI in production: moving from pilot to production, agentic workflows, nFADP in practice, outcome-based pricing, forward-deployed engineering and evals.',
+      'Practical notes on AI in production. Moving from pilot to production, agentic workflows, nFADP in practice, outcome-based pricing, forward-deployed engineering and evals.',
   },
   about: {
-    title: 'About Emineon: AI-native consulting firm in Geneva',
+    title: 'About Emineon · AI-native consulting firm in Geneva',
     description:
       'Emineon is an AI-native consulting firm headquartered in Geneva. Senior pods, forward-deployed engineers and a global delivery network with hubs in Ho Chi Minh City, Hanoi, Tokyo, Melbourne, Silicon Valley and Texas.',
   },
   careers: {
     title: 'Careers',
     description:
-      'Join Emineon as a forward-deployed engineer, AI engineer or AI strategist. Senior work, real systems in production, Geneva and our global network.',
+      'Join Emineon as a forward-deployed engineer, AI engineer or AI strategist. Senior work on systems in production, from Geneva and our global network.',
   },
   contact: {
-    title: "Contact: let's talk",
+    title: "Contact · Let's talk",
     description:
-      'Tell us about one process that costs your team too much time. Thirty minutes, no preparation, and you will know whether AI changes it.',
+      'Tell us about one process that takes your team a lot of time. Happy to have a 30-minute call, no preparation needed.',
   },
   privacy: {
     title: 'Privacy policy',
@@ -90,28 +90,28 @@ export const nav: NavDict = {
   mega: {
     services: {
       eyebrow: '[ Services ]',
-      intro: 'From the board-level business case to systems running in production, adopted by your people.',
+      intro: 'From the business case for your board to systems your people use in production.',
       groupServices: 'What we do',
       groupModel: 'How we work',
       approachLabel: 'Assess → Build → Run',
-      approachText: 'Fixed-fee assessment, outcome-priced builds, a run phase that transfers ownership.',
+      approachText: 'A fixed-fee assessment, builds priced on results, then a run phase that hands over.',
       viewAll: 'All services',
       featured: {
         eyebrow: '[ Flagship ]',
-        title: 'Readiness to a first workflow live, in 30 days.',
-        text: 'A system running in production and owned by your team. Not a deck, not a prototype.',
+        title: 'A first workflow live in 30 days.',
+        text: 'A system that runs in production and belongs to your team.',
         cta: { label: 'See the sprint', href: '/approach#sprint' },
       },
     },
     industries: {
       eyebrow: '[ Industries ]',
-      intro: 'Regulated, document-heavy, multilingual. The sectors where Geneva is dense and where AI pays back fastest.',
+      intro: 'Regulated, document-heavy and multilingual sectors. Many are based in Geneva, and AI pays back well there.',
       groupCore: 'Core sectors',
       groupAdjacent: 'Adjacent sectors',
       viewAll: 'All industries',
       featured: {
         eyebrow: '[ Representative work ]',
-        title: 'Trade confirmations matched by agents, exceptions routed to people.',
+        title: 'Agents match trade confirmations. People handle the exceptions.',
         text: 'A Geneva commodities trader, from inbox to booked trade.',
         cta: { label: 'Read the case', href: '/work/trade-confirmation-agents' },
       },
@@ -233,13 +233,13 @@ export const common: CommonDict = {
       { value: 'other', label: 'Something else' },
     ],
     message: 'Message',
-    messagePlaceholder: 'One process that costs your team too much time, and what good would look like.',
+    messagePlaceholder: 'One process that takes your team a lot of time, and what a good result would be.',
     consent: 'I agree that Emineon processes these details to answer my request, as described in the privacy policy.',
     submit: 'Send',
     sending: 'Sending…',
-    successTitle: 'Received.',
+    successTitle: 'Thank you, we have your message.',
     successText: 'A senior member of the team will reply within one business day.',
-    errorTitle: 'That did not go through.',
+    errorTitle: 'Your message was not sent.',
     errorText: 'Please try again, or write to hello@emineon.com directly.',
     required: 'Required',
     invalidEmail: 'Please enter a valid email address',
@@ -305,7 +305,7 @@ export const offices: Office[] = [
 ];
 
 export const footer: FooterDict = {
-  tagline: 'AI-native consulting. Strategy, systems in production, adoption. One accountable team.',
+  tagline: 'AI-native consulting in Geneva. We help with strategy, systems in production and adoption.',
   brandLine: 'Forge your edge.',
   columns: {
     services: 'Services',
@@ -323,19 +323,19 @@ export const footer: FooterDict = {
   ],
   newsletter: {
     title: 'Field notes',
-    text: 'One considered note a week on putting AI into production. No hype, no tracking pixels.',
+    text: 'One short note a week on putting AI into production. We do not use tracking pixels.',
   },
   legal: { privacy: 'Privacy', imprint: 'Imprint' },
   copyright: '© {year} Emineon. All rights reserved.',
-  rooted: 'Rooted in Genève. Growing everywhere.',
+  rooted: 'Based in Genève, with hubs in six other cities.',
   backToTop: 'Back to top',
 };
 
 export const home: HomeDict = {
   hero: {
     eyebrow: '[ Genève · AI-native consulting ]',
-    title: { pre: 'AI that works for your ', accent: 'whole', post: ' firm.' },
-    sub: 'From board-level strategy to systems running in production, adopted by your people. Small senior teams amplified by AI. Paid on outcomes, not hours.',
+    title: { pre: 'AI that helps your teams ', accent: 'every day', post: '.' },
+    sub: 'We work from strategy to systems in production that your people use. Our teams are small and senior, and they use AI in their own work. Our fees are tied to results.',
     primaryCta: { label: "Let's talk", href: '/contact' },
     secondaryCta: { label: 'See how we work', href: '/approach' },
     ticker: [
@@ -361,16 +361,16 @@ export const home: HomeDict = {
     note: 'Network figures cover Emineon and its global delivery network.',
   },
   gap: {
-    eyebrow: '[ 01 — The gap ]',
-    title: { pre: 'Most firms have decided to use AI. Few have a ', accent: 'path', post: ' to make it real.' },
+    eyebrow: '[ 01 · The gap ]',
+    title: { pre: 'Many firms have decided to use AI. Putting it into daily work is the ', accent: 'harder', post: ' part.' },
     paragraphs: [
-      'The licences are bought. A handful of people use them well. For everyone else, work moves the way it did ten years ago: by hand, from memory, when someone remembers.',
-      'Someone finds a better way to do a task. It stays with them. The firm never benefits, because nothing connects the insight to the systems where the work actually happens.',
-      'The tools are not the problem. Putting them into the real work, for everyone, under the governance your regulator expects: that is the problem we solve.',
+      'The licences are bought. A few people use them well. Most of the work is still done by hand, as before.',
+      'When someone finds a better way to do a task, it often stays with them. It does not reach the systems where the team works.',
+      'We help firms put these tools into daily work, for all teams, with the right governance.',
     ],
     stat: {
       value: '22% → 34%',
-      label: 'Swiss SME AI adoption in one year. The firms that get it into real work are pulling ahead.',
+      label: 'AI adoption among Swiss SMEs, over one year.',
       source: 'AXA SME study · kmu.admin.ch',
     },
     mock: {
@@ -385,22 +385,22 @@ export const home: HomeDict = {
     },
   },
   services: {
-    eyebrow: '[ 02 — What we do ]',
-    title: { pre: 'Five services. One ', accent: 'accountable', post: ' team.' },
-    lead: 'We decide where AI pays, build the systems that capture it, run them safely and make sure your people use them. No handoff between the people who advise and the people who build.',
+    eyebrow: '[ 02 · What we do ]',
+    title: { pre: 'Five services, one ', accent: 'team', post: '.' },
+    lead: 'We help you decide where AI is worth it. Then we build the systems, run them safely and help your people use them. The same team advises and builds.',
     cta: { label: 'All services', href: '/services' },
   },
   approach: {
-    eyebrow: '[ 03 — How we work ]',
+    eyebrow: '[ 03 · How we work ]',
     title: { pre: 'Assess. Build. ', accent: 'Run.' },
-    lead: 'A ladder you can climb one rung at a time. Each step has a fixed scope, a clear price logic and a result you can verify before you commit to the next.',
+    lead: 'You can take one step at a time. Each step has a fixed scope, a clear price and a result you can check before the next one.',
     stages: [
       {
         key: 'assess',
         icon: 'strategy',
         label: '01 · Assess',
-        title: 'Know where AI pays',
-        text: 'A fixed-fee diagnostic: readiness, prioritised business cases with ROI, an AI policy and a roadmap your board can sign off.',
+        title: 'Find where AI is worth it',
+        text: 'A fixed-fee diagnostic. It covers readiness, prioritised business cases with ROI, an AI policy and a roadmap for your board.',
         pricing: 'Fixed fee',
         duration: '2–4 weeks',
       },
@@ -409,7 +409,7 @@ export const home: HomeDict = {
         icon: 'agents',
         label: '02 · Build',
         title: 'Put systems into production',
-        text: 'Agentic workflows built in your environment, on your data, with evals and controls from day one. Priced per milestone or per workflow live.',
+        text: 'We build agentic workflows in your environment, on your data. Evals and controls are in place from day one. Priced per milestone or per workflow live.',
         pricing: 'Milestone or outcome-based',
         duration: '4–12 weeks per workflow',
       },
@@ -417,44 +417,44 @@ export const home: HomeDict = {
         key: 'run',
         icon: 'operations',
         label: '03 · Run',
-        title: 'Operate, harden, transfer',
-        text: 'We monitor, improve and harden what is live, roll it out across entities, and transfer ownership to your team when it is ready.',
+        title: 'Operate, improve, hand over',
+        text: 'We monitor and improve what is live and roll it out to other entities. We hand it over to your team when it is ready.',
         pricing: 'Retainer',
         duration: 'Ongoing, with a planned exit',
       },
     ],
     sprint: {
       eyebrow: '[ Flagship · 30 days ]',
-      title: { pre: 'From first call to a workflow live, in ', accent: '30 days.' },
-      sub: 'A system running in production and owned by your team. Not a deck, not a prototype.',
+      title: { pre: 'A first workflow live in ', accent: '30 days.' },
+      sub: 'A system that runs in production and belongs to your team.',
       weeks: [
-        { label: 'Week 1', title: 'Scope', text: 'We map where AI creates value in your firm, agree the baseline and choose the first workflow to ship.' },
-        { label: 'Week 2', title: 'Build', text: 'A senior pod builds it in your environment, on your data, with the eval set written before the first prompt.' },
-        { label: 'Week 3', title: 'Harden', text: 'Edge cases, exceptions, access controls and audit trail. Your people test it on real work.' },
-        { label: 'Week 4', title: 'Live', text: 'The workflow runs in production. Your team is trained to operate it and knows what to build next.' },
+        { label: 'Week 1', title: 'Scope', text: 'We look at where AI can help, agree the baseline and choose the first workflow.' },
+        { label: 'Week 2', title: 'Build', text: 'A senior pod builds it in your environment, on your data. We write the eval set first.' },
+        { label: 'Week 3', title: 'Harden', text: 'We handle edge cases, access controls and the audit trail. Your people test it on their own work.' },
+        { label: 'Week 4', title: 'Live', text: 'The workflow runs in production. Your team is trained and has a plan for the next one.' },
       ],
       cta: { label: 'Start with the sprint', href: '/approach#sprint' },
     },
   },
   fde: {
-    eyebrow: '[ 04 — Forward-deployed engineering ]',
+    eyebrow: '[ 04 · Forward-deployed engineering ]',
     title: { pre: 'Senior engineers ', accent: 'inside', post: ' your team.' },
-    lead: 'Our forward-deployed engineers sit with your people in Geneva or on site. They learn how the work really runs, ship in your environment and stay until it sticks. Behind them, our global delivery network adds capacity around the clock.',
+    lead: 'Our forward-deployed engineers work with your people in Geneva or on site. They learn how the work runs and build in your environment. They stay until your team uses it. Our global network adds capacity across time zones.',
     points: [
       {
         icon: 'fde',
-        title: 'Embedded, not remote',
-        text: 'They join your stand-ups, read your exceptions queue and talk to the people who do the work. Requirements come from the floor, not from a workshop.',
+        title: 'Embedded with your team',
+        text: 'They join your stand-ups, read your exceptions queue and talk to the people who do the work. Requirements come from daily practice.',
       },
       {
         icon: 'globe',
         title: 'Backed by a global network',
-        text: 'Build capacity across Asia-Pacific and the Americas, so a small senior pod moves at the pace of a much larger team.',
+        text: 'Engineers in Asia-Pacific and the Americas add build capacity. A small senior pod can then do the work of a larger team.',
       },
       {
         icon: 'residency',
-        title: 'Sensitive data stays on shore',
-        text: 'Work on regulated data happens in Switzerland or in your own cloud. The network only touches what is safe to touch.',
+        title: 'Sensitive data stays protected',
+        text: 'Work on regulated data happens in Switzerland or in your own cloud. The network only works on what is safe to share.',
       },
     ],
     map: {
@@ -468,20 +468,20 @@ export const home: HomeDict = {
     ],
   },
   industries: {
-    eyebrow: '[ 05 — Industries ]',
+    eyebrow: '[ 05 · Industries ]',
     title: { pre: 'Built for ', accent: 'regulated', post: ' work.' },
-    lead: 'Document-heavy, multilingual, audited. The sectors that make Geneva what it is are the ones where AI saves the most time and needs the most care.',
+    lead: 'Many documents, several languages, regular audits. These Geneva sectors gain a lot of time from AI, and need it done with care.',
     cta: { label: 'All industries', href: '/industries' },
   },
   work: {
-    eyebrow: '[ 06 — Selected work ]',
-    title: { pre: 'Working systems, ', accent: 'measured', post: ' results.' },
-    lead: 'Representative engagements, anonymised under NDA. Each one is a system in production with a baseline and a number.',
+    eyebrow: '[ 06 · Selected work ]',
+    title: { pre: 'Systems in production, with ', accent: 'measured', post: ' results.' },
+    lead: 'Representative engagements, anonymised under NDA. Each one shows a system in production, its baseline and its result.',
     cta: { label: 'All work', href: '/work' },
     featured: ['trade-confirmation-agents', 'private-bank-kyc-refresh', 'multilingual-document-pipeline'],
   },
   trust: {
-    eyebrow: '[ 07 — Your data ]',
+    eyebrow: '[ 07 · Your data ]',
     title: { pre: 'Your data stays ', accent: 'yours.' },
     lead: 'We do not train models on it and we do not keep what the work does not need. Everything runs in an environment only your team can reach.',
     pillars: [
@@ -492,32 +492,32 @@ export const home: HomeDict = {
       },
       {
         icon: 'shield',
-        title: 'nFADP, FINMA and GDPR fluent',
-        text: 'Built for the revised Swiss data protection act in force since 1 September 2023: FDPIC breach notification, register of processing, privacy by design and by default.',
+        title: 'Built for nFADP, FINMA and GDPR',
+        text: 'We follow the revised Swiss data protection act, in force since 1 September 2023. This covers FDPIC breach notification, the register of processing, and privacy by design and by default.',
       },
       {
         icon: 'trust',
-        title: 'EU AI Act ready',
-        text: 'Risk classification, documentation and human oversight designed in, so systems that touch EU markets are ready when obligations apply.',
+        title: 'Prepared for the EU AI Act',
+        text: 'We plan risk classification, documentation and human oversight from the start. Systems used in EU markets are then ready when obligations apply.',
       },
       {
         icon: 'branch',
-        title: 'Model-agnostic, no lock-in',
+        title: 'Model-agnostic, without lock-in',
         text: 'We pick the right model for each task and can swap it without rewriting the system. You own the code, the prompts and the evals.',
       },
     ],
     footnote: 'Most mid-market clients qualify for the nFADP exemption from the register of processing for low-risk processing. We tell you whether you do.',
   },
   insights: {
-    eyebrow: '[ 08 — Insights ]',
+    eyebrow: '[ 08 · Insights ]',
     title: { pre: 'Notes from ', accent: 'production.' },
-    lead: 'What we learn putting AI into real work, written for the people who have to make it happen.',
+    lead: 'What we learn when we put AI into daily work. Written for the people who run it.',
     cta: { label: 'All insights', href: '/insights' },
   },
   cta: {
     eyebrow: '[ Next step ]',
-    title: { pre: 'Forge your ', accent: 'edge.' },
-    text: 'Name one process that costs your team too much time. In thirty minutes, with no preparation, you will know what AI would do with it.',
+    title: { pre: 'Let’s ', accent: 'talk.' },
+    text: 'Tell us about one process that takes your team a lot of time. Happy to have a 30-minute call, no preparation needed.',
     primary: { label: 'Book a 30-minute call', href: '/contact' },
     secondary: { label: 'See the 30-day sprint', href: '/approach#sprint' },
   },
@@ -527,14 +527,14 @@ export const hubs: HubsDict = {
   services: {
     eyebrow: '[ Services ]',
     title: { pre: 'From the business case to the ', accent: 'running', post: ' system.' },
-    lead: 'Five services that work alone or together. Most clients start with a fixed-fee assessment or the 30-day sprint and add the rest as value is proven.',
-    modelNote: 'Every service follows Assess → Build → Run, with a fixed scope and a price tied to a verifiable result.',
+    lead: 'Five services that work alone or together. Most clients start with a fixed-fee assessment or the 30-day sprint and add more once the first results are in.',
+    modelNote: 'Each service follows Assess → Build → Run. Each has a fixed scope and a price tied to a result you can check.',
     cta: { label: 'See how we work', href: '/approach' },
   },
   industries: {
     eyebrow: '[ Industries ]',
-    title: { pre: 'Where Geneva works, ', accent: 'AI', post: ' pays.' },
-    lead: 'We go deep in a few sectors rather than wide in many. Each has its own documents, regulators, languages and failure modes, and we design for all of them.',
+    title: { pre: 'Sectors we ', accent: 'know', post: ' well.' },
+    lead: 'We focus on a few sectors. Each has its own documents, regulators, languages and risks, and we design for them.',
     coreLabel: 'Core sectors',
     adjacentLabel: 'Adjacent sectors',
     cta: { label: "Let's talk about your sector", href: '/contact' },
@@ -551,7 +551,7 @@ export const hubs: HubsDict = {
   insights: {
     eyebrow: '[ Insights ]',
     title: { pre: 'Writing from the ', accent: 'work.' },
-    lead: 'Long-form notes on putting AI into production in regulated firms. Written by our practices, for operators, not for search engines.',
+    lead: 'Longer notes on putting AI into production in regulated firms. Written by our practices for the people who run the work.',
     filterAll: 'All topics',
     latest: 'Latest',
     cta: { label: 'Subscribe to field notes', href: '#newsletter' },
