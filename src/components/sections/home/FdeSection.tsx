@@ -38,9 +38,9 @@ export function FdeSection({
               <p className="eyebrow text-fg-muted">{fde.map.title}</p>
               <p className="mt-3 max-w-xl text-[15px] text-fg-muted">{fde.map.caption}</p>
             </div>
-            <dl className="flex gap-8 md:gap-12">
+            <dl className="grid grid-cols-3 gap-6 md:flex md:gap-12">
               {fde.stats.map((s) => (
-                <div key={s.label} className="flex flex-col-reverse">
+                <div key={s.label} className="flex flex-col-reverse justify-end">
                   <dt className="mt-2 font-mono text-[11px] tracking-[0.1em] text-fg-dim uppercase">{s.label}</dt>
                   <dd className="text-[36px] leading-none font-medium tracking-[-0.03em] text-fg md:text-[44px]">
                     <Counter value={s.value} />
