@@ -4,7 +4,9 @@ import { ogRoute } from "../_og/render";
 
 const og = ogRoute<{ locale: string }>(({ locale }) => { const d = getDictionary(locale); return { eyebrow: d.approach.hero.eyebrow, title: d.approach.hero.title, form: "funnel", seed: 5 }; });
 
-export const generateImageMetadata = og.generateImageMetadata;
+export const alt = "Emineon";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
 export default og.Image;
 
 export function generateStaticParams() {

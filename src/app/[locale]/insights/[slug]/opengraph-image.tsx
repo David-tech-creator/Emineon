@@ -5,7 +5,9 @@ import { ogRoute } from "../../_og/render";
 
 const og = ogRoute<{ locale: string; slug: string }>(({ locale, slug }) => { const d = getDictionary(locale); const c = getInsight(d.locale, slug); if (!c) return undefined; const h = hashString(slug); return { eyebrow: c.category, title: c.title, footer: c.author, form: (["dome", "wave", "funnel"] as const)[h % 3], seed: h % 100_000 }; });
 
-export const generateImageMetadata = og.generateImageMetadata;
+export const alt = "Emineon";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
 export default og.Image;
 
 export function generateStaticParams() {
