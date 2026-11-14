@@ -464,6 +464,8 @@ export interface FooterDict {
   copyright: string;
   rooted: string;
   backToTop: string;
+  /** Site credit prefix; the studio name is appended as a link. */
+  madeBy: string;
 }
 
 /* ------------------------------------------------------------------ */

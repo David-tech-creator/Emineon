@@ -104,7 +104,7 @@ const paperRect = (w, h) => `<rect width="${w}" height="${h}" fill="${C.paper}"/
 const doc = (w, h, body) => svg(w, h, `0 0 ${w} ${h}`, paperRect(w, h) + body);
 const mono = (str, x, y, size, fill, anchor = "start", tracking = 0.12) =>
   `<path fill="${fill}" d="${text(str.toUpperCase(), x, y, { size, font: F.mono, tracking, anchor }).d}"/>`;
-const LINE = "AI-native consulting · Rooted in Genève";
+const LINE = "AI-native consulting · Geneva";
 
 // Square avatars: LinkedIn company logo and X avatar (X crops to a circle; the symbol sits well inside).
 const avatar = (px) => svg(px, px, "0 0 100 100", `<rect width="100" height="100" fill="${C.paper}"/>${symCentered(C.ink, C.ember, 24)}`);

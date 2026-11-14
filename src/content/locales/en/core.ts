@@ -329,6 +329,7 @@ export const footer: FooterDict = {
   copyright: '© {year} Emineon. All rights reserved.',
   rooted: 'Based in Genève, with hubs in six other cities.',
   backToTop: 'Back to top',
+  madeBy: 'Site made by',
 };
 
 export const home: HomeDict = {

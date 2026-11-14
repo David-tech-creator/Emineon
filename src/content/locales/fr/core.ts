@@ -329,6 +329,7 @@ export const footer: FooterDict = {
   copyright: '© {year} Emineon. Tous droits réservés.',
   rooted: 'Basés à Genève, avec une équipe dans sept villes.',
   backToTop: 'Haut de page',
+  madeBy: 'Site réalisé par',
 };
 
 export const home: HomeDict = {

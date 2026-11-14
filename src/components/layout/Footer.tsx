@@ -162,7 +162,15 @@ export function Footer({ dict }: { dict: Dictionary }) {
 
         {/* Legal row */}
         <div className="mt-16 flex flex-col gap-4 border-t border-line py-6 font-mono text-[11.5px] tracking-[0.12em] text-fg-dim uppercase md:flex-row md:items-center md:justify-between">
-          <p>{fillYear(footer.copyright)}</p>
+          <p className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span>{fillYear(footer.copyright)}</span>
+            <span>
+              {footer.madeBy}{" "}
+              <a href="https://www.rive-foundry.com" target="_blank" rel="noopener" className="text-fg-muted underline decoration-line-strong underline-offset-4 transition-colors hover:text-ember-ink">
+                Rive Foundry
+              </a>
+            </span>
+          </p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <Link href={href("/legal/privacy")} className="hover:text-fg">
               {footer.legal.privacy}
